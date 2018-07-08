@@ -8,5 +8,4 @@ page_sections:
   media_alignment: Right
   headline: 'TEsting '
   content: asdfasdfasdfasdf
-published: false
 ---
