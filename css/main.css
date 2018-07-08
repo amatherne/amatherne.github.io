@@ -395,6 +395,15 @@ a {
   .btn.full {
     width: 100%; }
 
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  fill: currentColor; }
+  .no-svg .icon {
+    display: none; }
+
 /*============================================================================
 	Grid
 		- Based on CSS Wizardry grid
@@ -2274,6 +2283,11 @@ a {
     margin: 0.5em;
     display: inline-block;
     line-height: 1; }
+  .main-header .menu-toggle {
+    color: #f8f8dd; }
+    .main-header .menu-toggle svg {
+      width: 53px;
+      height: 53px; }
   .main-header .menu-modal {
     background: rgba(0, 0, 0, 0.85); }
     .main-header .menu-modal .container {
