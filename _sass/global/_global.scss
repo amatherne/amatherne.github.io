@@ -91,6 +91,7 @@
 	height:100vh;
 	background:rgba($dark,0.7);
 	z-index:100;
+	// padding:1em;
 	opacity:0;
 	pointer-events:none;
 	tranform: translateY(-4%);
@@ -126,7 +127,7 @@
 .menu-toggle {
 	position:absolute;
 	right:5%;
-	top:1em;
+	top:2em;
 	cursor:pointer;
 	display:block;
 	color:$beige;

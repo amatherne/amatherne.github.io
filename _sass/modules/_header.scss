@@ -5,7 +5,7 @@
 	width:100%;
 	z-index:10;
 	// overflow:hidden;
-	padding:2em;
+	// padding:1em;
 	.logo {
 		font-size:54px;
 		color:$beige;
@@ -15,15 +15,19 @@
 		text-decoration:none;
 		z-index:1001;
 		position:relative;
+		margin:0.5em;
+		display:inline-block;
+		line-height:1;
 	}
 
 	.menu-modal {
 		background:rgba(#000000,0.85);
 		.container {
 			height:100%;
+			
 		}
 		.modal-inner {
-			max-width:$width-cont;
+			max-width:1000px;
 		}
 	}
 	nav {
