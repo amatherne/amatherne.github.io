@@ -20,6 +20,13 @@ page_sections:
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#FFFFFF"
+- template: content-feature
+  block: feature-1
+  media_alignment: Right
+  headline: What does this do?
+  content: Testing a bunch of words
+  media:
+    image: "/2018/07/08/A29EB141-D3FE-4138-B35D-563B5D20A696.jpeg"
 ---
 
 foo bar
