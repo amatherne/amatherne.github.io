@@ -12,3 +12,7 @@ main:
   url: "/portfolio"
   weight: 3
   title: Portfolio
+- url: "/blog"
+  weight: 4
+  title: Blog
+  identifier: blog
