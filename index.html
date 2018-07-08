@@ -17,7 +17,8 @@
 
 	<!-- layouts/blocks -->
 	<body>
-		<!-- includes/header -->
+		<div class="max-width">
+			<!-- includes/header -->
 <header class="main-header">
 	<div class="container">
 		<a href="/" class="logo">
@@ -103,6 +104,7 @@
 		</div>
 	</div>
 </header>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		var toggle = $('.menu-toggle');
@@ -118,11 +120,14 @@
   //       }, 1000);
 	})
 </script>
+			<div class="bx-wrapper">
+				<div class="main-screens">
+					
+						<!-- includes/block-hero-2 -->
 
-		
-			<!-- includes/block-hero-2 -->
+
 <section 
-	class="hero background-image">
+	class="hero background-image block-uploads20180708herojpg">
 	
 	<div class="container">
 		<div class="grid_no_gutter">
@@ -141,46 +146,116 @@
 			</div>
 		</div>
 	</div>
-</section>
-
-<style type="text/css">
-	.hero::before {
-		background-color:rgb(217, 100, 89);
-		
-		background-image: url('/uploads/2018/07/08/hero.jpg');
-		
-	}
-	/* .hero .background-color {
-		background-color:rgb(217, 100, 89);
-	} */
-	.hero .background-color::after {
-		background-color:rgb(217, 100, 89);
-	}
-	.hero h2,
-	.hero p {
-		color:#FFFFFF;
-	}
-</style>
-		
+	<style type="text/css">
+		.block-uploads20180708herojpg::before {
+			background-color:rgb(217, 100, 89);
 			
-<section class="block block-feature-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column text">
-        <h2><span class="light">What does this do?</span></h2>
-        <p>Testing a bunch of words</p>
-      </div>
-      <div class="column media">
-        <img src="/2018/07/08/A29EB141-D3FE-4138-B35D-563B5D20A696.jpeg" alt="">
-      </div>
-    </div>      
-  </div>
+			background-image: url('/uploads/2018/07/08/hero.jpg');
+			
+		}
+		.block-uploads20180708herojpg .background-color::after {
+			background-color:rgb(217, 100, 89);
+		}
+		.block-uploads20180708herojpg h2,
+		.block-uploads20180708herojpg p {
+			color:#ffffff;
+		}
+	</style>
 </section>
 
-		
 
-		
+					
+						<!-- includes/block-hero-2 -->
 
 
+<section 
+	class="hero background-image block-uploads20180708austin-2jpg">
+	
+	<div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item small--hide medium--one-half large-up--three-fifths">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+			</div>
+			<div class="grid__item medium--one-half large-up--two-fifths background-color">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content text-right small--text-center">
+					<h2 class="h1">Boom Boom Boom</h2>
+					<p></p>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.block-uploads20180708austin-2jpg::before {
+			background-color:rgb(207,207,207);
+			
+			background-image: url('/uploads/2018/07/08/austin-2.jpg');
+			
+		}
+		.block-uploads20180708austin-2jpg .background-color::after {
+			background-color:rgb(83,83,85);
+		}
+		.block-uploads20180708austin-2jpg h2,
+		.block-uploads20180708austin-2jpg p {
+			color:#f8f8dd;
+		}
+	</style>
+</section>
+
+
+					
+						<!-- includes/block-feature-1 -->
+
+<section class="tab-feed">
+	
+</section>
+					
+				</div>
+				
+					<div class="bx-controls bx-has-pager">
+						<div class="bx-pager bx-default-pager" id="bx-pager">
+							
+							<div class="bx-pager-item">
+								<a href="" data-slide-index="0" class="bx-pager-link active">01</a>
+							</div>
+							
+							<div class="bx-pager-item">
+								<a href="" data-slide-index="1" class="bx-pager-link ">02</a>
+							</div>
+							
+							<div class="bx-pager-item">
+								<a href="" data-slide-index="2" class="bx-pager-link ">03</a>
+							</div>
+							
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							$('.main-screens').bxSlider({
+								infiniteLoop: false,
+								touchEnabled: false,
+								hideControlOnEnd: true,
+								pagerCustom: '#bx-pager'
+							});
+						})
+					</script>
+					<style type="text/css">
+						.bx-wrapper .bx-loading {
+							background: url(amatherne.github.io/images/bx_loader.gif) center center no-repeat #ffffff;
+						}
+						.bx-wrapper .bx-prev {
+						  	background: url(amatherne.github.io/images/icon-prev-arrow.svg) no-repeat center;
+						}
+						.bx-wrapper .bx-next {
+						  	background: url(amatherne.github.io/images/icon-next-arrow.svg) no-repeat center;
+						}
+					</style>
+				
+			</div>
+			
+
+
+		</div>
  	</body>
 </html>
