@@ -10,7 +10,7 @@ page_sections:
   - link: "/"
     link_text: Home
   - link: "/about"
-    link_text: Features
+    link_text: About
   cta:
     url: ''
     button_text: ''
