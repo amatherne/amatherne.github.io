@@ -11,10 +11,6 @@ page_sections:
     link_text: Home
   - link: "#"
     link_text: Features
-  - link: "#"
-    link_text: Pricing
-  - link: "#"
-    link_text: Team
   cta:
     url: ''
     button_text: ''
