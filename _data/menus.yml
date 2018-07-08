@@ -1,3 +1,4 @@
+---
 main:
 - url: "/"
   title: Home
@@ -7,3 +8,5 @@ main:
   title: Portfolio
 - url: "/blog"
   title: Blog
+- url: "/music"
+  title: Music
