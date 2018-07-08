@@ -1,1 +1,18 @@
---- {}
+---
+main:
+- identifier: home
+  url: "/"
+  weight: 1
+  title: Home
+- identifier: about
+  url: "/about"
+  weight: 2
+  title: About
+- identifier: portforlio
+  url: "/portfolio"
+  weight: 3
+  title: Portfolio
+- url: "/blog"
+  weight: 4
+  title: Blog
+  identifier: blog
