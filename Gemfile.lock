@@ -51,8 +51,8 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.6.0)
   jekyll-feed (~> 0.6)
-  jekyll-menus
+  jekyll-menus (~> 0.6.0)
   tzinfo-data
 
 BUNDLED WITH
-   1.15.4
+   1.16.2
