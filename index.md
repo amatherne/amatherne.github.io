@@ -9,7 +9,7 @@ page_sections:
   navigation:
   - link: "/"
     link_text: Home
-  - link: "#"
+  - link: "/about"
     link_text: Features
   cta:
     url: ''
