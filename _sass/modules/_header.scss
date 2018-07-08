@@ -20,6 +20,13 @@
 		line-height:1;
 	}
 
+	.menu-toggle {
+		color:$beige;
+		svg {
+			width:53px;
+			height:53px;
+		}
+	}
 	.menu-modal {
 		background:rgba(#000000,0.85);
 		.container {
