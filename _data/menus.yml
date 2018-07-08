@@ -1,18 +1,9 @@
----
 main:
-- identifier: home
-  url: "/"
-  weight: 1
+- url: "/"
   title: Home
-- identifier: about
-  url: "/about"
-  weight: 2
+- url: "/about"
   title: About
-- identifier: portforlio
-  url: "/portfolio"
-  weight: 3
+- url: "/portfolio"
   title: Portfolio
 - url: "/blog"
-  weight: 4
   title: Blog
-  identifier: blog
