@@ -1,0 +1,40 @@
+.main-header {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:10;
+	// overflow:hidden;
+	padding:2em;
+	.logo {
+		font-size:54px;
+		color:$beige;
+		font-weight:bold;
+		font-weight:900;
+		letter-spacing:-0.05em;
+		text-decoration:none;
+		z-index:1001;
+		position:relative;
+	}
+
+	.menu-modal {
+		background:rgba(#000000,0.85);
+		.container {
+			height:100%;
+			position:relative;
+		}
+		.modal-inner {
+			max-width:$width-cont;
+		}
+	}
+	nav {
+		a {
+			display:block;
+			padding:1em 0;
+			font-size:40px;
+			font-weight:bold;
+			text-align:right;
+			color:$beige;
+		}
+	}
+}

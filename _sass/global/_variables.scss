@@ -6,16 +6,16 @@
 	$red:#d96459;
 	$orange:#f2ae72;
 	$beige:#f8f8dd;
-	$dark:#333745;
+	$dark:#313133;
 
 	$bodyBG:$beige;
 	$bodyTextColor:$dark;
 	$borderColor:lighten($dark,10%);
 
-	$linkColor:$orange;
-	$linkColorHover:lighten($orange,15%);
+	$linkColor:$dark;
+	$linkColorHover:darken($dark,25%);
 
-	$navLinkColor:$dark;
+	$navLinkColor:$beige;
 
 // Fonts
 // -----
@@ -67,14 +67,14 @@
 // Sizing
 // ------
 	$width-site: 1500px;
-	$width-cont:1400px;
+	$width-cont:1300px;
 	$gutter: 30px;
 
 // Headline Sizes
 // --------------
 	$headlineFontWeight:       bold ;
 	$headlineFontStyle:        initial ;
-	$headlineFontColor:        $bodyTextColor ;
+	$headlineFontColor:        $bodyTextColor;
 	$headlineLetterSpacing:    0 ;
 	
 

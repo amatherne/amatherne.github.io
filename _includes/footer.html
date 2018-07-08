@@ -1,2 +1,12 @@
-  </body>
-</html>
+{% comment %}<!-- includes/footer -->
+<footer>
+	<ul>			
+		{% for item in site.data.menus.main %}
+			{% assign page_url = page.url | replace: '.html','' %}
+			<li class="nav-item {% if page_url == item.url %}active{% endif %}">
+				<a href="{{ item.url }}">{{ item.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</footer>{% endcomment %}
+

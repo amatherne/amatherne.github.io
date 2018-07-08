@@ -1,25 +1,49 @@
-<header class="block block-header-1">
-	<div class="block-header-1--logo">
-		<a href="/">
+<!-- includes/header -->
+<header class="main-header">
+	<div class="container">
+		<a href="/" class="logo">
 			{% comment %}<img src="{{ section.logo | relative_url }}" alt="{{ site.title }}">{% endcomment %}
 			{{ site.title }}
 		</a>
+
+		<span class="open menu-toggle">
+			<span class="visually-hidden">Open Menu</span>
+			{% include icon-menu-open.liquid %}
+		</span>
+		<div class="modal menu-modal">
+			<div class="container">
+				<span class="close menu-toggle">
+					<span class="visually-hidden">Close Menu</span>
+					{% include icon-menu-close.liquid %}
+				</span>
+				<div class="modal-inner">
+					<nav>
+						{% for item in site.data.menus.main %}
+							{% assign page_url = page.url | replace: '.html','' %}
+							<a 
+								href="{{ item.url }}" 
+								class="nav-item {% if page_url == item.url %}active{% endif %}">
+								{{ item.title }}
+							</a>
+						{% endfor %}
+					</nav>
+				</div>
+			</div>
+		</div>
 	</div>
-	<nav class="block-header-1--nav">
-		<ul>			
-			{% for item in site.data.menus.main %}
-				{% assign page_url = page.url | replace: '.html','' %}
-				<li class="nav-item {% if page_url == item.url %}active{% endif %}">
-					<a href="{{ item.url }}">{{ item.title }}</a>
-				</li>
-			{% endfor %}
-		</ul>
-	</nav>
 </header>
+<script type="text/javascript">
+	$(document).ready(function () {
+		var toggle = $('.menu-toggle');
+			nav = $('.menu-modal');
+			body = $('body');
+		toggle.on('click touch', function() {
+			nav.toggleClass('active');
+			body.toggleClass('locked');
+		})
 
-{% comment %}<div>{{ page.url }}</div>
-{% for item in site.menus.main %}
-	{% assign link_url = item.url | replace: '.html','' %}
-
-	<div>{{ link_url }}</div>
-{% endfor %}{% endcomment %}
+		// setTimeout(function(){
+  //       	$('.main-header').addClass('fade-in');
+  //       }, 1000);
+	})
+</script>
