@@ -15,7 +15,7 @@ defaults:
     values:
       layout: "default" # this ensures all content renders with layouts/default.html
 markdown: kramdown
-plugins:
+gems:
   - jekyll-feed
   - jekyll-menus
 
