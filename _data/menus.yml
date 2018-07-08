@@ -1,12 +1,12 @@
 ---
 main:
-- url: "/"
-  title: Home
-- url: "/about"
-  title: About
-- url: "/portfolio"
-  title: Portfolio
-- url: "/blog"
-  title: Blog
-- url: "/music"
-  title: Music
+- title: About
+  url: '/about'
+- title: Portfolio
+  url: '/portfolio'
+- title: Blog
+  url: '/blog'
+- title: Music
+  url: '/music'
+- title: Contact
+  url: '/contact'

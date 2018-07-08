@@ -1,11 +1,11 @@
 ---
-title: About
+title: Music
 layout: blocks
 date: 2018-07-08 00:00:00 +0000
 page_sections:
 - template: content-feature
   block: feature-1
   media_alignment: Right
-  headline: 'About Page Testing'
-  content: asdfasdfasdfasdf
+  headline: 'Music Page Testing'
+  content: fuckballs
 ---
