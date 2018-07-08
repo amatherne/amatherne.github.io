@@ -13,10 +13,14 @@
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%; }
 
 article,
 aside,
@@ -240,7 +244,7 @@ textarea {
 body {
   background: #FAFAFA;
   font-family: "neuzeit-grotesk", sans-serif;
-  color: #333745;
+  color: #313133;
   line-height: 1.5em;
   font-size: 1em; }
   body .max-width {
@@ -254,13 +258,13 @@ h1, h2, h3, h4, h5, h6,
   margin: 0.375em 0 0.75em;
   font-weight: bold;
   line-height: 1.1em;
-  color: #333745;
+  color: #313133;
   letter-spacing: 0;
   text-rendering: optimizelegibility;
   display: block; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
   .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
-    color: #333745; }
+    color: #313133; }
 
 h1, .h1 {
   font-size: 3.8416em; }
@@ -290,19 +294,19 @@ h6, .h6 {
 p {
   margin: 0 0 0.75em;
   line-height: 1.5em;
-  color: #333745;
+  color: #313133;
   font-size: 1em; }
 
 label {
-  color: #333745;
+  color: #313133;
   font-weight: bold;
   font-size: 0em; }
 
 a {
-  color: #f2ae72;
+  color: #313133;
   text-decoration: none; }
   a:hover {
-    color: #f8d6b8;
+    color: black;
     text-decoration: underline; }
 
 .rte {
@@ -341,32 +345,32 @@ a {
   .rte p {
     font-size: 1.05em; }
   .rte a {
-    color: #f2ae72;
+    color: #313133;
     text-decoration: none; }
     .rte a:hover {
-      color: #f8d6b8;
+      color: black;
       text-decoration: underline; }
   .rte blockquote {
-    border-left: 3px solid #494e62;
+    border-left: 3px solid #4a4a4d;
     padding: 3em;
     background: #f2ae72;
-    color: #333745;
+    color: #313133;
     margin: 3em 0; }
 
 .border {
-  border: 1px solid #494e62; }
+  border: 1px solid #4a4a4d; }
 
 .border-top {
-  border-top: 1px solid #494e62; }
+  border-top: 1px solid #4a4a4d; }
 
 .border-bottom {
-  border-bottom: 1px solid #494e62; }
+  border-bottom: 1px solid #4a4a4d; }
 
 .border-left {
-  border-left: 1px solid #494e62; }
+  border-left: 1px solid #4a4a4d; }
 
 .border-right {
-  border-right: 1px solid #494e62; }
+  border-right: 1px solid #4a4a4d; }
 
 .btn {
   display: inline-block;
@@ -399,7 +403,8 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -30px; }
+  margin-left: -30px;
+  font-size: 0px; }
   .grid::after {
     clear: both;
     content: "";
@@ -410,8 +415,8 @@ a {
   width: 100%;
   position: relative;
   display: inline-block;
-  margin-right: -0.4%;
-  vertical-align: top; }
+  vertical-align: top;
+  font-size: 16px; }
   .grid__item[class*='--push'] {
     position: relative; }
   .grid__item.vert-middle {
@@ -426,8 +431,7 @@ a {
     content: "";
     display: table; }
   .grid_no_gutter .grid__item {
-    padding-left: 0;
-    margin-right: -1.5%; }
+    padding-left: 0; }
 
 /*============================================================================
 	Reversed grids allow you to structure your source in the opposite
@@ -2135,7 +2139,7 @@ a {
 
 .container {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1300px;
   margin: 0 auto; }
   .container.padding {
     padding: 0 1.5em; }
@@ -2206,3 +2210,84 @@ a {
 .fade-in.active .fade-right {
   transform: translateX(0%);
   opacity: 1; }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(49, 49, 51, 0.7);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  tranform: translateY(-4%);
+  transition: all .1s linear; }
+  .modal .modal-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000; }
+  .modal.active {
+    opacity: 1;
+    pointer-events: initial;
+    transform: translateY(0%); }
+    .modal.active .modal-toggle.open,
+    .modal.active .menu-toggle.open {
+      opacity: 0; }
+    .modal.active .modal-toggle.close,
+    .modal.active .menu-toggle.close {
+      opacity: 1; }
+
+.modal-toggle,
+.menu-toggle {
+  position: absolute;
+  right: 5%;
+  top: 1em;
+  cursor: pointer;
+  display: block;
+  color: #f8f8dd; }
+  .modal-toggle.close,
+  .menu-toggle.close {
+    opacity: 0; }
+
+.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 2em; }
+  .main-header .logo {
+    font-size: 54px;
+    color: #f8f8dd;
+    font-weight: bold;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    z-index: 1001;
+    position: relative; }
+  .main-header .menu-modal {
+    background: rgba(0, 0, 0, 0.85); }
+    .main-header .menu-modal .container {
+      height: 100%;
+      position: relative; }
+    .main-header .menu-modal .modal-inner {
+      max-width: 1300px; }
+  .main-header nav a {
+    display: block;
+    padding: 1em 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: right;
+    color: #f8f8dd; }
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  min-height: 400px;
+  position: relative; }
