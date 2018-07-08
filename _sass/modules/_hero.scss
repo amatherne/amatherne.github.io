@@ -49,6 +49,8 @@
 		position:relative;
 		z-index:5;
 		padding:0 8%;
+		clear:both;
+		width:100%;
 		h2 {
 			font-size:60px;
 			line-height:1;
@@ -56,6 +58,7 @@
 			letter-spacing:-0.035em;
 			text-transform:uppercase;
 			margin: 0 0 0.25em;
+			width:100%;
 		}
 		p {
 			font-size:18px;
