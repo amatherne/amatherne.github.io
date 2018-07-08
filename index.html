@@ -106,19 +106,68 @@
 </header>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		var toggle = $('.menu-toggle');
-			nav = $('.menu-modal');
-			body = $('body');
-		toggle.on('click touch', function() {
-			nav.toggleClass('active');
-			body.toggleClass('locked');
-		})
+	// $(document).ready(function () {
+	// 	var toggle = $('.menu-toggle');
+	// 		nav = $('.menu-modal');
+	// 		body = $('body');
+	// 	toggle.on('click touch', function() {
+	// 		nav.toggleClass('active');
+	// 		body.toggleClass('locked');
+	// 	})
 
-		// setTimeout(function(){
-  //       	$('.main-header').addClass('fade-in');
-  //       }, 1000);
-	})
+	// 	setTimeout(function(){
+ //        	$('.main-header').addClass('fade-in');
+ //        }, 1000);
+	// })
+	$(document).ready(function() {
+
+        var $btn = $('.menu-toggle'),
+            $nav = $('.menu-modal'),
+            $nav_bg = $('.menu_active_bg'),
+            $links = $('.menu-modal a');
+
+        var nav_Open = function() {
+            $btn.toggleClass('active');
+            $nav.toggleClass('active');
+
+            // Btn Settings
+            var isOpen = $btn.is('.active');
+                
+                NavTop = isOpen ? '0%':'-200%',
+                NavDelay = isOpen ? 0 : 0,
+                NavDur = isOpen ? 700 : 100,
+
+                aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
+                aStag = isOpen ? 150 : 0,
+                aDelay = isOpen ? 700 : 0,
+                aDur = isOpen ? 600 : 100,
+                aEase = isOpen ? 'ease-in-out' : 'ease-in-out',
+                    
+                ease = isOpen ? 'ease-in-out' : 'ease-in-out',
+                dur = isOpen ?  500 : 200;
+    
+            // Navigation
+            // $nav.velocity({
+            //     top:NavTop
+            // },{
+            //     easing: ease,
+            //     duration:NavDur,
+            //     delay:NavDelay
+            // })
+
+            // Links
+            $links.velocity(aTrans,{
+                duration:aDur,
+                delay:aDelay,
+                easing:'ease-in-out',
+                stagger:aStag
+            })
+        }
+        
+        $btn.click(nav_Open);
+        // $nav_bg.click(nav_Open);
+
+     })
 </script>
 			<div class="bx-wrapper">
 				<div class="main-screens">
@@ -233,6 +282,7 @@
 					<script type="text/javascript">
 						$(document).ready(function () {
 							$('.main-screens').bxSlider({
+								mode: 'fade',
 								infiniteLoop: false,
 								touchEnabled: false,
 								hideControlOnEnd: true,
