@@ -1,6 +1,8 @@
 <!-- includes/block-hero-2 -->
+{% assign block_id = '' %}
+{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 <section 
-	class="hero background-image">
+	class="hero background-image {{ block_id }}">
 	{% comment %}<div class="background-image"></div>{% endcomment %}
 	<div class="container">
 		<div class="grid_no_gutter">
@@ -19,23 +21,20 @@
 			</div>
 		</div>
 	</div>
+	<style type="text/css">
+		.{{ block_id }}::before {
+			background-color:{{ section.image_background_color }};
+			{% if section.background_image %}
+			background-image: url('{{ section.background_image | relative_url }}');
+			{% endif %}
+		}
+		.{{ block_id }} .background-color::after {
+			background-color:{{ section.content_background_color }};
+		}
+		.{{ block_id }} h2,
+		.{{ block_id }} p {
+			color:{{ section.text_color }};
+		}
+	</style>
 </section>
 
-<style type="text/css">
-	.hero::before {
-		background-color:{{ section.image_background_color }};
-		{% if section.background_image %}
-		background-image: url('{{ section.background_image | relative_url }}');
-		{% endif %}
-	}
-	/* .hero .background-color {
-		background-color:{{ section.content_background_color }};
-	} */
-	.hero .background-color::after {
-		background-color:{{ section.content_background_color }};
-	}
-	.hero h2,
-	.hero p {
-		color:{{ section.text_color }};
-	}
-</style>

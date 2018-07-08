@@ -1,9 +1,9 @@
 // body
 // ----
 	body {
-	    background:#FAFAFA;
+	    background:lighten($dark,4%);
 	    .max-width {
-			background-color:$bodyBG;
+			background-color:$dark;
 		}
 	    font-family:$bodyFont;
 	    color:$bodyTextColor;

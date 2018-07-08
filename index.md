@@ -19,7 +19,22 @@ page_sections:
     position while you  rest or read a book.
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
-  text_color: "#FFFFFF"
+  text_color: "#ffffff"
+- template: hero-banner-w-image
+  block: hero-2
+  cta:
+    enabled: false
+    url: about.md
+    button_text: More Details
+  image:
+    image: ''
+    alt_text: ''
+  background_image: "/uploads/2018/07/08/austin-2.jpg"
+  headline: Boom Boom Boom
+  content: 
+  content_background_color: rgb(83,83,85)
+  image_background_color: rgb(207,207,207)
+  text_color: "#f8f8dd"
 - template: content-feature
   block: feature-1
   media_alignment: Right

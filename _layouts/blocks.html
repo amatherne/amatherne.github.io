@@ -3,12 +3,48 @@
 	{% include head.html %}
 	<!-- layouts/blocks -->
 	<body>
-		{% include header.html %}
-
-		{% for section in page.page_sections %}
-			{% include block-{{ section.block }}.html %}
-		{% endfor %}
-
-		{% include footer.html %}
+		<div class="max-width">
+			{% include header.html %}
+			<div class="bx-wrapper">
+				<div class="main-screens">
+					{% for section in page.page_sections %}
+						{% include block-{{ section.block }}.html %}
+					{% endfor %}
+				</div>
+				{% if page.page_sections.size > 1 %}
+					<div class="bx-controls bx-has-pager">
+						<div class="bx-pager bx-default-pager" id="bx-pager">
+							{% for section in page.page_sections %}
+							<div class="bx-pager-item">
+								<a href="" data-slide-index="{{ forloop.index0 }}" class="bx-pager-link {% if forloop.first %}active{% endif %}">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</a>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							$('.main-screens').bxSlider({
+								infiniteLoop: false,
+								touchEnabled: false,
+								hideControlOnEnd: true,
+								pagerCustom: '#bx-pager'
+							});
+						})
+					</script>
+					<style type="text/css">
+						.bx-wrapper .bx-loading {
+							background: url({{ 'images/bx_loader.gif' | absolute_url }}) center center no-repeat #ffffff;
+						}
+						.bx-wrapper .bx-prev {
+						  	background: url({{ 'images/icon-prev-arrow.svg' | absolute_url }}) no-repeat center;
+						}
+						.bx-wrapper .bx-next {
+						  	background: url({{ 'images/icon-next-arrow.svg' | absolute_url }}) no-repeat center;
+						}
+					</style>
+				{% endif %}
+			</div>
+			{% include footer.html %}
+		</div>
  	</body>
 </html>

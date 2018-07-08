@@ -1,17 +1,15 @@
-{% if section.media_alignment and section.media_alignment == "Left" %}
-{% include block-feature-2.html %}
-{% else %}
-<section class="block block-feature-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column text">
-        <h2><span class="light">{{ section.headline }}</span></h2>
-        <p>{{ section.content }}</p>
-      </div>
-      <div class="column media">
-        <img src="{{ section.media.image | relative_url }}" alt="{{ section.media.alt_text }}">
-      </div>
-    </div>      
-  </div>
+<!-- includes/block-feature-1 -->
+
+<section class="tab-feed">
+	{% comment %}<div class="container">
+		<div class="columns">
+			<div class="column text">
+				<h2>{{ section.headline }}</h2>
+				<p>{{ section.content }}</p>
+			</div>
+			<div class="column media">
+				<img src="{{ section.media.image | absolute_url }}" alt="{{ section.media.alt_text }}">
+			</div>
+		</div>      
+	</div>{% endcomment %}
 </section>
-{% endif %}
