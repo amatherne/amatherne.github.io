@@ -18,6 +18,9 @@ page_sections:
   content: I think that resting, just like working, is one of the things that is worth  doing
     in life, therefore I have created  this chair so you can relax in a low and comfortable
     position while you  rest or read a book.
+  content_background_color: rgb(217, 100, 89)
+  image_background_color: rgb(217, 100, 89)
+  text_color: "#FFFFFF"
 ---
 
 foo bar
