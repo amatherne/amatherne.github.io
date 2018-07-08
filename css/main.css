@@ -2256,7 +2256,7 @@ a {
 .modal-toggle,
 .menu-toggle {
   position: absolute;
-  right: 5%;
+  right: 2em;
   top: 2em;
   cursor: pointer;
   display: block;
@@ -2307,3 +2307,80 @@ a {
   width: 100%;
   min-height: 400px;
   position: relative; }
+  .hero:before {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    min-height: 400px;
+    position: absolute;
+    background-size: cover;
+    background-size: 160vw;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    background-blend-mode: multiply; }
+  .hero .grid_no_gutter {
+    display: table;
+    height: 100%;
+    table-layout: fixed; }
+    .hero .grid_no_gutter .grid__item {
+      display: table-cell;
+      height: 100%;
+      vertical-align: bottom;
+      padding-bottom: 180px; }
+  .hero .container {
+    height: 100%; }
+  .hero .background-color:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    z-index: 1;
+    mix-blend-mode: exclusion; }
+  .hero .content {
+    position: relative;
+    z-index: 5;
+    padding: 5%; }
+    .hero .content h2 {
+      font-size: 60px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      margin: 0 0 0.25em; }
+    .hero .content p {
+      font-size: 18px; }
+    .hero .content h2, .hero .content p {
+      max-width: 400px;
+      float: right; }
+  @media screen and (max-width: 991px) {
+    .hero:before {
+      background-size: cover; }
+    .hero .background-color:after {
+      width: 50%; }
+    .hero .content h2 {
+      font-size: 50px; }
+    .hero .content h2, .hero .content p {
+      max-width: 350px; } }
+  @media screen and (max-width: 766px) {
+    .hero:before {
+      background-position: center bottom; }
+    .hero .grid_no_gutter {
+      width: 100%; }
+      .hero .grid_no_gutter .grid__item {
+        padding-bottom: 50px; }
+    .hero .background-color:after {
+      mix-blend-mode: multiply;
+      width: 100%; }
+    .hero .content {
+      max-width: 400px;
+      margin: 0 auto; }
+      .hero .content h2 {
+        font-size: 40px; }
+      .hero .content p {
+        font-size: 16px; }
+      .hero .content h2, .hero .content p {
+        float: initial; } }
