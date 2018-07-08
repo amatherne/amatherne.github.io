@@ -2140,7 +2140,8 @@ a {
 .container {
   width: 100%;
   max-width: 1300px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
   .container.padding {
     padding: 0 1.5em; }
   .container.thin {
@@ -2274,8 +2275,7 @@ a {
   .main-header .menu-modal {
     background: rgba(0, 0, 0, 0.85); }
     .main-header .menu-modal .container {
-      height: 100%;
-      position: relative; }
+      height: 100%; }
     .main-header .menu-modal .modal-inner {
       max-width: 1300px; }
   .main-header nav a {
