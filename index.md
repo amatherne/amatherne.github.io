@@ -37,6 +37,10 @@ page_sections:
   content_background_color: rgb(83,83,85)
   image_background_color: rgb(207,207,207)
   text_color: "#f8f8dd"
+  background_position: Center
+  background_size: cover
+  mobile_background_position: center
+  mobile_background_size: cover
 - template: content-feature
   block: feature-1
   media_alignment: Right
