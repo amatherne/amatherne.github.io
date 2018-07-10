@@ -293,6 +293,7 @@
 						<!-- includes/block-cta-bar -->
 
 
+
 <section 
 	class="section-slide hero contact background-image block-uploads20180708glitch-effect_v-3jpg">
 	<div class="container">
@@ -300,25 +301,65 @@
 			<div class="grid__item small--hide medium--hide large-up--one-quarter">
 				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
 			</div>
-			<div class="grid__item small--hide medium--one-half large-up--one-half text-center  background-color">
+			<div class="grid__item small--hide medium--one-half large-up--one-half text-center background-color">
 				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
 				<div class="content ">
-					<form action="https://formspree.io/matherne.projects@gmail.com" method="POST">
-						<input type="email" placeholder="your@email.com" class="inverted">
-						<button type="submit" class="btn button primary inverted">Sign up</button>
-					</form>
+					
+	<form class="" action="https://formspree.io/matherne.projects@gmail.com" method="POST">
+		<div class="input-group">
+			<label for="Name">Name</label>
+			<input name="Name" id="Name" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="email">Email</label>
+			<input name="Email" id="email" type="email" class="">
+		</div>
+		<div class="input-group">
+			<label for="Subject">Subject</label>
+			<input name="Subject" id="Subject" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="Message">Message</label>
+			<textarea name="Message" id="Message" class=""></textarea>
+		</div>
+		<div class="btn-container">
+			<button type="submit" class="btn button primary inverted">Sign up</button>
+		</div>
+	</form>
+
 				</div>
 			</div>
-			<div class="grid__item medium--one-half large-up--one-quarter text-center medium-up--text-right background-color">
+			<div class="grid__item medium--one-half large-up--one-quarter text-center medium-up--text-right">
 				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
 				<div class="content ">
 					<h2 class="h1">Say Hello</h2>
 					<p>I think that resting, just like working, is one of the things that is worth  doing in life, therefore I have created  this chair so you can relax in a low and comfortable position while you  rest or read a book.</p>
 					
-					<form class="medium-up--hide" action="https://formspree.io/matherne.projects@gmail.com" method="POST">
-						<input type="email" placeholder="your@email.com" class="inverted">
-						<button type="submit" class="btn button primary inverted">Sign up</button>
-					</form>
+					<div class="medium-up--hide">
+						
+	<form class="" action="https://formspree.io/matherne.projects@gmail.com" method="POST">
+		<div class="input-group">
+			<label for="Name">Name</label>
+			<input name="Name" id="Name" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="email">Email</label>
+			<input name="Email" id="email" type="email" class="">
+		</div>
+		<div class="input-group">
+			<label for="Subject">Subject</label>
+			<input name="Subject" id="Subject" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="Message">Message</label>
+			<textarea name="Message" id="Message" class=""></textarea>
+		</div>
+		<div class="btn-container">
+			<button type="submit" class="btn button primary inverted">Sign up</button>
+		</div>
+	</form>
+
+					</div>
 				</div>
 			</div>
 		</div>
@@ -336,7 +377,7 @@
 			background-size:cover;
 			
 			
-			background-blend-mode:multiply;
+			background-blend-mode:exclusion;
 			
 
 		}
@@ -349,13 +390,19 @@
 				
 				background-size:cover;
 				
+				
 
 			}
 		}
+		/* test */
 		.block-uploads20180708glitch-effect_v-3jpg .background-color::after {
-			background-color:;
+			background-color:rgb(0,0,0);
+			
+			mix-blend-mode:hue !important;
+			
 		}
 		.block-uploads20180708glitch-effect_v-3jpg h2,
+		.block-uploads20180708glitch-effect_v-3jpg label,
 		.block-uploads20180708glitch-effect_v-3jpg p {
 			color:#f8f8dd;
 		}

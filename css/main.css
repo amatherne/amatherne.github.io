@@ -404,6 +404,41 @@ a {
   .no-svg .icon {
     display: none; }
 
+form {
+  padding: 1em; }
+  form .input-group {
+    margin: 0 auto 1em; }
+    form .input-group label {
+      color: #f8f8dd;
+      font-weight: bold;
+      width: 80px;
+      display: inline-block;
+      font-size: 20px;
+      vertical-align: top;
+      text-align: right;
+      margin: 12px 12px 8px 0; }
+    form .input-group input, form .input-group textarea {
+      background: #005655;
+      border: 1px solid #002323;
+      -ms-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      width: calc(100% - 100px);
+      padding: 1em;
+      display: inline-block;
+      vertical-align: top;
+      opacity: 0.6; }
+      form .input-group input:focus, form .input-group textarea:focus {
+        opacity: 1; }
+  form .btn-container {
+    text-align: right; }
+  @media screen and (max-width: 766px) {
+    form .input-group label {
+      text-align: left;
+      width: 100%; }
+    form .input-group input, form .input-group textarea {
+      width: 100%; } }
+
 /*============================================================================
 	Grid
 		- Based on CSS Wizardry grid
@@ -2268,6 +2303,11 @@ a {
 .main-screens {
   overflow: hidden; }
 
+@media screen and (max-width: 766px) {
+  .modal-toggle,
+  .menu-toggle {
+    right: 0.6em;
+    top: 0.6em; } }
 /** VARIABLES
 ===================================*/
 /** RESET AND LAYOUT
@@ -2494,10 +2534,12 @@ ul.bxslider {
     transform: translateX(50px); }
   @media screen and (max-width: 991px) {
     .main-header nav a {
-      font-size: 35px; } }
+      font-size: 40px; } }
   @media screen and (max-width: 766px) {
     .main-header nav a {
-      font-size: 25px; } }
+      padding: 0.75em 0; }
+    .main-header .logo {
+      margin: 0.20em; } }
 
 .hero {
   height: 100vh;
@@ -2543,11 +2585,11 @@ ul.bxslider {
   .hero .content {
     position: relative;
     z-index: 5;
-    padding: 0 8%;
+    padding: 0 2%;
     clear: both;
     width: 100%;
-    max-height: 80vh;
-    overflow-y: auto; }
+    max-height: 75vh;
+    overflow: auto; }
     .hero .content h2 {
       font-size: 60px;
       font-size: 5.5vmin !important;
@@ -2564,14 +2606,26 @@ ul.bxslider {
       float: right; }
     .hero .content .btn {
       margin-top: 1em; }
+  .hero.contact .background-color:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    mix-blend-mode: exclusion; }
   .hero.contact .grid__item {
     vertical-align: middle;
     padding-bottom: 0; }
-  .hero.contact .content h2, .hero.contact .content p {
-    max-width: 600px;
-    width: 90%;
-    margin: 0 auto 1em;
-    float: initial; }
+  .hero.contact .content {
+    max-width: 700px; }
+    .hero.contact .content h2, .hero.contact .content p {
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto 1em;
+      float: initial; }
   @media screen and (max-width: 991px) {
     .hero:before {
       background-size: cover; }
