@@ -10,11 +10,11 @@
 	$dark:#313133;
 
 	$bodyBG:$beige;
-	$bodyTextColor:$dark;
-	$borderColor:lighten($dark,10%);
+	$bodyTextColor:$beige;
+	$borderColor:lighten($beige,10%);
 
-	$linkColor:$dark;
-	$linkColorHover:darken($dark,25%);
+	$linkColor:$red;
+	$linkColorHover:darken($red,25%);
 
 	$navLinkColor:$beige;
 

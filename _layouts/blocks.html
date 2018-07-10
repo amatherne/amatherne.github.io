@@ -11,7 +11,7 @@
 						{% include block-{{ section.block }}.html %}
 					{% endfor %}
 				</div>
-				{% if page.page_sections.size > 1 %}
+				{% if page.page_sections.size > 1 and page.use_slider == true %}
 					<div class="bx-controls bx-has-pager">
 						<div class="bx-pager bx-default-pager" id="bx-pager">
 							{% for section in page.page_sections %}

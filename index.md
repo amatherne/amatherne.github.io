@@ -2,6 +2,7 @@
 layout: blocks
 title: Homepage
 date: 2017-11-22 23:00:00 +0000
+use_slider: true
 page_sections:
 - template: hero
   block: hero
@@ -63,6 +64,19 @@ page_sections:
   background_mix_mode: hue
 - template: simple-footer
   block: footer-1
+  image:
+    image: ''
+    alt_text: ''
+  background_image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
+  content_background_color: 
+  image_background_color: rgb(0,137,136)
+  text_color: "#f8f8dd"
+  background_position: Center
+  background_size: cover
+  background_blend_mode: darken
+  mobile_background_position: center
+  mobile_background_size: cover
+  background_mix_mode: soft-light
 ---
 
 foo bar
