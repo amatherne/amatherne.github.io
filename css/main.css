@@ -2545,7 +2545,9 @@ ul.bxslider {
     z-index: 5;
     padding: 0 8%;
     clear: both;
-    width: 100%; }
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto; }
     .hero .content h2 {
       font-size: 60px;
       font-size: 5.5vmin !important;
@@ -2562,13 +2564,22 @@ ul.bxslider {
       float: right; }
     .hero .content .btn {
       margin-top: 1em; }
+  .hero.contact .grid__item {
+    vertical-align: middle;
+    padding-bottom: 0; }
+  .hero.contact .content h2, .hero.contact .content p {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto 1em;
+    float: initial; }
   @media screen and (max-width: 991px) {
     .hero:before {
       background-size: cover; }
     .hero .background-color:after {
       width: 50%; }
     .hero .content h2 {
-      font-size: 50px; } }
+      font-size: 50px;
+      font-size: 7.5vmin !important; } }
   @media screen and (max-width: 766px) {
     .hero:before {
       background-position: center bottom; }
@@ -2587,7 +2598,9 @@ ul.bxslider {
       .hero .content p {
         font-size: 16px; }
       .hero .content h2, .hero .content p {
-        float: initial; } }
+        float: initial; }
+    .hero.contact .grid__item {
+      padding-bottom: 0; } }
 
 .tab-feed {
   height: 100vh;
