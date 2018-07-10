@@ -2142,13 +2142,13 @@ a {
     left: 91.6666666667%; } }
 .max-width {
   width: 100%;
-  max-width: 1500px;
+  max-width: 2000px;
   margin: 0 auto;
   box-shadow: 0px 0px 50px 0px rgba(49, 49, 51, 0.9); }
 
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 0 auto;
   position: relative; }
   .container.padding {
@@ -2264,6 +2264,9 @@ a {
   .modal-toggle.close,
   .menu-toggle.close {
     opacity: 0; }
+
+.main-screens {
+  overflow: hidden; }
 
 /** VARIABLES
 ===================================*/
@@ -2383,7 +2386,7 @@ ul.bxslider {
   width: 22px;
   height: 22px;
   text-indent: -9999px;
-  z-index: 9999;
+  z-index: 1;
   background-size: contain; }
 
 .bx-wrapper .bx-controls-direction a.disabled {
@@ -2435,6 +2438,18 @@ ul.bxslider {
   font-size: .85em;
   padding: 10px; }
 
+@media screen and (max-width: 766px) {
+  .bx-wrapper .bx-pager {
+    z-index: -1;
+    height: 0;
+    bottom: 0; }
+  .bx-wrapper .bx-controls {
+    position: absolute;
+    bottom: 3.5em;
+    right: initial;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%); } }
 .main-header {
   position: absolute;
   top: 0;
@@ -2459,7 +2474,7 @@ ul.bxslider {
       width: 53px;
       height: 53px; }
   .main-header .menu-modal {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     transition: all .3s .2s ease-in-out; }
     .main-header .menu-modal.active {
       transition: all .1s .2s ease-in-out; }
@@ -2506,7 +2521,8 @@ ul.bxslider {
   .hero .grid_no_gutter {
     display: table;
     height: 100%;
-    table-layout: fixed; }
+    table-layout: fixed;
+    width: 100%; }
     .hero .grid_no_gutter .grid__item {
       display: table-cell;
       height: 100%;
@@ -2532,6 +2548,7 @@ ul.bxslider {
     width: 100%; }
     .hero .content h2 {
       font-size: 60px;
+      font-size: 5.5vmin !important;
       line-height: 1;
       font-weight: 900;
       letter-spacing: -0.035em;
@@ -2551,16 +2568,14 @@ ul.bxslider {
     .hero .background-color:after {
       width: 50%; }
     .hero .content h2 {
-      font-size: 50px; }
-    .hero .content h2, .hero .content p {
-      max-width: 350px; } }
+      font-size: 50px; } }
   @media screen and (max-width: 766px) {
     .hero:before {
       background-position: center bottom; }
     .hero .grid_no_gutter {
       width: 100%; }
       .hero .grid_no_gutter .grid__item {
-        padding-bottom: 50px; }
+        padding-bottom: 125px; }
     .hero .background-color:after {
       mix-blend-mode: multiply;
       width: 100%; }

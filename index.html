@@ -133,17 +133,19 @@
             // Btn Settings
             var isOpen = $btn.is('.active');
                 
+                easing = [500, 20],
+
                 NavTop = isOpen ? '0%':'-200%',
                 NavDelay = isOpen ? 0 : 0,
                 NavDur = isOpen ? 700 : 100,
 
                 aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
-                aStag = isOpen ? 150 : 0,
-                aDelay = isOpen ? 700 : 0,
+                aStag = isOpen ? 175 : 0,
+                aDelay = isOpen ? 450 : 0,
                 aDur = isOpen ? 600 : 100,
-                aEase = isOpen ? 'ease-in-out' : 'ease-in-out',
+                aEase = isOpen ? easing : easing,
                     
-                ease = isOpen ? 'ease-in-out' : 'ease-in-out',
+                ease = isOpen ? easing : easing,
                 dur = isOpen ?  500 : 200;
     
             // Navigation
@@ -159,7 +161,7 @@
             $links.velocity(aTrans,{
                 duration:aDur,
                 delay:aDelay,
-                easing:'ease-in-out',
+                easing:[300, 10],
                 stagger:aStag
             })
         }
@@ -176,7 +178,7 @@
 
 
 <section 
-	class="hero background-image block-uploads20180708herojpg">
+	class="section-slide hero background-image block-uploads20180708herojpg">
 	
 	<div class="container">
 		<div class="grid_no_gutter">
@@ -201,6 +203,17 @@
 			
 			background-image: url('/uploads/2018/07/08/hero.jpg');
 			
+			
+			
+
+		}
+		@media screen and (max-width:767px) {
+			.block-uploads20180708herojpg::before {
+				
+				
+				
+
+			}
 		}
 		.block-uploads20180708herojpg .background-color::after {
 			background-color:rgb(217, 100, 89);
@@ -218,7 +231,7 @@
 
 
 <section 
-	class="hero background-image block-uploads20180708austin-2jpg">
+	class="section-slide hero background-image block-uploads20180708austin-2jpg">
 	
 	<div class="container">
 		<div class="grid_no_gutter">
@@ -241,6 +254,17 @@
 			
 			background-image: url('/uploads/2018/07/08/austin-2.jpg');
 			
+			
+			
+
+		}
+		@media screen and (max-width:767px) {
+			.block-uploads20180708austin-2jpg::before {
+				
+				
+				
+
+			}
 		}
 		.block-uploads20180708austin-2jpg .background-color::after {
 			background-color:rgb(83,83,85);
@@ -256,7 +280,7 @@
 					
 						<!-- includes/block-feature-1 -->
 
-<section class="tab-feed">
+<section class="section-slide tab-feed">
 	
 </section>
 					
@@ -281,13 +305,99 @@
 					</div>
 					<script type="text/javascript">
 						$(document).ready(function () {
-							$('.main-screens').bxSlider({
-								mode: 'fade',
+							var	slideContainer = '.main-screens',
+								slide = '.section-slide',
+								slideActive = 'active-slide';
+
+
+							// $(slideContainer+" "+slide).eq(0).addClass(slideActive)
+							// console.log('Gaaaame Ooooon')
+
+
+
+
+							var $slider_nav = $('.bx-pager-link, .bx-controls-direction a');
+					  //           $nav = $('.menu-modal');
+					  //           $nav_bg = $('.menu_active_bg');
+					  //           $links = $('.menu-modal a');
+
+					        var slide_animation = function(e) {
+					            // $slider_nav.toggleClass('active');
+					            // $nav.toggleClass('active');
+
+					            // e.preventDefault()
+
+
+					            $(slide).removeClass(slideActive);
+							    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
+							    console.log('Slippity Slide.')
+
+					            // Btn Settings
+					            var isOpen = $slider_nav.is('.active');
+					                
+					                // easing = [500, 20],
+
+					                // NavTop = isOpen ? '0%':'-200%',
+					                // NavDelay = isOpen ? 0 : 0,
+					                // NavDur = isOpen ? 700 : 100,
+
+					                // aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
+					                // aStag = isOpen ? 175 : 0,
+					                // aDelay = isOpen ? 450 : 0,
+					                // aDur = isOpen ? 600 : 100,
+					                // aEase = isOpen ? easing : easing,
+					                    
+					                // ease = isOpen ? easing : easing,
+					                // dur = isOpen ?  500 : 200;
+					    
+					            // Navigation
+					            // $nav.velocity({
+					            //     top:NavTop
+					            // },{
+					            //     easing: ease,
+					            //     duration:NavDur,
+					            //     delay:NavDelay
+					            // })
+
+					            // Links
+					            $links.velocity(aTrans,{
+					                // duration:aDur,
+					                // delay:aDelay,
+					                // easing:[300, 10],
+					                // stagger:aStag
+					            })
+					        }
+					        
+
+
+					        // $slider_nav.click(slide_animation);
+
+					        $(slideContainer).bxSlider({
+								// mode: 'fade',
 								infiniteLoop: false,
 								touchEnabled: false,
 								hideControlOnEnd: true,
-								pagerCustom: '#bx-pager'
+								pagerCustom: '#bx-pager',
+								onSlideBefore: function slide_animation(){
+
+								},
+								onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+								    $(slide).removeClass(slideActive);
+								    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
+								    console.log('Slippity Slide.')
+					        		// $slider_nav.click(slide_animation);
+								},
+								onSliderLoad: function () {
+								    $(slideContainer+" "+slide).eq(0).addClass(slideActive)
+								    console.log('Gaaaame Ooooon')
+								}
 							});
+
+
+							
+
+
+							
 						})
 					</script>
 					<style type="text/css">
