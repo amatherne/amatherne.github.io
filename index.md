@@ -61,13 +61,8 @@ page_sections:
   mobile_background_position: center
   mobile_background_size: cover
   background_mix_mode: hue
-- template: content-feature
-  block: feature-1
-  media_alignment: Right
-  headline: What does this do?
-  content: Testing a bunch of words
-  media:
-    image: "/2018/07/08/A29EB141-D3FE-4138-B35D-563B5D20A696.jpeg"
+- template: simple-footer
+  block: footer-1
 ---
 
 foo bar
