@@ -20,6 +20,8 @@ page_sections:
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
+  mobile_background_position: center
+  mobile_background_size: cover
 - template: hero-banner-w-image
   block: hero-2
   cta:
