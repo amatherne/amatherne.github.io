@@ -11,6 +11,10 @@ fields:
 - type: file
   name: background_image
   label: Background Image
+- type: file
+  name: mobile_background_image
+  label: Mobile Background Image
+  description: "(optional)"
 - type: textarea
   name: headline
   label: Headline
@@ -56,3 +60,15 @@ fields:
   config:
     color_format: Hex
   label: Text Color
+- type: textarea
+  name: background_position
+  label: Background Position
+- type: text
+  name: background_size
+  label: Background Size
+- type: text
+  label: Mobile Background Position
+  name: mobile_background_position
+- type: text
+  name: mobile_background_size
+  label: Mobile Background Size
