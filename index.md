@@ -41,6 +41,10 @@ page_sections:
   background_size: cover
   mobile_background_position: center
   mobile_background_size: cover
+- template: signup-bar
+  block: cta-bar
+  email_recipient: matherne.projects@gmail.com
+  content: Get in Touch
 - template: content-feature
   block: feature-1
   media_alignment: Right
