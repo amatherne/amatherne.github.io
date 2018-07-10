@@ -1,15 +1,75 @@
-<div class="block block-cta-bar">
-  <div class="container">
-    <div class="columns">
-        <div class="text">
-          <p>{{ section.content }}</p>
-        </div>
-        <div class="cta">
-          <form action="https://formspree.io/{{ section.email_recipient }}" method="POST">
-            <input type="email" placeholder="your@email.com" class="inverted">
-            <button type="submit" class="button primary inverted">Sign up</button>
-          </form>
-        </div>
-    </div>
-  </div>
-</div>
+<!-- includes/block-cta-bar -->
+{% assign block_id = '' %}
+{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+<section 
+	class="section-slide hero contact background-image {{ block_id }}">
+	<div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item small--hide medium--hide large-up--one-quarter">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+			</div>
+			<div class="grid__item small--hide medium--one-half large-up--one-half text-center  background-color">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content ">
+					<form action="https://formspree.io/{{ section.email_recipient }}" method="POST">
+						<input type="email" placeholder="your@email.com" class="inverted">
+						<button type="submit" class="btn button primary inverted">Sign up</button>
+					</form>
+				</div>
+			</div>
+			<div class="grid__item medium--one-half large-up--one-quarter text-center medium-up--text-right background-color">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content ">
+					<h2 class="h1">{{ section.headline | strip_html }}</h2>
+					<p>{{ section.content }}</p>
+					{% if section.cta and section.cta.enabled == true %}
+						<a class="btn" href="{{ section.cta.url }}">{{ section.cta.button_text }}</a>
+					{% endif %}
+					<form class="medium-up--hide" action="https://formspree.io/{{ section.email_recipient }}" method="POST">
+						<input type="email" placeholder="your@email.com" class="inverted">
+						<button type="submit" class="btn button primary inverted">Sign up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.{{ block_id }}::before {
+			background-color:{{ section.image_background_color }};
+			{% if section.background_image %}
+			background-image: url('{{ section.background_image | relative_url }}');
+			{% endif %}
+			{% if section.background_position %}
+			background-position:{{ section.background_position }};
+			{% endif %}
+			{% if section.background_size %}
+			background-size:{{ section.background_size }};
+			{% endif %}
+			{% if section.background_mix_mode %}
+			background-blend-mode:{{ section.background_mix_mode }};
+			{% endif %}
+
+		}
+		@media screen and (max-width:767px) {
+			.{{ block_id }}::before {
+				{% if section.mobile_background_image %}
+				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% endif %}
+				{% if section.mobile_background_position %}
+				background-position:{{ section.mobile_background_position }};
+				{% endif %}
+				{% if section.mobile_background_size %}
+				background-size:{{ section.mobile_background_size }};
+				{% endif %}
+
+			}
+		}
+		.{{ block_id }} .background-color::after {
+			background-color:{{ section.content_background_color }};
+		}
+		.{{ block_id }} h2,
+		.{{ block_id }} p {
+			color:{{ section.text_color }};
+		}
+	</style>
+</section>
