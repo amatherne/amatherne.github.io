@@ -2,7 +2,7 @@
 {% assign block_id = '' %}
 {% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 <section 
-	class="hero background-image {{ block_id }}">
+	class="section-slide hero background-image {{ block_id }}">
 	{% comment %}<div class="background-image"></div>{% endcomment %}
 	<div class="container">
 		<div class="grid_no_gutter">
@@ -27,6 +27,27 @@
 			{% if section.background_image %}
 			background-image: url('{{ section.background_image | relative_url }}');
 			{% endif %}
+			{% if section.background_position %}
+			background-position:{{ section.background_position }};
+			{% endif %}
+			{% if section.background_size %}
+			background-size:{{ section.background_size }};
+			{% endif %}
+
+		}
+		@media screen and (max-width:767px) {
+			.{{ block_id }}::before {
+				{% if section.mobile_background_image %}
+				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% endif %}
+				{% if section.mobile_background_position %}
+				background-position:{{ section.mobile_background_position }};
+				{% endif %}
+				{% if section.mobile_background_size %}
+				background-size:{{ section.mobile_background_size }};
+				{% endif %}
+
+			}
 		}
 		.{{ block_id }} .background-color::after {
 			background-color:{{ section.content_background_color }};

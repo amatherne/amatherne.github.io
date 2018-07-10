@@ -139,6 +139,22 @@ body {
 	}
 }
 
+.main-screens {
+	overflow:hidden;
+	.section-slide {
+		// overflow:hidden;
+		// display:none;
+		// opacity:0 !important;
+		// z-index:1;
+		&.active {
+			// opacity:1 !important;
+			// overflow:hidden;
+			// width:500px;
+			// display:block;
+		}
+
+	}
+}
 
 
 

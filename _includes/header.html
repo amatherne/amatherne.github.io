@@ -65,17 +65,19 @@
             // Btn Settings
             var isOpen = $btn.is('.active');
                 
+                easing = [500, 20],
+
                 NavTop = isOpen ? '0%':'-200%',
                 NavDelay = isOpen ? 0 : 0,
                 NavDur = isOpen ? 700 : 100,
 
                 aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
-                aStag = isOpen ? 150 : 0,
-                aDelay = isOpen ? 700 : 0,
+                aStag = isOpen ? 175 : 0,
+                aDelay = isOpen ? 450 : 0,
                 aDur = isOpen ? 600 : 100,
-                aEase = isOpen ? 'ease-in-out' : 'ease-in-out',
+                aEase = isOpen ? easing : easing,
                     
-                ease = isOpen ? 'ease-in-out' : 'ease-in-out',
+                ease = isOpen ? easing : easing,
                 dur = isOpen ?  500 : 200;
     
             // Navigation
@@ -91,7 +93,7 @@
             $links.velocity(aTrans,{
                 duration:aDur,
                 delay:aDelay,
-                easing:'ease-in-out',
+                easing:[300, 10],
                 stagger:aStag
             })
         }

@@ -23,13 +23,99 @@
 					</div>
 					<script type="text/javascript">
 						$(document).ready(function () {
-							$('.main-screens').bxSlider({
-								mode: 'fade',
+							var	slideContainer = '.main-screens',
+								slide = '.section-slide',
+								slideActive = 'active-slide';
+
+
+							// $(slideContainer+" "+slide).eq(0).addClass(slideActive)
+							// console.log('Gaaaame Ooooon')
+
+
+
+
+							var $slider_nav = $('.bx-pager-link, .bx-controls-direction a');
+					  //           $nav = $('.menu-modal');
+					  //           $nav_bg = $('.menu_active_bg');
+					  //           $links = $('.menu-modal a');
+
+					        var slide_animation = function(e) {
+					            // $slider_nav.toggleClass('active');
+					            // $nav.toggleClass('active');
+
+					            // e.preventDefault()
+
+
+					            $(slide).removeClass(slideActive);
+							    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
+							    console.log('Slippity Slide.')
+
+					            // Btn Settings
+					            var isOpen = $slider_nav.is('.active');
+					                
+					                // easing = [500, 20],
+
+					                // NavTop = isOpen ? '0%':'-200%',
+					                // NavDelay = isOpen ? 0 : 0,
+					                // NavDur = isOpen ? 700 : 100,
+
+					                // aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
+					                // aStag = isOpen ? 175 : 0,
+					                // aDelay = isOpen ? 450 : 0,
+					                // aDur = isOpen ? 600 : 100,
+					                // aEase = isOpen ? easing : easing,
+					                    
+					                // ease = isOpen ? easing : easing,
+					                // dur = isOpen ?  500 : 200;
+					    
+					            // Navigation
+					            // $nav.velocity({
+					            //     top:NavTop
+					            // },{
+					            //     easing: ease,
+					            //     duration:NavDur,
+					            //     delay:NavDelay
+					            // })
+
+					            // Links
+					            $links.velocity(aTrans,{
+					                // duration:aDur,
+					                // delay:aDelay,
+					                // easing:[300, 10],
+					                // stagger:aStag
+					            })
+					        }
+					        
+
+
+					        // $slider_nav.click(slide_animation);
+
+					        $(slideContainer).bxSlider({
+								// mode: 'fade',
 								infiniteLoop: false,
 								touchEnabled: false,
 								hideControlOnEnd: true,
-								pagerCustom: '#bx-pager'
+								pagerCustom: '#bx-pager',
+								onSlideBefore: function slide_animation(){
+
+								},
+								onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+								    $(slide).removeClass(slideActive);
+								    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
+								    console.log('Slippity Slide.')
+					        		// $slider_nav.click(slide_animation);
+								},
+								onSliderLoad: function () {
+								    $(slideContainer+" "+slide).eq(0).addClass(slideActive)
+								    console.log('Gaaaame Ooooon')
+								}
 							});
+
+
+							
+
+
+							
 						})
 					</script>
 					<style type="text/css">

@@ -22,6 +22,7 @@
 		display:table;
 		height:100%;
 		table-layout: fixed;
+		width:100%;
 		.grid__item {
 			display:table-cell;
 			height:100%;
@@ -53,6 +54,7 @@
 		width:100%;
 		h2 {
 			font-size:60px;
+			font-size:5.5vmin !important;
 			line-height:1;
 			font-weight:900;
 			letter-spacing:-0.035em;
@@ -84,7 +86,7 @@
 				font-size:50px;
 			}
 			h2, p {
-				max-width:350px;
+				// max-width:350px;
 			}
 		}
 	}
@@ -95,7 +97,7 @@
 		.grid_no_gutter {
 			width:100%;
 			.grid__item {
-				padding-bottom:50px;
+				padding-bottom:125px;
 			}
 		}
 		.background-color:after {

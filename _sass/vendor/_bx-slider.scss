@@ -155,7 +155,7 @@ ul.bxslider {
   width: 22px;
   height: 22px;
   text-indent: -9999px;
-  z-index: 9999;
+  z-index: 1;
   // font-size:20px;
   background-size:contain;
 }
@@ -219,3 +219,31 @@ ul.bxslider {
   font-size: .85em;
   padding: 10px;
 }
+@media screen and (max-width:$grid-medium - 1) {
+  .bx-wrapper {
+    .bx-pager {
+      // text-align: left;
+      // font-size: .85em;
+      // color: #666;
+      // padding-top: 20px;
+      // padding: 0 3em;
+      z-index: -1;
+      height: 0;
+      bottom:0;
+    }
+      .bx-controls {
+        position: absolute;
+        bottom: 3.5em;
+        right: initial;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+  }
+}
+
+
+
+
+
+
