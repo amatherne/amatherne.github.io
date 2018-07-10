@@ -6,6 +6,6 @@ page_sections:
 - template: content-feature
   block: feature-1
   media_alignment: Right
-  headline: 'Portfolio Page Testing'
-  content: fuckballs
+  headline: Portfolio
+  content: ''
 ---
