@@ -1,12 +1,12 @@
 ---
-title: About
+title: About Me
 layout: blocks
 date: 2018-07-08 00:00:00 +0000
 page_sections:
 - template: content-feature
   block: feature-1
   media_alignment: Right
-  headline: About Page Testing
+  headline: About Me
   content: 'My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
     I grew up in Baton Rouge, Louisiana, but have been a resident of the Austin area
     for the past decade. The laid back, laissez-faire style of the city reminded me
