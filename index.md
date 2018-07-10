@@ -13,10 +13,10 @@ page_sections:
     image: ''
     alt_text: ''
   background_image: "/uploads/2018/07/08/hero.jpg"
-  headline: What’s my deal?
-  content: 'I do different things. I like hike, bike, swim, and paddle. I love making
-    music and websites. I love working on new and challenging concepts. I hope you
-    do, too. '
+  headline: 'Hi. I’m Austin. '
+  content: 'I do different things. I like....yes, Austin in Austin, craaaazy right...
+    so, I hike, bike, swim, and paddle. I love making music and websites. I love working
+    on new and challenging concepts. I hope you do, too. '
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
