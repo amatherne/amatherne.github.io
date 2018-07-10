@@ -228,3 +228,73 @@
 	}
 
 
+
+// Forms 
+
+	form {
+		padding:1em;
+
+		.input-group {
+			margin:0 auto 1em;
+			label {
+				color:$beige;
+				font-weight:bold;
+				width:80px;
+				display:inline-block;
+				font-size:20px;
+				vertical-align:top;
+				text-align:right;
+				margin:12px 12px 8px 0;			}
+			input, textarea {
+				background:darken($green, 10%);
+				border:1px solid darken($green,20%);
+				@include prefix(appearance, none, ms webkit spec);
+				width:calc(100% - 100px);
+				padding:1em;
+				display:inline-block;
+				vertical-align:top;
+				opacity:0.6;
+				&:focus {
+					opacity:1;
+				}
+			}
+		}
+		.btn-container {
+			text-align:right;
+		}
+
+		@media screen and (max-width:$grid-medium - 1) {
+			.input-group {
+				label {
+					text-align:left;
+					width:100%;
+				}
+				input, textarea {
+					width:100%;
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

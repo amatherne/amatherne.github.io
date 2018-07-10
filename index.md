@@ -50,14 +50,15 @@ page_sections:
     image: ''
     alt_text: ''
   background_image: "/uploads/2018/07/08/glitch-effect_v-3.jpg"
-  content_background_color: 
+  content_background_color: rgb(0,0,0)
   image_background_color: rgb(0,137,136)
   text_color: "#f8f8dd"
   background_position: Center
   background_size: cover
-  background_mix_mode: multiply
+  background_blend_mode: exclusion
   mobile_background_position: center
   mobile_background_size: cover
+  background_mix_mode: hue
 - template: content-feature
   block: feature-1
   media_alignment: Right

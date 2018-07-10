@@ -157,6 +157,14 @@ body {
 }
 
 
+@media screen and (max-width:$grid-medium - 1) {
+	.modal-toggle,
+	.menu-toggle {
+		right:0.6em;
+		top:0.6em;
+	}
+}
+
 
 
 
