@@ -26,11 +26,15 @@
 							var	slideContainer = '.main-screens',
 								slide = '.section-slide',
 								slideActive = 'active-slide';
-
+								screenHeight = $(window).height();
+								screenWidth = $(window).width();
 
 							// $(slideContainer+" "+slide).eq(0).addClass(slideActive)
 							// console.log('Gaaaame Ooooon')
 
+							if (screenWidth < 768) {
+								$(slide).css('height', screenHeight);
+							}
 
 
 
