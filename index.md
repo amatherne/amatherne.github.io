@@ -14,7 +14,9 @@ page_sections:
     alt_text: ''
   background_image: "/uploads/2018/07/08/hero.jpg"
   headline: What’s my deal?
-  content: I do different things. I really love making music and websites.
+  content: 'I do different things. I like hike, bike, swim, and paddle. I love making
+    music and websites. I love working on new and challenging concepts. I hope you
+    do, too. '
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
