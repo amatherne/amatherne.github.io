@@ -7,16 +7,14 @@ page_sections:
   block: hero
   cta:
     enabled: true
-    url: about.md
-    button_text: More Details
+    url: contact.md
+    button_text: 'Let’s Collab '
   image:
     image: ''
     alt_text: ''
   background_image: "/uploads/2018/07/08/hero.jpg"
-  headline: Reconnecting with old bandmates
-  content: I think that resting, just like working, is one of the things that is worth  doing
-    in life, therefore I have created  this chair so you can relax in a low and comfortable
-    position while you  rest or read a book.
+  headline: What’s my deal?
+  content: I do different things. I really love making music and websites.
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
@@ -45,7 +43,9 @@ page_sections:
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
   headline: Say Hello
-  content: I think that resting, just like working, is one of the things that is worth  doing in life, therefore I have created  this chair so you can relax in a low and comfortable position while you  rest or read a book.
+  content: I think that resting, just like working, is one of the things that is worth  doing
+    in life, therefore I have created  this chair so you can relax in a low and comfortable
+    position while you  rest or read a book.
   image:
     image: ''
     alt_text: ''
