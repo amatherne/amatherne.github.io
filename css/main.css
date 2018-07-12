@@ -2743,6 +2743,9 @@ ul.bxslider {
       width: 90%;
       margin: 0 auto 1em;
       float: initial; }
+  .hero.featured-posts .grid__item {
+    vertical-align: middle;
+    padding-bottom: 0; }
   @media screen and (max-width: 991px) {
     .hero:before {
       background-size: cover; }
