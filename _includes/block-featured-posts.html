@@ -1,8 +1,47 @@
 <!-- includes/featured-posts -->
+
+
 {% assign block_id = '' %}
 {% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+
+
+
+
 <div class="section-slide hero background-image featured-posts {{ block_id }}">
 	<div class="container">
+		<div class=" hide">
+
+			{% comment %}{{ section.tabs_from_tags }}{% endcomment %}
+			{% for t in section.tabs_from_tags %}
+				{% assign sec_tag = t | slugify %}
+				{% comment %}<div>{{ sec_tag }}</div>{% endcomment %}
+				{% for post in site.posts %}
+					{% assign checks_out = false %}
+					{% for p in post.tags %}
+						{% assign p_tag = p | slugify %}
+						{% comment %}<div>{{ p_tag }}</div>{% endcomment %}
+						{% if p_tag contains sec_tag %}
+							{% assign checks_out = true %}
+							{% comment %}<div>true</div>{% endcomment %}
+
+
+
+
+
+						{% endif %}
+					{% endfor %}
+
+					{% if checks_out == true %}
+						<div class="grid__item one-whole medium-up--one-third">
+							{{ forloop.index }}
+						</div>
+					{% endif %}
+
+				{% endfor %}
+			{% endfor %}
+
+			
+		</div>
 		<div class="grid_no_gutter">
 			{% for post in site.posts %}
 				<div class="grid__item one-whole medium-up--one-third">

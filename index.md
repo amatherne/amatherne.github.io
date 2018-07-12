@@ -4,12 +4,22 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
-
+- template: featured-posts
+  block: featured-posts
+  tabs_from_tags: [Music,Web Developement]
+  background_image: "/uploads/2018/07/12/jump-2.jpg"
+  content_background_color: rgb(0,0,0)
+  image_background_color: rgb(0,0,0)
+  text_color: "#ffffff"
+  background_position: Center
+  background_size: cover
+  mobile_background_position: center
+  mobile_background_size: cover
 - template: hero
   block: hero
   cta:
     enabled: true
-    url: _posts/2018-07-12-vetter-kids.md
+    url: /2018/07/11/vetter-kids.html
     button_text: 'Let’s Collab '
   image:
     image: ''
@@ -22,20 +32,6 @@ page_sections:
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
-  mobile_background_position: center
-  mobile_background_size: cover
-- template: featured-posts
-  block: featured-posts
-  background_image: "/uploads/2018/07/12/jump-2.jpg"
-  headline: 'Hi. I’m Austin. '
-  content: 'I do different things. I like....yes, Austin in Austin, craaaazy right...
-    so, I hike, bike, swim, and paddle. I love making music and websites. I love working
-    on new and challenging concepts. I hope you do, too. '
-  content_background_color: rgb(217, 100, 89)
-  image_background_color: rgb(217, 100, 89)
-  text_color: "#ffffff"
-  background_position: Center
-  background_size: cover
   mobile_background_position: center
   mobile_background_size: cover
 - template: signup-bar

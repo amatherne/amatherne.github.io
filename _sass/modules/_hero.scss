@@ -111,9 +111,19 @@
 	}
 
 	&.featured-posts {
+		// padding:20%;
+		.container {
+			padding:30%;
+		}
 		.grid__item {
 			vertical-align:middle;
 			padding-bottom:0;
+
+
+
+			// background:darken(white,10%);
+			// color:black;
+			// border:1px solid black;
 		}
 	}
 	@media screen and (max-width: $grid-large - 1) {
