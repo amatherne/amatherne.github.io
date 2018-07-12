@@ -3,6 +3,13 @@ label: featured-posts
 hide_body: true
 is_partial: true
 fields:
+- type: text
+  name: tabs_from_tags
+  label: Tabs From Tags
+- type: number
+  name: number_of_posts_per_tab
+  label: Number of Posts per Tab
+  default: '3'
 - type: file
   name: background_image
   label: Background Image
