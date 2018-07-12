@@ -11,7 +11,11 @@
 
 {% assign limit = s.number_of_posts_per_tab %}
 {% assign tabs = s.tabs_from_tags %}
+{% assign tabs_num = s.tabs_from_tags.size %}
 
+{% comment %}
+	Use limit to get block widths
+{% endcomment %}
 {% case limit %}
     {% when 2 %}
         {% assign width = 'medium-up--one-half' %}
@@ -22,7 +26,7 @@
     {% when 5 %}
         {% assign width = 'medium--one-third large-up--one-fifth' %}
     {% when 6 %}
-        {% assign width = 'medium--one-third large-up--one-sixth' %}
+        {% assign width = 'medium--one-third large-up--one-third' %}
     {% when 7 %}
         {% assign width = 'medium-up--one-quarter' %}
     {% when 8 %}
@@ -37,10 +41,16 @@
         {% assign width = 'medium--one-third large-up--one-sixth' %}
 {% endcase %}
 
+{% comment %}
+	Use limit to get max number 
+{% endcomment %}
+{% comment %}{% assign limit = limit | times: tabs_num %}{% endcomment %}
+
 <div class="section-slide background-image featured-posts {{ block_id }}">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
+				<div>{{ limit }}</div>
 				<div class="tabs-container">
 				    <ul class="tabs">
 				        {% for t in tabs %}
@@ -52,26 +62,42 @@
 					{% for t in tabs %}
 						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
 							{% assign sec_tag = t | slugify %}
-							<div>Tab: {{ sec_tag }}</div>
-							{% comment %}<div class="grid">{% endcomment %}
+							<div class="grid">
+								{% assign count = 0 %}
 								{% for post in site.posts %}
 									{% for p in post.tags %}
-										{% assign count = '' %}
 										{% assign p_tag = p | slugify %}
 										{% if p_tag contains sec_tag %}
 											{% assign count = count | plus: 1 %}
-											{% comment %}{{count}}{% endcomment %}
-											<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
-							        		{% comment %}<div class="grid__item one-whole {{ width }}">
-												<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-												<date>{{ post.date | date_to_string }}</date>
-											</div>{% endcomment %}
+											{% if count <= limit %}
+								        		<div class="grid__item one-whole {{ width }}">
+													<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+													<date>{{ post.date | date_to_string }}</date>
+												</div>
+											{% endif %}
 										{% endif %}
 									{% endfor %}
 								{% endfor %}
-							{% comment %}</div>{% endcomment %}
+							</div>
 						</div>
 					{% endfor %}
+
+					{% comment %}{% for t in tabs %}
+						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+							{% assign sec_tag = t | slugify %}
+							<div>Tab: {{ sec_tag }}</div>
+							{% for post in site.posts %}
+								{% for p in post.tags %}
+									{% assign count = '' %}
+									{% assign p_tag = p | slugify %}
+									{% if p_tag contains sec_tag %}
+										{% assign count = count | plus: 1 %}
+										<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
+									{% endif %}
+								{% endfor %}
+							{% endfor %}
+						</div>
+					{% endfor %}{% endcomment %}
 				</div>
 			</div>
 		</div>

@@ -7,10 +7,10 @@ page_sections:
 - template: featured-posts
   block: featured-posts
   tabs_from_tags: [Music,Web Development,Blog]
-  number_of_posts_per_tab: 5
+  number_of_posts_per_tab: 6
   background_image: "/uploads/2018/07/12/jump-2.jpg"
   content_background_color: rgb(0,0,0)
-  image_background_color: rgb(0,0,0)
+  image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
   background_position: Center
   background_size: cover
