@@ -4,14 +4,10 @@ date: 2018-07-10 04:27:02 +0000
 tags:
 - Web Development
 - Blog
-hero:
-  hero: "/2018/07/12/about-hero.png"
-  overlay_color: rgb(123, 223, 240)
-  mix_blend_mode: overlay
 gallery: []
 file_upload: ''
 image:
-  background_image: "/uploads/2018/07/12/jump-2-1.jpg"
+  background_image: "/uploads/2018/07/12/about-hero.png"
   mobile_background_image: ''
   image_background_color: ''
   mix_blend_mode: ''

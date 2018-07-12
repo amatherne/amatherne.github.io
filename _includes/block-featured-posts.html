@@ -33,7 +33,7 @@
     {% when 5 %}
         {% assign width = 'medium--one-third large-up--one-fifth' %}
     {% when 6 %}
-        {% assign width = 'medium--one-third large-up--one-third' %}
+        {% assign width = 'small--one-half medium--one-third large-up--one-third' %}
     {% when 7 %}
         {% assign width = 'medium-up--one-quarter' %}
     {% when 8 %}
@@ -64,7 +64,7 @@
 					{% for t in tabs %}
 						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
 							{% assign sec_tag = t | slugify %}
-							<div class="grid">
+							<div class="grid_no_gutter">
 								{% assign count = 0 %}
 								{% for post in site.posts %}
 									{% for p in post.tags %}
