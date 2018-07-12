@@ -6,7 +6,10 @@ use_slider: true
 page_sections:
 - template: featured-posts
   block: featured-posts
-  tabs_from_tags: [Music,Web Development,Blog]
+  tabs_from_tags:
+  - Music
+  - Web Development
+  - Blog
   number_of_posts_per_tab: 6
   background_image: "/uploads/2018/07/12/jump-2.jpg"
   content_background_color: rgb(0,0,0)
@@ -16,11 +19,17 @@ page_sections:
   background_size: cover
   mobile_background_position: center
   mobile_background_size: cover
+  image:
+    background_image: "/2018/07/12/Poltrona Gaia.png"
+    image_background_color: rgb(0, 137, 136)
+    mix_blend_mode: multiply
+    background_position: center
+    background_size: cover
 - template: hero
   block: hero
   cta:
     enabled: true
-    url: /2018/07/11/vetter-kids.html
+    url: "/2018/07/11/vetter-kids.html"
     button_text: 'Let’s Collab '
   image:
     image: ''
