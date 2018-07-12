@@ -20,7 +20,7 @@ page_sections:
   mobile_background_position: center
   mobile_background_size: cover
   image:
-    background_image: "/2018/07/12/Poltrona Gaia.png"
+    background_image: "/uploads/2018/07/12/Poltrona-Gaia.png"
     image_background_color: rgb(0, 137, 136)
     mix_blend_mode: multiply
     background_position: center

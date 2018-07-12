@@ -1,13 +1,20 @@
 <!-- includes/featured-posts -->
 
-
 {% assign block_id = '' %}
 {% assign s = section %}
+{% assign imgs = s.image %}
 
+{% assign bg_color = s.image.image_background_color %}
+{% assign bg_image = s.image.background_image | relative_url %}
+{% assign bg_pos = s.image.background_position %}
+{% assign bg_size = s.image.background_size %}
+{% assign bg_blend = s.image.mix_blend_mode %}
 
-{% capture block_id %}block-{{ s.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% assign mob_bg_img = s.image.mobile_background_image | relative_url %}
+{% assign mob_bg_pos = s.image.mobile_background_position %}
+{% assign mob_bg_size = s.image.mobile_background_size %}
 
-{% comment %}{{ s.number_of_posts_per_tab }}{% endcomment %}
+{% capture block_id %}block-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
 
 {% assign limit = s.number_of_posts_per_tab %}
 {% assign tabs = s.tabs_from_tags %}
@@ -41,16 +48,11 @@
         {% assign width = 'medium--one-third large-up--one-sixth' %}
 {% endcase %}
 
-{% comment %}
-	Use limit to get max number 
-{% endcomment %}
-{% comment %}{% assign limit = limit | times: tabs_num %}{% endcomment %}
 
 <div class="section-slide background-image featured-posts {{ block_id }}">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
-				<div>{{ limit }}</div>
 				<div class="tabs-container">
 				    <ul class="tabs">
 				        {% for t in tabs %}
@@ -71,8 +73,7 @@
 											{% assign count = count | plus: 1 %}
 											{% if count <= limit %}
 								        		<div class="grid__item one-whole {{ width }}">
-													<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-													<date>{{ post.date | date_to_string }}</date>
+													{% include blog_item.html %}	
 												</div>
 											{% endif %}
 										{% endif %}
@@ -126,33 +127,36 @@
 	</script>
 	<style type="text/css">
 		.{{ block_id }}::before {
-			background-color:{{ s.image_background_color }};
-			{% if s.background_image %}
-			background-image: url('{{ s.background_image | relative_url }}');
+			{% if bg_img != blank %}
+			background-image: url('{{ bg_image }}');
 			{% endif %}
-			{% if s.background_position %}
-			background-position:{{ s.background_position }};
+			{% if bg_pos != blank %}
+			background-position:{{ bg_pos }};
 			{% endif %}
-			{% if s.background_size %}
-			background-size:{{ s.background_size }};
+			{% if bg_size != blank %}
+			background-size:{{ bg_size }};
 			{% endif %}
+			{% if bg_blend != blank %}
+			background-blend-mode:{{ bg_blend }};
+			{% endif %}
+			background-color:{{ bg_color }};
 
 		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
-				{% if s.mobile_background_image %}
-				background-image: url('{{ s.mobile_background_image | relative_url }}');
+				{% if mob_bg_img != blank %}
+				background-image: url('{{ mob_bg_image }}');
 				{% endif %}
-				{% if s.mobile_background_position %}
-				background-position:{{ s.mobile_background_position }};
+				{% if mob_bg_pos != blank %}
+				background-position:{{ mob_bg_pos }};
 				{% endif %}
-				{% if s.mobile_background_size %}
-				background-size:{{ s.mobile_background_size }};
+				{% if mob_bg_size != blank %}
+				background-size:{{ mob_bg_size }};
 				{% endif %}
 
 			}
 		}
-		.{{ block_id }} .background-color::after {
+		.{{ block_id }} .background-color::before {
 			background-color:{{ s.content_background_color }};
 		}
 		.{{ block_id }} h2,

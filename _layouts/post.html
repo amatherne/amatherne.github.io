@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	{% include head.html %}
-	<!-- layouts/default -->
+	<!-- layouts/post -->
 	<body>
 		<div class="max-width">
 			{% include header.html %}
 			<!-- Add your site or application content here -->
+			<div>Hero: {{ post.hero }}</div>
 			<p>{{ content }}</p>
 			{% include footer.html %}
 		</div>

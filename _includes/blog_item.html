@@ -1,0 +1,9 @@
+
+<div class="blog-item">
+	<div>Hero:{{ post.image.background_image }}</div>
+	<div
+		class="background-image"
+		style="background-image: url();"></div>
+	<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+	<date>{{ post.date | date_to_string }}</date>
+</div>
