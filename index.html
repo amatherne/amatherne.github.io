@@ -183,86 +183,251 @@
 
 
 
-<div class="section-slide hero background-image featured-posts block-uploads20180712jump-2jpg">
+
+
+
+
+
+
+
+<div class="section-slide background-image featured-posts block-uploads20180712jump-2jpg">
 	<div class="container">
-		<div class=" hide">
-
-			
-			
-				
-				
-				
+		<div class="grid_no_gutter">
+			<div class="grid__item table-cell">
+				<div class="tabs-container">
+				    <ul class="tabs">
+				        
+				            <li class="tab-trig current" data-tab="tab-1">
+				                Music
+				            </li>
+				        
+				            <li class="tab-trig " data-tab="tab-2">
+				                Web Development
+				            </li>
+				        
+				            <li class="tab-trig " data-tab="tab-3">
+				                Blog
+				            </li>
+				        
+				    </ul>
 					
-					
-
-					
-
-				
-					
-					
-
-					
-						<div class="grid__item one-whole medium-up--one-third">
-							2
+						<div id="tab-1" class="tab-content tab--active">
+							
+							<div>Tab: music</div>
+							
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Testing 5/Music</div>
+							        		
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Testing 2/Music</div>
+							        		
+										
+									
+								
+									
+								
+									
+										
+										
+										
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Vetter Kids/Music</div>
+							        		
+										
+									
+								
+									
+								
+							
 						</div>
 					
-
-				
+						<div id="tab-2" class="tab-content ">
+							
+							<div>Tab: web-development</div>
+							
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Testing 6/Web Development</div>
+							        		
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Vetter Kids/Web Development</div>
+							        		
+										
+									
+										
+										
+										
+									
+								
+									
+								
+							
+						</div>
 					
+						<div id="tab-3" class="tab-content ">
+							
+							<div>Tab: blog</div>
+							
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Testing 4/Blog</div>
+							        		
+										
+									
+								
+									
+										
+										
+										
+											
+											
+											<div style="margin-left: 20px;">Post/Tag: Testing 3/Blog</div>
+							        		
+										
+									
+								
+									
+										
+										
+										
+									
+								
+									
+								
+									
+										
+										
+										
+									
+										
+										
+										
+									
+								
+									
+								
+							
+						</div>
 					
-
-					
-
-				
-			
-				
-				
-				
-					
-					
-
-					
-
-				
-					
-					
-
-					
-
-				
-					
-					
-
-					
-
-				
-			
-
-			
-		</div>
-		<div class="grid_no_gutter">
-			
-				<div class="grid__item one-whole medium-up--one-third">
-					<h2><a href="/2018/07/12/testing.html">Testing</a></h2>
-					<div><p>Asshole</p>
-</div>
-					<date>12 Jul 2018</date>
 				</div>
-			
-				<div class="grid__item one-whole medium-up--one-third">
-					<h2><a href="/2018/07/12/vetter-kids.html">Vetter Kids</a></h2>
-					<div><h2>Customer Bio</h2> <p>Vetter Kids are a grunge/punk band based out of Austin, Tx. They play with passion and love interactions with their fans; whether onstage, online, or in real life....</div>
-					<date>12 Jul 2018</date>
-				</div>
-			
-				<div class="grid__item one-whole medium-up--one-third">
-					<h2><a href="/2018/07/10/austin-pedicab-company.html">Austin Pedicab Company</a></h2>
-					<div><h2 id="customer-bio"><strong>Customer Bio</strong> </h2> <p>The Austin Pedicab Co. was created in 2015 by a group of veteran drivers. They each have multiple years of experience in the transportainment industry and wanted...</div>
-					<date>10 Jul 2018</date>
-				</div>
-			
+			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    var section = '.block-uploads20180712jump-2jpg',
+		        tab_trigger = '.tab-trig',
+		        content = '.tab-content',
+		        tab_active = 'current',
+		        cont_active = 'tab--active';
+		    $(section+' '+tab_trigger).click(function(){
+		        var tab = $(this),
+		            tab_id = tab.attr('data-tab'),
+		            cont = $(section+" #"+tab_id);
+
+		    // Removes classes from siblings
+		        $(section+' '+tab_trigger).removeClass(tab_active);
+		        $(section+' '+content).removeClass(cont_active);
+
+		    // Adds class to only selected tabs
+		        tab.addClass(tab_active);
+		        cont.addClass(cont_active);
+		    })
+		})
+	</script>
 	<style type="text/css">
 		.block-uploads20180712jump-2jpg::before {
 			background-color:rgb(0,0,0);

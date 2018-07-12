@@ -469,13 +469,16 @@ form {
 .grid_no_gutter {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-size: 0; }
   .grid_no_gutter::after {
     clear: both;
     content: "";
     display: table; }
   .grid_no_gutter .grid__item {
     padding-left: 0; }
+    .grid_no_gutter .grid__item .grid .grid__item {
+      padding-left: 30px; }
 
 /*============================================================================
 	Reversed grids allow you to structure your source in the opposite
@@ -2743,11 +2746,6 @@ ul.bxslider {
       width: 90%;
       margin: 0 auto 1em;
       float: initial; }
-  .hero.featured-posts .container {
-    padding: 30%; }
-  .hero.featured-posts .grid__item {
-    vertical-align: middle;
-    padding-bottom: 0; }
   @media screen and (max-width: 991px) {
     .hero:before {
       background-size: cover; }
@@ -2778,10 +2776,110 @@ ul.bxslider {
     .hero.contact .grid__item {
       padding-bottom: 0; } }
 
-.tab-feed {
+.tabs-container {
+  margin: 0 auto; }
+  .tabs-container ul.tabs {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+    .tabs-container ul.tabs .tab-trig {
+      background: none;
+      color: #f8f8dd;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer; }
+      .tabs-container ul.tabs .tab-trig.current {
+        color: #008988; }
+  .tabs-container .tab-content {
+    display: none;
+    padding: 15px; }
+    .tabs-container .tab-content.tab--active {
+      display: inherit; }
+
+.featured-posts {
   height: 100vh;
   width: 100%;
   min-height: 400px;
   position: relative;
-  background: #313133;
-  overflow: hidden; }
+  transform: translateZ(0); }
+  .featured-posts:before {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    min-height: 400px;
+    position: absolute;
+    background-size: cover;
+    background-size: 160vw;
+    background-size: 160%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    background-blend-mode: multiply; }
+  .featured-posts .grid_no_gutter {
+    display: table;
+    height: 100%;
+    table-layout: fixed;
+    width: 100%; }
+    .featured-posts .grid_no_gutter .table-cell {
+      display: table-cell;
+      height: 100%;
+      vertical-align: middle; }
+  .featured-posts .container {
+    height: 100%; }
+  .featured-posts .background-color:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    z-index: 1;
+    mix-blend-mode: exclusion; }
+  .featured-posts .content {
+    position: relative;
+    z-index: 5;
+    padding: 0 2vw;
+    clear: both;
+    width: 100%;
+    max-height: 75vh;
+    overflow: auto; }
+    .featured-posts .content h2 {
+      font-size: 60px;
+      font-size: 5.5vmin !important;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      margin: 0 0 0.25em;
+      width: 100%; }
+    .featured-posts .content p {
+      font-size: 18px; }
+    .featured-posts .content h2, .featured-posts .content p {
+      max-width: 400px;
+      float: right; }
+    .featured-posts .content .btn {
+      margin-top: 1em; }
+  @media screen and (max-width: 991px) {
+    .featured-posts:before {
+      background-size: cover; }
+    .featured-posts .background-color:after {
+      width: 50%; }
+    .featured-posts .content h2 {
+      font-size: 50px;
+      font-size: 7.5vmin !important; } }
+  @media screen and (max-width: 766px) {
+    .featured-posts:before {
+      background-position: center bottom; }
+    .featured-posts .background-color:after {
+      mix-blend-mode: multiply;
+      width: 100%; }
+    .featured-posts .content {
+      max-width: 400px;
+      margin: 0 auto; }
+      .featured-posts .content h2 {
+        font-size: 40px; }
+      .featured-posts .content p {
+        font-size: 16px; }
+      .featured-posts .content h2, .featured-posts .content p {
+        float: initial; } }
