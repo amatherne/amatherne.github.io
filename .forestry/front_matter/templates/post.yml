@@ -49,4 +49,5 @@ fields:
   name: file_upload
   label: File Upload
 pages:
+- _posts/vetter-kids.md
 - _posts/2018-07-10-austin-pedicab-company.md
