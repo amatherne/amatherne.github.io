@@ -2,6 +2,13 @@
 layout: default
 title: Austin Pedicab Company
 date: 2018-07-10 04:27:02 +0000
+tags: []
+hero:
+  hero: "/2018/07/12/about-hero.png"
+  overlay_color: rgb(123, 223, 240)
+  mix_blend_mode: overlay
+gallery: []
+file_upload: ''
 ---
 ## **Customer Bio** 
 
