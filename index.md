@@ -4,6 +4,7 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
+
 - template: hero
   block: hero
   cta:
@@ -23,24 +24,19 @@ page_sections:
   text_color: "#ffffff"
   mobile_background_position: center
   mobile_background_size: cover
-- template: hero
-  block: hero
-  cta:
-    enabled: false
-    url: about.md
-    button_text: More Details
-  image:
-    image: ''
-    alt_text: ''
-  background_image: "/uploads/2018/07/08/austin-2.jpg"
-  headline: Boom Boom Boom
-  content: 
-  content_background_color: rgb(83,83,85)
-  image_background_color: rgb(207,207,207)
-  text_color: "#f8f8dd"
+- template: featured-posts
+  block: featured-posts
+  background_image: "/uploads/2018/07/12/jump-2.jpg"
+  headline: 'Hi. I’m Austin. '
+  content: 'I do different things. I like....yes, Austin in Austin, craaaazy right...
+    so, I hike, bike, swim, and paddle. I love making music and websites. I love working
+    on new and challenging concepts. I hope you do, too. '
+  content_background_color: rgb(217, 100, 89)
+  image_background_color: rgb(217, 100, 89)
+  text_color: "#ffffff"
   background_position: Center
   background_size: cover
-  mobile_background_position: 30% center
+  mobile_background_position: center
   mobile_background_size: cover
 - template: signup-bar
   block: cta-bar

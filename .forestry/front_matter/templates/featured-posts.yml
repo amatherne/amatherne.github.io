@@ -1,0 +1,55 @@
+---
+label: featured-posts
+hide_body: true
+is_partial: true
+fields:
+- type: file
+  name: background_image
+  label: Background Image
+- type: file
+  name: mobile_background_image
+  label: Mobile Background Image
+  description: "(optional)"
+- type: field_group
+  name: cta
+  label: Call-to-action
+  fields:
+  - type: boolean
+    name: enabled
+    label: Enabled
+  - type: text
+    name: button_text
+    label: Button text
+  - type: select
+    name: url
+    config:
+      source:
+        type: pages
+    label: Url
+- type: color
+  name: content_background_color
+  config:
+    color_format: RGB
+  label: Content Background Color
+- type: color
+  name: image_background_color
+  config:
+    color_format: RGB
+  label: Image Background Color
+- type: color
+  name: text_color
+  config:
+    color_format: Hex
+  label: Text Color
+- type: textarea
+  name: background_position
+  label: Background Position
+- type: text
+  name: background_size
+  label: Background Size
+- type: text
+  label: Mobile Background Position
+  name: mobile_background_position
+- type: text
+  name: mobile_background_size
+  label: Mobile Background Size

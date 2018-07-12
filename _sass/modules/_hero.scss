@@ -108,9 +108,13 @@
 
 			}
 		}
+	}
 
-
-
+	&.featured-posts {
+		.grid__item {
+			vertical-align:middle;
+			padding-bottom:0;
+		}
 	}
 	@media screen and (max-width: $grid-large - 1) {
 
