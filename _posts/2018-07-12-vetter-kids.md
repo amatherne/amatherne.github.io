@@ -11,7 +11,7 @@ hero:
 gallery: []
 file_upload: ''
 image:
-  background_image: "/2018/07/12/jump-2.jpg"
+  background_image: "/uploads/2018/07/12/jump-2.jpg"
   mobile_background_image: ''
   image_background_color: rgb(248, 231, 28)
   mix_blend_mode: screen
