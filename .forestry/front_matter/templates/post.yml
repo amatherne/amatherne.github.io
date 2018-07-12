@@ -1,0 +1,32 @@
+---
+label: Post
+hide_body: true
+is_partial: false
+fields:
+- type: tag_list
+  name: tags
+  label: Tags
+- type: field_group
+  name: hero
+  label: Hero
+  fields:
+  - type: file
+    name: hero
+    label: Hero
+  - type: color
+    name: overlay_color
+    config:
+      color_format: RGB
+    label: Overlay Color
+  - type: select
+    config:
+      source:
+        type: datafiles
+    label: Mix Blend Mode
+    name: mix_blend_mode
+- type: image_gallery
+  name: gallery
+  label: Gallery
+- type: file
+  name: file_upload
+  label: File Upload
