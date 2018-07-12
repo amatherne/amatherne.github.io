@@ -8,7 +8,7 @@ page_sections:
   block: hero
   cta:
     enabled: true
-    url: contact.md
+    url: _posts/2018-07-12-vetter-kids.md
     button_text: 'Let’s Collab '
   image:
     image: ''
@@ -78,5 +78,4 @@ page_sections:
   mobile_background_size: cover
   background_mix_mode: soft-light
 ---
-
 foo bar
