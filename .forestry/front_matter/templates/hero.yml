@@ -23,7 +23,6 @@ fields:
     name: image_background_color
     config:
       color_format: RGB
-    label: Image Background Color
     label: Text Color
   - type: textarea
     name: background_position
@@ -73,7 +72,7 @@ fields:
       label: Url
   - type: color
     name: text_color
-    config:
+    config: 
     color_format: Hex
   - type: color
     name: content_background_color

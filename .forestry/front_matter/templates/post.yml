@@ -49,8 +49,6 @@ fields:
   name: file_upload
   label: File Upload
 pages:
-- _posts/2018-07-12-testing-8.md
-- _posts/2018-07-12-testing-9.md
 - _posts/2018-07-12-vetter-kids.md
 - _posts/2018-07-12-testing.md
 - _posts/2018-07-12-testing-4.md
@@ -58,5 +56,7 @@ pages:
 - _posts/2018-07-12-testing-2.md
 - _posts/2018-07-12-testing-3.md
 - _posts/2018-07-12-testing-5.md
+- _posts/2018-07-12-testing-8.md
+- _posts/2018-07-12-testing-9.md
 - _posts/2018-07-12-testing-7.md
 - _posts/2018-07-10-austin-pedicab-company.md
