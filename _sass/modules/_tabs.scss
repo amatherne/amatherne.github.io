@@ -1,0 +1,30 @@
+.tabs-container {
+    // width: 800px;
+    margin: 0 auto;
+
+    ul.tabs{
+	    margin: 0px;
+	    padding: 0px;
+	    list-style: none;
+	    .tab-trig {
+		    background: none;
+		    color: $beige;
+		    display: inline-block;
+		    padding: 10px 15px;
+		    cursor: pointer;
+		    &.current {
+			    // background: #ededed;
+			    color:$green;
+			}
+		}
+	}
+	.tab-content{
+	    display: none;
+	    // background: #ededed;
+	    padding: 15px;
+	    &.tab--active {
+		    display: inherit;
+		}
+	}
+}
+

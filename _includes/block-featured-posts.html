@@ -2,90 +2,136 @@
 
 
 {% assign block_id = '' %}
-{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% assign s = section %}
 
 
+{% capture block_id %}block-{{ s.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 
+{% comment %}{{ s.number_of_posts_per_tab }}{% endcomment %}
 
-<div class="section-slide hero background-image featured-posts {{ block_id }}">
+{% assign limit = s.number_of_posts_per_tab %}
+{% assign tabs = s.tabs_from_tags %}
+
+{% case limit %}
+    {% when 2 %}
+        {% assign width = 'medium-up--one-half' %}
+    {% when 3 %}
+        {% assign width = 'medium-up--one-third' %}
+    {% when 4 %}
+        {% assign width = 'medium-up--one-quarter' %}
+    {% when 5 %}
+        {% assign width = 'medium--one-third large-up--one-fifth' %}
+    {% when 6 %}
+        {% assign width = 'medium--one-third large-up--one-sixth' %}
+    {% when 7 %}
+        {% assign width = 'medium-up--one-quarter' %}
+    {% when 8 %}
+        {% assign width = 'medium-up--one-quarter' %}
+    {% when 9 %}
+        {% assign width = 'medium--one-third large-up--one-fifth' %}
+    {% when 10 %}
+        {% assign width = 'medium--one-third large-up--one-fifth' %}
+    {% when 11 %}
+        {% assign width = 'medium--one-third large-up--one-sixth' %}
+    {% when 12 %}
+        {% assign width = 'medium--one-third large-up--one-sixth' %}
+{% endcase %}
+
+<div class="section-slide background-image featured-posts {{ block_id }}">
 	<div class="container">
-		<div class=" hide">
-
-			{% comment %}{{ section.tabs_from_tags }}{% endcomment %}
-			{% for t in section.tabs_from_tags %}
-				{% assign sec_tag = t | slugify %}
-				{% comment %}<div>{{ sec_tag }}</div>{% endcomment %}
-				{% for post in site.posts %}
-					{% assign checks_out = false %}
-					{% for p in post.tags %}
-						{% assign p_tag = p | slugify %}
-						{% comment %}<div>{{ p_tag }}</div>{% endcomment %}
-						{% if p_tag contains sec_tag %}
-							{% assign checks_out = true %}
-							{% comment %}<div>true</div>{% endcomment %}
-
-
-
-
-
-						{% endif %}
-					{% endfor %}
-
-					{% if checks_out == true %}
-						<div class="grid__item one-whole medium-up--one-third">
-							{{ forloop.index }}
-						</div>
-					{% endif %}
-
-				{% endfor %}
-			{% endfor %}
-
-			
-		</div>
 		<div class="grid_no_gutter">
-			{% for post in site.posts %}
-				<div class="grid__item one-whole medium-up--one-third">
-					<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-					<div>{{ post.content | truncatewords: 30 }}</div>
-					<date>{{ post.date | date_to_string }}</date>
+			<div class="grid__item table-cell">
+				<div class="tabs-container">
+				    <ul class="tabs">
+				        {% for t in tabs %}
+				            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
+				                {{ t }}
+				            </li>
+				        {% endfor %}
+				    </ul>
+					{% for t in tabs %}
+						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+							{% assign sec_tag = t | slugify %}
+							<div>Tab: {{ sec_tag }}</div>
+							{% comment %}<div class="grid">{% endcomment %}
+								{% for post in site.posts %}
+									{% for p in post.tags %}
+										{% assign count = '' %}
+										{% assign p_tag = p | slugify %}
+										{% if p_tag contains sec_tag %}
+											{% assign count = count | plus: 1 %}
+											{% comment %}{{count}}{% endcomment %}
+											<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
+							        		{% comment %}<div class="grid__item one-whole {{ width }}">
+												<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+												<date>{{ post.date | date_to_string }}</date>
+											</div>{% endcomment %}
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+							{% comment %}</div>{% endcomment %}
+						</div>
+					{% endfor %}
 				</div>
-			{% endfor %}
+			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    var section = '.{{ block_id }}',
+		        tab_trigger = '.tab-trig',
+		        content = '.tab-content',
+		        tab_active = 'current',
+		        cont_active = 'tab--active';
+		    $(section+' '+tab_trigger).click(function(){
+		        var tab = $(this),
+		            tab_id = tab.attr('data-tab'),
+		            cont = $(section+" #"+tab_id);
+
+		    // Removes classes from siblings
+		        $(section+' '+tab_trigger).removeClass(tab_active);
+		        $(section+' '+content).removeClass(cont_active);
+
+		    // Adds class to only selected tabs
+		        tab.addClass(tab_active);
+		        cont.addClass(cont_active);
+		    })
+		})
+	</script>
 	<style type="text/css">
 		.{{ block_id }}::before {
-			background-color:{{ section.image_background_color }};
-			{% if section.background_image %}
-			background-image: url('{{ section.background_image | relative_url }}');
+			background-color:{{ s.image_background_color }};
+			{% if s.background_image %}
+			background-image: url('{{ s.background_image | relative_url }}');
 			{% endif %}
-			{% if section.background_position %}
-			background-position:{{ section.background_position }};
+			{% if s.background_position %}
+			background-position:{{ s.background_position }};
 			{% endif %}
-			{% if section.background_size %}
-			background-size:{{ section.background_size }};
+			{% if s.background_size %}
+			background-size:{{ s.background_size }};
 			{% endif %}
 
 		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
-				{% if section.mobile_background_image %}
-				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% if s.mobile_background_image %}
+				background-image: url('{{ s.mobile_background_image | relative_url }}');
 				{% endif %}
-				{% if section.mobile_background_position %}
-				background-position:{{ section.mobile_background_position }};
+				{% if s.mobile_background_position %}
+				background-position:{{ s.mobile_background_position }};
 				{% endif %}
-				{% if section.mobile_background_size %}
-				background-size:{{ section.mobile_background_size }};
+				{% if s.mobile_background_size %}
+				background-size:{{ s.mobile_background_size }};
 				{% endif %}
 
 			}
 		}
 		.{{ block_id }} .background-color::after {
-			background-color:{{ section.content_background_color }};
+			background-color:{{ s.content_background_color }};
 		}
 		.{{ block_id }} h2,
 		.{{ block_id }} p {
-			color:{{ section.text_color }};
+			color:{{ s.text_color }};
 		}
 	</style>
 </div>

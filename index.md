@@ -6,7 +6,8 @@ use_slider: true
 page_sections:
 - template: featured-posts
   block: featured-posts
-  tabs_from_tags: [Music,Web Developement]
+  tabs_from_tags: [Music,Web Development,Blog]
+  number_of_posts_per_tab: 5
   background_image: "/uploads/2018/07/12/jump-2.jpg"
   content_background_color: rgb(0,0,0)
   image_background_color: rgb(0,0,0)
