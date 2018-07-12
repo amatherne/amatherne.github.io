@@ -104,11 +104,3 @@ fields:
     config:
       color_format: RGB
     label: Content Background Color
-: 
-    color_format: Hex
->>>>>>> 3a1f671b76ce99ba641a944043f1ba9c10a39cf0
-  - type: color
-    name: content_background_color
-    config:
-      color_format: RGB
-    label: Content Background Color
