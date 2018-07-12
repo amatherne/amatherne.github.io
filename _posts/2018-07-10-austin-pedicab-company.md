@@ -10,6 +10,15 @@ hero:
   mix_blend_mode: overlay
 gallery: []
 file_upload: ''
+image:
+  background_image: "/uploads/2018/07/12/jump-2-1.jpg"
+  mobile_background_image: ''
+  image_background_color: ''
+  mix_blend_mode: ''
+  background_position: ''
+  background_size: ''
+  mobile_background_position: ''
+  mobile_background_size: ''
 ---
 ## **Customer Bio** 
 
