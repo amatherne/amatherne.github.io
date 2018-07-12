@@ -21,31 +21,27 @@ fields:
   - type: select
     config:
       source:
-        type: datafiles
+        type: custom
+      options:
+      - normal
+      - multiply
+      - screen
+      - overlay
+      - darken
+      - lighten
+      - color-dodge
+      - color-burn
+      - hard-light
+      - soft-light
+      - difference
+      - exclusion
+      - hue
+      - saturation
+      - color
+      - luminosity
     label: Mix Blend Mode
     name: mix_blend_mode
     hidden: false
-    config:
-        source:
-          type: custom
-        options:
-            - "normal"
-            - "multiply"
-            - "screen"
-            - "overlay"
-            - "darken"
-            - "lighten"
-            - "color-dodge"
-            - "color-burn"
-            - "hard-light"
-            - "soft-light"
-            - "difference"
-            - "exclusion"
-            - "hue"
-            - "saturation"
-            - "color"
-            - "luminosity"
-
 - type: image_gallery
   name: gallery
   label: Gallery
@@ -54,5 +50,3 @@ fields:
   label: File Upload
 pages:
 - _posts/2018-07-10-austin-pedicab-company.md
-
-
