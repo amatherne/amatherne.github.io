@@ -2178,10 +2178,14 @@ form {
 
   .large-up--push-eleven-twelfths {
     left: 91.6666666667%; } }
+body {
+  height: 100vh; }
+
 .max-width {
   width: 100%;
   max-width: 2000px;
   margin: 0 auto;
+  height: 100%;
   box-shadow: 0px 0px 50px 0px rgba(49, 49, 51, 0.9); }
 
 .container {
@@ -2746,7 +2750,13 @@ ul.bxslider {
       width: 90%;
       margin: 0 auto 1em;
       float: initial; }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 766px) {
+    .hero .container {
+      margin-top: 85px;
+      margin-top: 75px;
+      max-height: calc(100vh - 170px);
+      overflow: hidden;
+      overflow-y: auto; }
     .hero:before {
       background-size: cover; }
     .hero .background-color:after {
@@ -2760,7 +2770,7 @@ ul.bxslider {
     .hero .grid_no_gutter {
       width: 100%; }
       .hero .grid_no_gutter .grid__item {
-        padding-bottom: 125px; }
+        padding-bottom: 0; }
     .hero .background-color:after {
       mix-blend-mode: multiply;
       width: 100%; }
@@ -2777,29 +2787,53 @@ ul.bxslider {
       padding-bottom: 0; } }
 
 .tabs-container {
+  max-width: 1200px;
+  width: 95%;
   margin: 0 auto; }
   .tabs-container ul.tabs {
     margin: 0px;
     padding: 0px;
-    list-style: none; }
+    list-style: none;
+    border-bottom: 0.15em solid #f8f8dd; }
     .tabs-container ul.tabs .tab-trig {
       background: none;
       color: #f8f8dd;
       display: inline-block;
-      padding: 10px 15px;
-      cursor: pointer; }
+      text-align: center;
+      padding: 7px 35px;
+      cursor: pointer;
+      font-size: 22px;
+      border-bottom: 0.25em solid rgba(217, 100, 89, 0);
+      transform: translateY(0.1em); }
       .tabs-container ul.tabs .tab-trig.current {
-        color: #008988; }
+        border-bottom-color: #d96459; }
   .tabs-container .tab-content {
     display: none;
     padding: 15px; }
     .tabs-container .tab-content.tab--active {
       display: inherit; }
+  @media screen and (max-width: 766px) {
+    .tabs-container {
+      margin-top: 85px;
+      margin-top: 75px;
+      max-height: calc(100vh - 160px);
+      overflow: hidden;
+      overflow-y: auto; }
+      .tabs-container .tabs {
+        display: flex;
+        max-width: 900px;
+        width: 100%;
+        overflow: hidden;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        margin: 0 15px;
+        justify-content: flex-start; }
+        .tabs-container .tabs .tab-trig {
+          flex: 0 0 auto; } }
 
 .featured-posts {
   height: 100vh;
   width: 100%;
-  min-height: 400px;
   position: relative; }
   .featured-posts:before {
     content: '';
@@ -2834,6 +2868,12 @@ ul.bxslider {
     height: 100%;
     z-index: 1;
     mix-blend-mode: exclusion; }
+  @media screen and (max-width: 766px) {
+    .featured-posts .grid_no_gutter {
+      display: block; }
+      .featured-posts .grid_no_gutter .grid__item {
+        display: block;
+        margin-bottom: 2em; } }
   @media screen and (max-width: 991px) {
     .featured-posts:before {
       background-size: cover; }
@@ -2913,3 +2953,57 @@ ul.bxslider {
   @media screen and (max-width: 766px) {
     .blog-item {
       padding: 0.2em; } }
+
+.template-post .main-hero {
+  width: 100%;
+  height: 0;
+  padding-top: 40%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none; }
+  .template-post .main-hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    transition: all .1s linear; }
+  .template-post .main-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: #000000;
+    mix-blend-mode: hue; }
+.template-post .meta-overlay {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 90%;
+  z-index: 2; }
+.template-post .post-title,
+.template-post .date,
+.template-post .tags {
+  text-transform: uppercase;
+  margin: 0.1em 0 0;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.93), 0px 3px 6px rgba(0, 0, 0, 0.93);
+  color: white; }
+@media screen and (max-width: 766px) {
+  .template-post .main-screens {
+    margin-top: 75px;
+    max-height: calc(100vh - 85px);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 0 2%; }
+  .template-post .main-hero {
+    padding-top: 60%; } }
