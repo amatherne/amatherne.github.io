@@ -67,7 +67,7 @@ fields:
 - type: text
   name: layout
   label: Layout
-  hidden: false
+  hidden: true
   default: Post
 pages:
 - _posts/2018-07-12-vetter-kids.md
