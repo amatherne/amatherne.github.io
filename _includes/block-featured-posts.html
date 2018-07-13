@@ -4,13 +4,19 @@
 {% assign s = section %}
 {% assign imgs = s.image %}
 
+{% assign mob_bg_image = '' %}
 {% assign bg_color = s.image.image_background_color %}
 {% assign bg_image = s.image.background_image | relative_url %}
 {% assign bg_pos = s.image.background_position %}
 {% assign bg_size = s.image.background_size %}
 {% assign bg_blend = s.image.mix_blend_mode %}
 
-{% assign mob_bg_img = s.image.mobile_background_image | relative_url %}
+{% if s.image.mobile_background_image %}
+	{% assign mob_bg_image = s.image.mobile_background_image | relative_url %}
+{% else %}
+	{% assign mob_bg_image = bg_image %}
+{% endif %}
+
 {% assign mob_bg_pos = s.image.mobile_background_position %}
 {% assign mob_bg_size = s.image.mobile_background_size %}
 
@@ -54,6 +60,8 @@
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
 				<div class="tabs-container">
+					{% comment %}<div>desktop image: {{ bg_image }}</div>
+					<div>mobile image: {{ mob_bg_image }}</div>{% endcomment %}
 				    <ul class="tabs">
 				        {% for t in tabs %}
 				            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
@@ -127,7 +135,7 @@
 	</script>
 	<style type="text/css">
 		.{{ block_id }}::before {
-			{% if bg_img != blank %}
+			{% if bg_image != blank %}
 			background-image: url('{{ bg_image }}');
 			{% endif %}
 			{% if bg_pos != blank %}
@@ -144,7 +152,7 @@
 		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
-				{% if mob_bg_img != blank %}
+				{% if mob_bg_image != blank %}
 				background-image: url('{{ mob_bg_image }}');
 				{% endif %}
 				{% if mob_bg_pos != blank %}

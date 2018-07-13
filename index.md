@@ -31,7 +31,7 @@ page_sections:
   - Music
   - Web Development
   - Blog
-  number_of_posts_per_tab: 6
+  number_of_posts_per_tab: 3
   background_image: "/uploads/2018/07/12/jump-2.jpg"
   content_background_color: rgb(0,0,0)
   image_background_color: rgb(217, 100, 89)

@@ -2,12 +2,46 @@
 <html lang="en">
 	{% include head.html %}
 	<!-- layouts/post -->
-	<body>
+	<body class="template-post">
 		<div class="max-width">
-			{% include header.html %}
-			<!-- Add your site or application content here -->
-			<div>Hero: {{ post.hero }}</div>
-			<p>{{ content }}</p>
+			{% include header.html spacer='none' %}
+
+			{% assign img = '' %}
+			{% assign img = page.image.background_image | relative_url %}
+			{% capture post_id %}post-{{ page.image.background_image | slugify | replace: '-','' | slice: 1,20  }}{% endcapture %}
+
+			<div class="main-screens">
+				<div class="main-hero background-image">
+					<div class="meta-overlay">
+						<h1 class="post-title">{{ page.title }}</h1>
+						<span class="date">{{ page.date | date: '%B %e, %Y' }}</span>
+						<div class="tags">
+							{% for p in page.tags %}
+								<span>{{ p }}</span> {% unless forloop.last %}<span>|</span>{% endunless %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="grid">
+						<div class="grid__item one-whole medium--two-thirds large-up--one-half large-up--push-one-quarter">
+							{{ content }}
+						</div>
+						<div class="grid__item one-whole medium--one-third large-up--one-quarter large-up--push-one-quarter">
+							test
+						</div>
+
+
+					</div>	
+				</div>
+
+
+				<style type="text/css">
+					.main-hero::after {
+						background-image: url({{ img }});
+					}
+				</style>
+			</div>
 			{% include footer.html %}
 		</div>
  	</body>

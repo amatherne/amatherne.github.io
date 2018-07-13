@@ -110,7 +110,31 @@
 		}
 	}
 
-	@media screen and (max-width: $grid-large - 1) {
+	@media screen and (max-width:$grid-medium - 1) {
+		// margin-top:calc(10vh + 25px);
+		.container {
+			margin-top:85px;
+			margin-top:75px;
+			max-height:calc(100vh - 170px);
+			overflow:hidden;
+			overflow-y:auto;
+
+			// .tabs {
+			// 	display:flex;
+			// 	// align-items:left;
+			// 	max-width:900px;
+			// 	width:100%;
+			// 	overflow:hidden;
+			// 	overflow-x:auto;
+			// 	flex-wrap: nowrap;
+			// 	margin:0 15px;
+			// 	justify-content:flex-start;
+			// 	.tab-trig {
+			// 		// display:inline-flex;
+			// 		flex:0 0 auto;
+			// 	}
+			// }
+		}
 
 		&:before {
 			background-size:cover;
@@ -136,7 +160,7 @@
 		.grid_no_gutter {
 			width:100%;
 			.grid__item {
-				padding-bottom:125px;
+				padding-bottom:0;
 			}
 		}
 		.background-color:after {

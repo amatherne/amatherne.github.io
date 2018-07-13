@@ -7,13 +7,12 @@
 	<a href="{{ post.url }}" class="background-image {{ post_id }}" style="">
 		<div class="meta-overlay">
 			<h2 class="h3 post-title">{{ post.title }}</h2>
-			<span class="date">{{ post.date | date_to_string }}</span>
+			<span class="date">{{ post.date | date: '%B %e, %Y' }}</span>
 		</div>
 	</a>
 	<style type="text/css">
 		.{{ post_id }}::after {
 			background-image: url({{ img }});
 		}
-
 	</style>
 </div>

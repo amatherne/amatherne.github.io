@@ -1,11 +1,10 @@
 .featured-posts {
 	height:100vh;
 	width:100%;
-	min-height:400px;
+	// min-height:400px;
 	position:relative;
 	// transform: translateZ(0);
-
-
+   
 	&:before {
 		content:'';
 		height:100vh;
@@ -49,9 +48,19 @@
 			mix-blend-mode:exclusion;
 		}
 	}
-	
 
 
+	@media screen and (max-width:$grid-medium - 1) {
+		
+		.grid_no_gutter {
+			display:block;
+
+			.grid__item {
+				display:block;
+				margin-bottom:2em;
+			}
+		}
+	}
 	@media screen and (max-width: $grid-large - 1) {
 
 		&:before {
