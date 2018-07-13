@@ -2178,14 +2178,11 @@ form {
 
   .large-up--push-eleven-twelfths {
     left: 91.6666666667%; } }
-body {
-  height: 100vh; }
-
 .max-width {
   width: 100%;
   max-width: 2000px;
   margin: 0 auto;
-  height: 100%;
+  min-height: 100%;
   box-shadow: 0px 0px 50px 0px rgba(49, 49, 51, 0.9); }
 
 .container {
