@@ -15,6 +15,7 @@ image:
   background_size: ''
   mobile_background_position: ''
   mobile_background_size: ''
+layout: Post
 ---
 ## **Customer Bio** 
 
