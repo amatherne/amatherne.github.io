@@ -73,6 +73,7 @@ fields:
   hidden: true
   default: post
 pages:
+- _posts/vetter-kids.md
 - _posts/2018-07-15-testing-another-fucking-post-url.md
 - _posts/2018-07-15-fuckballs.md
 - _posts/2018-07-10-austin-pedicab-company.md
