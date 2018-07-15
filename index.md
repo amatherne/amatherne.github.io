@@ -10,9 +10,7 @@ page_sections:
     background_image: "/uploads/2018/07/15/austin-1.jpg"
   content:
     cta:
-      enabled: true
-      button_text: adsfasdfasdfasdfasdf
-      url_for_post: _posts/2018-07-12-vetter-kids.md
+      enabled: false
 - template: hero
   block: hero
   image:

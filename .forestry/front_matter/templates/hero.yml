@@ -88,21 +88,6 @@ fields:
     - type: text
       name: button_text
       label: Button text
-    - type: select
-      name: url-for-page
-      config:
-        source:
-          type: pages
-          section: pages
-      label: Url for Page
-    - type: select
-      name: url_for_post
-      config:
-        source:
-          type: pages
-          section: posts
-          path: "/:collection/:title/"
-      label: Url for Post
   - type: color
     name: text_color
     config:
