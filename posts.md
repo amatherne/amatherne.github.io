@@ -6,6 +6,5 @@ page_sections:
 - template: featured-posts
   block: featured-posts
   number_of_posts_per_tab: '3'
-published: false
 
 ---
