@@ -12,7 +12,7 @@ fields:
   name: number_of_posts_per_tab
   label: Number of Posts per Tab
   default: '3'
-- type: tags_list
+- type: boolean
   name: image
   label: Image
   fields:
