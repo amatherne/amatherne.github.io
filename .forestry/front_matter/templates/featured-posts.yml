@@ -8,7 +8,7 @@ fields:
   name: block
   default: featured-posts
   hidden: true
-- type: tags_list
+- type: boolean
   name: tabs_from_tags
   label: Tabs From Tags
 - type: number
