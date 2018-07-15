@@ -13,7 +13,10 @@ page_sections:
     mix_blend_mode: multiply
     background_position: center
     background_size: cover
-  tabs_from_tags: []
+  tabs_from_tags:
+  - Web Development
+  - Blog
+  - Music
 - template: hero
   block: hero
   image:
