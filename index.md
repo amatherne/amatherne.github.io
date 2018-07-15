@@ -4,6 +4,22 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
+- template: hero
+  block: hero
+  image:
+    background_image: "/uploads/2018/07/08/hero.jpg"
+    image_background_color: rgb(217, 100, 89)
+  content:
+    text_color: "#FFFFFF"
+    content_background_color: rgb(217, 100, 89)
+    desc: I do different things. I like....yes, Austin in Austin, craaaazy right...
+      so, I hike, bike, swim, and paddle. I love making music and websites. I love
+      working on new and challenging concepts. I hope you do, too.
+    headline: Hi, I'm Austin
+    cta:
+      enabled: true
+      button_text: Let's Collab
+      url: contact.md
 - template: signup-bar
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
