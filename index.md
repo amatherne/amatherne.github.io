@@ -20,6 +20,15 @@ page_sections:
       enabled: true
       button_text: Let's Collab
       url: contact.md
+- template: featured-posts
+  number_of_posts_per_tab: '3'
+  image:
+    background_image: "/uploads/2018/07/08/glitch-effect_v-3.jpg"
+    image_background_color: rgb(0, 0, 0)
+    mix_blend_mode: multiply
+    background_position: center
+    background_size: cover
+  tabs_from_tags: Music,Web Development, Music
 - template: hero
   block: hero
   image:
