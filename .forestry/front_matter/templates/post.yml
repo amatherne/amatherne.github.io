@@ -79,7 +79,5 @@ fields:
   default: "/:filename:"
 pages:
 - _posts/2018-07-12-testing.md
-- _posts/2018-07-12-testing-4.md
-- _posts/2018-07-12-testing-6.md
 - _posts/2018-07-15-permalink-testing-2.md
 - _posts/2018-07-10-austin-pedicab-company.md
