@@ -7,14 +7,11 @@ page_sections:
 - template: hero
   block: hero
   image:
-    background_image: "/uploads/2018/07/08/sea-1804591_1920.jpg"
-    image_background_color: rgb(255, 0, 0)
-    mix_blend_mode: hard-light
+    background_image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
   content:
-    headline: Dang, Yo
     cta:
       enabled: true
-      button_text: Testig
+      button_text: afghjk
       url-for-page: contact.md
       url_for_post: _posts/2018-07-12-vetter-kids.md
 - template: hero
