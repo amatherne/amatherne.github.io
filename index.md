@@ -9,6 +9,11 @@ page_sections:
   image:
     image: ''
     alt_text: ''
+    background_image: "/uploads/2018/07/08/hero.jpg"
+    mix_blend_mode: screen
+    background_position: center
+    background_size: cover
+    image_background_color: rgb(255, 0, 0)
   background_image: "/uploads/2018/07/08/hero.jpg"
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
@@ -24,6 +29,8 @@ page_sections:
       button_text: Let's Collab
       url: blog.md
       enabled: true
+    text_color: "#993D3D"
+    content_background_color: rgb(245, 166, 35)
 - template: featured-posts
   block: featured-posts
   tabs_from_tags:
