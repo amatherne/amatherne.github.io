@@ -8,14 +8,33 @@ page_sections:
   block: hero
   image:
     background_image: "/uploads/2018/07/08/hero.jpg"
-    mobile_background_image: "/uploads/2018/07/08/austin-2.jpg"
     image_background_color: rgb(217, 100, 89)
   content:
-    headline: Hi, I'm Austin
+    text_color: "#FFFFFF"
+    content_background_color: rgb(217, 100, 89)
     desc: I do different things. I like....yes, Austin in Austin, craaaazy right...
       so, I hike, bike, swim, and paddle. I love making music and websites. I love
       working on new and challenging concepts. I hope you do, too.
-    content_background_color: rgb(217, 100, 89)
+    headline: Hi, I'm Austin
+    cta:
+      enabled: true
+      button_text: Let's Collab
+      url: contact.md
+- template: hero
+  block: hero
+  image:
+    background_image: "/uploads/2018/07/12/jump-2-1.jpg"
+    image_background_color: rgb(47, 142, 185)
+    mix_blend_mode: exclusion
+    background_position: right center
+    background_size: cover
+  content:
+    text_color: "#FFFFFF"
+    cta:
+      button_text: Read More
+      url: _posts/2018-07-12-vetter-kids.md
+      enabled: true
+    headline: Vetter Kids to Jade Helm
 - template: signup-bar
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
