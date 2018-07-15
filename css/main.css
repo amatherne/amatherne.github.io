@@ -2557,7 +2557,9 @@ ul.bxslider {
   font-weight: 100;
   font-size: 20px;
   line-height: 1;
-  letter-spacing: -0.075em; }
+  letter-spacing: -0.075em;
+  padding: 0.1em;
+  padding-bottom: 0.15em; }
 
 .bx-wrapper .bx-pager.bx-default-pager a:hover,
 .bx-wrapper .bx-pager.bx-default-pager a.active,
@@ -2670,7 +2672,10 @@ ul.bxslider {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10; }
+  z-index: 10;
+  mix-blend-mode: difference; }
+  .main-header.active {
+    mix-blend-mode: darken; }
   .main-header .logo {
     font-size: 54px;
     color: #f8f8dd;
@@ -2689,7 +2694,7 @@ ul.bxslider {
       width: 53px;
       height: 53px; }
   .main-header .menu-modal {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.93);
     transition: all .3s .2s ease-in-out; }
     .main-header .menu-modal.active {
       transition: all .1s .2s ease-in-out; }

@@ -131,11 +131,13 @@
         var $btn = $('.menu-toggle'),
             $nav = $('.menu-modal'),
             $nav_bg = $('.menu_active_bg'),
-            $links = $('.menu-modal a');
+            $links = $('.menu-modal a'),
+            $parent = $('.main-header');
 
         var nav_Open = function() {
             $btn.toggleClass('active');
             $nav.toggleClass('active');
+            $parent.toggleClass('active');
 
             // Btn Settings
             var isOpen = $btn.is('.active');
@@ -188,6 +190,9 @@
 
 
 
+
+
+
 <section 
 	class="section-slide hero background-image block-uploads20180708sea-1804591_1920jpg">
 	
@@ -202,7 +207,7 @@
 					<h2 class="h1"></h2>
 					<p></p>
 					
-						<a class="btn" href="">sdfasdf</a>
+						<a class="btn" href="posts/testing-another-fucking-post-url">sdfasdf</a>
 					
 				</div>
 			</div>
@@ -210,11 +215,14 @@
 	</div>
 	<style type="text/css">
 		.block-uploads20180708sea-1804591_1920jpg::before {
-			background-color:;
+			background-color:rgb(191, 54, 12);
 			
 			background-image: url('/uploads/2018/07/08/sea-1804591_1920.jpg');
 			
 			
+			
+			
+			background-blend-mode:screen;
 			
 
 		}
@@ -245,6 +253,9 @@
 
 
 
+
+
+
 <section 
 	class="section-slide hero background-image block-uploads20180712jump-2-1jpg">
 	
@@ -259,7 +270,7 @@
 					<h2 class="h1">Vetter Kids to Jade Helm</h2>
 					<p></p>
 					
-						<a class="btn" href="_posts/2018-07-12-vetter-kids.md">Read More</a>
+						<a class="btn" href="posts/fuckballs">Read More</a>
 					
 				</div>
 			</div>
@@ -276,6 +287,7 @@
 			
 			
 			background-size:cover;
+			
 			
 
 		}
@@ -306,6 +318,9 @@
 
 
 
+
+
+
 <section 
 	class="section-slide hero background-image block-uploads20180708herojpg">
 	
@@ -320,7 +335,7 @@
 					<h2 class="h1">Hi, I'm Austin</h2>
 					<p>I do different things. I like....yes, Austin in Austin, craaaazy right... so, I hike, bike, swim, and paddle. I love making music and websites. I love working on new and challenging concepts. I hope you do, too.</p>
 					
-						<a class="btn" href="">Let's Collab</a>
+						<a class="btn" href="contact">Let's Collab</a>
 					
 				</div>
 			</div>
@@ -331,6 +346,7 @@
 			background-color:rgb(217, 100, 89);
 			
 			background-image: url('/uploads/2018/07/08/hero.jpg');
+			
 			
 			
 			
