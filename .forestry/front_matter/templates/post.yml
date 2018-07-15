@@ -72,10 +72,5 @@ fields:
   label: Layout
   hidden: true
   default: post
-- type: text
-  name: slug
-  label: Slug
-  hidden: true
-  default: ":filename:"
 pages:
 - _posts/2018-07-10-austin-pedicab-company.md
