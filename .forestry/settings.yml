@@ -8,7 +8,7 @@ collections:
   label: Posts
   create: all
   output: true
-    permalink: /posts/:name
+  permalink: /posts/:name
 - path: ''
   label: Pages
   create: all
