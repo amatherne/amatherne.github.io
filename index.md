@@ -15,6 +15,12 @@ page_sections:
   text_color: "#ffffff"
   mobile_background_position: center
   mobile_background_size: cover
+  content:
+    headline: Hi, I'm Austin
+    desc: I do different things. I like....yes, Austin in Austin, craaaazy right...
+    cta:
+      button_text: Let's Collab
+      url: contact.md
 - template: featured-posts
   block: featured-posts
   tabs_from_tags:
