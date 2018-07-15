@@ -20,8 +20,6 @@ page_sections:
       enabled: true
       button_text: Let's Collab
       url: contact.md
-- template: featured-posts
-  number_of_posts_per_tab: '3'
 - template: hero
   block: hero
   image:
