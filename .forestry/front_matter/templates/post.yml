@@ -72,11 +72,6 @@ fields:
   label: Layout
   hidden: true
   default: post
-- type: text
-  name: permalink
-  label: Permalink
-  hidden: true
-  default: "/:filename:"
 pages:
 - _posts/2018-07-15-permalink-testing-2.md
 - _posts/2018-07-15-permalink-testing-3.md
