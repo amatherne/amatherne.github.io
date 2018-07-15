@@ -7,6 +7,23 @@ page_sections:
 - template: hero
   block: hero
   image:
+    background_image: "/uploads/2018/07/12/jump-2-1.jpg"
+    image_background_color: rgb(47, 142, 185)
+    mix_blend_mode: exclusion
+    background_position: right center
+    background_size: cover
+  content:
+    text_color: "#FFFFFF"
+    cta:
+      button_text: Read More
+      url: _posts/2018-07-15-fuckballs.md
+      enabled: true
+      url_for_post: _posts/2018-07-12-vetter-kids.md
+      url-for-page: contact.md
+    headline: Vetter Kids to Jade Helm
+- template: hero
+  block: hero
+  image:
     background_image: "/uploads/2018/07/08/hero.jpg"
     image_background_color: rgb(217, 100, 89)
   content:
@@ -33,21 +50,6 @@ page_sections:
   - Web Development
   - Blog
   - Music
-- template: hero
-  block: hero
-  image:
-    background_image: "/uploads/2018/07/12/jump-2-1.jpg"
-    image_background_color: rgb(47, 142, 185)
-    mix_blend_mode: exclusion
-    background_position: right center
-    background_size: cover
-  content:
-    text_color: "#FFFFFF"
-    cta:
-      button_text: Read More
-      url: _posts/2018-07-15-fuckballs.md
-      enabled: true
-    headline: Vetter Kids to Jade Helm
 - template: signup-bar
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
