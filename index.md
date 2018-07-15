@@ -18,6 +18,8 @@ page_sections:
   content:
     headline: Hi, I'm Austin
     desc: I do different things. I like....yes, Austin in Austin, craaaazy right...
+      so, I hike, bike, swim, and paddle. I love making music and websites. I love
+      working on new and challenging concepts. I hope you do, too.
     cta:
       button_text: Let's Collab
       url: contact.md
