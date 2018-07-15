@@ -11,6 +11,7 @@ fields:
 - type: text
   name: tabs_from_tags
   label: Tabs From Tags
+  default: music, blog, web development
 - type: number
   name: number_of_posts_per_tab
   label: Number of Posts per Tab
