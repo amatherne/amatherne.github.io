@@ -20,6 +20,21 @@ page_sections:
       enabled: true
       button_text: Let's Collab
       url: contact.md
+- template: hero
+  block: hero
+  image:
+    background_image: "/uploads/2018/07/08/AdobeStock_118414832.jpeg"
+    image_background_color: rgb(47, 142, 185)
+    mix_blend_mode: exclusion
+    background_position: right center
+    background_size: cover
+  content:
+    text_color: "#FFFFFF"
+    cta:
+      button_text: Read More
+      url: _posts/2018-07-12-vetter-kids.md
+      enabled: true
+    headline: Vetter Kids to Jade Helm
 - template: signup-bar
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
