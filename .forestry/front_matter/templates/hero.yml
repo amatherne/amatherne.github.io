@@ -101,7 +101,7 @@ fields:
         source:
           type: pages
           section: posts
-          path: /:collection/:title/
+          path: "/:collection/:title/"
       label: Url for Post
   - type: color
     name: text_color
