@@ -10,9 +10,9 @@ page_sections:
   - Music
   image:
     background_image: "/uploads/2018/07/15/austin-1.jpg"
-    image_background_color: rgb(26, 113, 106)
-    mix_blend_mode: multiply
-    background_position: center
+    image_background_color: rgb(108, 142, 142)
+    mix_blend_mode: color-dodge
+    background_position: center 25%
     background_size: cover
 
 ---

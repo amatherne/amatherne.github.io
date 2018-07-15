@@ -6,6 +6,11 @@ fields:
 - type: text
   label: Gallery Title
   name: gallery_title
+- type: text
+  hidden: true
+  label: block
+  name: block
+  default: gallery
 - type: field_group_list
   name: gallery
   label: Gallery

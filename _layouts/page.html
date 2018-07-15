@@ -8,6 +8,7 @@
 			<div class="">
 				<div class="main-screens">
 					{% for section in page.page_sections %}
+						{% comment %}<div>{{ section.block }} - {{ forloop.index }}</div>{% endcomment %}
 						{% include page-{{ section.block }}.html %}
 					{% endfor %}
 				</div>
