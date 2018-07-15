@@ -7,13 +7,6 @@ page_sections:
 - template: hero
   block: hero
   image:
-    background_image: "/uploads/2018/07/15/austin-1.jpg"
-  content:
-    cta:
-      enabled: false
-- template: hero
-  block: hero
-  image:
     background_image: "/uploads/2018/07/12/jump-2-1.jpg"
     image_background_color: rgb(47, 142, 185)
     mix_blend_mode: exclusion
