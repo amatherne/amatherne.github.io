@@ -56,11 +56,13 @@
         var $btn = $('.menu-toggle'),
             $nav = $('.menu-modal'),
             $nav_bg = $('.menu_active_bg'),
-            $links = $('.menu-modal a');
+            $links = $('.menu-modal a'),
+            $parent = $('.main-header');
 
         var nav_Open = function() {
             $btn.toggleClass('active');
             $nav.toggleClass('active');
+            $parent.toggleClass('active');
 
             // Btn Settings
             var isOpen = $btn.is('.active');

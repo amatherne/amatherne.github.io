@@ -6,6 +6,11 @@
 	z-index:10;
 	// overflow:hidden;
 	// padding:1em;
+	mix-blend-mode: difference;
+
+	&.active {
+		mix-blend-mode:darken;
+	}
 	.logo {
 		font-size:54px;
 		color:$beige;
@@ -28,7 +33,7 @@
 		}
 	}
 	.menu-modal {
-		background:rgba(#000000,0.9);
+		background:rgba(#000000,0.93);
 		// transform: translateY(-200%);
 		transition: all .3s .2s ease-in-out;
 		&.active {

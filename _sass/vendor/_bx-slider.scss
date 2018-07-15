@@ -68,6 +68,7 @@ ul.bxslider {
   color: #666;
   padding-top: 20px;
   padding:0 3em;
+  // mix-blend-mode: difference;
 }
 .bx-wrapper .bx-pager.bx-default-pager a {
   // background: #666;
@@ -88,6 +89,8 @@ ul.bxslider {
   font-size:20px;
   line-height:1;
   letter-spacing:-0.075em;
+  padding: 0.1em;
+  padding-bottom: 0.15em;
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a:hover,
