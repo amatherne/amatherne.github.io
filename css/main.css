@@ -3084,7 +3084,7 @@ ul.bxslider {
   transform: translateZ(0); }
   .page-hero:before {
     content: '';
-    height: 100vh;
+    height: 100%;
     width: 100%;
     min-height: 400px;
     position: absolute;
