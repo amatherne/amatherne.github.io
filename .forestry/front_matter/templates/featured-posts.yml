@@ -8,10 +8,9 @@ fields:
   name: block
   default: featured-posts
   hidden: true
-- type: text
+- type: tag_list
   name: tabs_from_tags
   label: Tabs From Tags
-  default: ''
 - type: number
   name: number_of_posts_per_tab
   label: Number of Posts per Tab

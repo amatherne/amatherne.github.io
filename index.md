@@ -7,7 +7,6 @@ page_sections:
 - template: featured-posts
   block: featured-posts
   number_of_posts_per_tab: '3'
-  tabs_from_tags: music, blog, web development
   image:
     background_image: "/uploads/2018/07/15/Poltrona-Gaia.png"
     image_background_color: rgb(0, 0, 0)
