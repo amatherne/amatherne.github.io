@@ -7,6 +7,15 @@ page_sections:
 - template: hero
   block: hero
   image:
+    background_image: "/uploads/2018/07/08/sea-1804591_1920.jpg"
+  content:
+    cta:
+      enabled: true
+      button_text: sdfasdf
+      url: _posts/testing-another-fucking-post-url.md
+- template: hero
+  block: hero
+  image:
     background_image: "/uploads/2018/07/12/jump-2-1.jpg"
     image_background_color: rgb(47, 142, 185)
     mix_blend_mode: exclusion
