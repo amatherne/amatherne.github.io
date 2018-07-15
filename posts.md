@@ -8,7 +8,7 @@ page_sections:
   number_of_posts_per_tab: '12'
   image:
     background_image: "/uploads/2018/07/15/Poltrona-Gaia.png"
-    image_background_color: rgb(0, 0, 0)
+    image_background_color: rgb(50,50,50)
     mix_blend_mode: multiply
     background_position: center
     background_size: cover

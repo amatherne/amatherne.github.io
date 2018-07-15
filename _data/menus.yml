@@ -1,17 +1,20 @@
 ---
 main:
-- title: Contact
-  url: "/contact"
-  weight: 6
+- title: About
+  url: "/about"
+  weight: 1
+- title: Portfolio
+  url: "/portfolio"
+  weight: 2
 - title: Music
   url: "/music"
   weight: 3
 - title: Blog
   url: "/blog"
   weight: 4
-- title: Portfolio
-  url: "/portfolio"
-  weight: 2
-- title: About
-  url: "/about"
-  weight: 1
+- title: All Posts
+  url: "/posts"
+  weight: 5
+- title: Contact
+  url: "/contact"
+  weight: 6

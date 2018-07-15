@@ -4,9 +4,10 @@ auto_deploy: true
 admin_path: "/admin"
 webhook_url: 
 collections:
-- path: _posts
+- path: posts
   label: Posts
   create: all
+  permalink: /:categories/:title/
 - path: ''
   label: Pages
   create: all
@@ -14,4 +15,4 @@ upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: "/uploads"
 use_front_matter_path: true
-file_template: ":year:/:month:/:day:/:filename:"
+file_template: "/:collections/:filename:"

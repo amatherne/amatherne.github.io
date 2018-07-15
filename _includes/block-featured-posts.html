@@ -38,26 +38,17 @@
         {% assign width = 'medium-up--one-quarter' %}
     {% when 5 %}
         {% assign width = 'medium--one-third large-up--one-fifth' %}
-    {% when 6 %}
+    {% else %}
         {% assign width = 'small--one-half medium--one-third large-up--one-third' %}
-    {% when 7 %}
-        {% assign width = 'medium-up--one-quarter' %}
-    {% when 8 %}
-        {% assign width = 'medium-up--one-quarter' %}
-    {% when 9 %}
-        {% assign width = 'medium--one-third large-up--one-fifth' %}
-    {% when 10 %}
-        {% assign width = 'medium--one-third large-up--one-fifth' %}
-    {% when 11 %}
-        {% assign width = 'medium--one-third large-up--one-sixth' %}
-    {% when 12 %}
-        {% assign width = 'medium--one-third large-up--one-sixth' %}
 {% endcase %}
 <div class="section-slide background-image featured-posts {{ block_id }}">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
-				{% if tabs == '' %}
+				{% if page.url != '/' %}
+					<h1>{{ page.title }}</h1>
+				{% endif %}
+				{% if tabs_num == nil %}
 					<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
 						<div class="grid_no_gutter">
 							{% assign count = 0 %}
@@ -70,13 +61,15 @@
 					</div>
 				{% else %}
 					<div class="tabs-container">
-					    <ul class="tabs">
-					        {% for t in tabs %}
-					            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
-					                {{ t }}
-					            </li>
-					        {% endfor %}
-					    </ul>
+						{% unless tabs_num == 1 %}
+						    <ul class="tabs">
+						        {% for t in tabs %}
+						            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
+						                {{ t }}
+						            </li>
+						        {% endfor %}
+						    </ul>
+					    {% endunless %}
 						{% for t in tabs %}
 							<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
 								{% assign sec_tag = t | slugify %}

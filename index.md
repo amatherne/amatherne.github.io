@@ -4,6 +4,19 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
+- template: featured-posts
+  block: featured-posts
+  number_of_posts_per_tab: '3'
+  image:
+    background_image: "/uploads/2018/07/15/Poltrona-Gaia.png"
+    image_background_color: rgb(0, 137, 136)
+    mix_blend_mode: multiply
+    background_position: center
+    background_size: cover
+  tabs_from_tags:
+  - Web Development
+  - Blog
+  - Music
 - template: hero
   block: hero
   image:
@@ -20,19 +33,6 @@ page_sections:
       enabled: true
       button_text: Let's Collab
       url: contact.md
-- template: featured-posts
-  block: featured-posts
-  number_of_posts_per_tab: '3'
-  image:
-    background_image: "/uploads/2018/07/15/Poltrona-Gaia.png"
-    image_background_color: rgb(0, 137, 136)
-    mix_blend_mode: multiply
-    background_position: center
-    background_size: cover
-  tabs_from_tags:
-  - Web Development
-  - Blog
-  - Music
 - template: hero
   block: hero
   image:
