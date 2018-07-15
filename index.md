@@ -4,10 +4,6 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
-- template: featured-posts
-  block: featured-posts
-  number_of_posts_per_tab: '3'
-  tabs_from_tags: music, blog, web development
 - template: hero
   block: hero
   image:
