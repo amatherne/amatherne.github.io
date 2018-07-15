@@ -4,9 +4,11 @@ auto_deploy: true
 admin_path: "/admin"
 webhook_url: 
 collections:
-- path: _posts
+- path: posts
   label: Posts
   create: all
+  output: true
+    permalink: /posts/:name
 - path: ''
   label: Pages
   create: all
