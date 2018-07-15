@@ -18,6 +18,7 @@ defaults:
       type: posts
     values:
       layout: post
+permalink: pretty
 markdown: kramdown
 plugins:
   - jekyll-feed
