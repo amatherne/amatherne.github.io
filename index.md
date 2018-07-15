@@ -4,54 +4,6 @@ title: Homepage
 date: 2017-11-22 23:00:00 +0000
 use_slider: true
 page_sections:
-- template: hero
-  block: hero
-  image:
-    image: ''
-    alt_text: ''
-    background_image: "/uploads/2018/07/08/hero.jpg"
-    mix_blend_mode: screen
-    background_position: center
-    background_size: cover
-    image_background_color: rgb(255, 0, 0)
-  background_image: "/uploads/2018/07/08/hero.jpg"
-  content_background_color: rgb(217, 100, 89)
-  image_background_color: rgb(217, 100, 89)
-  text_color: "#ffffff"
-  mobile_background_position: center
-  mobile_background_size: cover
-  content:
-    headline: Hi, I'm Austin
-    desc: I do different things. I like....yes, Austin in Austin, craaaazy right...
-      so, I hike, bike, swim, and paddle. I love making music and websites. I love
-      working on new and challenging concepts. I hope you do, too.
-    cta:
-      button_text: Let's Collab
-      url: blog.md
-      enabled: true
-    text_color: "#993D3D"
-    content_background_color: rgb(245, 166, 35)
-- template: featured-posts
-  block: featured-posts
-  tabs_from_tags:
-  - Music
-  - Web Development
-  - Blog
-  number_of_posts_per_tab: 3
-  background_image: "/uploads/2018/07/12/jump-2.jpg"
-  content_background_color: rgb(0,0,0)
-  image_background_color: rgb(217, 100, 89)
-  text_color: "#ffffff"
-  background_position: Center
-  background_size: cover
-  mobile_background_position: center
-  mobile_background_size: cover
-  image:
-    background_image: "/uploads/2018/07/12/Poltrona-Gaia.png"
-    image_background_color: rgb(0, 137, 136)
-    mix_blend_mode: multiply
-    background_position: center
-    background_size: cover
 - template: signup-bar
   block: cta-bar
   email_recipient: matherne.projects@gmail.com
