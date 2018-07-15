@@ -174,6 +174,155 @@
 			<div class="bx-wrapper">
 				<div class="main-screens">
 					
+						<!-- includes/featured-posts -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-slide background-image featured-posts block-">
+	<div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item table-cell">
+				<div class="tabs-container">
+					<div>music, blog, web development</div>
+					
+				    <ul class="tabs">
+				        
+				            <li class="tab-trig current" data-tab="tab-1">
+				                music, blog, web development
+				            </li>
+				        
+				    </ul>
+					
+						<div id="tab-1" class="tab-content tab--active">
+							
+							<div class="grid_no_gutter">
+								
+								
+									
+										
+										
+									
+								
+									
+										
+										
+									
+								
+									
+								
+									
+										
+										
+									
+										
+										
+									
+								
+									
+										
+										
+									
+										
+										
+									
+								
+							</div>
+						</div>
+					
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    var section = '.block-',
+		        tab_trigger = '.tab-trig',
+		        content = '.tab-content',
+		        tab_active = 'current',
+		        cont_active = 'tab--active';
+		    $(section+' '+tab_trigger).click(function(){
+		        var tab = $(this),
+		            tab_id = tab.attr('data-tab'),
+		            cont = $(section+" #"+tab_id);
+
+		    // Removes classes from siblings
+		        $(section+' '+tab_trigger).removeClass(tab_active);
+		        $(section+' '+content).removeClass(cont_active);
+
+		    // Adds class to only selected tabs
+		        tab.addClass(tab_active);
+		        cont.addClass(cont_active);
+		    })
+		})
+	</script>
+	<style type="text/css">
+		.block-::before {
+			
+			background-image: url('');
+			
+			
+			background-position:;
+			
+			
+			background-size:;
+			
+			
+			background-blend-mode:;
+			
+			background-color:;
+
+		}
+		@media screen and (max-width:767px) {
+			.block-::before {
+				
+				background-image: url('');
+				
+				
+				background-position:;
+				
+				
+				background-size:;
+				
+
+			}
+		}
+		.block- .background-color::before {
+			background-color:;
+		}
+		.block- h2,
+		.block- p {
+			color:;
+		}
+	</style>
+</div>
+					
 						<!-- includes/block-hero -->
 
 
@@ -530,6 +679,10 @@
 							
 							<div class="bx-pager-item">
 								<a href="" data-slide-index="3" class="bx-pager-link ">04</a>
+							</div>
+							
+							<div class="bx-pager-item">
+								<a href="" data-slide-index="4" class="bx-pager-link ">05</a>
 							</div>
 							
 						</div>
