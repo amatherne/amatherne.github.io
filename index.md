@@ -229,6 +229,12 @@ page_sections:
     '210': "."
     cta:
       url: _posts/2018-07-12-vetter-kids.md
+      button_text: Learn More
+      enabled: true
+    content: I do different things. I like....yes, Austin in Austin, craaaazy right...
+      so, I hike, bike, swim, and paddle. I love making music and websites. I love
+      working on new and challenging concepts. I hope you do, too.<a href="http://127.0.0.1:4000/_posts/2018-07-12-vetter-kids.md"><br></a>
+    headline: Hi, I'm Austin
   content_background_color: rgb(217, 100, 89)
   image_background_color: rgb(217, 100, 89)
   text_color: "#ffffff"
@@ -290,5 +296,6 @@ page_sections:
   mobile_background_position: center
   mobile_background_size: cover
   background_mix_mode: soft-light
+
 ---
 foo bar
