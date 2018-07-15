@@ -18,22 +18,10 @@ fields:
   name: page_sections
   label: Page Sections
   template_types:
-  - navigation-header
-  - navigation-header-w-button
-  - simple-header
   - hero
-  - hero-2
-  - hero-3
-  - content-feature
-  - detail-content
-  - 1-column-text
-  - 2-column-text
-  - 3-column-text
-  - full-width-media-element
-  - 2-column-media-element
+  - featured-posts
   - signup-bar
   - simple-footer
-  - 4-column-footer
 pages:
 - index.md
 - about.md
