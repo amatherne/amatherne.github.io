@@ -88,6 +88,12 @@ fields:
     - type: text
       name: button_text
       label: Button text
+    - type: select
+      name: url
+      config:
+        source:
+          type: pages
+      label: Url
   - type: color
     name: text_color
     config:
