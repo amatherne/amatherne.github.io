@@ -23,7 +23,7 @@ fields:
   - signup-bar
   - simple-footer
 pages:
-- index.md
 - posts.md
 - music.md
+- index.md
 - about.md

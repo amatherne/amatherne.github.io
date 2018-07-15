@@ -7,16 +7,6 @@ page_sections:
 - template: hero
   block: hero
   image:
-    background_image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
-  content:
-    cta:
-      enabled: true
-      button_text: afghjk
-      url-for-page: contact.md
-      url_for_post: _posts/2018-07-12-vetter-kids.md
-- template: hero
-  block: hero
-  image:
     background_image: "/uploads/2018/07/12/jump-2-1.jpg"
     image_background_color: rgb(47, 142, 185)
     mix_blend_mode: exclusion
