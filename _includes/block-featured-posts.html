@@ -22,8 +22,7 @@
 
 {% capture block_id %}block-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
 
-
-{% assign limit = s.number_of_posts_per_tab %}
+{% assign limit = s.number_of_posts_per_tab | plus: 0 %}
 {% assign tabs = s.tabs_from_tags %}
 {% assign tabs_num = s.tabs_from_tags.size %}
 
@@ -54,62 +53,71 @@
     {% when 12 %}
         {% assign width = 'medium--one-third large-up--one-sixth' %}
 {% endcase %}
-
-
 <div class="section-slide background-image featured-posts {{ block_id }}">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
-				<div class="tabs-container">
-					<div>{{ tabs }}</div>
-					{% comment %}<div>desktop image: {{ bg_image }}</div>
-					<div>mobile image: {{ mob_bg_image }}</div>{% endcomment %}
-				    <ul class="tabs">
-				        {% for t in tabs %}
-				            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
-				                {{ t }}
-				            </li>
-				        {% endfor %}
-				    </ul>
-					{% for t in tabs %}
-						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
-							{% assign sec_tag = t | slugify %}
-							<div class="grid_no_gutter">
-								{% assign count = 0 %}
+				{% if tabs == '' %}
+					<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+						<div class="grid_no_gutter">
+							{% assign count = 0 %}
+							{% for post in site.posts limit: limit %}
+				        		<div class="grid__item one-whole {{ width }}">
+									{% include blog_item.html %}	
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% else %}
+					<div class="tabs-container">
+					    <ul class="tabs">
+					        {% for t in tabs %}
+					            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
+					                {{ t }}
+					            </li>
+					        {% endfor %}
+					    </ul>
+						{% for t in tabs %}
+							<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+								{% assign sec_tag = t | slugify %}
+								<div class="grid_no_gutter">
+									{% assign count = 0 %}
+									{% for post in site.posts %}
+										{% for p in post.tags %}
+											{% assign p_tag = p | slugify %}
+											{% if p_tag contains sec_tag %}
+												{% assign count = count | plus: 1 %}
+												{% comment %}<div class="grid__item">Count/Limit: {{ count }} / {{ limit }}</div>{% endcomment %}
+												{% if count <= limit %}
+									        		<div class="grid__item one-whole {{ width }}">
+														{% include blog_item.html %}	
+													</div>
+												{% endif %}
+											{% endif %}
+										{% endfor %}
+									{% endfor %}
+								</div>
+							</div>
+						{% endfor %}
+
+						{% comment %}{% for t in tabs %}
+							<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+								{% assign sec_tag = t | slugify %}
+								<div>Tab: {{ sec_tag }}</div>
 								{% for post in site.posts %}
 									{% for p in post.tags %}
+										{% assign count = '' %}
 										{% assign p_tag = p | slugify %}
 										{% if p_tag contains sec_tag %}
 											{% assign count = count | plus: 1 %}
-											{% if count <= limit %}
-								        		<div class="grid__item one-whole {{ width }}">
-													{% include blog_item.html %}	
-												</div>
-											{% endif %}
+											<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
 										{% endif %}
 									{% endfor %}
 								{% endfor %}
 							</div>
-						</div>
-					{% endfor %}
-
-					{% comment %}{% for t in tabs %}
-						<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
-							{% assign sec_tag = t | slugify %}
-							<div>Tab: {{ sec_tag }}</div>
-							{% for post in site.posts %}
-								{% for p in post.tags %}
-									{% assign count = '' %}
-									{% assign p_tag = p | slugify %}
-									{% if p_tag contains sec_tag %}
-										{% assign count = count | plus: 1 %}
-										<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
-									{% endif %}
-								{% endfor %}
-							{% endfor %}
-						</div>
-					{% endfor %}{% endcomment %}
-				</div>
+						{% endfor %}{% endcomment %}
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>

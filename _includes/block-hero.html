@@ -1,6 +1,7 @@
 <!-- includes/block-hero -->
 {% assign block_id = '' %}
 {% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% comment %}{% assign hor_align = '' %}{% endcomment %}
 <section 
 	class="section-slide hero background-image {{ block_id }}">
 	{% comment %}<div class="background-image"></div>{% endcomment %}

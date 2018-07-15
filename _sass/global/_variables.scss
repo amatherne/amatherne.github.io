@@ -9,6 +9,7 @@
 	$beige:#f8f8dd;
 	$dark:#313133;
 
+
 	$bodyBG:$beige;
 	$bodyTextColor:$beige;
 	$borderColor:lighten($beige,10%);
@@ -61,7 +62,7 @@
 			- Default is no push classes
 			- Will not work if `styles/global/grid.scss` is removed
 	==============================================================================*/
-	$breakpoint-has-widths: ($small, $medium-up, $medium, $large, $large-up);
+	$breakpoint-has-widths: ($small, $medium-up, $medium, $medium-up, $large, $large-up);
 	$breakpoint-has-push: ($small, $medium-up, $medium, $large, $large-up);
 
 
@@ -90,11 +91,11 @@
 
 	// Default Colors
 	$btnTextColor:             #fff ;
-	$btnBgColor:			   $green ;
+	$btnBgColor:			   rgba(#ffffff,0.3) ;
 	$btnBorderColor:		   #fff ;
-	$btnTextHoverColor:        $green;
+	$btnTextHoverColor:        darken(#fff,30%) ;
 	$btnBgHoverColor:		   #fff ;
-	$btnBorderHoverColor:	   $green ;
+	$btnBorderHoverColor:	   #fff ;
 
 	// // Secondary Colors
 	// $sec_btnTextColor:         {{ settings.sec_btn_text_color }} ;

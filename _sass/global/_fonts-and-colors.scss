@@ -144,6 +144,8 @@
 
 // Buttons Default
 // ---------------
+	$btnPadding:13px;
+	$btnBorder:3px;
 	.btn {
 		display:inline-block;
 		font-size: $btnFontSize;
@@ -152,19 +154,21 @@
 		text-transform: $btnFontStyle !important;
 		color: $btnTextColor !important;
 		background-color:$btnBgColor !important;    
-		border:1px solid $btnBorderColor !important;
-		padding: 8px 30px;
+		border-bottom:$btnBorder solid $btnBorderColor !important;
+		padding: $btnPadding ($btnPadding * 2) ($btnPadding - $btnBorder);
 		line-height: $bodyLineHeight !important;
 		cursor:pointer;
 		transition:all 150ms linear;
 		text-decoration:none;
 		&:hover {
-			border:1px solid $btnBorderHoverColor !important;
+			border-bottom-color:$btnBorderHoverColor !important;
 			background-color:$btnBgHoverColor !important;
 			text-decoration: none !important;
 			color: $btnTextHoverColor !important;
 
 		}
+
+
 		// // Secondary
 		// // ---------
 		// &.secondary {
