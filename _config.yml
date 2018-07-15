@@ -18,8 +18,8 @@ defaults:
       type: posts
     values:
       layout: post
-permalink: pretty
 markdown: kramdown
+permalink: /:collection/:title/
 plugins:
   - jekyll-feed
   - jekyll-menus
