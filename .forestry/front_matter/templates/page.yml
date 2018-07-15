@@ -18,9 +18,10 @@ fields:
   name: page_sections
   label: Page Sections
   template_types:
-  - hero
-  - signup-bar
-  - featured-posts
-  - simple-footer
+  - page-hero
+  - content-block
+  - gallery
+  - related-posts
+  - page-footer
 pages:
 - contact.md

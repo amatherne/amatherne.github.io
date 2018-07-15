@@ -1,13 +1,17 @@
 ---
 title: About Me
-layout: blocks
+layout: page
 date: 2018-07-08 00:00:00 +0000
 page_sections:
-- template: content-feature
-  block: feature-1
-  media_alignment: Right
-  headline: About Me
-  content: 'My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
+- template: page-hero
+  block: hero
+  image:
+    background_image: "/uploads/2018/07/08/hero.jpg"
+    image_background_color: rgb(216, 202, 13)
+    mix_blend_mode: soft-light
+---
+
+My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
     I grew up in Baton Rouge, Louisiana, but have been a resident of the Austin area
     for the past decade. The laid back, laissez-faire style of the city reminded me
     of comforts of home, but embodied more of the cultural progressive attitudes that
@@ -27,7 +31,4 @@ page_sections:
     techniques, typography, and how to mesh them into the digital world appropriately
     with an aesthetic eye. They also taught me to identify problems and create solutions
     with a focus on the customer’s best interests. I am actively looking for projects
-    that represent the diverse, eclectic community I’m a part of.'
-  media:
-    image: "/2018/07/08/hero.jpg"
----
+    that represent the diverse, eclectic community I’m a part of.
