@@ -24,4 +24,5 @@ fields:
   - simple-footer
 pages:
 - index.md
+- posts.md
 - about.md
