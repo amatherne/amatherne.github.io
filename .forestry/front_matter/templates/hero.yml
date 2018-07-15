@@ -72,7 +72,7 @@ fields:
       schema:
         format: html
   - type: textarea
-    name: content
+    name: desc
     label: Content
     config:
       wysiwyg: true
