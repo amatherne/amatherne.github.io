@@ -22,6 +22,7 @@
 
 {% capture block_id %}block-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
 
+
 {% assign limit = s.number_of_posts_per_tab %}
 {% assign tabs = s.tabs_from_tags %}
 {% assign tabs_num = s.tabs_from_tags.size %}
@@ -60,6 +61,7 @@
 		<div class="grid_no_gutter">
 			<div class="grid__item table-cell">
 				<div class="tabs-container">
+					<div>{{ tabs }}</div>
 					{% comment %}<div>desktop image: {{ bg_image }}</div>
 					<div>mobile image: {{ mob_bg_image }}</div>{% endcomment %}
 				    <ul class="tabs">
