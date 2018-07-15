@@ -9,7 +9,7 @@ fields:
 - type: text
   name: layout
   label: Layout
-  default: blocks
+  default: page
   hidden: true
 - type: datetime
   name: date
