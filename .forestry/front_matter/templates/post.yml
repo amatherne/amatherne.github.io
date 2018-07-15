@@ -76,7 +76,7 @@ fields:
   name: permalink
   label: Permalink
   hidden: true
-  default: ":collections/:filename:"
+  default: "/:filename:"
 pages:
 - _posts/2018-07-12-vetter-kids.md
 - _posts/2018-07-12-testing.md
