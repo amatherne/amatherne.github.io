@@ -9,8 +9,8 @@ page_sections:
     background_image: "/uploads/2018/07/08/hero.jpg"
     image_background_color: rgb(216, 202, 13)
     mix_blend_mode: soft-light
----
 
+---
 My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
     I grew up in Baton Rouge, Louisiana, but have been a resident of the Austin area
     for the past decade. The laid back, laissez-faire style of the city reminded me
