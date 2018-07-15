@@ -33,6 +33,11 @@ page_sections:
     and create solutions with a focus on the customer’s best interests. I am actively
     looking for projects that represent the diverse, eclectic community I’m a part
     of."
+- template: gallery
+  gallery_title: Recent Trip
+  gallery:
+  - image: "/uploads/2018/07/08/austin-2.jpg"
+  - image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
 
 ---
 My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
