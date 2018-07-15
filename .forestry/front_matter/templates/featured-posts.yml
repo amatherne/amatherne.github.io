@@ -3,6 +3,11 @@ label: featured-posts
 hide_body: true
 is_partial: true
 fields:
+- type: text
+  label: block
+  name: block
+  default: featured-posts
+  hidden: true
 - type: tag_list
   name: tabs_from_tags
   label: Tabs From Tags
