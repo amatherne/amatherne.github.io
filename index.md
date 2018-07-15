@@ -22,7 +22,7 @@ page_sections:
       working on new and challenging concepts. I hope you do, too.
     cta:
       button_text: Let's Collab
-      url: contact.md
+      url: blog.md
       enabled: true
 - template: featured-posts
   block: featured-posts
