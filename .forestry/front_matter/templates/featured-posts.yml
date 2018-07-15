@@ -3,7 +3,7 @@ label: featured-posts
 hide_body: true
 is_partial: true
 fields:
-- type: text
+- type: tag_list
   name: tabs_from_tags
   label: Tabs From Tags
 - type: number
