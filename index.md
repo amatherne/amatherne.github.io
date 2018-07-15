@@ -21,6 +21,7 @@ page_sections:
     cta:
       button_text: Let's Collab
       url: contact.md
+      enabled: true
 - template: featured-posts
   block: featured-posts
   tabs_from_tags:
