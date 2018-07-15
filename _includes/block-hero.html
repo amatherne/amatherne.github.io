@@ -1,6 +1,6 @@
 <!-- includes/block-hero -->
 {% assign block_id = '' %}
-{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 <section 
 	class="section-slide hero background-image {{ block_id }}">
 	{% comment %}<div class="background-image"></div>{% endcomment %}
@@ -23,38 +23,38 @@
 	</div>
 	<style type="text/css">
 		.{{ block_id }}::before {
-			background-color:{{ section.image_background_color }};
-			{% if section.background_image %}
-			background-image: url('{{ section.background_image | relative_url }}');
+			background-color:{{ section.image.image_background_color }};
+			{% if section.image.background_image %}
+			background-image: url('{{ section.image.background_image | relative_url }}');
 			{% endif %}
-			{% if section.background_position %}
-			background-position:{{ section.background_position }};
+			{% if section.image.background_position %}
+			background-position:{{ section.image.background_position }};
 			{% endif %}
-			{% if section.background_size %}
-			background-size:{{ section.background_size }};
+			{% if section.image.background_size %}
+			background-size:{{ section.image.background_size }};
 			{% endif %}
 
 		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
-				{% if section.mobile_background_image %}
-				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% if section.image.mobile_background_image %}
+				background-image: url('{{ section.image.mobile_background_image | relative_url }}');
 				{% endif %}
-				{% if section.mobile_background_position %}
-				background-position:{{ section.mobile_background_position }};
+				{% if section.image.mobile_background_position %}
+				background-position:{{ section.image.mobile_background_position }};
 				{% endif %}
-				{% if section.mobile_background_size %}
-				background-size:{{ section.mobile_background_size }};
+				{% if section.image.mobile_background_size %}
+				background-size:{{ section.image.mobile_background_size }};
 				{% endif %}
 
 			}
 		}
 		.{{ block_id }} .background-color::after {
-			background-color:{{ section.content_background_color }};
+			background-color:{{ section.content.content_background_color }};
 		}
 		.{{ block_id }} h2,
 		.{{ block_id }} p {
-			color:{{ section.text_color }};
+			color:{{ section.content.text_color }};
 		}
 	</style>
 </section>

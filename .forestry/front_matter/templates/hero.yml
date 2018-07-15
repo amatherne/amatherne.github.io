@@ -104,3 +104,27 @@ fields:
     config:
       color_format: RGB
     label: Content Background Color
+  - type: select
+    config:
+      source:
+        type: custom
+      options:
+      - normal
+      - multiply
+      - screen
+      - overlay
+      - darken
+      - lighten
+      - color-dodge
+      - color-burn
+      - hard-light
+      - soft-light
+      - difference
+      - exclusion
+      - hue
+      - saturation
+      - color
+      - luminosity
+    label: Mix Blend Mode
+    name: mix_blend_mode
+    hidden: false
