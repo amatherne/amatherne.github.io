@@ -7,6 +7,16 @@ page_sections:
 - template: hero
   block: hero
   image:
+    background_image: "/uploads/2018/07/12/about-hero.png"
+    image_background_color: rgb(249, 146, 146)
+  content:
+    cta:
+      enabled: true
+      button_text: asdfasdfasdfasdfasdf
+      url_for_post: _posts/2018-07-10-austin-pedicab-company.md
+- template: hero
+  block: hero
+  image:
     background_image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
   content:
     cta:
