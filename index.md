@@ -26,7 +26,7 @@ page_sections:
       enabled: true
 - template: hero-banner-w-image
   block: hero
-  background_image: "/uploads/2018/07/12/jump-2.jpg"
+  background_image: "/uploads/2018/07/12/jump-2-1.jpg"
   headline: TEsting
   content: asdfasdfasdf
 - template: featured-posts
