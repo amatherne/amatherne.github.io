@@ -8,7 +8,7 @@ page_sections:
   number_of_posts_per_tab: '3'
 menu:
   main:
-    weight: 1
+    weight: 2
     title: All Posts
 
 ---
