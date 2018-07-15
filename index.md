@@ -22,6 +22,11 @@ page_sections:
       button_text: Let's Collab
       url: contact.md
       enabled: true
+- template: hero-banner-w-image
+  block: hero
+  background_image: "/uploads/2018/07/12/jump-2.jpg"
+  headline: TEsting
+  content: asdfasdfasdf
 - template: featured-posts
   block: featured-posts
   tabs_from_tags:
