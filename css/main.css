@@ -2483,6 +2483,47 @@ form {
   .menu-toggle {
     right: 0.6em;
     top: 0.6em; } }
+.hero:after,
+.featured-posts:after,
+.footer:after {
+  content: '';
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  background: #b78585;
+  z-index: 10000;
+  transform: translateZ(0);
+  transition: all .3s linear; }
+@media screen and (max-width: 766px) {
+  .modal_open .hero:after,
+  .modal_open .featured-posts:after,
+  .modal_open .footer:after {
+    opacity: 0.9;
+    transition: all .1s .3s linear; } }
+
+.template-post .main-screens:after {
+  content: '';
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: exclusion;
+  background: #298075;
+  /* z-index: 10000; */
+  transform: translateZ(0);
+  transition: all .3s linear; }
+.template-post.modal_open .main-screens:after {
+  opacity: 0.9;
+  transition: all .1s .3s linear; }
+
 /** VARIABLES
 ===================================*/
 /** RESET AND LAYOUT
@@ -2886,7 +2927,8 @@ ul.bxslider {
     clear: both;
     width: 100%;
     max-height: 75vh;
-    overflow: auto; }
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
     .hero .content h2 {
       font-size: 60px;
       font-size: 5.5vmin !important;
@@ -2991,7 +3033,10 @@ ul.bxslider {
       margin-top: 75px;
       max-height: calc(100vh - 160px);
       overflow: hidden;
-      overflow-y: auto; }
+      overflow-y: auto;
+      overflow-y: scroll;
+      /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch; }
       .tabs-container .tabs {
         display: flex;
         max-width: 900px;
@@ -3124,7 +3169,10 @@ ul.bxslider {
     clear: both;
     width: 100%;
     max-height: 75vh;
-    overflow: auto; }
+    overflow: auto;
+    overflow-y: scroll;
+    /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch; }
     .page-hero .content h2 {
       font-size: 60px;
       font-size: 5.5vmin !important;

@@ -132,15 +132,19 @@
             $nav = $('.menu-modal'),
             $nav_bg = $('.menu_active_bg'),
             $links = $('.menu-modal a'),
-            $parent = $('.main-header');
+            $parent = $('.main-header'),
+            modalOpen = 'modal_open',
+            navActive = 'active',
+            $body = $('body');
 
         var nav_Open = function() {
-            $btn.toggleClass('active');
-            $nav.toggleClass('active');
-            $parent.toggleClass('active');
+            $btn.toggleClass(navActive);
+            $nav.toggleClass(navActive);
+            $parent.toggleClass(navActive);
+            $body.toggleClass(modalOpen);
 
             // Btn Settings
-            var isOpen = $btn.is('.active');
+            var isOpen = $btn.is('.'+navActive);
                 
                 easing = [500, 20],
 

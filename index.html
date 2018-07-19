@@ -132,15 +132,19 @@
             $nav = $('.menu-modal'),
             $nav_bg = $('.menu_active_bg'),
             $links = $('.menu-modal a'),
-            $parent = $('.main-header');
+            $parent = $('.main-header'),
+            modalOpen = 'modal_open',
+            navActive = 'active',
+            $body = $('body');
 
         var nav_Open = function() {
-            $btn.toggleClass('active');
-            $nav.toggleClass('active');
-            $parent.toggleClass('active');
+            $btn.toggleClass(navActive);
+            $nav.toggleClass(navActive);
+            $parent.toggleClass(navActive);
+            $body.toggleClass(modalOpen);
 
             // Btn Settings
-            var isOpen = $btn.is('.active');
+            var isOpen = $btn.is('.'+navActive);
                 
                 easing = [500, 20],
 
@@ -581,6 +585,8 @@
 			background-size:cover;
 			
 			
+			background-blend-mode:exclusion;
+			
 
 		}
 		@media screen and (max-width:767px) {
@@ -802,7 +808,7 @@
 			background-size:cover;
 			
 			
-			background-blend-mode:darken;
+			background-blend-mode:difference;
 			
 
 		}
@@ -823,7 +829,7 @@
 		.block-uploads20180708adobestock_96573999jpeg .background-color::after {
 			background-color:;
 			
-			mix-blend-mode:soft-light !important;
+			mix-blend-mode:multiply !important;
 			
 		}
 		.block-uploads20180708adobestock_96573999jpeg h2,
