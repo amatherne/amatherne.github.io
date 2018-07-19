@@ -40,6 +40,7 @@ page_sections:
     image_background_color: rgb(47, 142, 185)
     background_position: right center
     background_size: cover
+    mix_blend_mode: exclusion
   content:
     text_color: "#FFFFFF"
     cta:
@@ -80,10 +81,10 @@ page_sections:
   text_color: "#f8f8dd"
   background_position: Center
   background_size: cover
-  background_blend_mode: darken
+  background_blend_mode: difference
   mobile_background_position: center
   mobile_background_size: cover
-  background_mix_mode: soft-light
+  background_mix_mode: multiply
 
 ---
 foo bar

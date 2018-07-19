@@ -41,7 +41,8 @@
 		max-height:calc(100vh - 160px);
 		overflow:hidden;
 		overflow-y:auto;
-
+		overflow-y: scroll; /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
 		.tabs {
 			display:flex;
 			// align-items:left;
