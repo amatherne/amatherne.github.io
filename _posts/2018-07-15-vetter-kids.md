@@ -7,7 +7,7 @@ tags:
 - Web Development
 tech: []
 image:
-  background_image: "/uploads/2018/07/12/jump-2-1.jpg"
+  background_image: "/uploads/2018/07/15/austin-1.jpg"
   mobile_background_image: ''
   image_background_color: rgb(128, 67, 67)
   mix_blend_mode: multiply
