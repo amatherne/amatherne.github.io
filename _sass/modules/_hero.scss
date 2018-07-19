@@ -35,6 +35,9 @@
 		height:100%;
 	}
 	.background-color {
+		// transform:translateZ(0);
+		opacity:0;
+		left:100%;
 		&:after {
 			content:'';
 			position:fixed;
@@ -45,6 +48,10 @@
 			height:100%;
 			z-index:1;
 			mix-blend-mode:exclusion;
+			// transform:translateZ(0);
+
+			// transform:translateX(100%);
+			transition:all .2s linear;
 		}
 	}
 	.content {
@@ -112,6 +119,15 @@
 		}
 	}
 
+
+	&.active-slide {
+
+		.background-color {
+			&:after {
+				// transform:translateX(0%);
+			}
+		}
+	}
 	@media screen and (max-width:$grid-medium - 1) {
 		// margin-top:calc(10vh + 25px);
 		.container {
