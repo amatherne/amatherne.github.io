@@ -132,3 +132,34 @@ $.Velocity
     });
 
 
+$.Velocity
+    .RegisterEffect("transition.slideIn", {
+        defaultDuration: [ 100, 300 ],
+        calls: [
+            [ { opacity: [ 1,0 ], left: [ 0, 100 ], translateZ: [0,0] } ]
+        ]
+    });
+$.Velocity
+    .RegisterEffect("transition.slideOut", {
+        defaultDuration: 100,
+        calls: [
+            [ { opacity: [ 0,1 ], left: [100, 0], translateZ: [0,0]  } ]
+        ]
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

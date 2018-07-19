@@ -2910,16 +2910,20 @@ ul.bxslider {
       padding-bottom: 180px; }
   .hero .container {
     height: 100%; }
-  .hero .background-color:after {
-    content: '';
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 45%;
-    height: 100%;
-    z-index: 1;
-    mix-blend-mode: exclusion; }
+  .hero .background-color {
+    opacity: 0;
+    left: 100%; }
+    .hero .background-color:after {
+      content: '';
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      z-index: 1;
+      mix-blend-mode: exclusion;
+      transition: all .2s linear; }
   .hero .content {
     position: relative;
     z-index: 5;

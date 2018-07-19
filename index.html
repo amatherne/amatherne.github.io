@@ -875,6 +875,7 @@
 							var	slideContainer = '.main-screens',
 								slide = '.section-slide',
 								slideActive = 'active-slide';
+								slideBefore = '.active-slide .background-color ';
 								screenHeight = $(window).height();
 								screenWidth = $(window).width();
 
@@ -888,55 +889,33 @@
 
 
 							var $slider_nav = $('.bx-pager-link, .bx-controls-direction a');
-					  //           $nav = $('.menu-modal');
+					            // $nav = $('.menu-modal');
 					  //           $nav_bg = $('.menu_active_bg');
-					  //           $links = $('.menu-modal a');
+					            $contBG = $(slideBefore);
 
 					        var slide_animation = function(e) {
-					            // $slider_nav.toggleClass('active');
-					            // $nav.toggleClass('active');
 
-					            // e.preventDefault()
-
-
-					            $(slide).removeClass(slideActive);
-							    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
-							    console.log('Slippity Slide.')
-
-					            // Btn Settings
-					            var isOpen = $slider_nav.is('.active');
+					            var isOpen = $(slide).is(slideActive);
 					                
-					                // easing = [500, 20],
-
-					                // NavTop = isOpen ? '0%':'-200%',
-					                // NavDelay = isOpen ? 0 : 0,
-					                // NavDur = isOpen ? 700 : 100,
-
-					                // aTrans = isOpen ? 'transition.leftIn' : 'transition.leftOut',
-					                // aStag = isOpen ? 175 : 0,
-					                // aDelay = isOpen ? 450 : 0,
-					                // aDur = isOpen ? 600 : 100,
-					                // aEase = isOpen ? easing : easing,
-					                    
-					                // ease = isOpen ? easing : easing,
-					                // dur = isOpen ?  500 : 200;
+					                easing = [500, 20],
+					                leftIn = isOpen ? 1000 : [0,1000],
+					                opacity = isOpen ? 0 : [1,0],
+					                slideDelay = 0, 500,
+					                slideDur = isOpen ? 100 : 1000,
+					                ease = isOpen ? easing : easing,
+					                dur = isOpen ?  500 : 200;
 					    
-					            // Navigation
-					            // $nav.velocity({
-					            //     top:NavTop
-					            // },{
-					            //     easing: ease,
-					            //     duration:NavDur,
-					            //     delay:NavDelay
-					            // })
 
-					            // Links
-					            $links.velocity(aTrans,{
-					                // duration:aDur,
-					                // delay:aDelay,
-					                // easing:[300, 10],
-					                // stagger:aStag
-					            })
+							  	$(slideBefore)
+								    .velocity({ 
+								    	left: leftIn,
+								    	opacity: opacity
+								    },{
+								    	duration:slideDur,
+								    	ease:[500,50]
+								    });
+
+
 					        }
 					        
 
@@ -949,18 +928,31 @@
 								touchEnabled: false,
 								hideControlOnEnd: true,
 								pagerCustom: '#bx-pager',
-								onSlideBefore: function slide_animation(){
+
+								onSlideAfter: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+
+					        		$(slide).velocity('reverse');
+								},
+								onSlideBefore: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+					        		// slide_animation()
+					        		$(slide).removeClass(slideActive);
+								    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
+
+					        		slide_animation()
 
 								},
-								onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-								    $(slide).removeClass(slideActive);
-								    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
-								    console.log('Slippity Slide.')
-					        		// $slider_nav.click(slide_animation);
-								},
-								onSliderLoad: function () {
-								    $(slideContainer+" "+slide).eq(0).addClass(slideActive)
-								    console.log('Gaaaame Ooooon')
+
+								onSliderLoad: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+									// currentSlideHtmlObject.preventDefault();
+									setTimeout(function() {
+								    	$(slideContainer+" "+slide).eq(0).addClass(slideActive)
+								    	console.log('Gaaaame Ooooon')
+					        			slide_animation()
+
+									},1500)
+									// return currentSlideNumber--;
+									return false
+
 								}
 							});
 
