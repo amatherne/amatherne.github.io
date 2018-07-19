@@ -7,7 +7,7 @@ tags:
 - Web Development
 tech: []
 image:
-  background_image: "/uploads/:collections:/fullband-1.jpg"
+  background_image: ''
   mobile_background_image: ''
   image_background_color: rgb(128, 67, 67)
   mix_blend_mode: multiply
