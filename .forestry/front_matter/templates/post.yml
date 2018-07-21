@@ -72,6 +72,12 @@ fields:
   label: Layout
   hidden: true
   default: post
+- type: blocks
+  template_types:
+  - post-hero
+  - post-text
+  - post-grid
+  - post-gallery
 pages:
 - _posts/2018-07-15-vetter-kids.md
 - _posts/2018-07-10-austin-pedicab-company.md
