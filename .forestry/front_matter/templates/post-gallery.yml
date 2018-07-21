@@ -8,6 +8,9 @@ fields:
   label: block
   name: block
   default: post-gallery
+- type: text
+  name: title
+  label: Title
 - type: field_group_list
   name: image
   label: Image
