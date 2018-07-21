@@ -78,6 +78,8 @@ fields:
   - post-text
   - post-grid
   - post-gallery
+  label: Blocks
+  name: blocks
 pages:
 - _posts/2018-07-21-testing-post-blocks.md
 - _posts/2018-07-15-vetter-kids.md
