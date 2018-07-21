@@ -2349,6 +2349,10 @@ form {
 
   .large-up--push-eleven-twelfths {
     left: 91.6666666667%; } }
+body.locked {
+  overflow: hidden;
+  height: 100vh; }
+
 .max-width {
   width: 100%;
   max-width: 2000px;
@@ -2484,8 +2488,7 @@ form {
     right: 0.6em;
     top: 0.6em; } }
 .hero:after,
-.featured-posts:after,
-.footer:after {
+.featured-posts:after {
   content: '';
   height: 100vh;
   width: 100%;
@@ -2501,10 +2504,26 @@ form {
   transition: all .3s linear; }
 @media screen and (max-width: 766px) {
   .modal_open .hero:after,
-  .modal_open .featured-posts:after,
-  .modal_open .footer:after {
+  .modal_open .featured-posts:after {
     opacity: 0.9;
     transition: all .1s .3s linear; } }
+
+.footer:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 550px;
+  height: 100%;
+  z-index: 1;
+  mix-blend-mode: exclusion;
+  background: #b78585;
+  opacity: 1; }
+.footer .background-color:after {
+  display: none; }
 
 .template-post .main-screens:after {
   content: '';
@@ -2927,9 +2946,10 @@ ul.bxslider {
   .hero .content {
     position: relative;
     z-index: 5;
-    padding: 0 2vw;
+    margin: 0 3vw;
     clear: both;
     width: 100%;
+    width: calc(100% - 6vw);
     max-height: 75vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch; }
@@ -2941,29 +2961,42 @@ ul.bxslider {
       letter-spacing: -0.035em;
       text-transform: uppercase;
       margin: 0 0 0.25em;
-      width: 100%; }
+      width: 100%;
+      position: relative; }
     .hero .content p {
-      font-size: 18px; }
+      font-size: 18px;
+      position: relative; }
     .hero .content h2, .hero .content p {
       max-width: 400px;
-      float: right; }
+      float: right;
+      opacity: 0;
+      left: 100%; }
     .hero .content .btn {
-      margin-top: 1em; }
-  .hero.contact .background-color:after {
+      margin-top: 1em;
+      position: relative;
+      opacity: 0;
+      left: 100%; }
+  .hero.contact:after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
+    max-width: 550px;
     height: 100%;
     z-index: 1;
-    mix-blend-mode: exclusion; }
+    mix-blend-mode: exclusion;
+    opacity: 1; }
+  .hero.contact .background-color:after {
+    display: none; }
   .hero.contact .grid__item {
     vertical-align: middle;
     padding-bottom: 0; }
   .hero.contact .content {
-    max-width: 700px; }
+    max-width: 500px;
+    margin: 0 auto; }
     .hero.contact .content h2, .hero.contact .content p {
       max-width: 600px;
       width: 90%;
@@ -3302,6 +3335,9 @@ ul.bxslider {
     .blog-item {
       padding: 0.2em; } }
 
+.template-post .max-width {
+  background: #8AC9C8;
+  background: white; }
 .template-post .main-hero {
   width: 100%;
   height: 0;
@@ -3346,6 +3382,43 @@ ul.bxslider {
   margin: 0.1em 0 0;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.93), 0px 3px 6px rgba(0, 0, 0, 0.93);
   color: white; }
+.template-post .section-title {
+  color: #333; }
+.template-post .rte {
+  color: #222; }
+  .template-post .rte h1, .template-post .rte h2, .template-post .rte h3,
+  .template-post .rte h4, .template-post .rte h5, .template-post .rte h6,
+  .template-post .rte p, .template-post .rte li {
+    color: #222; }
+.template-post .post-hero,
+.template-post .post-gallery,
+.template-post .post-text,
+.template-post .post-grid {
+  margin: 3em 0; }
+.template-post .post-hero {
+  position: relative;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh; }
+@media screen and (min-width: 767px) {
+  .template-post .post-grid {
+    display: table;
+    table-layout: fixed;
+    width: 100%; }
+    .template-post .post-grid .grid__item {
+      display: table-cell;
+      vertical-align: middle; }
+    .template-post .post-grid .padding-left {
+      padding-left: 2em; }
+    .template-post .post-grid .padding-right {
+      padding-right: 2em; } }
+.template-post .squared {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  min-height: 0; }
 @media screen and (max-width: 766px) {
   .template-post .main-screens {
     margin-top: 75px;

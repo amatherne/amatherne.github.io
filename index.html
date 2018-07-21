@@ -135,13 +135,16 @@
             $parent = $('.main-header'),
             modalOpen = 'modal_open',
             navActive = 'active',
+            locked = 'locked',
             $body = $('body');
 
-        var nav_Open = function() {
+        var nav_Open = function(e) {
+            e.preventDefault();
             $btn.toggleClass(navActive);
             $nav.toggleClass(navActive);
             $parent.toggleClass(navActive);
             $body.toggleClass(modalOpen);
+            $body.toggleClass(locked);
 
             // Btn Settings
             var isOpen = $btn.is('.'+navActive);
@@ -306,6 +309,9 @@
 									
 									
 										
+											
+											
+										
 									
 										
 											
@@ -382,6 +388,34 @@
 									
 									
 										
+											
+											
+												
+												
+												
+									        		<div class="grid__item one-whole medium-up--one-third">
+														
+
+
+
+<div class="blog-item">
+	
+	<a href="/posts/testing-post-blocks/" class="background-image post-ploadscollectionsasp" style="">
+		<div class="meta-overlay">
+			<h2 class="h3 post-title">Testing Post Blocks</h2>
+			<span class="date">July 21, 2018</span>
+		</div>
+	</a>
+	<style type="text/css">
+		.post-ploadscollectionsasp::after {
+			background-image: url(/uploads/collections/asphalt-1867667.jpg);
+		}
+	</style>
+</div>	
+													</div>
+												
+											
+										
 									
 										
 											
@@ -432,6 +466,9 @@
 								<div class="grid_no_gutter">
 									
 									
+										
+											
+											
 										
 									
 										
@@ -706,6 +743,12 @@
 			
 
 		}
+		.block-uploads20180708glitch-effect_v-3jpg::after {
+			background-color:rgb(0,0,0);
+			
+			mix-blend-mode:hue !important;
+			
+		}
 		@media screen and (max-width:767px) {
 			.block-uploads20180708glitch-effect_v-3jpg::before {
 				
@@ -720,12 +763,7 @@
 			}
 		}
 		/* test */
-		.block-uploads20180708glitch-effect_v-3jpg .background-color::after {
-			background-color:rgb(0,0,0);
-			
-			mix-blend-mode:hue !important;
-			
-		}
+		
 		.block-uploads20180708glitch-effect_v-3jpg h2,
 		.block-uploads20180708glitch-effect_v-3jpg label,
 		.block-uploads20180708glitch-effect_v-3jpg p {
@@ -832,7 +870,7 @@
 			}
 		}
 		/* test */
-		.block-uploads20180708adobestock_96573999jpeg .background-color::after {
+		.block-uploads20180708adobestock_96573999jpeg::after {
 			background-color:;
 			
 			mix-blend-mode:multiply !important;
@@ -881,7 +919,9 @@
 							var	slideContainer = '.main-screens',
 								slide = '.section-slide',
 								slideActive = 'active-slide';
-								slideBefore = '.active-slide .background-color ';
+								slideBefore = '.active-slide .background-color:not(.footer,.contact)';
+								slideContent = '.active-slide .content h2, .active-slide .content p, .active-slide .content .btn';
+								// slideBefore = '.active-slide .content:not(.footer,.contact)';
 								screenHeight = $(window).height();
 								screenWidth = $(window).width();
 
@@ -904,21 +944,34 @@
 					            var isOpen = $(slide).is(slideActive);
 					                
 					                easing = [500, 20],
-					                leftIn = isOpen ? 1000 : [0,1000],
+					                leftInBg = isOpen ? 0 : [0,0],
+					                leftInTxt = isOpen ? 1000 : [0,1000],
 					                opacity = isOpen ? 0 : [1,0],
 					                slideDelay = 0, 500,
 					                slideDur = isOpen ? 100 : 1000,
 					                ease = isOpen ? easing : easing,
+					                elStag = isOpen ? 175 : 0,
 					                dur = isOpen ?  500 : 200;
 					    
 
+
 							  	$(slideBefore)
 								    .velocity({ 
-								    	left: leftIn,
+								    	left: leftInBg,
 								    	opacity: opacity
 								    },{
 								    	duration:slideDur,
 								    	ease:[500,50]
+								    });
+
+								$(slideContent)
+								    .velocity({ 
+								    	left: leftInTxt,
+								    	opacity: opacity
+								    },{
+								    	duration:slideDur,
+								    	stagger:elStag,
+								    	ease:[500,90]
 								    });
 
 

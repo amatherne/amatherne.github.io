@@ -135,13 +135,16 @@
             $parent = $('.main-header'),
             modalOpen = 'modal_open',
             navActive = 'active',
+            locked = 'locked',
             $body = $('body');
 
-        var nav_Open = function() {
+        var nav_Open = function(e) {
+            e.preventDefault();
             $btn.toggleClass(navActive);
             $nav.toggleClass(navActive);
             $parent.toggleClass(navActive);
             $body.toggleClass(modalOpen);
+            $body.toggleClass(locked);
 
             // Btn Settings
             var isOpen = $btn.is('.'+navActive);
@@ -189,7 +192,11 @@
 			
 			
 			
-
+			<style type="text/css">
+				.main-hero::after {
+					background-image: url(/uploads/collections/lowshot-1.jpg);
+				}
+			</style>
 			<div class="main-screens">
 				<div class="main-hero background-image">
 					<div class="meta-overlay">
@@ -206,7 +213,7 @@
 				</div>
 				<div class="container">
 					<div class="grid">
-						<div class="grid__item one-whole medium--two-thirds large-up--one-half large-up--push-one-quarter">
+						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters large-up--push-one-eighth">
 							<h2 id="customer-bio"><strong>Customer Bio</strong></h2>
 
 <p>Vetter Kids are a grunge/punk band based out of Austin, Tx. They play with passion and love interactions with their fans; whether onstage, online, or in real life. They’ve been on tours all over the Midwest and Eastcoast supporting thier 2 releases, “III” and “Logan”. Often opening for national acts like Ranier Maria, The Dillinger Escape Plan, and Reggie Watts.</p>
@@ -221,21 +228,13 @@
 
 <p>The band can create posts in a variety of categories: shows, featured, (1 of 4) band member, and tours. Each post can have a title, date, author, category, or header image. The categories are selected by the paths/tags that are designated in the front matter of each post. This will allow the band to designate Feature posts separately from the posts on the Tour pages, and even individual band member posts. They also have the ability to put shows in a self populating Upcoming shows with whatever information they could want.</p>
 
+							
 						</div>
-						<div class="grid__item one-whole medium--one-third large-up--one-quarter large-up--push-one-quarter">
-							test
-						</div>
-
-
 					</div>	
 				</div>
 
 
-				<style type="text/css">
-					.main-hero::after {
-						background-image: url(/uploads/collections/lowshot-1.jpg);
-					}
-				</style>
+				
 			</div>
 			
 
