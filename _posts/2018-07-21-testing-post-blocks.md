@@ -64,6 +64,7 @@ blocks:
   - image: uploads/2018/07/08/hero.jpg
     caption_title: I don't understand the question, and I won't respond to it.
   - image: uploads/2018/07/12/jump-2-1.jpg
+  title: Gallery Title One
 - template: post-grid
   block: post-grid
   reverse: true
@@ -82,5 +83,6 @@ blocks:
   - image: uploads/2018/07/08/adobestock_96573999.jpeg
   - image: uploads/2018/07/08/glitch-effect_v-3.jpg
   - image: uploads/2018/07/12/about-hero.png
+  title: Gallery Title Two
 
 ---
