@@ -215,7 +215,6 @@
 							
 
 							
-								
 								<!-- includes/page-hero -->
 
 
@@ -238,14 +237,13 @@
 
 
 							
-								
 								<!-- includes/post-hero -->
 
 
 
 <section class="post-hero background-image block-uploads-collections-fullband-1-jpg">
 	<div class="container">
-		<div>
+		<div class="center-content">
 			<h3 class="section-title">Army had half a day.</h3>
 			<div class="rte ">
 				<p>Army had half a day. Now, when you do this without getting punched in the chest, you’ll have more fun. That’s what it said on ‘Ask Jeeves.’ He’ll want to use your yacht, and I don’t want this thing smelling like fish.</p>
@@ -264,7 +262,6 @@
 
 
 							
-								
 								<!-- includes/post-grid -->
 
 
@@ -302,7 +299,6 @@
 
 
 							
-								
 								<!-- includes/post-grid -->
 
 
@@ -342,66 +338,40 @@
 
 
 							
-								
 								<!-- includes/page-gallery -->
-
-
-
-<section class="post-gallery background-image post-gallery">
+<section class="post-gallery background-image">
 	
 	
 	
-	<div class="grid">
+	<div class="grid block-but-i-bought-a-yearbook-a">
 		
 			
 			
 			
-
-
-
-
 		
 			
 			
 			
 				<div class="grid__item one-whole medium--one-half large-up--one-quarter">
-					<div class="background-image squared uploads-collections-asphalt-1867667-jpg">
-						
-					</div>
+					<a rel="block-but-i-bought-a-yearbook-a" title="I hear the jury's still out on science." href="/uploads/collections/asphalt-1867667.jpg" class="background-image squared uploads-collections-asphalt-1867667-jpg"></a>
 				</div>
 			
-
-
-
-
 		
 			
 			
 			
 				<div class="grid__item one-whole medium--one-half large-up--one-quarter">
-					<div class="background-image squared uploads-2018-07-08-hero-jpg">
-						
-					</div>
+					<a rel="block-but-i-bought-a-yearbook-a" title="I don't understand the question, and I won't respond to it." href="/uploads/2018/07/08/hero.jpg" class="background-image squared uploads-2018-07-08-hero-jpg"></a>
 				</div>
 			
-
-
-
-
 		
 			
 			
 			
 				<div class="grid__item one-whole medium--one-half large-up--one-quarter">
-					<div class="background-image squared uploads-2018-07-12-jump-2-1-jpg">
-						
-					</div>
+					<a rel="block-but-i-bought-a-yearbook-a" title="" href="/uploads/2018/07/12/jump-2-1.jpg" class="background-image squared uploads-2018-07-12-jump-2-1-jpg"></a>
 				</div>
 			
-
-
-
-
 		
 	</div>
 	<style type="text/css">
@@ -431,9 +401,18 @@
 
 		
 	</style>
-
-
-
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.block-but-i-bought-a-yearbook-a .background-image').simpleLightbox({
+				captions: true,
+				captionSelector: 'self',
+				// rel: true,
+				captionType: 'attr',
+				captionsData: 'title',
+				captionPosition: 'bottom'
+			});
+		})
+	</script>
 </section>
 
 
