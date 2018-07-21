@@ -2,7 +2,7 @@
 title: Testing Post Blocks
 layout: post
 date: 2018-07-21 06:44:49 +0000
-tags: 
+tags:
 - Blog
 tech:
 - Jekyll
@@ -50,6 +50,20 @@ blocks:
     Not tricks, Michael, illusions. What's Spanish for "I know you speak English?" _Did you enjoy your meal, Mom?_ You drank it fast enough. Say goodbye to these, because it's the last time! There's only one man I've ever called a coward, and that's Brian Doyle Murray. No, what I'm calling you is a television actor.
 
     No… but I'd like to be asked! I care deeply for nature. I don't understand the question, and I won't respond to it. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.
+- template: post-gallery
+  block: post-gallery
+  image:
+  - caption_text: "## **But I bought a yearbook ad from you, doesn't that mean anything
+      anymore?**"
+  - image: uploads/collections/asphalt-1867667.jpg
+    caption_title: I hear the jury's still out on science.
+    caption_text: |-
+      Did you enjoy your meal, Mom? You drank it fast enough. There's so many poorly chosen words in that sentence. That's what it said on 'Ask Jeeves.' I hear the jury's still out on science.
+
+      Did you enjoy your meal, Mom? You drank it fast enough. Get me a vodka rocks. And a piece of toast. **Marry me.** _Did you enjoy your meal, Mom?_ You drank it fast enough.
+  - image: uploads/2018/07/08/hero.jpg
+    caption_title: I don't understand the question, and I won't respond to it.
+  - image: uploads/2018/07/12/jump-2-1.jpg
 - template: post-grid
   block: post-grid
   reverse: true
@@ -65,16 +79,8 @@ blocks:
 - template: post-gallery
   block: post-gallery
   image:
-  - caption_text: "## **But I bought a yearbook ad from you, doesn't that mean anything
-      anymore?**"
-  - image: uploads/collections/asphalt-1867667.jpg
-    caption_title: I hear the jury's still out on science.
-    caption_text: |-
-      Did you enjoy your meal, Mom? You drank it fast enough. There's so many poorly chosen words in that sentence. That's what it said on 'Ask Jeeves.' I hear the jury's still out on science.
-
-      Did you enjoy your meal, Mom? You drank it fast enough. Get me a vodka rocks. And a piece of toast. **Marry me.** _Did you enjoy your meal, Mom?_ You drank it fast enough.
-  - image: uploads/2018/07/08/hero.jpg
-    caption_title: I don't understand the question, and I won't respond to it.
-  - image: uploads/2018/07/12/jump-2-1.jpg
+  - image: uploads/2018/07/08/adobestock_96573999.jpeg
+  - image: uploads/2018/07/08/glitch-effect_v-3.jpg
+  - image: uploads/2018/07/12/about-hero.png
 
 ---
