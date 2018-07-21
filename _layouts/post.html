@@ -9,7 +9,11 @@
 			{% assign img = '' %}
 			{% assign img = page.image.background_image | relative_url %}
 			{% capture post_id %}post-{{ page.image.background_image | slugify | replace: '-','' | slice: 1,20  }}{% endcapture %}
-
+			<style type="text/css">
+				.main-hero::after {
+					background-image: url({{ img }});
+				}
+			</style>
 			<div class="main-screens">
 				<div class="main-hero background-image">
 					<div class="meta-overlay">
@@ -24,23 +28,18 @@
 				</div>
 				<div class="container">
 					<div class="grid">
-						<div class="grid__item one-whole medium--two-thirds large-up--one-half large-up--push-one-quarter">
+						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters large-up--push-one-eighth">
 							{{ content }}
+							{% for section in page.blocks %}
+								{% comment %}<div><h3>{{ forloop.index }} – {{ section.text | truncate: 25 }}</h3></div>{% endcomment %}
+								{% include {{ section.block }}.html %}
+							{% endfor %}
 						</div>
-						<div class="grid__item one-whole medium--one-third large-up--one-quarter large-up--push-one-quarter">
-							test
-						</div>
-
-
 					</div>	
 				</div>
 
 
-				<style type="text/css">
-					.main-hero::after {
-						background-image: url({{ img }});
-					}
-				</style>
+				
 			</div>
 			{% include footer.html %}
 		</div>

@@ -1,0 +1,11 @@
+<!-- includes/page-hero -->
+{% assign block_id = block.title %}
+
+<section 
+	class="{{ section.block }}">
+	{% comment %}<div class="background-image"></div>{% endcomment %}
+	<div class="rte">
+		<div class="rte">{{ section.text | markdownify }}</div>
+	</div>
+</section>
+

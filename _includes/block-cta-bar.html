@@ -69,6 +69,12 @@
 			{% endif %}
 
 		}
+		.{{ block_id }}::after {
+			background-color:{{ section.content_background_color }};
+			{% if section.background_mix_mode %}
+			mix-blend-mode:{{ section.background_mix_mode }} !important;
+			{% endif %}
+		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
 				{% if section.mobile_background_image %}
@@ -85,12 +91,7 @@
 			}
 		}
 		/* test */
-		.{{ block_id }} .background-color::after {
-			background-color:{{ section.content_background_color }};
-			{% if section.background_mix_mode %}
-			mix-blend-mode:{{ section.background_mix_mode }} !important;
-			{% endif %}
-		}
+		
 		.{{ block_id }} h2,
 		.{{ block_id }} label,
 		.{{ block_id }} p {

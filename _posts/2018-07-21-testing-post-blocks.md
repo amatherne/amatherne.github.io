@@ -2,7 +2,8 @@
 title: Testing Post Blocks
 layout: post
 date: 2018-07-21 06:44:49 +0000
-tags: []
+tags: 
+- Blog
 tech:
 - Jekyll
 - Forestry.io
@@ -18,8 +19,9 @@ image:
   mobile_background_size: ''
 gallery: []
 file_upload: ''
-undefined:
+blocks:
 - template: post-text
+  block: post-text
   text: |-
     I'm half machine. I'm a monster. I care deeply for nature. Bad news. Andy Griffith turned us down. He didn't like his trailer. No… but I'd like to be asked!
 
@@ -31,12 +33,14 @@ undefined:
 
     There's so many poorly chosen words in that sentence. Whoa, this guy's straight? No! I was ashamed to be SEEN with you. I like being with you. I care deeply for nature. Across from where? Say goodbye to these, because it's the last time!
 - template: post-hero
+  block: post-hero
   image: uploads/:collections:/fullband-1.jpg
   title: Army had half a day.
   text: Army had half a day. Now, when you do this without getting punched in the
     chest, you'll have more fun. That's what it said on 'Ask Jeeves.' He'll want to
     use your yacht, and I don't want this thing smelling like fish.
 - template: post-grid
+  block: post-grid
   image_ratio: 1/3
   image: uploads/2018/07/08/A29EB141-D3FE-4138-B35D-563B5D20A696.jpeg
   title: First place chick is hot, but has an attitude, doesn't date magicians.
@@ -47,6 +51,7 @@ undefined:
 
     No… but I'd like to be asked! I care deeply for nature. I don't understand the question, and I won't respond to it. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.
 - template: post-grid
+  block: post-grid
   reverse: true
   image_ratio: 1/4
   image: uploads/2018/07/08/AdobeStock_118414832.jpeg
@@ -58,6 +63,7 @@ undefined:
     2. But I bought a yearbook ad from you, doesn't that mean anything anymore?
     3. I'm half machine. I'm a monster.
 - template: post-gallery
+  block: post-gallery
   image:
   - caption_text: "## **But I bought a yearbook ad from you, doesn't that mean anything
       anymore?**"

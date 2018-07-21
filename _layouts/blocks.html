@@ -26,7 +26,9 @@
 							var	slideContainer = '.main-screens',
 								slide = '.section-slide',
 								slideActive = 'active-slide';
-								slideBefore = '.active-slide .background-color ';
+								slideBefore = '.active-slide .background-color:not(.footer,.contact)';
+								slideContent = '.active-slide .content h2, .active-slide .content p, .active-slide .content .btn';
+								// slideBefore = '.active-slide .content:not(.footer,.contact)';
 								screenHeight = $(window).height();
 								screenWidth = $(window).width();
 
@@ -49,21 +51,34 @@
 					            var isOpen = $(slide).is(slideActive);
 					                
 					                easing = [500, 20],
-					                leftIn = isOpen ? 1000 : [0,1000],
+					                leftInBg = isOpen ? 0 : [0,0],
+					                leftInTxt = isOpen ? 1000 : [0,1000],
 					                opacity = isOpen ? 0 : [1,0],
 					                slideDelay = 0, 500,
 					                slideDur = isOpen ? 100 : 1000,
 					                ease = isOpen ? easing : easing,
+					                elStag = isOpen ? 175 : 0,
 					                dur = isOpen ?  500 : 200;
 					    
 
+
 							  	$(slideBefore)
 								    .velocity({ 
-								    	left: leftIn,
+								    	left: leftInBg,
 								    	opacity: opacity
 								    },{
 								    	duration:slideDur,
 								    	ease:[500,50]
+								    });
+
+								$(slideContent)
+								    .velocity({ 
+								    	left: leftInTxt,
+								    	opacity: opacity
+								    },{
+								    	duration:slideDur,
+								    	stagger:elStag,
+								    	ease:[500,90]
 								    });
 
 

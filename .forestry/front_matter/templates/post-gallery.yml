@@ -3,6 +3,11 @@ label: Post Gallery
 hide_body: false
 is_partial: true
 fields:
+- type: text
+  hidden: true
+  label: block
+  name: block
+  default: post-gallery
 - type: field_group_list
   name: image
   label: Image

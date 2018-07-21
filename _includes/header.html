@@ -60,13 +60,16 @@
             $parent = $('.main-header'),
             modalOpen = 'modal_open',
             navActive = 'active',
+            locked = 'locked',
             $body = $('body');
 
-        var nav_Open = function() {
+        var nav_Open = function(e) {
+            e.preventDefault();
             $btn.toggleClass(navActive);
             $nav.toggleClass(navActive);
             $parent.toggleClass(navActive);
             $body.toggleClass(modalOpen);
+            $body.toggleClass(locked);
 
             // Btn Settings
             var isOpen = $btn.is('.'+navActive);

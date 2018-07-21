@@ -3,6 +3,10 @@ body {
 	// min-height:100vh;
 }
 
+body.locked {
+	overflow:hidden;
+	height:100vh;
+}
 .max-width {
 	width:100%;
 	max-width:$width-site;
@@ -183,8 +187,7 @@ body {
 
 
 .hero,
-.featured-posts,
-.footer {
+.featured-posts {
 	&:after {
       	content: '';
 	    height: 100vh;
@@ -210,6 +213,31 @@ body {
 		}
 	}
 
+}
+
+.footer {
+	&:after {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:0;
+		left:50%;
+		transform:translateX(-50%);
+		width:100%;
+		max-width:550px;
+		height:100%;
+		z-index:1;
+		mix-blend-mode:exclusion;
+	    background: #b78585;
+
+		opacity:1;
+	}
+	.background-color {
+
+	}
+	.background-color:after {
+		display:none;
+	}
 }
 
 .template-post {
