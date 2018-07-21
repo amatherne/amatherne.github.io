@@ -1,26 +1,23 @@
 <!-- includes/page-gallery -->
-{% assign block_id = section.block %}
-{% comment %}{% capture block_id %}block-{{ section.image | slugify: ascii }}{% endcapture %}{% endcomment %}
-
-<section class="post-gallery background-image {{ block_id }}">
-	{% comment %}<div class="rte">{{ post.gallery.gallery_title }}</div>{% endcomment %}
+<section class="post-gallery background-image">
 	{% assign images = section.image %}
-	{% comment %}<div class="rte">Images Size: {{ images }}</div>{% endcomment %}
-	<div class="grid">
+	{% assign first = section.image.first  %}
+	{% if first.caption_title %}
+		{% assign imagesClass = first.caption_title | slugify | truncate: 25, '' | prepend: 'block-' %}
+	{% elsif first.caption_text %}
+		{% assign imagesClass = first.caption_text | slugify | truncate: 25, '' | prepend: 'block-' %}
+	{% elsif first.image %}
+		{% assign imagesClass = first.image | slugify | truncate: 25, '' | prepend: 'block-' %}
+	{% endif %}
+	<div class="grid {{imagesClass}}">
 		{% for img in images %}
 			{% assign img_id = '' %}
 			{% assign img_id = img.image | slugify %}
 			{% if img_id %}
 				<div class="grid__item one-whole medium--one-half large-up--one-quarter">
-					<div class="background-image squared {{ img_id }}">
-						
-					</div>
+					<a rel="{{imagesClass}}" title="{{ img.caption_title }}" href="{{ img.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
 				</div>
 			{% endif %}
-
-
-
-
 		{% endfor %}
 	</div>
 	<style type="text/css">
@@ -32,8 +29,17 @@
 
 		{% endfor %}
 	</style>
-
-
-
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.{{imagesClass}} .background-image').simpleLightbox({
+				captions: true,
+				captionSelector: 'self',
+				// rel: true,
+				captionType: 'attr',
+				captionsData: 'title',
+				captionPosition: 'bottom'
+			});
+		})
+	</script>
 </section>
 
