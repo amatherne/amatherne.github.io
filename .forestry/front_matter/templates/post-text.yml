@@ -1,0 +1,12 @@
+---
+label: Post Text
+hide_body: false
+is_partial: true
+fields:
+- type: textarea
+  name: text
+  label: Text
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
