@@ -27,7 +27,7 @@
 		{% for img in images %}
 			{% assign img_id = img.image | slugify %}
 			.{{ img_id }} {
-				background-image:url({{ img.image }});
+				background-image:url({{ img.image | relative_url }});
 			}
 
 		{% endfor %}
