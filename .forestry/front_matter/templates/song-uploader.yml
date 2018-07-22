@@ -1,0 +1,19 @@
+---
+label: Song Uploader
+hide_body: false
+is_partial: true
+fields:
+- type: field_group_list
+  name: music
+  label: Music
+  fields:
+  - type: file
+    name: image
+    label: Image
+  - type: text
+    name: title_/_song_name
+    label: Title / Song Name
+    description: Title ~ Song Name. The "~" is the splitter
+  - type: text
+    name: song_file_name
+    label: Song File Name
