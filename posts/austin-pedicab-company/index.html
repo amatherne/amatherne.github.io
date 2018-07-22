@@ -205,16 +205,90 @@
 						<div class="tags">
 							
 								<span>Web Development</span> <span>|</span>
+								
+								
 							
 								<span>Blog</span> 
+								
+								
 							
 						</div>
 					</div>
 				</div>
 				<div class="container">
 					<div class="grid">
-						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters large-up--push-one-eighth">
-							<h2 id="customer-bio"><strong>Customer Bio</strong> </h2>
+						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter">
+							<div class="grid side-gallery">
+								<div class="grid__item ">
+									<h3>Gallery</h3>
+								</div>
+								
+							</div>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('.side-gallery .background-image').simpleLightbox({
+										captions: true,
+										captionSelector: 'self',
+										// rel: true,
+										captionType: 'attr',
+										captionsData: 'title',
+										captionPosition: 'outside'
+									});
+								})
+							</script>
+							<div class="grid side-feed">
+								<div class="grid__item ">
+									<div class="grid__item ">
+										<h3>Related Posts</h3>
+									</div>
+
+									
+									
+									
+										
+										
+										
+											
+											
+											
+								        		<div class="grid__item one-whole ">
+													
+													<a href="/posts/testing-post-blocks/" class="side-post border-top">
+														<h4>Testing Post Blocks</h4>
+														<span>July 21, 2018</span>
+													</a>
+												</div>
+											
+										
+									
+										
+										
+										
+											
+											
+											
+								        		<div class="grid__item one-whole ">
+													
+													<a href="/posts/vetter-kids/" class="side-post ">
+														<h4>Vetter Kids</h4>
+														<span>July 15, 2018</span>
+													</a>
+												</div>
+											
+										
+									
+										
+										
+										
+									
+								</div>
+							</div>
+
+						</div>
+						
+						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters">
+							<div class="rte">
+								<h2 id="customer-bio"><strong>Customer Bio</strong> </h2>
 
 <p>The Austin Pedicab Co. was created in 2015 by a group of veteran drivers. They each have multiple years of experience in the transportainment industry and wanted to come together to make a company they could be proud to call their own. They’ve proven their mettle on the streets of Austin, New Orleans, Chicago, St Louis, and Dallas. They are adept at safely weaving the huge crowds that descend upon SXSW, Austin City Limits, Lollapolooza, Ranger/Cowboys Games, The Jazz Heritage Festival, and Mardi Gras among many others.</p>
 
@@ -226,6 +300,7 @@
 
 <p>The initial designs for this project were done as wireframes in Illustrator. For the colors schemes I wanted to capture the feel of downtown Austin at night. The reds and greens I especially wanted to give a slightly neon tinge. The header typeface is called Roadgeek and is very similar to what is used on road and street signs across the country; with all body copy being presented in Oxygen. Because the goal was to have this service available to anyone on any device or screen size, all HTML and CSS/SASS was written with a mobile first priority. To help ensure fallbacks and proper cross-browser compatibilty [Bourbon.io](<a href="https://bourbon.io" title="https://bourbon.io">https://bourbon.io</a>) was also implemented. A Basic Jekyll Blog is the basis for the CMS construct, though the only pieces of the Basic left are the liquid tags for templating all original content and CSS was removed completely. The [Twilio API](<a href="https://twilio.io" title="https://twilio.io">https://twilio.io</a>) was used to power the Cab Call feature. I had a friend who’d recently graduated from The Iron Yard help me with the php setup. The API sends one message to the customer who needs a ride and another to the company for dispatch. The dispatch is given all the info needed to contact and confirm with the customer</p>
 
+							</div>
 							
 						</div>
 					</div>	
