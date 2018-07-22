@@ -11,7 +11,7 @@ fields:
     name: image
     label: Image
   - type: text
-    name: title_/_song_name
+    name: title__song_name
     label: Title / Song Name
     description: Title ~ Song Name. The "~" is the splitter
   - type: text

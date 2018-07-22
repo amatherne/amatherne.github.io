@@ -175,6 +175,301 @@
 
 
 
+	.post-audio {
+		$audioColor:black;
+		$audioBar:$orange;
+		// $barColor:#151B48;
+		$barColor:lighten($audioBar,20%);
+		& > * {
+			color:black;
+		}
+
+		// /*
+		//     AUTHOR: Sam Johnson
+		//     MINIMusic Player 
+		// */
+
+		/* HTML5 Audio player with playlist styles */
+		//colors
+		// $audioColor: black;
+		// $audioBar: #dddddd;
+		// $barColor: #aaaaaa;
+		// $barColor: white;
+
+		//fonts
+		$font_0: inherit;
+
+		//urls
+		$playlist: url(/uploads/music/playlist.svg);
+		$play: url(/uploads/music/play.svg);
+		$pause: url(/uploads/music/pause.svg);
+		$rewind: url(/uploads/music/rewind.svg);
+		$forward: url(/uploads/music/next.svg);
+		$stop: url(/uploads/music/stop.svg);
+		$volume_on: url(/uploads/music/volume-up.svg);
+		$volume_off: url(/uploads/music/spr.svg);
+
+		//@extend-elements
+		//original selectors
+		//.title, .artist
+		%extend_1 {
+			font-family: $font_0;
+			left: 167px;
+			position: absolute;
+		}
+
+		//original selectors
+		//.controls .play, .controls .pause
+		%extend_2 {
+			width: 60px;
+			height: 60px;
+			margin: 0 5px;
+		}
+
+		//original selectors
+		//.controls .play, .controls .pause, .controls .rew, .controls .fwd, .controls .stop
+		%extend_3 {
+			text-indent: -10000px;
+			border: none;
+			// float: left;
+			display:inline-block;
+			vertical-align:middle;
+		}
+
+		//original selectors
+		//.controls .rew, .controls .fwd, .controls .stop
+		%extend_4 {
+			width: 40px;
+			height: 40px;
+			margin: 0 10px;
+		}
+
+		//original selectors
+		//.time-current, .time-duration, .time-separator
+		%extend_5 {
+			color: $audioColor;
+			font-size: 14px;
+			font-weight: bold;
+			float: left;
+		}
+
+		//original selectors
+		//.playlist li, .playlist div
+		%extend_6 {
+			color: $barColor;
+			cursor: pointer;
+			// margin: 0 0 5px 15px;
+		}
+
+
+		.example {
+			margin: 50px auto 0;
+			width: 390px;
+		}
+		.example2 {
+			margin: 50px auto 0;
+			width: 390px;
+		}
+		.player {
+			// background: $audioColor;
+			height: 220px;
+			position: relative;
+			width: 100%;
+			z-index: 2;
+		}
+		.title {
+			@extend %extend_1;
+			color: $audioColor;
+			font-size: 14px;
+			font-weight: bold;
+			top: 23px;
+		}
+		.artist {
+			@extend %extend_1;
+			color: lighten(black, 10%);
+			font-size: 12px;
+			top: 40px;
+		}
+		.pl {
+			background: $playlist no-repeat;
+			cursor: pointer;
+			height: 40px;
+			left: 330px;
+			position: absolute;
+			top: 20px;
+			width: 39px;
+			&:hover {
+				top: 21px;
+			}
+		}
+		.cover {
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 5px 5px 5px 5px;
+			height: 94px;
+			left: 20px;
+			position: absolute;
+			top: 30px;
+			width: 94px;
+			background-size:cover;
+			background-position:center;
+			background-repeat:no-repeat;
+		}
+		.controls {
+			cursor: pointer;
+			left: 0;
+			position: absolute;
+			top: 65px;
+			left: 122px;
+			.play {
+				@extend %extend_2;
+				@extend %extend_3;
+				background: $play no-repeat;
+			}
+			.pause {
+				@extend %extend_2;
+				@extend %extend_3;
+				background: $pause no-repeat;
+				display: none;
+			}
+			.rew {
+				@extend %extend_3;
+				@extend %extend_4;
+				background: $rewind no-repeat;
+			}
+			.fwd {
+				@extend %extend_3;
+				@extend %extend_4;
+				background: $forward no-repeat;
+			}
+			.stop {
+				@extend %extend_3;
+				@extend %extend_4;
+				background: $stop no-repeat;
+			}
+			.visible {
+				display: inline-block;
+			}
+			.hidden {
+				display: none;
+			}
+		}
+		
+		.volume {
+			height: 11px;
+			left: 230px;
+			position: absolute;
+			top: 142px;
+			width: 140px;
+			.ui-slider-handle {
+				background: $volume_off no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
+				height: 13px;
+				width: 13px;
+			}
+		}
+		.volume-btn {
+			background: $volume_on no-repeat;
+			height: 20px;
+			width: 20px;
+			float: left;
+			position: relative;
+			top: -4px;
+		}
+		.volume-adjust {
+			height: 11px;
+			position: relative;
+			width: 80%;
+			background: $barColor;
+			float: right;
+			> div > div {
+				height: 11px;
+				background: $audioBar;
+			}
+		}
+		.progressbar {
+			background-color: $barColor;
+			cursor: pointer;
+			z-index: 1;
+			right: 6.875em;
+			height: 15px;
+			left: 0;
+			position: absolute;
+			width: 90%;
+			top: 170px;
+			margin: 0 5%;
+			div {
+				width: 0;
+				height: 15px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+		.bar-loaded {
+			background-color: darken($barColor,5%);
+			z-index: 1;
+		}
+		.bar-played {
+			background: $audioBar;
+			// background:black;
+			z-index: 2;
+		}
+		.timeHolder {
+			color: $audioColor;
+			font-size: 14px;
+			font-weight: bold;
+			bottom: 10px;
+			position: absolute;
+			margin: 0 5%;
+			width: 90%;
+		}
+		.time-current {
+			@extend %extend_5;
+		}
+		.time-duration {
+			@extend %extend_5;
+		}
+		.time-separator {
+			@extend %extend_5;
+		}
+		.playlist {
+			// background-color: $audioBar;
+			list-style-type: none;
+			margin: -10px 0 0 2px;
+			padding-bottom: 10px;
+			padding-top: 15px;
+			position: relative;
+			// width: 95%;
+			z-index: 1;
+			margin: 0 auto;
+			li {
+				@extend %extend_6;
+				> a {
+					// color: $barColor;
+					text-decoration: none;
+				}
+				&.active {
+					font-weight: bold;
+				}
+			}
+			div {
+				@extend %extend_6;
+				> a {
+					// color: $barColor;
+					text-decoration: none;
+				}
+				&.active {
+					font-weight: bold;
+				}
+			}
+		}
+		.mute .volume-btn {
+			background: $volume_on no-repeat;
+			opacity: 0.6;
+		}
+		.novolume .progressbar {
+			right: 4.375em;
+		}
+	}
 
 
 

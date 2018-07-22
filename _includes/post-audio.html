@@ -1,0 +1,34 @@
+<!-- includes/post-hero -->
+<div class="post-audio">
+    <ul class="playlist">
+    	{% assign music_files = page.music %}
+    	{% for song in music_files %}
+    		{% assign meta = song.title__song_name | split: '~' %}
+    		<li 
+    			class="song" 
+    			data-artist="{{ meta | first }}"
+    			data-title="{{ meta | last }}"
+    			data-cover="{{ song.image | relative_url }}">
+            	<a href="{{ song.song_file_name | prepend: '/uploads/music/' | relative_url }}">
+            		<span>{{ meta | first }} – {{ meta | last }}</span>
+            	</a>
+    		</li>
+    	{% endfor %}
+
+    	<script type="text/javascript">
+    		$(document).ready(function () {
+    			$(".post-audio").musicPlayer({
+				  	autoPlay: false , 
+				  	volume: 80, 
+				  	loop: false, 
+				  	timeSeparator: ' / ',
+				  	playerAbovePlaylist: true,  
+				  	infoElements: ['title' , 'artist'] , 
+				  	elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],  
+				  	timeElements: ['current', 'duration'],  
+				  	controlElements: ['backward', 'play', 'forward', 'stop'], 
+				});
+    		})
+    	</script>
+    </ul>
+</div>

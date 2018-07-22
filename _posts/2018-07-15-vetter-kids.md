@@ -19,8 +19,11 @@ gallery: []
 file_upload: ''
 music:
 - image: uploads/2018/07/12/jump-2-1.jpg
-  title_/_song_name: Vetter Kids ~ White Sheep
-  song_file_name: White Sheep.mp3
+  title__song_name: Vetter Kids ~ White Sheep
+  song_file_name: white-sheep.mp3
+- image: uploads/2018/07/12/jump-2-1.jpg
+  title__song_name: Vetter Kids ~ Black Sheep
+  song_file_name: black-sheep.mp3
 blocks: []
 
 ---
