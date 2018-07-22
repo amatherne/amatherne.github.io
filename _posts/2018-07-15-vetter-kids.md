@@ -7,7 +7,7 @@ tags:
 - Web Development
 tech: []
 image:
-  background_image: /uploads/collections/lowshot-1.jpg
+  background_image: "/uploads/collections/lowshot-1.jpg"
   mobile_background_image: ''
   image_background_color: rgb(138,201, 200)
   mix_blend_mode: multiply
@@ -17,6 +17,11 @@ image:
   mobile_background_size: ''
 gallery: []
 file_upload: ''
+music:
+- image: uploads/2018/07/12/jump-2-1.jpg
+  title_/_song_name: Vetter Kids ~ White Sheep
+  song_file_name: White Sheep.mp3
+blocks: []
 
 ---
 ## **Customer Bio**
