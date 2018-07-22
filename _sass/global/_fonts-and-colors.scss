@@ -20,7 +20,7 @@
 // -------
 	h1, h2, h3, h4, h5, h6, 
 	.h1, .h2, .h3, .h4, .h5, .h6 {
-		margin: ($bodyLineHeight / 4) 0 ($bodyLineHeight / 2);
+		margin: 0 0 ($bodyLineHeight / 2);
 		font-weight: $headlineFontWeight;
 		// font-family: $headlineFontFamily;
 		line-height: 1.1em;
@@ -39,6 +39,15 @@
 			// font-family: $baseFontFamily !important;
 		}
 	}
+
+	.template-post {
+		@for $i from 1 through 6 {
+			h#{$i}, .h#{$i} {
+				color:black;
+			}
+		}
+	}
+
 
 	// Modular Size Loop
 	// -----------------

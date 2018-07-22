@@ -60,6 +60,35 @@ fields:
   - type: text
     name: mobile_background_size
     label: Mobile Background Size
+  - type: color
+    name: mobile_image_background_color
+    config:
+      color_format: RGB
+    label: Mobile Image Background Color
+  - type: select
+    config:
+      source:
+        type: custom
+      options:
+      - normal
+      - multiply
+      - screen
+      - overlay
+      - darken
+      - lighten
+      - color-dodge
+      - color-burn
+      - hard-light
+      - soft-light
+      - difference
+      - exclusion
+      - hue
+      - saturation
+      - color
+      - luminosity
+    label: Mobile Mix Blend Mode
+    name: mobele_mix_blend_mode
+    hidden: false
 - type: field_group
   name: content
   label: Content

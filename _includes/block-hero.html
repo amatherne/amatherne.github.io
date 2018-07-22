@@ -55,6 +55,12 @@
 				{% if section.image.mobile_background_size %}
 				background-size:{{ section.image.mobile_background_size }};
 				{% endif %}
+				{% if section.image.mobile_image_background_color %}
+				background-color:{{ section.image.mobile_image_background_color }};
+				{% endif %}
+				{% if section.image.mobile_mix_blend_mode %}
+				background-blend-mode:{{ section.image.mobile_mix_blend_mode }};
+				{% endif %}
 
 			}
 		}

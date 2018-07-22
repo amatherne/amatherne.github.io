@@ -9,12 +9,18 @@
 	{% elsif first.image %}
 		{% assign imagesClass = first.image | slugify | truncate: 25, '' | prepend: 'block-' %}
 	{% endif %}
+
+	{% if section.title %}
+		<div class="section-title">
+			<h3>{{ section.title }}</h3>
+		</div>
+	{% endif %}
 	<div class="grid {{imagesClass}}">
 		{% for img in images %}
 			{% assign img_id = '' %}
 			{% assign img_id = img.image | slugify %}
 			{% if img_id %}
-				<div class="grid__item one-whole medium--one-half large-up--one-quarter">
+				<div class="grid__item one-half large-up--one-quarter">
 					<a rel="{{imagesClass}}" title="{{ img.caption_title }}" href="{{ img.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
 				</div>
 			{% endif %}

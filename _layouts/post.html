@@ -22,14 +22,87 @@
 						<div class="tags">
 							{% for p in page.tags %}
 								<span>{{ p }}</span> {% unless forloop.last %}<span>|</span>{% endunless %}
+								{% assign p_handle = p | slugify | append: ' ' %}
+								{% assign this_posts_tags = this_posts_tags | append: p_handle %}
 							{% endfor %}
 						</div>
 					</div>
 				</div>
 				<div class="container">
 					<div class="grid">
-						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters large-up--push-one-eighth">
-							{{ content }}
+						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter">
+							<div class="grid side-gallery">
+								<div class="grid__item ">
+									<h3>Gallery</h3>
+								</div>
+								{% for section in page.blocks %}
+									{% assign images = section.image %}
+									{% for img in images %}
+										{% assign img_id = '' %}
+										{% assign img_id = img.image | slugify %}
+										{% if img_id %}
+											<div class="grid__item one-half large-up--one-third">
+												<a rel="side-gallery" title="{{ img.caption_title }}" href="{{ img.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
+											</div>
+										{% endif %}
+									{% endfor %}
+									{% if section.image and section.block != 'post-gallery' %}
+										{% capture img_id %}block-{{ section.image | slugify }}{% endcapture %}
+										<div class="grid__item one-half large-up--one-third">
+											{% comment %}<div style="color:black;">{{ block_id }}</div>{% endcomment %}
+											<a rel="side-gallery" title="{{ section.text }}" href="{{ section.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
+										</div>
+									{% endif %}
+								{% endfor %}
+							</div>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('.side-gallery .background-image').simpleLightbox({
+										captions: true,
+										captionSelector: 'self',
+										// rel: true,
+										captionType: 'attr',
+										captionsData: 'title',
+										captionPosition: 'outside'
+									});
+								})
+							</script>
+							<div class="grid side-feed">
+								<div class="grid__item ">
+									<div class="grid__item ">
+										<h3>Related Posts</h3>
+									</div>
+
+									{% assign limit = 4 %}
+									{% assign count = 0 %}
+									{% for post in site.posts %}
+										{% assign p_tag = '' %}
+										{% for p in post.tags %}
+											{% assign p_tag = p | slugify %}
+										{% endfor %}
+										{% if this_posts_tags contains p_tag and p_tag != '' and post.title != page.title %}
+											{% assign count = count | plus: 1 %}
+											{% comment %}<div class="grid__item">Count/Limit: {{ count }} / {{ limit }}</div>{% endcomment %}
+											{% if count <= limit %}
+								        		<div class="grid__item one-whole {{ width }}">
+													{% comment %}{% include blog_item.html %}	{% endcomment %}
+													<a href="{{post.url}}" class="side-post {% if count == 1 %}border-top{% endif %}">
+														<h4>{{ post.title }}</h4>
+														<span>{{ post.date | date: '%B %e, %Y' }}</span>
+													</a>
+												</div>
+											{% endif %}
+										{% endif %}
+									{% endfor %}
+								</div>
+							</div>
+
+						</div>
+						{% comment %}<div class="grid__item medium-down--hide large-up--one-twelfth"></div>{% endcomment %}
+						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters">
+							<div class="rte">
+								{{ content }}
+							</div>
 							{% for section in page.blocks %}
 								{% include {{ section.block }}.html %}
 							{% endfor %}

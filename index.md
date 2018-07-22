@@ -9,6 +9,8 @@ page_sections:
   image:
     background_image: "/uploads/2018/07/08/hero.jpg"
     image_background_color: rgb(217, 100, 89)
+    mobile_image_background_color: rgb(189,36,36)
+    mobile_mix_blend_mode: color-burn
   content:
     text_color: "#FFFFFF"
     content_background_color: rgb(217, 100, 89)
