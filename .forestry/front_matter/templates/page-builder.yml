@@ -24,6 +24,6 @@ fields:
   - simple-footer
 pages:
 - contact.md
+- index.md
 - posts.md
 - music.md
-- index.md
