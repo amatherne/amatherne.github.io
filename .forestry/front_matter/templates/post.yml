@@ -64,9 +64,10 @@ fields:
 - type: image_gallery
   name: gallery
   label: Gallery
-- type: file
-  name: file_upload
-  label: File Upload
+- type: include
+  name: song_upload
+  label: Song Upload
+  template: song-uploader
 - type: text
   name: layout
   label: Layout
