@@ -215,6 +215,52 @@
 						</div>
 					</div>
 				</div>
+							<!-- includes/post-hero -->
+<div class="post-audio">
+    <ul class="playlist">
+    	
+    	
+    		
+    		<li 
+    			class="song" 
+    			data-artist="Vetter Kids "
+    			data-title=" White Sheep"
+    			data-cover="/uploads/2018/07/12/jump-2-1.jpg">
+            	<a href="/uploads/music/white-sheep.mp3">
+            		<span>Vetter Kids  –  White Sheep</span>
+            	</a>
+    		</li>
+    	
+    		
+    		<li 
+    			class="song" 
+    			data-artist="Vetter Kids "
+    			data-title=" Black Sheep"
+    			data-cover="/uploads/2018/07/12/jump-2-1.jpg">
+            	<a href="/uploads/music/black-sheep.mp3">
+            		<span>Vetter Kids  –  Black Sheep</span>
+            	</a>
+    		</li>
+    	
+
+    	<script type="text/javascript">
+    		$(document).ready(function () {
+    			$(".post-audio").musicPlayer({
+				  	autoPlay: false , 
+				  	volume: 80, 
+				  	loop: false, 
+				  	timeSeparator: ' / ',
+				  	playerAbovePlaylist: true,  
+				  	infoElements: ['title' , 'artist'] , 
+				  	elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],  
+				  	timeElements: ['current', 'duration'],  
+				  	controlElements: ['backward', 'play', 'forward', 'stop'], 
+				});
+    		})
+    	</script>
+    </ul>
+</div>
+				
 				<div class="container">
 					<div class="grid">
 						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter">
@@ -259,6 +305,7 @@
 									
 								</div>
 							</div>
+
 
 						</div>
 						

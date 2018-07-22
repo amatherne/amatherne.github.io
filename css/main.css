@@ -3679,6 +3679,174 @@ body.hidden-scroll {
       border-top: 1px solid black; }
     .template-post .side-feed .side-post h4 {
       margin: 0 0 0.25em; }
+.template-post .post-audio {
+  /* HTML5 Audio player with playlist styles */ }
+  .template-post .post-audio > * {
+    color: black; }
+  .template-post .post-audio .title, .template-post .post-audio .artist {
+    font-family: inherit;
+    left: 167px;
+    position: absolute; }
+  .template-post .post-audio .controls .play, .template-post .post-audio .controls .pause {
+    width: 60px;
+    height: 60px;
+    margin: 0 5px; }
+  .template-post .post-audio .controls .play, .template-post .post-audio .controls .pause, .template-post .post-audio .controls .rew, .template-post .post-audio .controls .fwd, .template-post .post-audio .controls .stop {
+    text-indent: -10000px;
+    border: none;
+    display: inline-block;
+    vertical-align: middle; }
+  .template-post .post-audio .controls .rew, .template-post .post-audio .controls .fwd, .template-post .post-audio .controls .stop {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px; }
+  .template-post .post-audio .time-current, .template-post .post-audio .time-duration, .template-post .post-audio .time-separator {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    float: left; }
+  .template-post .post-audio .playlist li, .template-post .post-audio .playlist div {
+    color: #fbe4cf;
+    cursor: pointer; }
+  .template-post .post-audio .example {
+    margin: 50px auto 0;
+    width: 390px; }
+  .template-post .post-audio .example2 {
+    margin: 50px auto 0;
+    width: 390px; }
+  .template-post .post-audio .player {
+    height: 220px;
+    position: relative;
+    width: 100%;
+    z-index: 2; }
+  .template-post .post-audio .title {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    top: 23px; }
+  .template-post .post-audio .artist {
+    color: #1a1a1a;
+    font-size: 12px;
+    top: 40px; }
+  .template-post .post-audio .pl {
+    background: url(/uploads/music/playlist.svg) no-repeat;
+    cursor: pointer;
+    height: 40px;
+    left: 330px;
+    position: absolute;
+    top: 20px;
+    width: 39px; }
+    .template-post .post-audio .pl:hover {
+      top: 21px; }
+  .template-post .post-audio .cover {
+    border-radius: 5px 5px 5px 5px;
+    height: 94px;
+    left: 20px;
+    position: absolute;
+    top: 30px;
+    width: 94px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; }
+  .template-post .post-audio .controls {
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 65px;
+    left: 122px; }
+    .template-post .post-audio .controls .play {
+      background: url(/uploads/music/play.svg) no-repeat; }
+    .template-post .post-audio .controls .pause {
+      background: url(/uploads/music/pause.svg) no-repeat;
+      display: none; }
+    .template-post .post-audio .controls .rew {
+      background: url(/uploads/music/rewind.svg) no-repeat; }
+    .template-post .post-audio .controls .fwd {
+      background: url(/uploads/music/next.svg) no-repeat; }
+    .template-post .post-audio .controls .stop {
+      background: url(/uploads/music/stop.svg) no-repeat; }
+    .template-post .post-audio .controls .visible {
+      display: inline-block; }
+    .template-post .post-audio .controls .hidden {
+      display: none; }
+  .template-post .post-audio .volume {
+    height: 11px;
+    left: 230px;
+    position: absolute;
+    top: 142px;
+    width: 140px; }
+    .template-post .post-audio .volume .ui-slider-handle {
+      background: url(/uploads/music/spr.svg) no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
+      height: 13px;
+      width: 13px; }
+  .template-post .post-audio .volume-btn {
+    background: url(/uploads/music/volume-up.svg) no-repeat;
+    height: 20px;
+    width: 20px;
+    float: left;
+    position: relative;
+    top: -4px; }
+  .template-post .post-audio .volume-adjust {
+    height: 11px;
+    position: relative;
+    width: 80%;
+    background: #fbe4cf;
+    float: right; }
+    .template-post .post-audio .volume-adjust > div > div {
+      height: 11px;
+      background: #f2ae72; }
+  .template-post .post-audio .progressbar {
+    background-color: #fbe4cf;
+    cursor: pointer;
+    z-index: 1;
+    right: 6.875em;
+    height: 15px;
+    left: 0;
+    position: absolute;
+    width: 90%;
+    top: 170px;
+    margin: 0 5%; }
+    .template-post .post-audio .progressbar div {
+      width: 0;
+      height: 15px;
+      position: absolute;
+      left: 0;
+      top: 0; }
+  .template-post .post-audio .bar-loaded {
+    background-color: #f8d6b8;
+    z-index: 1; }
+  .template-post .post-audio .bar-played {
+    background: #f2ae72;
+    z-index: 2; }
+  .template-post .post-audio .timeHolder {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    bottom: 10px;
+    position: absolute;
+    margin: 0 5%;
+    width: 90%; }
+  .template-post .post-audio .playlist {
+    list-style-type: none;
+    margin: -10px 0 0 2px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto; }
+    .template-post .post-audio .playlist li > a {
+      text-decoration: none; }
+    .template-post .post-audio .playlist li.active {
+      font-weight: bold; }
+    .template-post .post-audio .playlist div > a {
+      text-decoration: none; }
+    .template-post .post-audio .playlist div.active {
+      font-weight: bold; }
+  .template-post .post-audio .mute .volume-btn {
+    background: url(/uploads/music/volume-up.svg) no-repeat;
+    opacity: 0.6; }
+  .template-post .post-audio .novolume .progressbar {
+    right: 4.375em; }
 @media screen and (max-width: 766px) {
   .template-post .main-screens {
     margin-top: 75px;
