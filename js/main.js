@@ -77,6 +77,8 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 
 
 
+
+
 $(document).ready(function () {
 	// Scroll Triggers
 	console.log('Scroll Triggers Active')
