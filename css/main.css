@@ -250,8 +250,7 @@ body {
   body .max-width {
     background-color: #313133; }
   body.locked {
-    overflow: hidden !important;
-    height: 100vh; }
+    overflow: hidden !important; }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -2363,8 +2362,7 @@ form {
   .large-up--push-eleven-twelfths {
     left: 91.6666666667%; } }
 body.locked {
-  overflow: hidden;
-  height: 100vh; }
+  overflow: hidden; }
 
 .max-width {
   width: 100%;
@@ -3684,9 +3682,7 @@ body.hidden-scroll {
   .template-post .post-audio > * {
     color: black; }
   .template-post .post-audio .title, .template-post .post-audio .artist {
-    font-family: inherit;
-    left: 167px;
-    position: absolute; }
+    font-family: inherit; }
   .template-post .post-audio .controls .play, .template-post .post-audio .controls .pause {
     width: 60px;
     height: 60px;
@@ -3741,18 +3737,12 @@ body.hidden-scroll {
   .template-post .post-audio .cover {
     border-radius: 5px 5px 5px 5px;
     height: 94px;
-    left: 20px;
-    position: absolute;
-    top: 30px;
     width: 94px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; }
   .template-post .post-audio .controls {
     cursor: pointer;
-    left: 0;
-    position: absolute;
-    top: 65px;
     left: 122px; }
     .template-post .post-audio .controls .play {
       background: url(/uploads/music/play.svg) no-repeat; }
@@ -3771,9 +3761,6 @@ body.hidden-scroll {
       display: none; }
   .template-post .post-audio .volume {
     height: 11px;
-    left: 230px;
-    position: absolute;
-    top: 142px;
     width: 140px; }
     .template-post .post-audio .volume .ui-slider-handle {
       background: url(/uploads/music/spr.svg) no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
@@ -3799,10 +3786,8 @@ body.hidden-scroll {
     background-color: #fbe4cf;
     cursor: pointer;
     z-index: 1;
-    right: 6.875em;
     height: 15px;
-    left: 0;
-    position: absolute;
+    position: relative;
     width: 90%;
     top: 170px;
     margin: 0 5%; }
@@ -3847,6 +3832,10 @@ body.hidden-scroll {
     opacity: 0.6; }
   .template-post .post-audio .novolume .progressbar {
     right: 4.375em; }
+  .template-post .post-audio .cover,
+  .template-post .post-audio .info {
+    display: inline-block;
+    vertical-align: top; }
 @media screen and (max-width: 766px) {
   .template-post .main-screens {
     margin-top: 75px;
