@@ -1,395 +1,566 @@
+/*
+    By André Rinas, www.andrerinas.de
+    Available for use under the MIT License
+    1.13.0
+*/
+;( function( $, window, document, undefined )
+{
+    'use strict';
 
-(function(factory) {
+$.fn.simpleLightbox = function( options )
+{
 
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('jquery'));
-    } else {
-        factory(jQuery);
-    }
+    var options = $.extend({
+        sourceAttr: 'href',
+        overlay: true,
+        spinner: true,
+        nav: true,
+        navText: ['&lsaquo;', '&rsaquo;'],
+        captions: true,
+        captionDelay: 0,
+        captionSelector: 'img',
+        captionType: 'attr',
+        captionsData: 'title',
+        captionPosition: 'bottom',
+        captionClass: '',
+        close: true,
+        closeText: '×',
+        swipeClose: true,
+        showCounter: true,
+        fileExt: 'png|jpg|jpeg|gif',
+        animationSlide: true,
+        animationSpeed: 250,
+        preloading: true,
+        enableKeyboard: true,
+        loop: true,
+        rel: false,
+        docClose: true,
+        swipeTolerance: 50,
+        className: 'simple-lightbox',
+        widthRatio: 0.8,
+        heightRatio: 0.9,
+        scaleImageToRatio: false,
+        disableRightClick: false,
+        disableScroll: true,
+        alertError: true,
+        alertErrorMessage: 'Image not found, next image will be loaded',
+        additionalHtml: false,
+        history: true
+    }, options);
 
-}(function($) {
-
-    var instanceNum = 0,
-        $html = $('html'),
-        $document = $(document),
-        $window = $(window);
-
-    function SimpleLightbox(options) {
-
-        this.init.apply(this, arguments);
-
-    }
-
-    SimpleLightbox.defaults = {
-
-        // add custom classes to lightbox elements
-        elementClass: '',
-        elementLoadingClass: 'slbLoading',
-        htmlClass: 'slbActive',
-        closeBtnClass: '',
-        nextBtnClass: '',
-        prevBtnClass: '',
-        loadingTextClass: '',
-
-        // customize / localize controls captions
-        closeBtnCaption: 'Close',
-        nextBtnCaption: 'Next',
-        prevBtnCaption: 'Previous',
-        loadingCaption: 'Loading...',
-
-        bindToItems: true, // set click event handler to trigger lightbox on provided $items
-        closeOnOverlayClick: true,
-        closeOnEscapeKey: true,
-        nextOnImageClick: true,
-        showCaptions: true,
-
-        captionAttribute: 'title', // choose data source for library to glean image caption from
-        urlAttribute: 'href', // where to expect large image
-
-        startAt: 0, // start gallery at custom index
-        loadingTimeout: 100, // time after loading element will appear
-
-        appendTarget: 'body', // append elsewhere if needed
-
-        beforeSetContent: null, // convenient hooks for extending library behavoiur
-        beforeClose: null,
-        beforeDestroy: null,
-
-        videoRegex: new RegExp(/youtube.com|vimeo.com/) // regex which tests load url for iframe content
-
-    };
-
-    $.extend(SimpleLightbox.prototype, {
-
-        init: function(options) {
-
-            this.options = $.extend({}, SimpleLightbox.defaults, options);
-            this.ens = '.slb' + (++instanceNum);
-            this.items = [];
-            this.captions = [];
-
-            var self = this;
-
-            if (this.options.$items) {
-
-                this.$items = this.options.$items;
-
-                this.$items.each(function() {
-
-                    var $item = $(this);
-
-                    self.items.push($item.attr(self.options.urlAttribute));
-                    self.captions.push($item.attr(self.options.captionAttribute));
-
-                });
-
-                this.options.bindToItems && this.$items.on('click' + this.ens, function(e) {
-
-                    e.preventDefault();
-                    self.showPosition(self.$items.index($(e.currentTarget)));
-
-                });
-
-            } else if (this.options.items) {
-
-                this.items = this.options.items;
-
+    // global variables
+    var touchDevice = ( 'ontouchstart' in window ),
+        pointerEnabled = window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
+        touched = function( event ){
+            if( touchDevice ) return true;
+            if( !pointerEnabled || typeof event === 'undefined' || typeof event.pointerType === 'undefined' ) return false;
+            if( typeof event.MSPOINTER_TYPE_MOUSE !== 'undefined' ) {
+                if( event.MSPOINTER_TYPE_MOUSE != event.pointerType ) return true;
             }
-
-            if (this.options.captions) {
-                this.captions = this.options.captions;
+            else {
+                if( event.pointerType != 'mouse' ) return true;
             }
-
+            return false;
         },
-
-        next: function() {
-
-            return this.showPosition(this.currentPosition + 1);
-
+        swipeDiff = 0,
+        swipeYDiff = 0,
+        curImg = $(),
+        transPrefix = function(){
+            var s = document.body || document.documentElement;
+            s = s.style;
+            if( s.WebkitTransition === '' ) return '-webkit-';
+            if( s.MozTransition === '' ) return '-moz-';
+            if( s.OTransition === '' ) return '-o-';
+            if( s.transition === '' ) return '';
+            return false;
         },
-
-        prev: function() {
-
-            return this.showPosition(this.currentPosition - 1);
-
+        opened = false,
+        loaded = [],
+        getRelated = function(rel, jqObj) {
+            var $related = jqObj.filter(function () {
+                return ($(this).attr('rel') === rel);
+            });
+            return $related;
         },
+        objects = (options.rel && options.rel !== false) ? getRelated(options.rel, $(this)) : this,
+        transPrefix = transPrefix(),
+        globalScrollbarwidth = 0,
+        canTransisions = (transPrefix !== false) ? true : false,
+        supportsPushState = ('pushState' in history),
+        historyhasChanged = false,
+        historyUpdateTimeout,
+        winLoc = window.location,
+        getHash = function(){
+            return winLoc.hash.substring(1);
+        },
+        initialHash = getHash(),
+        updateHash = function(){
+            var hash = getHash(),
+            newHash = 'pid='+(index+1);
+            var newURL = winLoc.href.split('#')[0] + '#' +  newHash;
 
-        normalizePosition: function(position) {
-
-            if (position >= this.items.length) {
-                position = 0;
-            } else if (position < 0) {
-                position = this.items.length - 1;
+            if(supportsPushState){
+                history[historyhasChanged ? 'replaceState' : 'pushState']('', document.title, newURL);
+            }else {
+                if(historyhasChanged) {
+                    winLoc.replace( newURL );
+                } else {
+                    winLoc.hash = newHash;
+                }
             }
-
-            return position;
-
+            historyhasChanged = true;
         },
-
-        showPosition: function(position) {
-
-            var self = this;
-
-            this.currentPosition = this.normalizePosition(position);
-
-            return this.setupLightboxHtml().prepareItem(this.currentPosition, this.setContent).show();
-
-        },
-
-        loading: function(on) {
-
-            var self = this;
-
-            if (on) {
-
-                this.loadingTimeout = setTimeout(function() {
-
-                    self.$el.addClass(self.options.elementLoadingClass);
-
-                    self.$content.html('<p class="slbLoadingText ' + self.options.loadingTextClass + '">' + self.options.loadingCaption + '</p>');
-                    self.show();
-
-                }, this.options.loadingTimeout);
-
+        resetHash = function() {
+            if (supportsPushState) {
+                history.pushState('', document.title,  winLoc.pathname + winLoc.search );
             } else {
-
-                this.$el && this.$el.removeClass(this.options.elementLoadingClass);
-                clearTimeout(this.loadingTimeout);
-
+                winLoc.hash = '';
             }
+            clearTimeout(historyUpdateTimeout);
 
         },
-
-        prepareItem: function(position, callback) {
-
-            var self = this,
-                url = this.items[position];
-
-            this.loading(true);
-
-            if (this.options.videoRegex.test(url)) {
-
-                callback.call(self, $('<div class="slbIframeCont"><iframe class="slbIframe" frameborder="0" allowfullscreen src="' + url + '"></iframe></div>'));
-
+        updateURL = function(){
+            if(!historyhasChanged) {
+                updateHash(); // first time
             } else {
+                historyUpdateTimeout = setTimeout(updateHash, 800);
+            }
+        },
+        prefix = 'simplelb',
+        overlay = $('<div>').addClass('sl-overlay'),
+        closeBtn = $('<button>').addClass('sl-close').html(options.closeText),
+        spinner = $('<div>').addClass('sl-spinner').html('<div></div>'),
+        nav = $('<div>').addClass('sl-navigation').html('<button class="sl-prev">'+options.navText[0]+'</button><button class="sl-next">'+options.navText[1]+'</button>'),
+        counter = $('<div>').addClass('sl-counter').html('<span class="sl-current"></span>/<span class="sl-total"></span>'),
+        animating = false,
+        index = 0,
+        caption = $('<div>').addClass('sl-caption '+options.captionClass+' pos-'+options.captionPosition),
+        image = $('<div>').addClass('sl-image'),
+        wrapper = $('<div>').addClass('sl-wrapper').addClass(options.className),
+        isValidLink = function( element ){
+            if(!options.fileExt) return true;
+            var filEext = /\.([0-9a-z]+)(?=[?#])|(\.)(?:[\w]+)$/gmi;
+            var testExt = $( element ).attr( options.sourceAttr ).match(filEext);
+            return testExt && $( element ).prop( 'tagName' ).toLowerCase() == 'a' && ( new RegExp( '\.(' + options.fileExt + ')$', 'i' ) ).test( testExt );
+        },
+        setup = function(){
+            if(options.close) closeBtn.appendTo(wrapper);
+            if(options.showCounter){
+                if(objects.length > 1){
+                    counter.appendTo(wrapper);
+                    counter.find('.sl-total').text(objects.length);
+                }
+            }
+            if(options.nav) nav.appendTo(wrapper);
+            if(options.spinner) spinner.appendTo(wrapper);
+        },
+        openImage = function(elem){
+            elem.trigger($.Event('show.simplelightbox'));
+            if(options.disableScroll) globalScrollbarwidth = handleScrollbar('hide');
+            wrapper.appendTo('body');
+            image.appendTo(wrapper);
+            if(options.overlay) overlay.appendTo($('body'));
+            animating = true;
+            index = objects.index(elem);
+            curImg = $( '<img/>' )
+                .hide()
+                .attr('src', elem.attr(options.sourceAttr));
+            if(loaded.indexOf(elem.attr(options.sourceAttr)) == -1){
+                loaded.push(elem.attr(options.sourceAttr));
+            }
+            image.html('').attr('style','');
+            curImg.appendTo(image);
+            addEvents();
+            overlay.fadeIn('fast');
+            $('.sl-close').fadeIn('fast');
+            spinner.show();
+            nav.fadeIn('fast');
+            $('.sl-wrapper .sl-counter .sl-current').text(index +1);
+            counter.fadeIn('fast');
+            adjustImage();
+            if(options.preloading) preload();
+            setTimeout( function(){ elem.trigger($.Event('shown.simplelightbox')); } ,options.animationSpeed);
+        },
+        adjustImage = function(dir){
+            if(!curImg.length) return;
+            var tmpImage     = new Image(),
+            windowWidth  = $( window ).width() * options.widthRatio,
+            windowHeight = $( window ).height() * options.heightRatio;
+            tmpImage.src    = curImg.attr( 'src' );
 
-                var $imageCont = $('<div class="slbImageWrap"><img class="slbImage" src="' + url + '" /></div>');
+            $(tmpImage).on('error',function(ev){
+                //no image was found
+                objects.eq(index).trigger($.Event('error.simplelightbox'));
+                animating = false;
+                opened = true;
+                spinner.hide();
+                if(options.alertError){
+                    alert(options.alertErrorMessage);
+                }
+                if(dir == 1 || dir == -1){
+                    loadImage(dir);
+                } else {
+                    loadImage(1);
+                }
+                return;
+            });
 
-                this.$currentImage = $imageCont.find('.slbImage');
 
-                if (this.options.showCaptions && this.captions[position]) {
-                    $imageCont.append('<div class="slbCaption">' + this.captions[position] + '</div>');
+            tmpImage.onload = function() {
+                if (typeof dir !== 'undefined') {
+                    objects.eq(index)
+                        .trigger($.Event('changed.simplelightbox'))
+                        .trigger($.Event( (dir===1?'nextDone':'prevDone')+'.simplelightbox'));
                 }
 
-                this.loadImage(url, function() {
-
-                    self.setImageDimensions();
-
-                    callback.call(self, $imageCont);
-
-                    self.loadImage(self.items[self.normalizePosition(self.currentPosition + 1)]);
-
-                });
-
-            }
-
-            return this;
-
-        },
-
-        loadImage: function(url, callback) {
-
-            if (!this.options.videoRegex.test(url)) {
-
-                var image = new Image();
-                callback && (image.onload = callback);
-                image.src = url;
-
-            }
-
-        },
-
-        setupLightboxHtml: function() {
-
-            var o = this.options;
-
-            if (!this.$el) {
-
-                this.$el = $(
-                    '<div class="slbElement ' + o.elementClass + '">' +
-                        '<div class="slbOverlay"></div>' +
-                        '<div class="slbWrapOuter">' +
-                            '<div class="slbWrap">' +
-                                '<div class="slbContentOuter">' +
-                                    '<div class="slbContent"></div>' +
-                                    '<button type="button" title="' + o.closeBtnCaption + '" class="slbCloseBtn ' + o.closeBtnClass + '">×</button>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>'
-                );
-
-                if (this.items.length > 1) {
-
-                    $(
-                        '<div class="slbArrows">' +
-                            '<button type="button" title="' + o.prevBtnCaption + '" class="prev slbArrow' + o.prevBtnClass + '">' + o.prevBtnCaption + '</button>' +
-                            '<button type="button" title="' + o.nextBtnCaption + '" class="next slbArrow' + o.nextBtnClass + '">' + o.nextBtnCaption + '</button>' +
-                        '</div>'
-                    ).appendTo(this.$el.find('.slbContentOuter'));
-
+                // history
+                if(options.history){
+                    updateURL();
                 }
 
-                this.$content = this.$el.find('.slbContent');
+                if(loaded.indexOf(curImg.attr( 'src' )) == -1){
+                    loaded.push(curImg.attr( 'src' ));
+                }
+                var imageWidth   = tmpImage.width,
+                    imageHeight  = tmpImage.height;
 
-            }
+                if( options.scaleImageToRatio || imageWidth > windowWidth || imageHeight > windowHeight ){
+                    var ratio    = imageWidth / imageHeight > windowWidth / windowHeight ? imageWidth / windowWidth : imageHeight / windowHeight;
+                    imageWidth  /= ratio;
+                    imageHeight /= ratio;
+                }
 
-            this.$content.empty();
+                $('.sl-image').css({
+                    'top':    ( $( window ).height() - imageHeight ) / 2 + 'px',
+                    'left':   ( $( window ).width() - imageWidth - globalScrollbarwidth)/ 2 + 'px'
+                });
+                spinner.hide();
+                curImg
+                .css({
+                    'width':  imageWidth + 'px',
+                    'height': imageHeight + 'px'
+                })
+                .fadeIn('fast');
+                opened = true;
+                var cSel = (options.captionSelector == 'self') ? objects.eq(index) : objects.eq(index).find(options.captionSelector);
+                var captionText;
+                if(options.captionType == 'data'){
+                    captionText = cSel.data(options.captionsData);
+                } else if(options.captionType == 'text'){
+                    captionText = cSel.html();
+                } else {
+                    captionText = cSel.prop(options.captionsData);
+                }
 
-            return this;
+                if(!options.loop) {
+                    if(index === 0){ $('.sl-prev').hide();}
+                    if(index >= objects.length -1) {$('.sl-next').hide();}
+                    if(index > 0){ $('.sl-prev').show(); }
+                    if(index < objects.length -1){ $('.sl-next').show(); }
+                }
 
-        },
+                if(objects.length == 1) $('.sl-prev, .sl-next').hide();
 
-        show: function() {
-
-            if (!this.modalInDom) {
-
-                this.$el.appendTo($(this.options.appendTarget));
-                $html.addClass(this.options.htmlClass);
-                this.setupLightboxEvents();
-
-                this.modalInDom = true;
-
-            }
-
-            return this;
-
-        },
-
-        setContent: function(content) {
-
-            var $content = $(content);
-
-            this.loading(false);
-
-            this.setupLightboxHtml();
-            this.options.beforeSetContent && this.options.beforeSetContent($content, this);
-            this.$content.html($content);
-
-            return this;
-
-        },
-
-        setImageDimensions: function() {
-
-            this.$currentImage && this.$currentImage.css('max-height', $window.height() + 'px');
-
-        },
-
-        setupLightboxEvents: function() {
-
-            var self = this;
-
-            if (!this.lightboxEventsSetuped) {
-
-                this.$el.on('click' + this.ens, function(e) {
-
-                    var $target = $(e.target);
-
-                    if ($target.is('.slbCloseBtn') || (self.options.closeOnOverlayClick && $target.is('.slbWrap'))) {
-
-                        self.close();
-
-                    } else if ($target.is('.slbArrow')) {
-
-                        $target.hasClass('next') ? self.next() : self.prev();
-
-                    } else if (self.options.nextOnImageClick && self.items.length > 1 && $target.is('.slbImage')) {
-
-                        self.next();
-
+                if(dir == 1 || dir == -1){
+                    var css = { 'opacity': 1.0 };
+                    if( options.animationSlide ) {
+                        if( canTransisions ) {
+                            slide(0, 100 * dir + 'px');
+                            setTimeout( function(){ slide( options.animationSpeed / 1000, 0 + 'px'); }, 50 );
+                        }
+                        else {
+                            css.left = parseInt( $('.sl-image').css( 'left' ) ) + 100 * dir + 'px';
+                        }
                     }
 
-                });
+                    $('.sl-image').animate( css, options.animationSpeed, function(){
+                        animating = false;
+                        setCaption(captionText);
+                    });
+                } else {
+                    animating = false;
+                    setCaption(captionText);
+                }
+                if(options.additionalHtml && $('.sl-additional-html').length === 0){
+                    $('<div>').html(options.additionalHtml).addClass('sl-additional-html').appendTo($('.sl-image'));
+                }
+            };
+        },
+        setCaption = function(captiontext){
+            if(captiontext !== '' && typeof captiontext !== "undefined" && options.captions){
+                caption.html(captiontext).hide().appendTo($('.sl-image')).delay(options.captionDelay).fadeIn('fast');
+            }
+        },
+        slide = function(speed, pos){
+            var styles = {};
+                styles[transPrefix + 'transform'] = 'translateX(' + pos + ')';
+                styles[transPrefix + 'transition'] = transPrefix + 'transform ' + speed + 's linear';
+                $('.sl-image').css(styles);
+        },
+        addEvents = function(){
+            // resize/responsive
+            $( window ).on( 'resize.'+prefix, adjustImage );
 
-                $document.on('keyup' + this.ens, function(e) {
+            // close lightbox on close btn
+            $( document ).on('click.'+prefix+ ' touchstart.'+prefix, '.sl-close', function(e){
+                e.preventDefault();
+                if(opened){ close();}
+            });
 
-                    self.options.closeOnEscapeKey && e.keyCode === 27 && self.close();
+            if(options.history){
+                setTimeout(function() {
+                    $(window).on('hashchange.'+prefix,function(){
+                        if(opened){
+                            if(getHash() === initialHash) {
+                                close();
+                                return;
+                            }
+                        }
+                    });
+                }, 40);
+            }
 
-                    if (self.items.length > 1) {
-                        (e.keyCode === 39 || e.keyCode === 68) && self.next();
-                        (e.keyCode === 37 || e.keyCode === 65) && self.prev();
+            // nav-buttons
+            nav.on('click.'+prefix, 'button', function(e){
+                e.preventDefault();
+                swipeDiff = 0;
+                loadImage( $(this).hasClass('sl-next') ? 1 : -1 );
+            });
+
+            // touchcontrols
+            var swipeStart   = 0,
+                swipeEnd     = 0,
+                swipeYStart = 0,
+                swipeYEnd = 0,
+                mousedown = false,
+                imageLeft = 0;
+
+            image
+            .on( 'touchstart.'+prefix+' mousedown.'+prefix, function(e)
+            {
+                if(mousedown) return true;
+                if( canTransisions ) imageLeft = parseInt( image.css( 'left' ) );
+                mousedown = true;
+                swipeDiff = 0;
+                swipeYDiff = 0;
+                swipeStart = e.originalEvent.pageX || e.originalEvent.touches[ 0 ].pageX;
+                swipeYStart = e.originalEvent.pageY || e.originalEvent.touches[ 0 ].pageY;
+                return false;
+            })
+            .on( 'touchmove.'+prefix+' mousemove.'+prefix+' pointermove MSPointerMove', function(e)
+            {
+                if(!mousedown) return true;
+                e.preventDefault();
+                swipeEnd = e.originalEvent.pageX || e.originalEvent.touches[ 0 ].pageX;
+                swipeYEnd = e.originalEvent.pageY || e.originalEvent.touches[ 0 ].pageY;
+                swipeDiff = swipeStart - swipeEnd;
+                swipeYDiff = swipeYStart - swipeYEnd;
+                if( options.animationSlide ) {
+                  if( canTransisions ) slide( 0, -swipeDiff + 'px' );
+                  else image.css( 'left', imageLeft - swipeDiff + 'px' );
+                }
+            })
+            .on( 'touchend.'+prefix+' mouseup.'+prefix+' touchcancel.'+prefix+' mouseleave.'+prefix+' pointerup pointercancel MSPointerUp MSPointerCancel',function(e)
+            {
+                if(mousedown){
+                    mousedown = false;
+                    var possibleDir = true;
+                    if(!options.loop) {
+                        if(index === 0 && swipeDiff < 0){ possibleDir = false; }
+                        if(index >= objects.length -1 && swipeDiff > 0) { possibleDir = false; }
+                    }
+                    if( Math.abs( swipeDiff ) > options.swipeTolerance && possibleDir ) {
+                        loadImage( swipeDiff > 0 ? 1 : -1 );
+                    }
+                    else if( options.animationSlide )
+                    {
+                        if( canTransisions ) slide( options.animationSpeed / 1000, 0 + 'px' );
+                        else image.animate({ 'left': imageLeft + 'px' }, options.animationSpeed / 2 );
                     }
 
-                });
-
-                $window.on('resize' + this.ens, function() {
-
-                    self.setImageDimensions();
-
-                });
-
-                this.lightboxEventsSetuped = true;
-
-            }
+                    if( options.swipeClose && Math.abs(swipeYDiff) > 50 && Math.abs( swipeDiff ) < options.swipeTolerance) {
+                        close();
+                    }
+                }
+            });
+        },
+        removeEvents = function(){
+            nav.off('click', 'button');
+            $( document ).off('click.'+prefix, '.sl-close');
+            $( window ).off( 'resize.'+prefix);
+            $( window ).off( 'hashchange.'+prefix);
+        },
+        preload = function(){
+            var next = (index+1 < 0) ? objects.length -1: (index+1 >= objects.length -1) ? 0 : index+1,
+                prev = (index-1 < 0) ? objects.length -1: (index-1 >= objects.length -1) ? 0 : index-1;
+            $( '<img />' ).attr( 'src', objects.eq(next).attr( options.sourceAttr ) ).on('load', function(){
+                if(loaded.indexOf($(this).attr('src')) == -1){
+                    loaded.push($(this).attr('src'));
+                }
+                objects.eq(index).trigger($.Event('nextImageLoaded.simplelightbox'));
+            });
+            $( '<img />' ).attr( 'src', objects.eq(prev).attr( options.sourceAttr ) ).on('load', function(){
+                if(loaded.indexOf($(this).attr('src')) == -1){
+                    loaded.push($(this).attr('src'));
+                }
+                objects.eq(index).trigger($.Event('prevImageLoaded.simplelightbox'));
+            });
 
         },
+        loadImage = function(dir){
+            objects.eq(index)
+            .trigger($.Event('change.simplelightbox'))
+            .trigger($.Event( (dir===1?'next':'prev')+'.simplelightbox'));
 
-        close: function() {
-
-            if (this.modalInDom) {
-
-                this.options.beforeClose && this.options.beforeClose(this);
-
-                this.$el && this.$el.off(this.ens);
-                $document.off(this.ens);
-                $window.off(this.ens);
-                this.lightboxEventsSetuped = false;
-
-                this.$el.detach();
-                $html.removeClass(this.options.htmlClass);
-                this.modalInDom = false;
+        var newIndex = index + dir;
+            if(animating || (newIndex < 0 || newIndex >= objects.length) && options.loop === false ) return;
+            index = (newIndex < 0) ? objects.length -1: (newIndex > objects.length -1) ? 0 : newIndex;
+            $('.sl-wrapper .sl-counter .sl-current').text(index +1);
+        var css = { 'opacity': 0 };
+            if( options.animationSlide ) {
+              if( canTransisions ) slide(options.animationSpeed / 1000, ( -100 * dir ) - swipeDiff + 'px');
+              else css.left = parseInt( $('.sl-image').css( 'left' ) ) + -100 * dir + 'px';
             }
 
+            $('.sl-image').animate( css, options.animationSpeed, function(){
+                setTimeout( function(){
+                    // fadeout old image
+                    var elem = objects.eq(index);
+                    curImg
+                    .attr('src', elem.attr(options.sourceAttr));
+                    if(loaded.indexOf(elem.attr(options.sourceAttr)) == -1){
+                        spinner.show();
+                    }
+                    $('.sl-caption').remove();
+                    adjustImage(dir);
+                    if(options.preloading) preload();
+                }, 100);
+            });
         },
+        close = function(){
+            if(animating) return;
+            var elem = objects.eq(index),
+            triggered = false;
 
-        destroy: function() {
+            elem.trigger($.Event('close.simplelightbox'));
+            if(options.history){
+                resetHash();
+            }
+            $('.sl-image img, .sl-overlay, .sl-close, .sl-navigation, .sl-image .sl-caption, .sl-counter').fadeOut('fast', function(){
+                if(options.disableScroll) handleScrollbar('show');
+                $('.sl-wrapper, .sl-overlay').remove();
+                removeEvents();
+                if(!triggered) elem.trigger($.Event('closed.simplelightbox'));
+                triggered = true;
+            });
+        curImg = $();
+        opened = false;
+        animating = false;
+        },
+        handleScrollbar = function(type){
+            var scrollbarWidth = 0;
+            if(type == 'hide'){
+                var fullWindowWidth = window.innerWidth;
+                if (!fullWindowWidth) {
+                    var documentElementRect = document.documentElement.getBoundingClientRect();
+                    fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
+                }
+                if(document.body.clientWidth < fullWindowWidth){
+                    var scrollDiv = document.createElement('div'),
+                    padding = parseInt($('body').css('padding-right'),10);
+                    scrollDiv.className = 'sl-scrollbar-measure';
+                    $('body').append(scrollDiv);
+                    scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+                    $(document.body)[0].removeChild(scrollDiv);
+                    $('body').data('padding',padding);
+                    if(scrollbarWidth > 0){
+                        $('body').addClass('hidden-scroll').css({'padding-right':padding+scrollbarWidth});
+                    }
+                }
+            } else {
+                $('body').removeClass('hidden-scroll').css({'padding-right':$('body').data('padding')});
+            }
+            return scrollbarWidth;
+        };
 
-            this.close();
-            this.options.beforeDestroy && this.options.beforeDestroy(this);
-            this.$items && this.$items.off(this.ens);
-            this.$el && this.$el.remove();
+    // events
+    setup();
 
+    // open lightbox
+    objects.on( 'click.'+prefix, function( e ){
+        if(isValidLink(this)){
+            e.preventDefault();
+            if(animating) return false;
+            openImage($(this));
         }
-
     });
 
-    SimpleLightbox.open = function(options) {
+    // close on click on doc
+    $( document ).on('click.'+prefix+ ' touchstart.'+prefix, function(e){
+        if(opened){
+            if((options.docClose && $(e.target).closest('.sl-image').length === 0 && $(e.target).closest('.sl-navigation').length === 0)){
+                close();
+            }
+        }
+    });
 
-        var instance = new SimpleLightbox(options);
+    // disable rightclick
+    if(options.disableRightClick){
+        $( document ).on('contextmenu', '.sl-image img', function(e){
+            return false;
+        });
+    }
 
-        return options.content ? instance.setContent(options.content).show() : instance.showPosition(instance.options.startAt);
 
-    };
-
-    $.fn.simpleLightbox = function(options) {
-
-        var lightboxInstance,
-            $items = this;
-
-        return this.each(function() {
-            if (!$.data(this, 'simpleLightbox')) {
-                lightboxInstance = lightboxInstance || new SimpleLightbox($.extend({}, options, {$items: $items}));
-                $.data(this, 'simpleLightbox', lightboxInstance);
+    // keyboard-control
+    if( options.enableKeyboard ){
+        $( document ).on( 'keyup.'+prefix, function( e ){
+            swipeDiff = 0;
+            // keyboard control only if lightbox is open
+            if(opened){
+                e.preventDefault();
+                var key = e.keyCode;
+                if( key == 27 ) {
+                    close();
+                }
+                if( key == 37 || e.keyCode == 39 ) {
+                    loadImage( e.keyCode == 39 ? 1 : -1 );
+                }
             }
         });
+    }
 
+    // Public methods
+    this.open = function(elem){
+        elem = elem || $(this[0]);
+        openImage(elem);
     };
 
-    $.simpleLightbox = $.SimpleLightbox = SimpleLightbox;
+    this.next = function(){
+        loadImage( 1 );
+    };
 
-    return $;
+    this.prev = function(){
+        loadImage( -1 );
+    };
 
-}));
+    this.close = function(){
+        close();
+    };
+
+    this.destroy = function(){
+        $( document ).off('click.'+prefix).off('keyup.'+prefix);
+        close();
+        $('.sl-overlay, .sl-wrapper').remove();
+        this.off('click');
+    };
+
+    this.refresh = function(){
+        this.destroy();
+        $(this).simpleLightbox(options);
+    };
+
+    return this;
+
+};
+})( jQuery, window, document );
