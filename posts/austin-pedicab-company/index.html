@@ -224,99 +224,107 @@
 				
 				<div class="container">
 					<div class="grid">
-						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter">
-							<div class="grid side-gallery">
-								<div class="grid__item ">
-									<h3>Gallery</h3>
-								</div>
-								
-							</div>
-							<script type="text/javascript">
-								$(document).ready(function () {
-									$('.side-gallery .background-image').simpleLightbox({
-										captions: true,
-										captionSelector: 'self',
-										// rel: true,
-										captionType: 'attr',
-										captionsData: 'title',
-										captionPosition: 'outside'
-									});
-								})
-							</script>
-							<div class="grid side-feed">
-								<div class="grid__item ">
-									<div class="grid__item ">
-										<h3>Related Posts</h3>
-									</div>
-
-									
-									
-									
-										
-										
-										
-											
-											
-											
-								        		<div class="grid__item one-whole ">
-													
-													<a href="/posts/testing-post-blocks/" class="side-post border-top">
-														<h4>Testing Post Blocks</h4>
-														<span>July 21, 2018</span>
-													</a>
-												</div>
-											
-										
-									
-										
-										
-										
-											
-											
-											
-								        		<div class="grid__item one-whole ">
-													
-													<a href="/posts/vetter-kids/" class="side-post ">
-														<h4>Vetter Kids</h4>
-														<span>July 15, 2018</span>
-													</a>
-												</div>
-											
-										
-									
-										
-										
-										
-									
-								</div>
-							</div>
-							<!-- includes/post-hero -->
-<div class="post-audio">
-    <ul class="playlist">
-    	
-    	
-    	<script type="text/javascript">
-    		$(document).ready(function () {
-    			$(".post-audio").musicPlayer({
-				  	autoPlay: false , 
-				  	volume: 80, 
-				  	loop: false, 
-				  	timeSeparator: ' / ',
-				  	playerAbovePlaylist: false,  
-				  	infoElements: ['title' , 'artist'] , 
-				  	elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'],  
-				  	timeElements: ['current', 'duration'],  
-				  	controlElements: ['backward', 'play', 'forward', 'stop'], 
-				});
-    		})
-    	</script>
-    </ul>
-</div>
+						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter sidebar">
 							
+
+
+							
+
+
+	<!-- includes/post-related -->
+	<div class="grid side-feed">
+		<div class="grid__item ">
+			<div class="grid__item ">
+				<h3>Related Posts</h3>
+			</div>
+			
+			
+			
+				
+				
+				
+					
+					
+					
+		        		<div class="grid__item one-whole ">
+							
+							<a href="/posts/testing-post-blocks/" class="side-post border-top">
+								<h4>Testing Post Blocks</h4>
+								<span>July 21, 2018</span>
+							</a>
+						</div>
+					
+				
+			
+				
+				
+				
+					
+					
+					
+		        		<div class="grid__item one-whole ">
+							
+							<a href="/posts/vetter-kids/" class="side-post ">
+								<h4>Vetter Kids</h4>
+								<span>July 15, 2018</span>
+							</a>
+						</div>
+					
+				
+			
+				
+				
+				
+			
+		</div>
+	</div>
+
+							
+
+	<!-- includes/post-hero -->
+	<div class="post-audio">
+		<h3>Audio</h3>
+	    <ul class="playlist">
+	    	
+	    	<script type="text/javascript">
+	    		$(document).ready(function () {
+	    			$(".post-audio").musicPlayer({
+					  	autoPlay: false , 
+					  	volume: 80, 
+					  	loop: false, 
+					  	// timeSeparator: ' | ',
+					  	infoElements: [
+					  		'title' , 
+					  		// 'artist'
+					  	] , 
+					  	elements: [
+					  		'artwork', 
+					  		// 'information', 
+					  		'controls', 
+					  		'progress', 
+					  		'time', 
+					  		'volume'
+					  	],  
+					  	timeElements: [
+					  		'current', 
+					  		// 'duration'
+					  	],  
+					  	controlElements: [
+					  		'backward', 
+					  		'play', 
+					  		'pause',
+					  		'forward', 
+					  		'stop'
+					  	], 
+					});
+	    		})
+	    	</script>
+	    </ul>
+	</div>
 
 						</div>
 						
-						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters">
+						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters post-content">
 							<div class="rte">
 								<h2 id="customer-bio"><strong>Customer Bio</strong> </h2>
 
