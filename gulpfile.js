@@ -1,12 +1,18 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var swig = require('gulp-swig');
+// var browserSycn = require('gulp-browser-sync');
+const browserSync = require('browser-sync').create();
+
 
 var child = require('child_process');
 var gutil = require('gulp-util');
 
 var uglify = require('gulp-uglify-es').default;
 let cleanCSS = require('gulp-clean-css');
+
+const siteRoot = '_site';
 
 
 var cssFiles = [
@@ -17,10 +23,10 @@ var cssFiles = [
   '_sass/global/_fonts-and-colors.scss',
   '_sass/global/_grid.scss',
   '_sass/global/_global.scss',
-  '_sass/vendor/*.scss',
-  '_sass/modules/*.scss',
-  '_sass/includes/*.scss',
-  '_sass/templates/*.scss'
+  '_sass/vendor/_*.scss',
+  '_sass/modules/_*.scss',
+  '_sass/includes/_*.scss',
+  '_sass/templates/_*.scss'
 ];
 var jsFiles = [
   '_js/vendor/jquery.js',
@@ -34,8 +40,9 @@ var jsFiles = [
 
 
 
+
 gulp.task('jekyll', () => {
-  var jekyll = child.spawn('jekyll', ['serve',
+  var jekyll = child.spawn('jekyll', ['build',
     '--watch',
     '--incremental',
     '--drafts'
@@ -53,9 +60,10 @@ gulp.task('jekyll', () => {
 gulp.task('css', () => {
   gulp.src(cssFiles)
     .pipe(concat('style.css'))
-  	.pipe(sass())
-  	.pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(sass())
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+    // .pipe(swig({defaults: { cache: false }}))
     .pipe(gulp.dest('css'))
 });
 
@@ -70,11 +78,27 @@ gulp.task('js', function() {
 });
 
 
-gulp.task('watch', () => {
+// gulp.task('watch', () => {
+//   gulp.watch(cssFiles, ['css']);
+//   gulp.watch(jsFiles, ['js']);
+//   gulp.watch(['jekyll']);
+// });
+
+gulp.task('serve', () => {
+  browserSync.init({
+    files: [siteRoot + '/**'],
+    port: 4000,
+    server: {
+      baseDir: siteRoot
+    }
+  });
   gulp.watch(cssFiles, ['css']);
   gulp.watch(jsFiles, ['js']);
+  gulp.watch(['jekyll']);
 });
 
 
+gulp.task('default', ['css','js', 'jekyll', 'serve']);
 
-gulp.task('default', ['css','js', 'jekyll', 'watch']);
+
+

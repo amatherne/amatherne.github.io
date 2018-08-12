@@ -20,6 +20,8 @@ defaults:
       layout: post
 markdown: kramdown
 permalink: /:collection/:title/
+sass:
+    sass_dir: css
 plugins:
   - jekyll-feed
   - jekyll-menus

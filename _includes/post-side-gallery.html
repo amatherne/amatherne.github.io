@@ -1,0 +1,53 @@
+{% assign gallery = false %}
+{% for section in page.blocks %}
+	{% assign images = section.image %}
+	{% for img in images %}
+		{% assign img_id = '' %}
+		{% assign img_id = img.image | slugify %}
+		{% if img_id %}
+			{% assign gallery = true %}
+		{% endif %}
+	{% endfor %}
+	{% if section.image and section.block != 'post-gallery' %}
+		{% assign gallery = true %}	
+	{% endif %}
+{% endfor %}
+{% if gallery == true %}
+	<!-- includes/post-side-gallery -->
+	<div class="grid side-gallery">
+		<div class="grid__item ">
+			<h3>Gallery</h3>
+		</div>
+		{% for section in page.blocks %}
+			{% assign images = section.image %}
+			{% for img in images %}
+				{% assign img_id = '' %}
+				{% assign img_id = img.image | slugify %}
+				{% if img_id %}
+					<div class="grid__item one-half large-up--one-third">
+						<a rel="side-gallery" title="{{ img.caption_title }}" href="{{ img.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% if section.image and section.block != 'post-gallery' %}
+				{% capture img_id %}block-{{ section.image | slugify }}{% endcapture %}
+				<div class="grid__item one-half large-up--one-third">
+					{% comment %}<div style="color:black;">{{ block_id }}</div>{% endcomment %}
+					<a rel="side-gallery" title="{{ section.text }}" href="{{ section.image | relative_url }}" class="background-image squared {{ img_id }}"></a>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.side-gallery .background-image').simpleLightbox({
+				captions: true,
+				captionSelector: 'self',
+				// rel: true,
+				captionType: 'attr',
+				captionsData: 'title',
+				captionPosition: 'outside'
+			});
+		})
+	</script>
+{% endif %}
