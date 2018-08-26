@@ -202,7 +202,17 @@ body.locked {
 	    background: #b78585;
 	    z-index: 10000;
 	    transform: translateZ(0);
-	    transition:all .3s linear;
+	    transition:all .75s linear;
+	}
+	@media screen and (min-width:$grid-medium) {
+		.modal_open & {
+			&:after {
+				opacity:0.9;
+			}
+
+
+		}
+
 	}
 	@media screen and (max-width:$grid-medium - 1) {
 		.modal_open & {
@@ -214,6 +224,12 @@ body.locked {
 		}
 	}
 
+}
+
+.hero {
+	&:after {
+		mix-blend-mode:color-dodge;
+	}
 }
 
 .footer {
@@ -252,11 +268,11 @@ body.locked {
 		    left: 0;
 		    opacity: 0;
 		    pointer-events: none;
-		    mix-blend-mode: exclusion;
-		    background: #298075;
+		    mix-blend-mode: unset;
+		    background: #008988;
 		    /* z-index: 10000; */
 		    transform: translateZ(0);
-		    transition: all .3s linear;
+		    transition: all .75s linear;
 		}
 	}
 	&.modal_open {

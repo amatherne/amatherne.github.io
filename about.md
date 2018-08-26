@@ -1,31 +1,24 @@
 ---
 title: About Me
-layout: page
-date: 2018-07-08 00:00:00 +0000
-page_sections:
-- template: page-hero
-  block: hero
-  image:
-    background_image: "/uploads/2018/07/08/hero.jpg"
-    background_position: center 90%
-    image_background_color: rgb(216, 202, 13)
-    mix_blend_mode: soft-light
-- template: content-block
-  block: content-block
-  content_1: 'My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.
-    I grew up in Baton Rouge, Louisiana, but have been a resident of the Austin area
-    for the past decade. The laid back, laissez-faire style of the city reminded me
-    of comforts of home, but embodied more of the cultural progressive attitudes that
-    I value. This is why I want to give back, to give voice and presence to the local
-    community of small business and artists that make Austin thrive.<br><br>For the
-    past fifteen years I’ve been involved in the DIY punk music scene; booking my
-    own tours, and playing shows all over the country. '
-- template: page-gallery
-  block: gallery
-  gallery_title: Recent Trip
-  gallery:
-  - image: "/uploads/2018/07/08/austin-2.jpg"
-  - image: "/uploads/2018/07/08/adobestock_96573999.jpeg"
+layout: post
+date: 2018-07-15 20:53:53 +0000
+tags:
+- Music
+- Web Development
+tech: []
+image:
+  background_image: "/uploads/2018/07/08/hero.jpg"
+  mobile_background_image: ''
+  image_background_color: rgb(216, 202, 13)
+  mix_blend_mode: soft-light
+  background_position: center 90%
+  background_size: ''
+  mobile_background_position: ''
+  mobile_background_size: ''
+gallery: []
+file_upload: ''
+music: []
+blocks: []
 
 ---
 My name is Austin Matherne, and I unapologetically sprung from the mid-80’s.

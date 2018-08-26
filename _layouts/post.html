@@ -10,21 +10,38 @@
 			{% assign img = page.image.background_image | relative_url %}
 			{% capture post_id %}post-{{ page.image.background_image | slugify | replace: '-','' | slice: 1,20  }}{% endcapture %}
 			<style type="text/css">
-				.main-hero::after {
+				/* .main-hero::after {
 					background-image: url({{ img }});
+				} */
+				.main-hero::after {
+					background-color:{{ page.image.image_background_color }} !important;
+					{% if page.image.background_image != '' %}
+					background-image: url('{{ page.image.background_image | relative_url }}') !important;
+					{% endif %}
+					{% if page.image.background_position != '' %}
+					background-position:{{ page.image.background_position }} !important;
+					{% endif %}
+					{% if page.image.background_size != '' %}
+					background-size:{{ page.image.background_size }} !important;
+					{% endif %}
+					{% if page.image.mix_blend_mode != '' %}
+					background-blend-mode:{{ page.image.mix_blend_mode }} !important;
+					{% endif %}
 				}
 			</style>
 			<div class="main-screens">
 				<div class="main-hero background-image">
-					<div class="meta-overlay">
-						<h1 class="post-title">{{ page.title }}</h1>
-						<span class="date">{{ page.date | date: '%B %e, %Y' }}</span>
-						<div class="tags">
-							{% for p in page.tags %}
-								<span>{{ p }}</span> {% unless forloop.last %}<span>|</span>{% endunless %}
-								{% assign p_handle = p | slugify | append: ' ' %}
-								{% assign this_posts_tags = this_posts_tags | append: p_handle %}
-							{% endfor %}
+					<div class="container">
+						<div class="meta-overlay">
+							<h1 class="post-title">{{ page.title }}</h1>
+							<span class="date">{{ page.date | date: '%B %e, %Y' }}</span>
+							<div class="tags">
+								{% for p in page.tags %}
+									<span>{{ p }}</span> {% unless forloop.last %}<span>|</span>{% endunless %}
+									{% assign p_handle = p | slugify | append: ' ' %}
+									{% assign this_posts_tags = this_posts_tags | append: p_handle %}
+								{% endfor %}
+							</div>
 						</div>
 					</div>
 				</div>
