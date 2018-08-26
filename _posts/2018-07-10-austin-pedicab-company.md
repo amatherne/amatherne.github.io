@@ -9,13 +9,17 @@ file_upload: ''
 image:
   background_image: "/uploads/2018/07/12/about-hero.png"
   mobile_background_image: ''
-  image_background_color: rgb(86, 90, 255)
+  image_background_color: rgb(134, 134, 134)
   mix_blend_mode: luminosity
-  background_position: ''
+  background_position: top right
   background_size: ''
-  mobile_background_position: top right
+  mobile_background_position: ''
   mobile_background_size: ''
 layout: post
+tech: []
+music: []
+blocks: []
+
 ---
 ## **Customer Bio** 
 
