@@ -202,12 +202,13 @@ body.locked {
 	    background: #b78585;
 	    z-index: 10000;
 	    transform: translateZ(0);
-	    transition:all .75s linear;
+	    transition:all .05s ease-out;
 	}
 	@media screen and (min-width:$grid-medium) {
 		.modal_open & {
 			&:after {
 				opacity:0.9;
+	    		transition:all .5s linear 1s;
 			}
 
 
@@ -220,6 +221,8 @@ body.locked {
 				// background-blend-mode:multiply !important;
 				opacity:0.9;
 		    	transition:all .1s .3s linear;
+	    		transition:all .5s linear 1s;
+
 			}
 		}
 	}
@@ -228,7 +231,7 @@ body.locked {
 
 .hero {
 	&:after {
-		mix-blend-mode:color-dodge;
+		mix-blend-mode:lighten;
 	}
 }
 
@@ -249,11 +252,21 @@ body.locked {
 
 		opacity:1;
 	}
+	&:before {
+    	transition:all .05s ease-out;
+	}
 	.background-color {
 
 	}
 	.background-color:after {
 		display:none;
+	}
+	.modal_open & {
+		&:before {
+			// opacity:0.9;
+			background-blend-mode: color-dodge !important;
+    		transition: all .5s linear 1s;
+		}
 	}
 }
 
@@ -269,17 +282,22 @@ body.locked {
 		    opacity: 0;
 		    pointer-events: none;
 		    mix-blend-mode: unset;
+		    mix-blend-mode:hard-light;
 		    background: #008988;
 		    /* z-index: 10000; */
 		    transform: translateZ(0);
-		    transition: all .75s linear;
+		    transition: all .05s linear;
 		}
 	}
 	&.modal_open {
+		.main-header nav a {
+			color:$beige;
+		}
 		.main-screens:after {
 			// background-blend-mode:multiply !important;
 			opacity:0.9;
-	    	transition:all .1s .3s linear;
+	    	transition:all .5s linear 1s;
+	    	// transition: all .75s linear;
 		}
 	}
 }

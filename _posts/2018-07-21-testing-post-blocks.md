@@ -11,8 +11,8 @@ tech:
 image:
   background_image: uploads/collections/asphalt-1867667.jpg
   mobile_background_image: ''
-  image_background_color: rgb(186, 70, 70)
-  mix_blend_mode: luminosity
+  image_background_color: rgb(167, 177, 195)
+  mix_blend_mode: color-dodge
   background_position: center
   background_size: cover
   mobile_background_position: ''

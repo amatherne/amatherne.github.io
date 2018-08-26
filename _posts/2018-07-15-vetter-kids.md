@@ -9,8 +9,8 @@ tech: []
 image:
   background_image: "/uploads/collections/lowshot-1.jpg"
   mobile_background_image: ''
-  image_background_color: rgb(138,201, 200)
-  mix_blend_mode: multiply
+  image_background_color: rgb(181, 181, 181)
+  mix_blend_mode: color-dodge
   background_position: ''
   background_size: ''
   mobile_background_position: ''
