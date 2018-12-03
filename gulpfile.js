@@ -35,6 +35,7 @@ var jsFiles = [
   '_js/vendor/lightbox.js',
   '_js/vendor/audio.js',
   '_js/vendor/velocity.js',
+  '_js/vendor/typed.js',
   '_js/main.js'
 ];
 
