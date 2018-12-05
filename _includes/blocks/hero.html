@@ -1,24 +1,19 @@
 <!-- includes/block-hero -->
 {% assign block_id = '' %}
 {% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture cssClass %}.{{block_id}}{% endcapture %}
 {% comment %}{% assign hor_align = '' %}{% endcomment %}
-
 
 {% assign url = section.content.cta.url %}
 {% include url_shortener.html url=url %}
 
 <section 
 	class="section-slide hero background-image {{ block_id }}">
-	{% comment %}<div class="background-image"></div>{% endcomment %}
 	<div class="container">
 		<div class="grid_no_gutter">
-			<div class="grid__item small--hide medium--one-half large-up--three-fifths">
-				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
-			</div>
-			<div class="grid__item medium--one-half large-up--two-fifths background-color">
-				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
-				<div class="content text-right small--text-center">
-					<h2 class="h1">{{ section..content.headline | strip_html }}</h2>
+			<div class="grid__item {% comment %}medium--one-half large-up--two-fifths {% endcomment %}background-color">
+				<div class="center-content  text-center">
+					<h2 class="h1">{{ section.content.headline | strip_html }}</h2>
 					<p>{{ section.content.desc }}</p>
 					{% if section.content.cta.enabled == true %}
 						<a class="btn" href="{{ url }}">{{ section.content.cta.button_text }}</a>
@@ -28,8 +23,10 @@
 		</div>
 	</div>
 	<style type="text/css">
-		.{{ block_id }}::before {
+		.{{ block_id }} {
 			background-color:{{ section.image.image_background_color }};
+		}
+		.{{ block_id }}::before {
 			{% if section.image.background_image %}
 			background-image: url('{{ section.image.background_image | relative_url }}');
 			{% endif %}
@@ -42,7 +39,7 @@
 			{% if section.image.mix_blend_mode %}
 			background-blend-mode:{{ section.image.mix_blend_mode }};
 			{% endif %}
-
+			opacity: .6;
 		}
 		@media screen and (max-width:767px) {
 			.{{ block_id }}::before {
@@ -64,13 +61,24 @@
 
 			}
 		}
-		.{{ block_id }} .background-color::after {
-			background-color:{{ section.content.content_background_color }};
+		{% assign side_color = section.content.content_background_color | replace: 'rgb', 'rgba' %}
+		{% assign srt_color = side_color | replace: ')', ',0)' %}
+		{% assign end_color = side_color | replace: ')', ',1)' %}
+		.{{ block_id }}::after {
+			{% capture gradient %} linear-gradient(-250deg, {{ srt_color }} 55%,{{ end_color }}) {% endcapture %}
+
+			/* background-color:{{ section.content.content_background_color }}; */
+			background:{{ gradient }};
 		}
 		.{{ block_id }} h2,
 		.{{ block_id }} p {
 			color:{{ section.content.text_color }};
 		}
+
+		{% assign custom = section.custom_html | raw %}
+		{% assign cssLoop = custom | replace: '==', cssClass | replace: ';', ' !important;' %}
+
+		{{cssLoop}}
 	</style>
 </section>
 

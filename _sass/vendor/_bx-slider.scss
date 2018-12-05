@@ -55,13 +55,14 @@ ul.bxslider {
 /* PAGER */
 .bx-wrapper .bx-controls {
   position:absolute;
+  position: fixed;
+  z-index: 10;
   bottom:5.5em;
   right:0;
   width:45%;
-
 }
 .bx-wrapper .bx-pager {
-  text-align: left;
+  text-align: right;
   font-size: .85em;
   // font-family: Arial;
   // font-weight: bold;

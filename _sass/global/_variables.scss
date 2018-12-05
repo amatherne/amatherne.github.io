@@ -5,6 +5,7 @@
 	$green:#008988;
 	// $green2:#017E7D;
 	$red:#d96459;
+	$purp:#6A0D83;
 	// $orange:#f2ae72;
 	$orange:#ff9800;
 	// $beige:#f8f8dd;
@@ -31,11 +32,13 @@
 
 // Grid
 // ----
+	$grid-small: 400px;
 	$grid-medium: 767px;
 	$grid-large: 992px;
 	$grid-widescreen: 1400px;
 	$grid-gutter: 30px;
 
+	$narrow: 'narrow';
 	$small: 'small';
 	$medium: 'medium';
 	$medium-down: 'medium-down';
@@ -49,6 +52,7 @@
 	// The `$breakpoints` list is used to build our media queries.
 	// You can use these in the media-query mixin.
 	$breakpoints: (
+		$narrow '(max-width: #{$grid-small - 1})',
 		$small '(max-width: #{$grid-medium - 1})',
 		$medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
 		$medium-down '(max-width: #{$grid-large - 1})',
@@ -65,7 +69,7 @@
 			- Default is no push classes
 			- Will not work if `styles/global/grid.scss` is removed
 	==============================================================================*/
-	$breakpoint-has-widths: ($small, $medium-up, $medium, $medium-up, $large, $large-up);
+	$breakpoint-has-widths: ($narrow, $small, $medium-up, $medium, $medium-up, $large, $large-up);
 	$breakpoint-has-push: ($small, $medium-up, $medium, $large, $large-up);
 
 

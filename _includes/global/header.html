@@ -2,19 +2,25 @@
 <header class="main-header">
 	<div class="container">
 		<a href="/" class="logo">
-			{% comment %}<img src="{{ section.logo | relative_url }}" alt="{{ site.title }}">{% endcomment %}
-			{{ site.title }}
+            {% assign ttl_splt = site.title | split: '' %}
+            {% for i in ttl_splt %}
+                {% if i != '' %}
+                    <span>{{i}}</span>
+                {% endif %}
+            {% endfor %}
+            {% comment %}<span>{{ site.title | slice: 0 }}</span>
+			<span>{{ site.title | slice: 1 }}</span>{% endcomment %}
 		</a>
 
 		<span class="open menu-toggle">
 			<span class="visually-hidden">Open Menu</span>
-			{% include icon-menu-open.liquid %}
+			{% include icons/menu-open.liquid %}
 		</span>
 		<div class="modal menu-modal">
 			<div class="container">
 				<span class="close menu-toggle">
 					<span class="visually-hidden">Close Menu</span>
-					{% include icon-menu-close.liquid %}
+					{% include icons/menu-close.liquid %}
 				</span>
 				<div class="modal-inner wide">
 					<nav>
@@ -38,19 +44,7 @@
 		class="spacer"></div>
 {% endif %}
 <script type="text/javascript">
-	// $(document).ready(function () {
-	// 	var toggle = $('.menu-toggle');
-	// 		nav = $('.menu-modal');
-	// 		body = $('body');
-	// 	toggle.on('click touch', function() {
-	// 		nav.toggleClass('active');
-	// 		body.toggleClass('locked');
-	// 	})
 
-	// 	setTimeout(function(){
- //        	$('.main-header').addClass('fade-in');
- //        }, 1000);
-	// })
 	$(document).ready(function() {
 
         var $btn = $('.menu-toggle'),
@@ -64,8 +58,6 @@
             $body = $('body');
 
         var nav_Open = function(e) {
-            // e.preventDefault();
-            // e.stopPropagation();
 
             $btn.toggleClass(navActive);
             $nav.toggleClass(navActive);
@@ -90,16 +82,6 @@
                     
                 ease = isOpen ? easing : easing,
                 dur = isOpen ?  500 : 200;
-    
-    			
-            // Navigation
-            // $nav.velocity({
-            //     top:NavTop
-            // },{
-            //     easing: ease,
-            //     duration:NavDur,
-            //     delay:NavDelay
-            // })
 
             // Links
             
@@ -115,7 +97,6 @@
         }
         
         $btn.click(nav_Open);
-        // $nav_bg.click(nav_Open);
 
      })
 </script>

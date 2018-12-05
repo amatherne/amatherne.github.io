@@ -187,120 +187,136 @@ body.locked {
 }
 
 
-.hero,
-.featured-posts {
-	&:after {
-      	content: '';
-	    height: 100vh;
-	    width: 100%;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    opacity: 0;
-	    pointer-events:none;
-	    mix-blend-mode: difference;
-	    background: #b78585;
-	    z-index: 10000;
-	    transform: translateZ(0);
-	    transition:all .05s ease-out;
-	}
-	@media screen and (min-width:$grid-medium) {
-		.modal_open & {
-			&:after {
-				opacity:0.9;
-	    		transition:all .5s linear 1s;
-			}
+.bx-wrapper {
+	.bx-controls {
 
-
-		}
-
-	}
-	@media screen and (max-width:$grid-medium - 1) {
-		.modal_open & {
-			&:after {
-				// background-blend-mode:multiply !important;
-				opacity:0.9;
-		    	transition:all .1s .3s linear;
-	    		transition:all .5s linear 1s;
-
-			}
-		}
-	}
-
-}
-
-.hero {
-	&:after {
-		mix-blend-mode:lighten;
 	}
 }
 
-.footer {
-	&:after {
-		content:'';
-		position:absolute;
-		top:0;
-		bottom:0;
-		left:50%;
-		transform:translateX(-50%);
-		width:100%;
-		max-width:550px;
-		height:100%;
-		z-index:1;
-		mix-blend-mode:exclusion;
-	    background: #b78585;
 
-		opacity:1;
-	}
-	&:before {
-    	transition:all .05s ease-out;
-	}
-	.background-color {
-
-	}
-	.background-color:after {
-		display:none;
-	}
-	.modal_open & {
-		&:before {
-			// opacity:0.9;
-			background-blend-mode: color-dodge !important;
-    		transition: all .5s linear 1s;
-		}
-	}
+.pane,
+.section-slide {
+	position: relative;
+	overflow: hidden;	
+	z-index: 1;
 }
 
-.template-post {
-	.main-screens {
-		&:after {
-	     	content: '';
-		    height: 100vh;
-		    width: 100%;
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    opacity: 0;
-		    pointer-events: none;
-		    mix-blend-mode: unset;
-		    mix-blend-mode:hard-light;
-		    background: #008988;
-		    /* z-index: 10000; */
-		    transform: translateZ(0);
-		    transition: all .05s linear;
-		}
-	}
-	&.modal_open {
-		.main-header nav a {
-			color:$beige;
-		}
-		.main-screens:after {
-			// background-blend-mode:multiply !important;
-			opacity:0.9;
-	    	transition:all .5s linear 1s;
-	    	// transition: all .75s linear;
-		}
-	}
-}
+
+
+// .hero,
+// .featured-posts {
+// 	&:after {
+//       	content: '';
+// 	    height: 100vh;
+// 	    width: 100%;
+// 	    position: absolute;
+// 	    top: 0;
+// 	    left: 0;
+// 	    opacity: 0;
+// 	    pointer-events:none;
+// 	    mix-blend-mode: difference;
+// 	    background: #b78585;
+// 	    z-index: 10000;
+// 	    transform: translateZ(0);
+// 	    transition:all .05s ease-out;
+// 	}
+// 	@media screen and (min-width:$grid-medium) {
+// 		.modal_open & {
+// 			&:after {
+// 				opacity:0.9;
+// 	    		transition:all .5s linear 1s;
+// 			}
+
+
+// 		}
+
+// 	}
+// 	@media screen and (max-width:$grid-medium - 1) {
+// 		.modal_open & {
+// 			&:after {
+// 				// background-blend-mode:multiply !important;
+// 				opacity:0.9;
+// 		    	transition:all .1s .3s linear;
+// 	    		transition:all .5s linear 1s;
+
+// 			}
+// 		}
+// 	}
+
+// }
+
+// .hero {
+// 	&:after {
+// 		mix-blend-mode:lighten;
+// 	}
+// }
+
+// .footer {
+// 	&:after {
+// 		content:'';
+// 		position:absolute;
+// 		top:0;
+// 		bottom:0;
+// 		left:50%;
+// 		transform:translateX(-50%);
+// 		width:100%;
+// 		max-width:550px;
+// 		height:100%;
+// 		z-index:1;
+// 		mix-blend-mode:exclusion;
+// 	    background: #b78585;
+
+// 		opacity:1;
+// 	}
+// 	&:before {
+//     	transition:all .05s ease-out;
+// 	}
+// 	.background-color {
+
+// 	}
+// 	.background-color:after {
+// 		display:none;
+// 	}
+// 	.modal_open & {
+// 		&:before {
+// 			// opacity:0.9;
+// 			background-blend-mode: color-dodge !important;
+//     		transition: all .5s linear 1s;
+// 		}
+// 	}
+// }
+
+// .template-post {
+// 	.main-screens {
+// 		&:after {
+// 	     	content: '';
+// 		    height: 100vh;
+// 		    width: 100%;
+// 		    position: absolute;
+// 		    top: 0;
+// 		    left: 0;
+// 		    opacity: 0;
+// 		    pointer-events: none;
+// 		    mix-blend-mode: unset;
+// 		    mix-blend-mode:hard-light;
+// 		    background: #008988;
+// 		    /* z-index: 10000; */
+// 		    transform: translateZ(0);
+// 		    transition: all .05s linear;
+// 		}
+// 	}
+// 	&.modal_open {
+// 		.main-header nav a {
+// 			color:$beige;
+// 		}
+// 		.main-screens:after {
+// 			// background-blend-mode:multiply !important;
+// 			opacity:0.9;
+// 	    	transition:all .5s linear 1s;
+// 	    	// transition: all .75s linear;
+// 		}
+// 	}
+// }
 
 
 

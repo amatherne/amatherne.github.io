@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-	{% include head.html %}
+	{% include global/head.html %}
 	<!-- layouts/blocks -->
 	<body>
 		<div class="max-width">
-			{% include header.html spacer='none' %}
+			{% include global/header.html spacer='none' %}
 			<div class="bx-wrapper">
 				<div class="main-screens">
+					{% assign hide = false %}
 					{% for section in page.page_sections %}
-						{% include block-{{ section.block }}.html %}
+						<div class="pane {% unless forloop.first or hide != true %}hide{% endunless %}">
+							{% include blocks/{{ section.block }}.html %}
+						</div>
 					{% endfor %}
 				</div>
 				{% if page.page_sections.size > 1 and page.use_slider == true %}
@@ -21,128 +24,10 @@
 							{% endfor %}
 						</div>
 					</div>
-					<script type="text/javascript">
-						$(document).ready(function () {
-							var	slideContainer = '.main-screens',
-								slide = '.section-slide',
-								slideActive = 'active-slide';
-								slideBefore = '.active-slide .background-color:not(.footer,.contact)';
-								slideContent = '.active-slide .content h2, .active-slide .content p, .active-slide .content .btn';
-								// slideBefore = '.active-slide .content:not(.footer,.contact)';
-								screenHeight = $(window).height();
-								screenWidth = $(window).width();
-
-							// $(slideContainer+" "+slide).eq(0).addClass(slideActive)
-							// console.log('Gaaaame Ooooon')
-
-							if (screenWidth < 768) {
-								$(slide).css('height', screenHeight);
-							}
-
-
-
-							var $slider_nav = $('.bx-pager-link, .bx-controls-direction a');
-					            // $nav = $('.menu-modal');
-					  //           $nav_bg = $('.menu_active_bg');
-					            $contBG = $(slideBefore);
-
-					        var slide_animation = function(e) {
-
-					            var isOpen = $(slide).is(slideActive);
-					                
-					                easing = [500, 20],
-					                leftInBg = isOpen ? 0 : [0,0],
-					                leftInTxt = isOpen ? 1000 : [0,1000],
-					                opacity = isOpen ? 0 : [1,0],
-					                slideDelay = 0, 500,
-					                slideDur = isOpen ? 100 : 1000,
-					                ease = isOpen ? easing : easing,
-					                elStag = isOpen ? 175 : 0,
-					                dur = isOpen ?  500 : 200;
-					    
-
-
-							  	$(slideBefore)
-								    .velocity({ 
-								    	left: leftInBg,
-								    	opacity: opacity
-								    },{
-								    	duration:slideDur,
-								    	ease:[500,50]
-								    });
-
-								$(slideContent)
-								    .velocity({ 
-								    	left: leftInTxt,
-								    	opacity: opacity
-								    },{
-								    	duration:slideDur,
-								    	stagger:elStag,
-								    	ease:[500,90]
-								    });
-
-
-					        }
-					        
-
-
-					        // $slider_nav.click(slide_animation);
-
-					        $(slideContainer).bxSlider({
-								// mode: 'fade',
-								infiniteLoop: false,
-								touchEnabled: false,
-								hideControlOnEnd: true,
-								pagerCustom: '#bx-pager',
-
-								onSlideAfter: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-
-					        		$(slide).velocity('reverse');
-								},
-								onSlideBefore: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-					        		// slide_animation()
-					        		$(slide).removeClass(slideActive);
-								    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
-
-					        		slide_animation()
-
-								},
-
-								onSliderLoad: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-									// currentSlideHtmlObject.preventDefault();
-									setTimeout(function() {
-								    	$(slideContainer+" "+slide).eq(0).addClass(slideActive)
-								    	console.log('Gaaaame Ooooon')
-					        			slide_animation()
-
-									},1500)
-									// return currentSlideNumber--;
-									return false
-
-								}
-							});
-
-
-							
-
-
-							
-						})
-					</script>
-					<style type="text/css">
-						.bx-wrapper .bx-loading {
-							background: url({{ 'images/bx_loader.gif' | absolute_url }}) center center no-repeat #ffffff;
-						}
-						.bx-wrapper .bx-prev {
-						  	background: url({{ 'images/icon-prev-arrow.svg' | absolute_url }}) no-repeat center;
-						}
-						.bx-wrapper .bx-next {
-						  	background: url({{ 'images/icon-next-arrow.svg' | absolute_url }}) no-repeat center;
-						}
-					</style>
+					{% include helpers/script-main-slider.html %}
 				{% endif %}
 			</div>
-			{% include footer.html %}
+			{% include global/footer.html %}
 		</div>
  	</body>
 </html>
