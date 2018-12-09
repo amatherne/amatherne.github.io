@@ -60,6 +60,6 @@ fields:
           type: pages
       label: Url
       name: url
-  - type: textarea
-    name: custom_html
-    label: Custom HTML
+- type: textarea
+  name: custom_html
+  label: Custom HTML
