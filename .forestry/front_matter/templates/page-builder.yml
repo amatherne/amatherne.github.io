@@ -19,6 +19,7 @@ fields:
   label: Page Sections
   template_types:
   - hero
+  - cta
   - featured-posts
   - text-grid
   - signup-bar
