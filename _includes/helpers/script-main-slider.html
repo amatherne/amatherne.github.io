@@ -21,81 +21,56 @@
 <script type="text/javascript">
 		
 
-	
-	// function veloFadeIn(el,cls) {
-	// 	el = $(el);
-	// 	cls = cls;
+	// function veloFadeIn(el) {
+	// 	el  			= $(el);
+	// 	elLength		= el.length;
+	// 	cls 			= '.'+pnCurCls;
+		
+		
 
-	// 	curDataNum = $(this).data('pane-number');
+	// 	el.each(function () {
+	// 		i = $(this);
+	// 		vFI(i);
+	// 	})
 
-	// 	hasClass = $(el).is(cls);
 
-	//     function init() {
-	//         eventListeners();
-	//         veloFadeIn();
-	//     }
-	//     function eventListeners(){
-	//     //     $(document).ready(function() {
-	//     //         veloFadeIn();
-	//     //     });
-	// 	    chkDelay = '200'; // Amount of time between Checks
-	// 	    setInterval(function() {
-	// 	    	if ( $(this).is(cls) || curDataNum != prevDataNum ) {
-	// 	       		veloFadeIn();
-	// 	    	}
-	// 	    },chkDelay);
-	//     }
 
-	//     // function classChecker(cls) {
-	//     //     chkDelay = '200'; // Amount of time between Checks
-	//     //     var chkExist = setInterval(function() {
-	//     //         chkClass = $(cls);
-	//     //         if (chkClass.length) {
-	//     //             // DO something
-	//     //             clearInterval(chkExist);
-	//     //         }
-	//     //     },chkDelay);
-	//     // }
-
-	    
-	//     function veloFadeIn(){
-	//     	if (hasClass) {
-	// 	    	console.log('duh')
-	//           	// Btn Settings
-			        
-	// 	        $item = el.children('animate'),
-	// 	        // easing = [500, 20],
-
-	// 	        top = hasClass ? '0%':'-200%',
-	// 	        // NavDelay = hasClass ? 0 : 0,
-	// 	        // NavDur = hasClass ? 700 : 100,
-
-	// 	        aTrans = hasClass ? 'transition.loadDown' : 'transition.loadUp',
-	// 	        aStag = hasClass ? 175 : 0,
-	// 	        aDelay = hasClass ? 450 : 0,
-	// 	        aDur = hasClass ? 600 : 100,
-	// 	        // aEase = hasClass ? easing : easing,
-		            
-	// 	        // ease = hasClass ? easing : easing,
-	// 	        // dur = hasClass ?  500 : 200;
-
-	// 	        $item.velocity(
-	//             	aTrans,
-	//             	{
-	//             		top: top,
-	// 	                duration:aDur,
-	// 	                delay:aDelay,
-	// 	                easing:[300, 10],
-	// 	                stagger:aStag
-	//             	}
-	//             )
-
-	// 	    }
-	//     };
-	// 	prevDataNum = curDataNum;
-
-	//     init();
+	// 	function vFI(p) {
+	// 		p 	= $(p);
+				
+	// 		for (var counter = 0, i = 1; counter < elLength; counter++, i++) {
+				
+	// 			chkLoop 		= p.is('.pane-'+i);
+	// 			chkCur 			= p.is(cls);
+	// 			currIndex 		= $(pnCur).index();
+	// 			currItem 		= ++currIndex;
+	// 			if ( typeof !prevIndex ) {
+	// 				prevItem 	= 0;
+	// 			}
+	// 			if ( chkLoop && chkCur && prevItem != currItem) {
+	// 				console.log('Loop: '+i+' Prev: '+prevItem+' Curr: '+currItem)
+	// 			}
+	// 		}
+	// 	}
+	// 	var prevIndex = ++currIndex;
 	// }
+
+	// // Create a closure
+	// (function(){
+	//     // Your base, I'm in it!
+	//     var originalAddClassMethod = jQuery.fn.addClass;
+
+	//     jQuery.fn.addClass = function(){
+	//         // Execute the original method.
+	//         var result = originalAddClassMethod.apply( this, arguments );
+
+	//         // trigger a custom event
+	//         jQuery(this).trigger('cssClassChanged');
+
+	//         // return the original result
+	//         return result;
+	//     }
+	// })();
    
 
 	$(document).ready(function () {
@@ -112,29 +87,32 @@
 		pnNmAct		= 'active';
 		pnNmCur 	= pnNum+'.'+pnNmAct;
 		pnTiming	= 1200; // coincides with transition of pane in scss
+		animCls		= '.pane .animate';
 
 		// On load add Next Pane Class / start Scrollmagic
 		$(pnCur).next(pane).addClass(pnNxCls);
-		// setTimeout(function () {
-		paneParent.addClass('start-scene');
 
-		// veloFadeIn(pane,pnCur);
-       
-       	// $(pane).each(function () {
-        // $('body').on('DOMSubtreeModified', pane, function veloFadeIn('.'+pnCurCls)
-	   	// classChecker('.'+pnCurCls);
 
-       	// })
-
-		// },2000)
+		// paneParent.addClass('start-scene');
+		// veloFadeIn(pane);
 		
 		// Arrow Clicks
-		$(nxPnArw).on('click touch',function(){nextPane()});
-		$(prPnArw).on('click touch',function(){prevPane()});
+		$(nxPnArw).on('click touch',function(){
+			nextPane()
+			// veloFadeIn(pane)
+		});
+		$(prPnArw).on('click touch',function(){
+			prevPane()
+			// veloFadeIn(pane)
+		});
 
 		// Pager Clicks
-		$(pnNum).on('click touch',function(){numChange($(this))});
+		$(pnNum).on('click touch',function(){
+			numChange($(this))
+			// veloFadeIn(pane)
+		});
 
+		
 
 		raiseZ = function (el) {
 			el 		= $(el);
@@ -208,6 +186,9 @@
 				},pnTiming)
 			}
 		}
+
+
+		
 
 		
 

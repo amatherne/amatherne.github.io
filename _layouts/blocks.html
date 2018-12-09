@@ -9,7 +9,7 @@
 			{% assign use_animations = true %}
 			<div class="main-screens {% if use_animations == true %}slides-on{% endif %}">
 				{% for section in page.page_sections %}
-					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %}" data-pane-number="{{forloop.index}}">
+					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %} pane-{{forloop.index}}" pane-number="{{forloop.index}}">
 						{% include blocks/{{ section.block }}.html %}
 					</div>
 				{% endfor %}
