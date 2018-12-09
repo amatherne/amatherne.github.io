@@ -40,6 +40,14 @@ page_sections:
   custom_html: "==::before {background-size:1000px;opacity:1;filter:initial;mix-blend-mode:multiply;background-repeat:repeat;}
     \n\n==::after{background-blend-mode:hue;} == .icon_image {max-width:300px;} \n==
     h2 {text-transform:uppercase;}"
+- template: text-grid
+  block: text-grid
+  background:
+    background_image: uploads/collections/pattern.jpg
+    image_background_color: rgb(255, 255, 255)
+  html: "==::before {background-size:1000px;opacity:1;filter:initial;mix-blend-mode:multiply;background-repeat:repeat;}
+    \n\n==::after{background-blend-mode:hue;} == .icon_image {max-width:300px;} \n==
+    h2 {text-transform:uppercase;}"
 
 ---
 foo bar
