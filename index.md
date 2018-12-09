@@ -90,12 +90,6 @@ page_sections:
       a diet is the best defense. No, I did not kill Kitty. However, I am going to
       oblige and answer the nice officer's questions because I am an honest man with
       no secrets to hide.
-  - icon: uploads/collections/Metronome_173952.png
-    title: To Click or<br/>not to Click
-    text: I don't criticize you! And if you're worried about criticism, sometimes
-      a diet is the best defense. No, I did not kill Kitty. However, I am going to
-      oblige and answer the nice officer's questions because I am an honest man with
-      no secrets to hide.
 
 ---
 foo bar
