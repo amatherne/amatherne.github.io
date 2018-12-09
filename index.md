@@ -45,9 +45,17 @@ page_sections:
   background:
     background_image: uploads/collections/pattern.jpg
     image_background_color: rgb(255, 255, 255)
+    text_color: rgb(83, 83, 85)
   html: "==::before {background-size:1000px;opacity:1;filter:initial;mix-blend-mode:multiply;background-repeat:repeat;}
     \n\n==::after{background-blend-mode:hue;} == .icon_image {max-width:300px;} \n==
     h2 {text-transform:uppercase;}"
+  block_item:
+  - title: Styles
+    text: I don't criticize you! And if you're worried about criticism, sometimes
+      a diet is the best defense. No, I did not kill Kitty. However, I am going to
+      oblige and answer the nice officer's questions because I am an honest man with
+      no secrets to hide.
+    icon: uploads/collections/note.png
 
 ---
 foo bar
