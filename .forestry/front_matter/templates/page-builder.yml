@@ -20,6 +20,7 @@ fields:
   template_types:
   - hero
   - featured-posts
+  - text-grid
   - signup-bar
   - simple-footer
 pages:
