@@ -1,116 +1,337 @@
 <!-- includes/helpers/script-main-slider -->
+<div class="container">
+	<div class="pane-controls">
+		<div class="pane-numbers" id="pane-pager">
+			{% for section in page.page_sections %}
+				<a class="pane-num {% if forloop.first %}active{% endif %}">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</a>
+			{% endfor %}
+		</div>
+		<div class="pane-arrows">
+			<div class="pane-prev">
+				<img src="{{ 'images/icon-prev-arrow.svg' | relative_url }}">
+			</div>
+			<div class="pane-next">
+				<img src="{{ 'images/icon-next-arrow.svg' | relative_url }}">
+			</div>
+		</div>
+
+	</div>
+</div>
+
 <script type="text/javascript">
+		
+
+	
+	// function veloFadeIn(el,cls) {
+	// 	el = $(el);
+	// 	cls = cls;
+
+	// 	curDataNum = $(this).data('pane-number');
+
+	// 	hasClass = $(el).is(cls);
+
+	//     function init() {
+	//         eventListeners();
+	//         veloFadeIn();
+	//     }
+	//     function eventListeners(){
+	//     //     $(document).ready(function() {
+	//     //         veloFadeIn();
+	//     //     });
+	// 	    chkDelay = '200'; // Amount of time between Checks
+	// 	    setInterval(function() {
+	// 	    	if ( $(this).is(cls) || curDataNum != prevDataNum ) {
+	// 	       		veloFadeIn();
+	// 	    	}
+	// 	    },chkDelay);
+	//     }
+
+	//     // function classChecker(cls) {
+	//     //     chkDelay = '200'; // Amount of time between Checks
+	//     //     var chkExist = setInterval(function() {
+	//     //         chkClass = $(cls);
+	//     //         if (chkClass.length) {
+	//     //             // DO something
+	//     //             clearInterval(chkExist);
+	//     //         }
+	//     //     },chkDelay);
+	//     // }
+
+	    
+	//     function veloFadeIn(){
+	//     	if (hasClass) {
+	// 	    	console.log('duh')
+	//           	// Btn Settings
+			        
+	// 	        $item = el.children('animate'),
+	// 	        // easing = [500, 20],
+
+	// 	        top = hasClass ? '0%':'-200%',
+	// 	        // NavDelay = hasClass ? 0 : 0,
+	// 	        // NavDur = hasClass ? 700 : 100,
+
+	// 	        aTrans = hasClass ? 'transition.loadDown' : 'transition.loadUp',
+	// 	        aStag = hasClass ? 175 : 0,
+	// 	        aDelay = hasClass ? 450 : 0,
+	// 	        aDur = hasClass ? 600 : 100,
+	// 	        // aEase = hasClass ? easing : easing,
+		            
+	// 	        // ease = hasClass ? easing : easing,
+	// 	        // dur = hasClass ?  500 : 200;
+
+	// 	        $item.velocity(
+	//             	aTrans,
+	//             	{
+	//             		top: top,
+	// 	                duration:aDur,
+	// 	                delay:aDelay,
+	// 	                easing:[300, 10],
+	// 	                stagger:aStag
+	//             	}
+	//             )
+
+	// 	    }
+	//     };
+	// 	prevDataNum = curDataNum;
+
+	//     init();
+	// }
+   
+
 	$(document).ready(function () {
 
+		pane 		= '.pane';
+		paneParent 	= $(pane).parent();
+		pnCurCls 	= 'current-pane';
+		pnPrCls 	= 'prev-pane';
+		pnNxCls 	= 'next-pane';
+		pnCur 		= pane+'.'+pnCurCls;
+		nxPnArw 	= '.pane-next';
+		prPnArw 	= '.pane-prev';
+		pnNum 		= '.pane-numbers a';
+		pnNmAct		= 'active';
+		pnNmCur 	= pnNum+'.'+pnNmAct;
+		pnTiming	= 1200; // coincides with transition of pane in scss
+
+		// On load add Next Pane Class / start Scrollmagic
+		$(pnCur).next(pane).addClass(pnNxCls);
+		// setTimeout(function () {
+		paneParent.addClass('start-scene');
+
+		// veloFadeIn(pane,pnCur);
+       
+       	// $(pane).each(function () {
+        // $('body').on('DOMSubtreeModified', pane, function veloFadeIn('.'+pnCurCls)
+	   	// classChecker('.'+pnCurCls);
+
+       	// })
+
+		// },2000)
+		
+		// Arrow Clicks
+		$(nxPnArw).on('click touch',function(){nextPane()});
+		$(prPnArw).on('click touch',function(){prevPane()});
+
+		// Pager Clicks
+		$(pnNum).on('click touch',function(){numChange($(this))});
+
+
+		raiseZ = function (el) {
+			el 		= $(el);
+			currZ 	= $(pnCur).css('z-index');
+			plusZ 	= ++currZ;
+			el.css('z-index',plusZ);
+		}
+		numChange = function(el) {
+			el  		= $(el);
+			currIndex 	= $(pnNmCur).index();
+			thisIndex 	= el.index();
+			currItem 	= ++currIndex;
+			thisItem 	= ++thisIndex;
+			// Check position
+			after 		= currItem < thisItem;
+			before 		= currItem > thisItem;
+			if ( el.is('.'+pnNmAct) ) {
+				// Do NOTHING
+			} else {
+				if ( after ) {
+					clicksNeeded = thisItem - currItem;
+					for (var counter = 0, i = 0; counter < clicksNeeded; counter++, i++) {
+						setTimeout(function() {
+							nextPane();
+						}, i * (pnTiming * 1.15))
+					}
+				}
+				if ( before ) {
+					clicksNeeded = currItem - thisItem;
+					for (var counter = 0, i = 0; counter < clicksNeeded; counter++, i++) {
+						setTimeout(function() {
+							prevPane();
+						}, i * (pnTiming * 1.15))
+					}
+				}
+			}
+		}
+		nextPane = function() {
+			next = $(pnCur).next(pane);
+			if ( next.length ) {
+				raiseZ(next);
+				next.addClass(pnCurCls).removeClass(pnNxCls).next(pane).addClass(pnNxCls);
+				setTimeout(function() {
+					// Gracful Number Change
+					$(pnNmCur).removeClass(pnNmAct).next(pnNum).addClass(pnNmAct);
+				},(pnTiming / 2))
+				prev = $(pnCur).prev(pane);
+				setTimeout(function() {
+					prev.removeClass(pnCurCls);
+					prev.prev(pane).removeClass(pnPrCls);
+					prev.last().addClass(pnPrCls);
+				},pnTiming)
+			}
+		}
+		prevPane = function() {
+			prev = $(pnCur).prev(pane);
+			if ( prev.length ) {
+				raiseZ(prev);
+				prev.addClass(pnCurCls);
+				setTimeout(function() {
+					// Delay to help reverse animation
+				 	prev.removeClass(pnPrCls).prev(pane).addClass(pnPrCls);
+					// Graceful Number Change
+					$(pnNmCur).removeClass(pnNmAct).prev(pnNum).addClass(pnNmAct);
+				},(pnTiming / 2));
+				next = $(pnCur).next(pane);
+				setTimeout(function() {
+					next.removeClass(pnCurCls);
+					next.next(pane).removeClass(pnNxCls);
+					next.first().addClass(pnNxCls);
+				},pnTiming)
+			}
+		}
+
+		
+
+      //   function fadeIn(el) {
+      //   	el = $(el);
+
+      //   	function init() {
+		    //     eventListeners();
+		    //     fadeIn();
+		    // }
+		    // function eventListeners() {
+		    // 	$(window).load(function() {
+		    //     	fadeIn();
+		    // 	})
+		    	
+		    // }
+      //   	console.log('test');
+      //       // $scene.toggleClass(current);
+      //       // $nav.toggleClass(current);
+      //       // $parent.toggleClass(current);
+      //       // $body.toggleClass(modalOpen);
+      //       // $body.toggleClass(locked);
+
+      //       // Btn Settings
+      //       var hasClass = el.is('.'+pnCurCls);
+                
+      //           easing = [500, 20],
+
+      //           top = hasClass ? '0%':'-200%',
+      //           // NavDelay = hasClass ? 0 : 0,
+      //           // NavDur = hasClass ? 700 : 100,
+
+      //           // aTrans = hasClass ? 'transition.loadDown' : 'transition.loadUp',
+      //           // aStag = hasClass ? 175 : 0,
+      //           // aDelay = hasClass ? 450 : 0,
+      //           // aDur = hasClass ? 600 : 100,
+      //           // aEase = hasClass ? easing : easing,
+                    
+      //           // ease = hasClass ? easing : easing,
+      //           // dur = hasClass ?  500 : 200;
+
+      //       // Links
+            
+
+      //       $links.velocity(
+      //       	// aTrans,
+      //       	{
+      //       		top: top
+      //           // duration:aDur,
+      //           // delay:aDelay,
+      //           // easing:[300, 10],
+      //           // stagger:aStag
+      //       })
+      //       // return false;
+
+      //       init();
+
+      //   }
+
+
+
+
+
+
+     //    if ( $(pane).is('.'+pnCurCls) ) {
+     //    	$(pane).fadeIn($(pane));
+     //    }
+
+     //    function classChecker(el) {
+	    //     chkDelay = '200'; // Amount of time between Checks
+	    //     var chkExist = setInterval(function() {
+	    //         chkClass = $(el);
+	    //         if (chkClass.length) {
+	    //             // DO something
+	    //             clearInterval(chkExist);
+	                
+	    //         }
+	    //     },chkDelay);
+	    // }
+	    // $(pane).classChecker('.'+pnCurCls);
+
 		
 
 
-
-
-
-
-
-
-
-
-
+		// var el = '.animate',
+		// 	trig = $(el).find('.start-scene .current-pane'),
+		// 	// Move In
+		// 	inY_0	= '100%',
+		// 	inY_1 		= '0%',
+		// 	inOp_0 	= 0,
+		// 	inOp_1 	= 1,
+		// 	inDelay = 1.5,
+		// 	inEase 	= Power3.easeOut,
 		
-		// var	slideContainer = '.main-screens',
-		// 	slide = '.section-slide',
-		// 	slideActive = 'active-slide';
-		// 	slideBefore = '.active-slide .background-color:not(.footer,.contact)';
-		// 	slideContent = '.active-slide .content h2, .active-slide .content p, .active-slide .content .btn';
-		// 	// slideBefore = '.active-slide .content:not(.footer,.contact)';
-		// 	screenHeight = $(window).height();
-		// 	screenWidth = $(window).width();
+		// 	loadIn = TweenMax.staggerFromTo(
+		// 		el,
+		// 		1,
+		// 		{
+		// 			y: inY_0,
+		// 			opacity: inOp_0,
+		// 			ease: inEase 
+		// 		},
+		// 		{
+		// 			y: inY_1,
+		// 			opacity: inOp_1,
+		// 			ease: inEase 
+		// 		}
+		// 	);
 
-		// // $(slideContainer+" "+slide).eq(0).addClass(slideActive)
-		// // console.log('Gaaaame Ooooon')
+		// new ScrollMagic.Scene(
+		// 	{
+		// 		triggerElement: trig,
+		// 		reverse: true
+		// 	})
+		// 	.setTween(loadIn)
+		// 	// .addIndicators()
+		// 	.addTo(controller);
 
-		// if (screenWidth < 768) {
-		// 	$(slide).css('height', screenHeight);
-		// }
-
-		// var $slider_nav = $('.bx-pager-link, .bx-controls-direction a');
-  //           // $nav = $('.menu-modal');
-  // //           $nav_bg = $('.menu_active_bg');
-  //           $contBG = $(slideBefore);
-
-  //       var slide_animation = function(e) {
-  //  //          var isOpen = $(slide).is(slideActive);
-  //  //              easing = [500, 20],
-  //  //              // leftInBg = isOpen ? 0 : [0,0],
-  //  //              // leftInTxt = isOpen ? 1000 : [0,1000],
-  //  //              opacity = isOpen ? 0 : [1,0],
-  //  //              slideDelay = 0, 500,
-  //  //              slideDur = isOpen ? 100 : 1000,
-  //  //              ease = isOpen ? easing : easing,
-  //  //              elStag = isOpen ? 175 : 0,
-  //  //              dur = isOpen ?  500 : 200;
-    
-		//  //  	$(slideBefore)
-		// 	//     .velocity({ 
-		// 	//     	left: leftInBg,
-		// 	//     	opacity: opacity
-		// 	//     },{
-		// 	//     	duration:slideDur,
-		// 	//     	ease:[500,50]
-		// 	//     });
-		// 	// $(slideContent)
-		// 	//     .velocity({ 
-		// 	//     	left: leftInTxt,
-		// 	//     	opacity: opacity
-		// 	//     },{
-		// 	//     	duration:slideDur,
-		// 	//     	stagger:elStag,
-		// 	//     	ease:[500,90]
-		// 	//     });
-  //       }
-        
-
-
-        // $slider_nav.click(slide_animation);
-  //       $(slideContainer).bxSlider({
-		// 	mode: 'vertical',
-		// 	infiniteLoop: false,
-		// 	touchEnabled: false,
-		// 	hideControlOnEnd: true,
-		// 	pagerCustom: '#bx-pager',
-
-		// 	onSlideAfter: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-  //       		$(slide).velocity('reverse');
-		// 	},
-		// 	onSlideBefore: function  (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-  //       		// slide_animation()
-  //       		$(slide).removeClass(slideActive);
-		// 	    $(slide).eq(currentSlideHtmlObject).addClass(slideActive)
-
-  //       		slide_animation()
-
-		// 	},
-		// 	onSliderLoad: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-		// 		// currentSlideHtmlObject.preventDefault();
-		// 		setTimeout(function() {
-		// 	    	$(slideContainer+" "+slide).eq(0).addClass(slideActive)
-		// 	    	console.log('Gaaaame Ooooon')
-  //       			slide_animation()
-
-		// 		},1500)
-		// 		// return currentSlideNumber--;
-		// 		return false
-		// 	}
-		// });
 	})
 </script>
-<style type="text/css">
-	.bx-wrapper .bx-loading {
-		background: url({{ 'images/bx_loader.gif' | absolute_url }}) center center no-repeat #ffffff;
-	}
-	.bx-wrapper .bx-prev {
-	  	background: url({{ 'images/icon-prev-arrow.svg' | absolute_url }}) no-repeat center;
-	}
-	.bx-wrapper .bx-next {
-	  	background: url({{ 'images/icon-next-arrow.svg' | absolute_url }}) no-repeat center;
-	}
-</style>
+
+
+
+
+
+
 

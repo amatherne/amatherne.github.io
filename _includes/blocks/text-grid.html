@@ -1,6 +1,6 @@
 <!-- includes/cta -->
 {% assign block_id = '' %}
-{% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture block_id %}block-{{forloop.index}}-{{ section.background.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 {% capture cssClass %}.{{block_id}}{% endcapture %}
 {% comment %}{% assign hor_align = '' %}{% endcomment %}
 
@@ -9,74 +9,75 @@
 
 
 {% assign has_icon = false %}
-{% if section.image.icon_image != blank %}
+{% if section.background.icon_image != blank %}
 	{% assign has_icon = true %}
 {% endif %}
 
+{% case section.block_item.size %}
+    {% when 1 %}
+        {%- assign width = '' -%}
+    {% when 2 %}
+        {%- assign width = 'medium-up--one-half' -%}
+    {% when 3 %}
+        {%- assign width = 'medium-up--one-third' -%}
+    {% when 4 %}
+        {%- assign width = 'medium-up--one-quarter' -%}
+    {% when 6 %}
+        {%- assign width = 'medium-up--one-third large-up--one-sixth' -%}
+    {% else %}
+        {%- assign width = 'medium-up--one-third large-up--one-fifth' -%}
+{% endcase %}
+
 <section 
-	class="section-slide hero cta background-image {{ block_id }}">
+	class="section-slide hero text-grid background-image {{ block_id }}">
 	<div class="container">
-		<div class="grid_no_gutter">
-			<div class="grid__item {% comment %}medium--one-half large-up--two-fifths {% endcomment %}background-color">
-					
-				<div class="center-content {% if has_icon == true %}has-icon{% endif %} text-center ">
-					{% if has_icon == true %}
-						<div class="icon-image"> 
-							<img src="{{ section.image.icon_image | relative_url }}">
-						</div>
-					{% endif %}
-					<div class="text-content">
-						<h2 class="h1">{{ section.content.headline | strip_html }}</h2>
-						<div>{{ section.content.desc }}</div>
-						{% if section.content.cta.enabled == true %}
-							<a class="btn" href="{{ url }}">{{ section.content.cta.button_text }}</a>
+		<div class="grid_no_gutter ">
+			{% for item in section.block_item %}
+				<div class="grid__item text-center {{width}}">
+					<div class="item animate">
+						{% if has_icon == true %}
+							<div class="icon-image"> 
+								<img src="{{ item.icon | relative_url }}">
+							</div>
 						{% endif %}
+						<div mh-ttl>
+							<h2>{{item.title}}</h2>
+						</div>
+						<div>{{item.text}}</div>
 					</div>
+
+
+
 				</div>
-			</div>
+
+				{% comment %}{% include {{ section.block }}.html %}{% endcomment %}
+			{% endfor %}
+
+			<script type="text/javascript">
+			    $(document).ready(function() {
+			        var item = $('.{{block_id}} [mh-ttl]');
+			        matchHeight(item);
+			    });
+			</script>
+
+
+
 		</div>
 	</div>
-	{% if has_icon == true %}
-		<script type="text/javascript">
-			jQuery('{{ccSlass}} .icon-image img').each(function(){
-			    var $img = jQuery(this);
-			    var imgID = $img.attr('id');
-			    var imgClass = $img.attr('class');
-			    var imgURL = $img.attr('src');
-			    // console.log(imgURL)
-			    jQuery.get(imgURL, function(data) {
-			        // Get the SVG tag, ignore the rest
-			        var $svg = jQuery(data).find('svg');
-			        // Add replaced image's ID to the new SVG
-			        if(typeof imgID !== 'undefined') {
-			            $svg = $svg.attr('id', imgID);
-			        }
-			        // Add replaced image's classes to the new SVG
-			        if(typeof imgClass !== 'undefined') {
-			            $svg = $svg.attr('class', imgClass+' replaced-svg');
-			        }
-			        // Remove any invalid XML tags as per http://validator.w3.org
-			        $svg = $svg.removeAttr('xmlns:a');
-			        // Replace image with new SVG
-			        $img.replaceWith($svg);
-			    }, 'xml');
 
-			});
-		</script>
-	{% endif %}
 	<style type="text/css">
 		{{cssClass}} {
-			background-color:{{ section.image.image_background_color }};
+			background-color:{{ section.background.image_background_color }};
 		}
 		{{cssClass}}::before {
-			{% if section.image.background_image %}
-			background-image: url('{{ section.image.background_image | relative_url }}');
+			{% if section.background.background_image %}
+			background-image: url('{{ section.background.background_image | relative_url }}');
 			{% endif %}
 		}
 		@media screen and (max-width:767px) {
 			{{cssClass}}::before {
-				{% if section.image.mobile_background_image %}
-				background-image: url('{{ section.image.mobile_background_image | relative_url }}');
+				{% if section.background.mobile_background_image %}
+				background-image: url('{{ section.background.mobile_background_image | relative_url }}');
 				{% endif %}
 			}
 		}
@@ -90,22 +91,23 @@
 			background:{{ gradient }};
 		}
 		{{cssClass}} h2,
-		{{cssClass}} p {
-			color:{{ section.content.text_color }};
+		{{cssClass}} p,
+		{{cssClass}} * {
+			color:{{ section.background.text_color }};
 		}
 
 		{{cssClass}} h2 {
-			border-bottom-color:{{ section.content.text_color }};
+			border-bottom-color:{{ section.background.text_color }};
 		}
 		{{cssClass}} .icon-image svg g,
 		{{cssClass}} .icon-image svg path,
 		{{cssClass}} .icon-image svg polygon,
 		{{cssClass}} .icon-image svg rect,
 		{{cssClass}} .icon-image svg {
-			fill:{{ section.content.text_color }};
+			fill:{{ section.background.text_color }};
 		}
 
-		{% assign custom = section.custom_html | raw %}
+		{% assign custom = section.html | raw %}
 		{% assign cssLoop = custom | replace: '==', cssClass | replace: ';', ' !important;' %}
 
 		{{cssLoop}}

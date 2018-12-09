@@ -2,31 +2,21 @@
 <html lang="en">
 	{% include global/head.html %}
 	<!-- layouts/blocks -->
-	<body>
+	<body class="blocks-page">
 		<div class="max-width">
 			{% include global/header.html spacer='none' %}
-			<div class="bx-wrapper">
-				<div class="main-screens">
-					{% assign hide = false %}
-					{% for section in page.page_sections %}
-						<div class="pane {% unless forloop.first or hide != true %}hide{% endunless %}">
-							{% include blocks/{{ section.block }}.html %}
-						</div>
-					{% endfor %}
-				</div>
-				{% if page.page_sections.size > 1 and page.use_slider == true %}
-					<div class="bx-controls bx-has-pager">
-						<div class="bx-pager bx-default-pager" id="bx-pager">
-							{% for section in page.page_sections %}
-							<div class="bx-pager-item">
-								<a href="" data-slide-index="{{ forloop.index0 }}" class="bx-pager-link {% if forloop.first %}active{% endif %}">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</a>
-							</div>
-							{% endfor %}
-						</div>
+			
+			{% assign use_animations = true %}
+			<div class="main-screens {% if use_animations == true %}slides-on{% endif %}">
+				{% for section in page.page_sections %}
+					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %}" data-pane-number="{{forloop.index}}">
+						{% include blocks/{{ section.block }}.html %}
 					</div>
-					{% include helpers/script-main-slider.html %}
-				{% endif %}
+				{% endfor %}
 			</div>
+			{% if page.page_sections.size > 1 and page.use_slider == true %}
+				{% include helpers/script-main-slider.html %}
+			{% endif %}
 			{% include global/footer.html %}
 		</div>
  	</body>

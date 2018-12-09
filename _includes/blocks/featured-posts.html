@@ -20,7 +20,7 @@
 {% assign mob_bg_pos = s.image.mobile_background_position %}
 {% assign mob_bg_size = s.image.mobile_background_size %}
 
-{% capture block_id %}block-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
+{% capture block_id %}block-{{forloop.index}}-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
 
 {% assign limit = s.number_of_posts_per_tab | plus: 0 %}
 {% assign tabs = s.tabs_from_tags %}

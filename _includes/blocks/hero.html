@@ -1,6 +1,6 @@
 <!-- includes/block-hero -->
 {% assign block_id = '' %}
-{% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture block_id %}block-{{forloop.index}}-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 {% capture cssClass %}.{{block_id}}{% endcapture %}
 {% comment %}{% assign hor_align = '' %}{% endcomment %}
 
