@@ -35,39 +35,6 @@ fields:
     config:
       color_format: RGB
     label: Image Background Color
-  - type: select
-    config:
-      source:
-        type: custom
-      options:
-      - normal
-      - multiply
-      - screen
-      - overlay
-      - darken
-      - lighten
-      - color-dodge
-      - color-burn
-      - hard-light
-      - soft-light
-      - difference
-      - exclusion
-      - hue
-      - saturation
-      - color
-      - luminosity
-    label: Mix Blend Mode
-    name: mix_blend_mode
-    hidden: false
-  - type: textarea
-    name: background_position
-    label: Background Position
-  - type: text
-    name: background_size
-    label: Background Size
-  - type: text
-    label: Mobile Background Position
-    name: mobile_background_position
-  - type: text
-    name: mobile_background_size
-    label: Mobile Background Size
+- type: textarea
+  name: html
+  label: HTML
