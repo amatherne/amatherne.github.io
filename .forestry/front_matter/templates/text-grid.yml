@@ -1,0 +1,41 @@
+---
+label: Text Grid
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  default: text-grid
+  label: Block
+  name: block
+  hidden: true
+- type: field_group
+  name: background
+  label: Background
+  fields:
+  - type: file
+    label: Background Image
+    name: background_image
+  - type: file
+    name: mobile_background_image
+    label: Mobile Background Image
+  - type: color
+    config:
+      color_format: RGB
+    label: Image Background Color
+    name: image_background_color
+- type: textarea
+  name: html
+  label: HTML
+- type: field_group_list
+  name: block_item
+  label: Block Item
+  fields:
+  - type: file
+    name: icon
+    label: Icon
+  - type: text
+    name: title
+    label: Title
+  - type: textarea
+    name: text
+    label: Text
