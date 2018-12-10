@@ -10,7 +10,8 @@
 			<div class="main-screens {% if use_animations == true %}slides-on{% endif %}">
 				{% for section in page.page_sections %}
 					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %} pane-{{forloop.index}}" pane-number="{{forloop.index}}">
-						{% include blocks/{{ section.block }}.html %}
+						{% capture bdyClass %}.active-pane-{{forloop.index}}{% endcapture %}
+						{% include blocks/{{ section.block }}.html bdy='bdyClass' %}
 					</div>
 				{% endfor %}
 			</div>

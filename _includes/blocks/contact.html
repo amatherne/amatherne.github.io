@@ -1,0 +1,101 @@
+<!-- includes/block-cta-bar -->
+{% assign block_id = '' %}
+{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture contact-form %}
+	<form class="" action="https://formspree.io/{{ section.email_recipient }}" method="POST">
+		<div class="input-group">
+			<label for="Name">Name</label>
+			<input name="Name" id="Name" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="email">Email</label>
+			<input name="Email" id="email" type="email" class="">
+		</div>
+		<div class="input-group">
+			<label for="Subject">Subject</label>
+			<input name="Subject" id="Subject" type="text" class="">
+		</div>
+		<div class="input-group">
+			<label for="Message">Message</label>
+			<textarea name="Message" id="Message" class=""></textarea>
+		</div>
+		<div class="btn-container">
+			<button type="submit" class="btn button primary inverted">Sign up</button>
+		</div>
+	</form>
+{% endcapture %}
+<section 
+	class="section-slide hero contact background-image {{ block_id }}">
+	<div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item small--hide medium--hide large-up--one-quarter">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+			</div>
+			<div class="grid__item small--hide medium--one-half large-up--one-half text-center background-color">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content ">
+					{{ contact-form }}
+				</div>
+			</div>
+			<div class="grid__item medium--one-half large-up--one-quarter text-center medium-up--text-right">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content">
+					<h2 class="h1">{{ section.headline | strip_html }}</h2>
+					<p>{{ section.content }}</p>
+					{% if section.cta and section.cta.enabled == true %}
+						<a class="btn" href="{{ section.cta.url }}">{{ section.cta.button_text }}</a>
+					{% endif %}
+					<div class="medium-up--hide">
+						{{ contact-form }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.{{ block_id }}::before {
+			background-color:{{ section.image_background_color }};
+			{% if section.background_image %}
+			background-image: url('{{ section.background_image | relative_url }}');
+			{% endif %}
+			{% if section.background_position %}
+			background-position:{{ section.background_position }};
+			{% endif %}
+			{% if section.background_size %}
+			background-size:{{ section.background_size }};
+			{% endif %}
+			{% if section.background_blend_mode %}
+			background-blend-mode:{{ section.background_blend_mode }};
+			{% endif %}
+
+		}
+		.{{ block_id }}::after {
+			background-color:{{ section.content_background_color }};
+			{% if section.background_mix_mode %}
+			mix-blend-mode:{{ section.background_mix_mode }} !important;
+			{% endif %}
+		}
+		@media screen and (max-width:767px) {
+			.{{ block_id }}::before {
+				{% if section.mobile_background_image %}
+				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% endif %}
+				{% if section.mobile_background_position %}
+				background-position:{{ section.mobile_background_position }};
+				{% endif %}
+				{% if section.mobile_background_size %}
+				background-size:{{ section.mobile_background_size }};
+				{% endif %}
+				
+
+			}
+		}
+		/* test */
+		
+		.{{ block_id }} h2,
+		.{{ block_id }} label,
+		.{{ block_id }} p {
+			color:{{ section.text_color }};
+		}
+	</style>
+</section>

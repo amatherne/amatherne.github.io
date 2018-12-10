@@ -76,6 +76,7 @@
 	$(document).ready(function () {
 
 		pane 		= '.pane';
+		bodyClass	= 'active-pane-1';
 		paneParent 	= $(pane).parent();
 		pnCurCls 	= 'current-pane';
 		pnPrCls 	= 'prev-pane';
@@ -91,7 +92,8 @@
 
 		// On load add Next Pane Class / start Scrollmagic
 		$(pnCur).next(pane).addClass(pnNxCls);
-
+		
+		$('body').addClass(bodyClass);
 
 		// paneParent.addClass('start-scene');
 		// veloFadeIn(pane);
@@ -152,9 +154,14 @@
 		}
 		nextPane = function() {
 			next = $(pnCur).next(pane);
+			nextPaneNum = next.attr('pane-number');
+			nextPaneClass = 'active-pane-'+nextPaneNum;
 			if ( next.length ) {
 				raiseZ(next);
 				next.addClass(pnCurCls).removeClass(pnNxCls).next(pane).addClass(pnNxCls);
+				$('body').removeClass(function (index, className) {
+    				return (className.match (/(^|\s)active-pane-\S+/g) || []).join(' ');
+				}).addClass(nextPaneClass);
 				setTimeout(function() {
 					// Gracful Number Change
 					$(pnNmCur).removeClass(pnNmAct).next(pnNum).addClass(pnNmAct);
@@ -169,12 +176,17 @@
 		}
 		prevPane = function() {
 			prev = $(pnCur).prev(pane);
+			nextPaneNum = prev.attr('pane-number');
+			nextPaneClass = 'active-pane-'+nextPaneNum;
 			if ( prev.length ) {
 				raiseZ(prev);
 				prev.addClass(pnCurCls);
 				setTimeout(function() {
 					// Delay to help reverse animation
 				 	prev.removeClass(pnPrCls).prev(pane).addClass(pnPrCls);
+				 	$('body').removeClass(function (index, className) {
+	    				return (className.match (/(^|\s)active-pane-\S+/g) || []).join(' ');
+					}).addClass(nextPaneClass);
 					// Graceful Number Change
 					$(pnNmCur).removeClass(pnNmAct).prev(pnNum).addClass(pnNmAct);
 				},(pnTiming / 2));
@@ -186,6 +198,9 @@
 				},pnTiming)
 			}
 		}
+		// bodyClass = function (index, className) {
+		// 	return (className.match (/(^|\s)active-pane-\S+/g) || []).join(' ');
+		// }
 
 
 		

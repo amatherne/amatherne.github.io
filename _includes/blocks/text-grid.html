@@ -2,6 +2,7 @@
 {% assign block_id = '' %}
 {% capture block_id %}block-{{forloop.index}}-{{ section.background.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 {% capture cssClass %}.{{block_id}}{% endcapture %}
+{% capture bdyClass %}{{bdyClass}}{% endcapture %}
 {% comment %}{% assign hor_align = '' %}{% endcomment %}
 
 {% assign url = section.content.cta.url %}
@@ -108,7 +109,8 @@
 		}
 
 		{% assign custom = section.html | raw %}
-		{% assign cssLoop = custom | replace: '==', cssClass | replace: ';', ' !important;' %}
+
+		{% assign cssLoop = custom | replace: '==', cssClass | replace: '++', bdyClass | replace: ';', ' !important;' %}
 
 		{{cssLoop}}
 	</style>
