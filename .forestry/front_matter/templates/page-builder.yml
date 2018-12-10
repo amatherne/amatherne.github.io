@@ -22,6 +22,7 @@ fields:
   - cta
   - featured-posts
   - text-grid
+  - contact
   - signup-bar
   - simple-footer
 pages:
