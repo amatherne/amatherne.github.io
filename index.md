@@ -79,9 +79,14 @@ page_sections:
     background_image: uploads/collections/pattern.jpg
     image_background_color: rgb(245, 137, 115)
     text_color: rgb(83, 83, 85)
-  html: "==::before {background-size:1000px;opacity:1;filter:initial;mix-blend-mode:overlay;background-repeat:repeat;}
-    \n==::after{background-blend-mode:hue;} \n== .icon_image {max-width:300px;} \n==
-    h2 {text-transform:uppercase;}"
+  html: "++ .main-header .menu-toggle {color: rgb(83, 83, 85);} \n\n++ .pane-controls
+    .pane-numbers .pane-num {color: rgb(83, 83, 85);} \n\n++ .pane-controls .pane-numbers
+    .pane-num.active, \n++ .pane-controls .pane-numbers .pane-num:focus, \n++ .pane-controls
+    .pane-numbers .pane-num:hover {border-bottom-color:rgb(83, 83, 85);}  \n\n++ .main-header
+    .logo span {color: rgb(83, 83, 85);text-shadow: 0 0 4px #ffffff, 0 0 10px #000;}
+    \n\n==::before {background-size:1000px;opacity:1;filter:initial;mix-blend-mode:overlay;background-repeat:repeat;}
+    \n\n==::after{background-blend-mode:hue;} \n\n== .icon_image {max-width:300px;}
+    \n\n== h2 {text-transform:uppercase;}"
   block_item:
   - title: Styles
     text: I don't criticize you! And if you're worried about criticism, sometimes
