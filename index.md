@@ -100,6 +100,18 @@ page_sections:
       a diet is the best defense. No, I did not kill Kitty. However, I am going to
       oblige and answer the nice officer's questions because I am an honest man with
       no secrets to hide.
+- template: contact
+  block: contact
+  image:
+    background_image: uploads/2018/07/08/austin-2.jpg
+    image_background_color: rgb(106, 13, 131)
+  content:
+    headline: Get in Touch
+    description: "<p>I don't criticize you! And if you're worried about criticism,
+      sometimes a diet is the best defense. No, I did not kill Kitty. However, I am
+      going to oblige and answer the nice officer's questions because I am an honest
+      man with no secrets to hide.</p>"
+    text_color: rgb(255, 255, 255)
 
 ---
 foo bar
