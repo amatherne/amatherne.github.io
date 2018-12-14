@@ -192,7 +192,7 @@
 
 
 <section 
-	class="section-slide hero background-image block-1-uploads20180708herojpg">
+	class="section-slide hero has-center-content background-image block-1-uploads20180708herojpg">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item background-color">
@@ -246,7 +246,7 @@
 		
 		
 
-		.block-1-uploads20180708herojpg::before {background-size:cover !important;opacity:0.6 !important;filter:blur(3px) !important;mix-blend-mode:multiply !important;} .block-1-uploads20180708herojpg::after{background-blend-mode:hue !important;}
+		.block-1-uploads20180708herojpg::before {background-size:cover !important;opacity:0.7 !important;filter:blur(4px) !important;mix-blend-mode:multiply !important;} .block-1-uploads20180708herojpg::after{background-blend-mode:hue !important;}
 	</style>
 </section>
 
@@ -270,7 +270,7 @@
 
 
 <section 
-	class="section-slide hero cta background-image block-uploadscollectionspatternjpg">
+	class="section-slide hero cta has-center-content background-image blockgpjnrettapsnoitcello">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item background-color">
@@ -316,54 +316,65 @@
 			    }, 'xml');
 
 			});
+			$(document).ready(function() {
+				pblockgpjnrettapsnoitcello  = '.blockgpjnrettapsnoitcello .grid__item';
+				cblockgpjnrettapsnoitcello	= '.center-content';
+		        // on Load
+		        centerContentResizer(pblockgpjnrettapsnoitcello,cblockgpjnrettapsnoitcello);
+		        // On Window Resize Event
+		        $(window).resize(function() {
+		            centerContentResizer(pblockgpjnrettapsnoitcello,cblockgpjnrettapsnoitcello);
+		        });
+			});
+			
 		</script>
 	
 	<style type="text/css">
-		.block-uploadscollectionspatternjpg {
+		.blockgpjnrettapsnoitcello {
 			background-color:rgba(238,92,108);
 		}
-		.block-uploadscollectionspatternjpg::before {
+		.blockgpjnrettapsnoitcello::before {
 			
 			background-image: url('/uploads/collections/pattern.jpg');
 			
 		}
 		@media screen and (max-width:767px) {
-			.block-uploadscollectionspatternjpg::before {
+			.blockgpjnrettapsnoitcello::before {
 				
 			}
 		}
 		
 		
 		
-		.block-uploadscollectionspatternjpg::after {
+		.blockgpjnrettapsnoitcello::after {
 			
 
 			/* background-color:rgb(33,3,142); */
 			background: linear-gradient(-250deg, rgba(33,3,142,0) 55%,rgba(33,3,142,1)) ;
 		}
-		.block-uploadscollectionspatternjpg h2,
-		.block-uploadscollectionspatternjpg p {
+		.blockgpjnrettapsnoitcello h2,
+		.blockgpjnrettapsnoitcello p {
 			color:#FFFFFF;
 		}
 
-		.block-uploadscollectionspatternjpg h2 {
+		.blockgpjnrettapsnoitcello h2 {
 			border-bottom-color:#FFFFFF;
 		}
-		.block-uploadscollectionspatternjpg .icon-image svg g,
-		.block-uploadscollectionspatternjpg .icon-image svg path,
-		.block-uploadscollectionspatternjpg .icon-image svg polygon,
-		.block-uploadscollectionspatternjpg .icon-image svg rect,
-		.block-uploadscollectionspatternjpg .icon-image svg {
+		.blockgpjnrettapsnoitcello .icon-image svg g,
+		.blockgpjnrettapsnoitcello .icon-image svg path,
+		.blockgpjnrettapsnoitcello .icon-image svg polygon,
+		.blockgpjnrettapsnoitcello .icon-image svg rect,
+		.blockgpjnrettapsnoitcello .icon-image svg {
 			fill:#FFFFFF;
 		}
 
 		
 		
 
-		.block-uploadscollectionspatternjpg::before {background-size:1000px !important;opacity:1 !important;filter:initial !important;mix-blend-mode:multiply !important;background-repeat:repeat !important;} 
+		.blockgpjnrettapsnoitcello::before {background-size:1000px !important;opacity:1 !important;filter:initial !important;mix-blend-mode:multiply !important;background-repeat:repeat !important;} 
 
-.block-uploadscollectionspatternjpg::after{background-blend-mode:hue !important;} .block-uploadscollectionspatternjpg .icon_image {max-width:300px !important;} 
-.block-uploadscollectionspatternjpg h2 {text-transform:uppercase !important;}
+.blockgpjnrettapsnoitcello::after{background-blend-mode:hue !important;} .blockgpjnrettapsnoitcello .icon_image {max-width:300px !important;} 
+.blockgpjnrettapsnoitcello h2 {text-transform:uppercase !important;}
 	</style>
 </section>
 
@@ -373,7 +384,6 @@
 					<div class="pane  pane-3" pane-number="3">
 						
 						<!-- includes/cta -->
-
 
 
 
@@ -466,7 +476,7 @@
 
 	<style type="text/css">
 		.block-3-uploadscollectionspatternjpg {
-			background-color:rgb(100, 100, 200);
+			background-color:rgb(245, 137, 115);
 		}
 		.block-3-uploadscollectionspatternjpg::before {
 			
@@ -531,12 +541,7 @@
 				
 					<div class="pane  pane-4" pane-number="4">
 						
-						<!-- includes/cta -->
-
-
-
-
-
+						<!-- includes/block-cta-bar -->
 
 
 
@@ -549,234 +554,91 @@
 
 
 <section 
-	class="section-slide hero text-grid background-image block-4-uploadscollectionspatternjpg">
+	class="section-slide hero contact background-image block-4-uploads20180708austin-2jpg">
 	<div class="container">
-		<div class="grid_no_gutter ">
-			
-				<div class="grid__item text-center medium-up--one-half">
-					<div class="item animate">
-						
-							<div class="icon-image"> 
-								<img src="/uploads/collections/note.png">
-							</div>
-						
-						<div mh-ttl>
-							<h2>Styles</h2>
-						</div>
-						<div>I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide.</div>
-					</div>
-
-
-
+		<div class="grid_no_gutter">
+			<div class="grid__item medium--one-half large-up--one-quarter">
+				<div class="content">
+					<h2 class="h1">Get in Touch</h2>
+					<div class="rte"><p>I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide.</p></div>
+					
 				</div>
-
+			</div>
+			<div class="grid__item medium--one-half large-up--two-fifths large-up--push-one-fifth">
 				
+	<form class="" action="https://formspree.io/" method="POST">
+		<div class="input-group">
+			<input name="Name" id="Name" type="text" class="">
+			<label for="Name">Name</label>
+		</div>
+		<div class="input-group">
+			<input name="Email" id="email" type="email" class="">
+			<label for="email">Email</label>
+		</div>
+		<div class="input-group">
+			<input name="Subject" id="Subject" type="text" class="">
+			<label for="Subject">Subject</label>
+		</div>
+		<div class="input-group">
+			<textarea name="Message" id="Message" class="" rows="10"></textarea>
+			<label for="Message">Message</label>
+		</div>
+		<div class="btn-container">
+			<button type="submit" class="btn button primary inverted">send</button>
+		</div>
+	</form>
+
+			</div>
 			
-				<div class="grid__item text-center medium-up--one-half">
-					<div class="item animate">
-						
-							<div class="icon-image"> 
-								<img src="/uploads/collections/bassdrum.png">
-							</div>
-						
-						<div mh-ttl>
-							<h2>Studio vs. Tour</h2>
-						</div>
-						<div>I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide.</div>
-					</div>
-
-
-
-				</div>
-
-				
-			
-
-			<script type="text/javascript">
-			    $(document).ready(function() {
-			        var item = $('.block-4-uploadscollectionspatternjpg [mh-ttl]');
-			        matchHeight(item);
-			    });
-			</script>
-
-
-
 		</div>
 	</div>
-
 	<style type="text/css">
-		.block-4-uploadscollectionspatternjpg {
-			background-color:rgb(245, 137, 115);
+		.block-4-uploads20180708austin-2jpg {
+			background-color:rgb(106, 13, 131);
 		}
-		.block-4-uploadscollectionspatternjpg::before {
+		.block-4-uploads20180708austin-2jpg::before {
 			
-			background-image: url('/uploads/collections/pattern.jpg');
+			background-image: url('/uploads/2018/07/08/austin-2.jpg');
 			
 		}
 		@media screen and (max-width:767px) {
-			.block-4-uploadscollectionspatternjpg::before {
+			.block-4-uploads20180708austin-2jpg::before {
 				
 			}
 		}
 		
 		
 		
-		.block-4-uploadscollectionspatternjpg::after {
+		.block-4-uploads20180708austin-2jpg::after {
 			
 
 			/* background-color:; */
 			background: linear-gradient(-250deg,  55%,) ;
 		}
-		.block-4-uploadscollectionspatternjpg h2,
-		.block-4-uploadscollectionspatternjpg p,
-		.block-4-uploadscollectionspatternjpg * {
-			color:rgb(83, 83, 85);
-		}
-
-		.block-4-uploadscollectionspatternjpg h2 {
-			border-bottom-color:rgb(83, 83, 85);
-		}
-		.block-4-uploadscollectionspatternjpg .icon-image svg g,
-		.block-4-uploadscollectionspatternjpg .icon-image svg path,
-		.block-4-uploadscollectionspatternjpg .icon-image svg polygon,
-		.block-4-uploadscollectionspatternjpg .icon-image svg rect,
-		.block-4-uploadscollectionspatternjpg .icon-image svg {
-			fill:rgb(83, 83, 85);
-		}
-
-		
-
-		
-
-		.active-pane-4 .main-header .menu-toggle {color: rgb(83, 83, 85) !important;} 
-
-.active-pane-4 .pane-controls .pane-numbers .pane-num {color: rgb(83, 83, 85) !important;} 
-
-.active-pane-4 .pane-controls .pane-numbers .pane-num.active, 
-.active-pane-4 .pane-controls .pane-numbers .pane-num:focus, 
-.active-pane-4 .pane-controls .pane-numbers .pane-num:hover {border-bottom-color:rgb(83, 83, 85) !important;}  
-
-.active-pane-4 .main-header .logo span {color: rgb(83, 83, 85) !important;text-shadow: 0 0 4px #ffffff, 0 0 10px #000 !important;} 
-
-.block-4-uploadscollectionspatternjpg::before {background-size:1000px !important;opacity:1 !important;filter:initial !important;mix-blend-mode:overlay !important;background-repeat:repeat !important;} 
-
-.block-4-uploadscollectionspatternjpg::after{background-blend-mode:hue !important;} 
-
-.block-4-uploadscollectionspatternjpg .icon_image {max-width:300px !important;} 
-
-.block-4-uploadscollectionspatternjpg h2 {text-transform:uppercase !important;}
-	</style>
-</section>
-
-
-					</div>
-				
-					<div class="pane  pane-5" pane-number="5">
-						
-						<!-- includes/block-cta-bar -->
-
-
-
-<section 
-	class="section-slide hero contact background-image block-">
-	<div class="container">
-		<div class="grid_no_gutter">
-			<div class="grid__item small--hide medium--hide large-up--one-quarter">
-				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
-			</div>
-			<div class="grid__item small--hide medium--one-half large-up--one-half text-center background-color">
-				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
-				<div class="content ">
-					
-	<form class="" action="https://formspree.io/" method="POST">
-		<div class="input-group">
-			<label for="Name">Name</label>
-			<input name="Name" id="Name" type="text" class="">
-		</div>
-		<div class="input-group">
-			<label for="email">Email</label>
-			<input name="Email" id="email" type="email" class="">
-		</div>
-		<div class="input-group">
-			<label for="Subject">Subject</label>
-			<input name="Subject" id="Subject" type="text" class="">
-		</div>
-		<div class="input-group">
-			<label for="Message">Message</label>
-			<textarea name="Message" id="Message" class=""></textarea>
-		</div>
-		<div class="btn-container">
-			<button type="submit" class="btn button primary inverted">Sign up</button>
-		</div>
-	</form>
-
-				</div>
-			</div>
-			<div class="grid__item medium--one-half large-up--one-quarter text-center medium-up--text-right">
-				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
-				<div class="content">
-					<h2 class="h1"></h2>
-					<p>{"headline"=>"Get in Touch", "description"=>"<p>I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. No, I did not kill Kitty. However, I am going to oblige and answer the nice officer's questions because I am an honest man with no secrets to hide.</p>", "text_color"=>"rgb(255, 255, 255)"}</p>
-					
-					<div class="medium-up--hide">
-						
-	<form class="" action="https://formspree.io/" method="POST">
-		<div class="input-group">
-			<label for="Name">Name</label>
-			<input name="Name" id="Name" type="text" class="">
-		</div>
-		<div class="input-group">
-			<label for="email">Email</label>
-			<input name="Email" id="email" type="email" class="">
-		</div>
-		<div class="input-group">
-			<label for="Subject">Subject</label>
-			<input name="Subject" id="Subject" type="text" class="">
-		</div>
-		<div class="input-group">
-			<label for="Message">Message</label>
-			<textarea name="Message" id="Message" class=""></textarea>
-		</div>
-		<div class="btn-container">
-			<button type="submit" class="btn button primary inverted">Sign up</button>
-		</div>
-	</form>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<style type="text/css">
-		.block-::before {
-			background-color:;
-			
-			
-			
-			
-
-		}
-		.block-::after {
-			background-color:;
-			
-		}
-		@media screen and (max-width:767px) {
-			.block-::before {
-				
-				
-				
-				
-
-			}
-		}
-		/* test */
-		
-		.block- h2,
-		.block- label,
-		.block- p {
+		.block-4-uploads20180708austin-2jpg h2,
+		.block-4-uploads20180708austin-2jpg p,
+		.block-4-uploads20180708austin-2jpg * {
 			color:;
 		}
+
+		.block-4-uploads20180708austin-2jpg h2 {
+			border-bottom-color:;
+		}
+		.block-4-uploads20180708austin-2jpg .icon-image svg g,
+		.block-4-uploads20180708austin-2jpg .icon-image svg path,
+		.block-4-uploads20180708austin-2jpg .icon-image svg polygon,
+		.block-4-uploads20180708austin-2jpg .icon-image svg rect,
+		.block-4-uploads20180708austin-2jpg .icon-image svg {
+			fill:;
+		}
+
+		
+
+		
+
+		.block-4-uploads20180708austin-2jpg::before {background-size:cover !important;opacity:1 !important;filter:blur(3px) !important;mix-blend-mode:multiply !important;} .block-4-uploads20180708austin-2jpg::after{background-blend-mode:hue !important;background: linear-gradient(-250deg,rgba(33,3,142,0) 55%,rgba(33,3,142,1)) !important;}
 	</style>
+	
 </section>
 					</div>
 				
@@ -794,8 +656,6 @@
 				<a class="pane-num ">03</a>
 			
 				<a class="pane-num ">04</a>
-			
-				<a class="pane-num ">05</a>
 			
 		</div>
 		<div class="pane-arrows">
@@ -990,6 +850,62 @@
 				},pnTiming)
 			}
 		}
+
+
+		// $item = pane;
+
+
+		scrollTrig(pane);
+		
+		function scrollTrig(el) {
+			el 			= el;
+			$body 		= $('body');
+			
+			$(document).ready(function () {runScroll(el)})
+			$(window).scroll(function() {runScroll(el)})
+			// $(window).resize(function () {runScroll(el)})
+
+			function runScroll(item) {
+				item = $(item);
+				$(item).each(function () {
+					// el = $(this);
+					// distance 		= el.offset().top;
+					// bottom 			= el.offset().bottom;
+					// thisPaneNum 	= el.attr('pane-number');
+					// thisPaneClass 	= '.active-pane-'+thisPaneNum;
+
+					// console.log(distance)
+
+					// if (typeof prevDistance === 'undefined' ) {
+					// 	prevDistance = '';
+					// } 
+
+					// chck = ( prevDistance != distance );
+					// chck = ( prevDistance != distance && prevDistance != '' );
+
+					// console.log(chck)
+
+					// if ( $(window).scrollTop() >= distance && chck ) {
+					// 	// console.log(distance)
+					// 	console.log(thisPaneClass)
+
+				 //        // $('body').addClass($(this));
+				 //        // console.log(el)
+				 //        // console.log(distance)
+					// 	// console.log(el)
+				 //    } else {
+				 //    	// console.log('something else')
+				 //        // $('body').removeClass($(this));
+				 //    }
+				    // prevDistance = distance;
+				    // prevDistance = distance;
+				})
+			}
+		}
+
+
+
+
 		// bodyClass = function (index, className) {
 		// 	return (className.match (/(^|\s)active-pane-\S+/g) || []).join(' ');
 		// }
