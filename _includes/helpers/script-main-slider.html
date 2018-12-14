@@ -198,6 +198,62 @@
 				},pnTiming)
 			}
 		}
+
+
+		// $item = pane;
+
+
+		scrollTrig(pane);
+		
+		function scrollTrig(el) {
+			el 			= el;
+			$body 		= $('body');
+			
+			$(document).ready(function () {runScroll(el)})
+			$(window).scroll(function() {runScroll(el)})
+			// $(window).resize(function () {runScroll(el)})
+
+			function runScroll(item) {
+				item = $(item);
+				$(item).each(function () {
+					// el = $(this);
+					// distance 		= el.offset().top;
+					// bottom 			= el.offset().bottom;
+					// thisPaneNum 	= el.attr('pane-number');
+					// thisPaneClass 	= '.active-pane-'+thisPaneNum;
+
+					// console.log(distance)
+
+					// if (typeof prevDistance === 'undefined' ) {
+					// 	prevDistance = '';
+					// } 
+
+					// chck = ( prevDistance != distance );
+					// chck = ( prevDistance != distance && prevDistance != '' );
+
+					// console.log(chck)
+
+					// if ( $(window).scrollTop() >= distance && chck ) {
+					// 	// console.log(distance)
+					// 	console.log(thisPaneClass)
+
+				 //        // $('body').addClass($(this));
+				 //        // console.log(el)
+				 //        // console.log(distance)
+					// 	// console.log(el)
+				 //    } else {
+				 //    	// console.log('something else')
+				 //        // $('body').removeClass($(this));
+				 //    }
+				    // prevDistance = distance;
+				    // prevDistance = distance;
+				})
+			}
+		}
+
+
+
+
 		// bodyClass = function (index, className) {
 		// 	return (className.match (/(^|\s)active-pane-\S+/g) || []).join(' ');
 		// }

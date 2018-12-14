@@ -1,6 +1,6 @@
 <!-- includes/cta -->
 {% assign block_id = '' %}
-{% capture block_id %}block-{{ section.image.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+{% capture block_id %}block{{ section.image.background_image | replace: '/','' | replace: '.','' | split: '' | reverse | join: '' | truncate: 20,'' }}{% endcapture %}
 {% capture cssClass %}.{{block_id}}{% endcapture %}
 {% comment %}{% assign hor_align = '' %}{% endcomment %}
 
@@ -14,7 +14,7 @@
 {% endif %}
 
 <section 
-	class="section-slide hero cta background-image {{ block_id }}">
+	class="section-slide hero cta has-center-content background-image {{ block_id }}">
 	<div class="container">
 		<div class="grid_no_gutter">
 			<div class="grid__item {% comment %}medium--one-half large-up--two-fifths {% endcomment %}background-color">
@@ -62,6 +62,17 @@
 			    }, 'xml');
 
 			});
+			$(document).ready(function() {
+				p{{block_id}}  = '.{{block_id}} .grid__item';
+				c{{block_id}}	= '.center-content';
+		        // on Load
+		        centerContentResizer(p{{block_id}},c{{block_id}});
+		        // On Window Resize Event
+		        $(window).resize(function() {
+		            centerContentResizer(p{{block_id}},c{{block_id}});
+		        });
+			});
+			
 		</script>
 	{% endif %}
 	<style type="text/css">

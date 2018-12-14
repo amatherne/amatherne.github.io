@@ -153,30 +153,89 @@
 
 // Buttons Default
 // ---------------
-	$btnPadding:13px;
-	$btnBorder:3px;
+	$btnPadding:15px;
+	$btnBdrRadius:7px;
+	$btnEase: .5s $ease-out-quad;
 	.btn {
 		display:inline-block;
-		font-size: $btnFontSize;
-		// font-family: $btnFontFamily !important;
-		font-weight: $btnFontWeight !important;
-		text-transform: $btnFontStyle !important;
-		color: $btnTextColor !important;
-		background-color:$btnBgColor !important;    
-		border-bottom:$btnBorder solid $btnBorderColor !important;
-		padding: $btnPadding ($btnPadding * 2) ($btnPadding - $btnBorder);
-		line-height: $bodyLineHeight !important;
+		position: relative;
+		font-size: 24px;
+		// font-family: $btnFontFamily;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: white;
+		background-color: transparent;
+		border-radius:$btnBdrRadius;
+		// background-color:$btnBgColor;    
+		// border-bottom:$btnBorder solid $btnBorderColor;
+		border:none;
+		padding: $btnPadding ($btnPadding * 3.5) ($btnPadding - 1);
+		line-height: $bodyLineHeight;
 		cursor:pointer;
-		transition:all 150ms linear;
+		border-radius: $btnBdrRadius;
+		opacity: 0.65;
+		transition: $btnEase;
 		text-decoration:none;
-		&:hover {
-			border-bottom-color:$btnBorderHoverColor !important;
-			background-color:$btnBgHoverColor !important;
-			text-decoration: none !important;
-			color: $btnTextHoverColor !important;
+		z-index: 1;
+		&:after,
+		&:before {
+			content:'';
+			position: absolute;
+			width: 100%;
+			height: 101%;
+			left:50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+			z-index: -1;
+			background: $green;
+			border-radius: $btnBdrRadius;
+			// border: 2px solid darken($green,15%);
+			border: 1px solid white;
+			transition: $btnEase;
+		}
+
+		&:before {
+			opacity: 1;
+			background: linear-gradient(150deg, lighten($green,10%) 50%, $green 100%);
+			transition: $btnEase;
+
+			// -moz-border-image: -moz-linear-gradient(150deg, lighten($green,15%) 50%, $green 100%);
+			// -webkit-border-image: -webkit-linear-gradient(150deg, lighten($green,15%) 50%, $green 100%);
+			// border-image: linear-gradient(to left, lighten($green,15%) 50%, $green 100%);
+			// border-image-slice: 2;
 
 		}
 
+		&:after {
+			opacity: 0;
+			background: linear-gradient(350deg, lighten($green,10%) 50%, $green 100%);
+			transition: $btnEase;
+
+			// -moz-border-image: -moz-linear-gradient(350deg, lighten($green,15%) 50%, $green 100%);
+			// -webkit-border-image: -webkit-linear-gradient(350deg, lighten($green,15%) 50%, $green 100%);
+			// border-image: linear-gradient(to right, lighten($green,15%) 50%, $green 100%);
+			// border-image-slice: 2;
+
+		}
+
+
+		&:hover {
+			opacity: 1;
+			&:after {
+				opacity: 1;
+			}
+			&:before {
+				opacity: 0;
+			}
+			// border-bottom-color:$btnBorderHoverColor;
+			// background-color:$btnBgHoverColor;
+			text-decoration: none;
+			// color: $btnTextHoverColor;
+
+		}
+
+
+		
 
 		// // Secondary
 		// // ---------
@@ -244,10 +303,66 @@
 
 // Forms 
 
+	// $inputBdrRadius:7px;
+	$inputBdrRadius: #{$btnBdrRadius};
+	
 	form {
-		padding:1em;
+		// padding:1em;
 
 		.input-group {
+			$ease: $ease-out-quad;
+			$dur: .5s;
+			$del1: $dur / 2;
+			$del2: $del1 + $del1;
+			$transLabel: top $dur $del1 $ease;
+			$transInput: opacity $dur $del2 $ease;
+			position: relative;
+			z-index: 1;
+			margin: 0 0 33px;
+			label {
+				position: absolute;
+				width: auto;
+				top: 50%;
+				left: 20px;
+				transform: translateY(-50%);
+				z-index: 5;
+				pointer-events: none;
+				font-size: 16px;
+				color: white;
+				transition: $transLabel;
+			}
+			input, 
+			textarea {
+				@include prefix(appearance, none, ms webkit spec);
+				padding:16px;
+				margin: 0;
+				width: 100%;
+				height:auto;
+				position:relative;
+				display: block;
+				background: rgba(white, .35);
+				border: 2px solid white;
+				border-radius:$inputBdrRadius;
+				opacity: 0.25;
+				transition: $transInput;
+				&:hover,
+				&:focus {
+					outline: none;
+					opacity: 1;
+				}
+			}
+			textarea+label {
+				top: 27px;
+			}
+			input:hover+label, 
+			input:focus+label, 
+			textarea:hover+label, 
+			textarea:focus+label {
+				top: -13px;
+			}
+		}
+
+		.input-group--label-left {
 			margin:0 auto 1em;
 			label {
 				color:$beige;
@@ -257,7 +372,8 @@
 				font-size:20px;
 				vertical-align:top;
 				text-align:right;
-				margin:12px 12px 8px 0;			}
+				margin:12px 12px 8px 0;			
+			}
 			input, textarea {
 				background:darken($green, 10%);
 				border:1px solid darken($green,20%);
@@ -277,7 +393,7 @@
 		}
 
 		@media screen and (max-width:$grid-medium - 1) {
-			.input-group {
+			.input-group--label-left {
 				label {
 					text-align:left;
 					width:100%;

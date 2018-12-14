@@ -1,4 +1,15 @@
 .text-grid.hero {
+
+	padding:120px 0;
+
+	.grid_no_gutter {
+		margin-bottom: -60px;
+		.grid__item {
+			margin-bottom: 60px;
+		}
+	}
+
+
 	.grid_no_gutter,
 	.grid__item  {
 		height: auto;

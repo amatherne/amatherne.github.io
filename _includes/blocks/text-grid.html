@@ -3,7 +3,6 @@
 {% capture block_id %}block-{{forloop.index}}-{{ section.background.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
 {% capture cssClass %}.{{block_id}}{% endcapture %}
 {% capture bdyClass %}{{bdyClass}}{% endcapture %}
-{% comment %}{% assign hor_align = '' %}{% endcomment %}
 
 {% assign url = section.content.cta.url %}
 {% include url_shortener.html url=url %}

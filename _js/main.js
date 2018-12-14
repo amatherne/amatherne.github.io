@@ -1,4 +1,21 @@
 
+
+
+
+
+function centerContentResizer( par, chld ){
+    container = par;
+	content = container+' '+chld;
+    $containerHeight = $(container).outerHeight();
+    $contentHeight = $(content).outerHeight() + 120;
+    if ( $containerHeight < $contentHeight ) {
+    	$(container).css('min-height', $contentHeight);
+    }
+}
+
+
+
+
 // $(document).ready(function () {
 // 	// Scroll Triggers
 // 	// console.log('Scroll Triggers Active')

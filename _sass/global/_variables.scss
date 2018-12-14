@@ -1,16 +1,12 @@
 // Colors
 // ------
-	
-
+	// #00BEBD
+	// #008988
 	$green:#008988;
-	// $green2:#017E7D;
 	$red:#d96459;
 	$purp:#6A0D83;
-	// $orange:#f2ae72;
 	$orange:#ff9800;
-	// $beige:#f8f8dd;
 	$beige:#ffffff;
-	// $dark:#313133;
 	$dark:#000000;
 
 
@@ -91,18 +87,19 @@
 // Button / Icons Settings
 // -------------------------
 
-	$btnFontSize:             	16px ;
-	$btnFontWeight:             bold ;
-	$btnFontStyle:             	uppercase ;
+	// $btnFontSize:             	16px ;
+	// $btnFontWeight:             bold ;
+	// $btnFontStyle:             	uppercase ;
 
 
 	// Default Colors
-	$btnTextColor:             #fff ;
-	$btnBgColor:			   rgba(#ffffff,0.3) ;
-	$btnBorderColor:		   #fff ;
-	$btnTextHoverColor:        darken(#fff,30%) ;
-	$btnBgHoverColor:		   #fff ;
-	$btnBorderHoverColor:	   #fff ;
+	// $btnTextColor:             #fff ;
+	// $btnBgColor:			   rgba(#ffffff,0.3) ;
+	// $btnBgColor:			   $green ;
+	// $btnBorderColor:		   #fff ;
+	// $btnTextHoverColor:        darken(#fff,30%) ;
+	// $btnBgHoverColor:		   #fff ;
+	// $btnBorderHoverColor:	   #fff ;
 
 	// // Secondary Colors
 	// $sec_btnTextColor:         {{ settings.sec_btn_text_color }} ;

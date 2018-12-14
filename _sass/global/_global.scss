@@ -28,6 +28,10 @@ body.locked {
 	&.thin {
 		max-width:1200px;
 	}
+
+	@media screen and (max-width: $grid-medium - 1) {
+		padding: 0 20px;
+	}
 }
 
 .center-content {
@@ -233,6 +237,10 @@ body.locked {
 
 	}
 
+	@media screen and (max-width: $grid-medium - 1) {
+		display: none;
+	}
+
 }
 
 
@@ -353,13 +361,7 @@ body.locked {
 }
 
 
-@media screen and (max-width:$grid-medium - 1) {
-	.modal-toggle,
-	.menu-toggle {
-		right:0.6em;
-		top:0.6em;
-	}
-}
+
 
 
 .bx-wrapper {
