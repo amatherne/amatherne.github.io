@@ -49,18 +49,18 @@
 				<div class="container">
 					<div class="grid">
 						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter sidebar">
-							{% include post-side-gallery.html %}
-							{% include post-related.html %}
-							{% include post-audio.html %}
+							{% comment %}{% include post/side-gallery.html %}
+							{% include post/related.html %}
+							{% include post/audio.html %}{% endcomment %}
 						</div>
 						{% comment %}<div class="grid__item medium-down--hide large-up--one-twelfth"></div>{% endcomment %}
 						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters post-content">
 							<div class="rte">
 								{{ content }}
 							</div>
-							{% for section in page.blocks %}
-								{% include {{ section.block }}.html %}
-							{% endfor %}
+							{% comment %}{% for section in page.blocks %}
+								{% include page/{{ section.block }}.html %}
+							{% endfor %}{% endcomment %}
 						</div>
 					</div>	
 				</div>

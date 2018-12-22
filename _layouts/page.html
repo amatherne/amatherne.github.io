@@ -7,10 +7,9 @@
 			{% include global/header.html spacer='none' %}
 			<div class="">
 				<div class="main-screens">
-					{% for section in page.page_sections %}
-						{% comment %}<div>{{ section.block }} - {{ forloop.index }}</div>{% endcomment %}
-						{% include page-{{ section.block }}.html %}
-					{% endfor %}
+					{% comment %}{% for section in page.page_sections %}
+						{% include page/{{ section.block }}.html %}
+					{% endfor %}{% endcomment %}
 				</div>
 			</div>
 			{% include global/footer.html %}
