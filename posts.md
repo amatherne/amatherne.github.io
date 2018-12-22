@@ -12,9 +12,5 @@ page_sections:
     mix_blend_mode: color-burn
     background_position: center
     background_size: cover
-menu:
-  main:
-    weight: 5
-    title: All Posts
 
 ---
