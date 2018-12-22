@@ -24,6 +24,7 @@
 		<div class="max-width">
 			<!-- includes/header -->
 <header class="main-header">
+    <div class="overlay-bg close-menu"></div>
     <div class="menu-panel">
 		<a href="/" class="logo">
             
@@ -120,46 +121,45 @@
             
         </ul>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $btn            = $('.menu-toggle, .close-menu'),
+            $nav            = $('.menu-modal'),
+            $navLinks       = $('.main-nav li'),
+            $socLinks       = $('.main-nav li'),
+            modalOpen       = 'modal_open',
+            navActive       = 'active',
+            locked          = 'locked',
+            $body           = $('body'),
+            nav_Open        = function(e) {
+                $btn.toggleClass(navActive);
+                $body.toggleClass(modalOpen);
+                $body.toggleClass(locked);
+                
+                isOpen      = $btn.is('.'+navActive);
+                // Btn Settings
+                aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
+                aStag       = isOpen ? 250 : 0,
+                aDelay      = isOpen ? 0 : 0,
+                aDur        = isOpen ? 500 : 0,
+                aOp         = isOpen ? 1 : 0,
+                aWdth       = isOpen ? '100%' : '0%';
+                // Links
+                $navLinks.velocity( aTrans,{
+                    width:      aWdth,
+                    maxWidth:   aWdth,
+                    opacity:    aOp,
+                    duration:   aDur,
+                    delay:      aDelay,
+                    stagger:    aStag
+                })
+            }
+            $btn.click(nav_Open);
+         })
+    </script>
 </header>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-        $btn            = $('.menu-toggle'),
-        $nav            = $('.menu-modal'),
-        $navLinks       = $('.main-nav li'),
-        $socLinks       = $('.main-nav li'),
-        modalOpen       = 'modal_open',
-        navActive       = 'active',
-        locked          = 'locked',
-        $body           = $('body'),
-        nav_Open        = function(e) {
-            $btn.toggleClass(navActive);
-            $body.toggleClass(modalOpen);
-            $body.toggleClass(locked);
-            
-            isOpen      = $btn.is('.'+navActive);
-            // isOpen      = $body.is('.'+modalOpen);
 
-            // Btn Settings
-            aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
-            aStag       = isOpen ? 250 : 0,
-            aDelay      = isOpen ? 0 : 0,
-            aDur        = isOpen ? 500 : 0,
-            aOp         = isOpen ? 1 : 0,
-            aWdth       = isOpen ? '100%' : '0%';
-            // Links
-            $navLinks.velocity( aTrans,{
-                width:      aWdth,
-                maxWidth:   aWdth,
-                opacity:    aOp,
-                duration:   aDur,
-                delay:      aDelay,
-                stagger:    aStag
-            })
-        }
-        $btn.click(nav_Open);
-     })
-</script>
 
 
 

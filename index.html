@@ -24,6 +24,7 @@
 		<div class="max-width">
 			<!-- includes/header -->
 <header class="main-header">
+    <div class="overlay-bg close-menu"></div>
     <div class="menu-panel">
 		<a href="/" class="logo">
             
@@ -120,46 +121,45 @@
             
         </ul>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $btn            = $('.menu-toggle, .close-menu'),
+            $nav            = $('.menu-modal'),
+            $navLinks       = $('.main-nav li'),
+            $socLinks       = $('.main-nav li'),
+            modalOpen       = 'modal_open',
+            navActive       = 'active',
+            locked          = 'locked',
+            $body           = $('body'),
+            nav_Open        = function(e) {
+                $btn.toggleClass(navActive);
+                $body.toggleClass(modalOpen);
+                $body.toggleClass(locked);
+                
+                isOpen      = $btn.is('.'+navActive);
+                // Btn Settings
+                aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
+                aStag       = isOpen ? 250 : 0,
+                aDelay      = isOpen ? 0 : 0,
+                aDur        = isOpen ? 500 : 0,
+                aOp         = isOpen ? 1 : 0,
+                aWdth       = isOpen ? '100%' : '0%';
+                // Links
+                $navLinks.velocity( aTrans,{
+                    width:      aWdth,
+                    maxWidth:   aWdth,
+                    opacity:    aOp,
+                    duration:   aDur,
+                    delay:      aDelay,
+                    stagger:    aStag
+                })
+            }
+            $btn.click(nav_Open);
+         })
+    </script>
 </header>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-        $btn            = $('.menu-toggle'),
-        $nav            = $('.menu-modal'),
-        $navLinks       = $('.main-nav li'),
-        $socLinks       = $('.main-nav li'),
-        modalOpen       = 'modal_open',
-        navActive       = 'active',
-        locked          = 'locked',
-        $body           = $('body'),
-        nav_Open        = function(e) {
-            $btn.toggleClass(navActive);
-            $body.toggleClass(modalOpen);
-            $body.toggleClass(locked);
-            
-            isOpen      = $btn.is('.'+navActive);
-            // isOpen      = $body.is('.'+modalOpen);
 
-            // Btn Settings
-            aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
-            aStag       = isOpen ? 250 : 0,
-            aDelay      = isOpen ? 0 : 0,
-            aDur        = isOpen ? 500 : 0,
-            aOp         = isOpen ? 1 : 0,
-            aWdth       = isOpen ? '100%' : '0%';
-            // Links
-            $navLinks.velocity( aTrans,{
-                width:      aWdth,
-                maxWidth:   aWdth,
-                opacity:    aOp,
-                duration:   aDur,
-                delay:      aDelay,
-                stagger:    aStag
-            })
-        }
-        $btn.click(nav_Open);
-     })
-</script>
 
 
 
@@ -168,77 +168,552 @@
 
 			
 			
-			<div class="main-screens slides-on">
+			<div class="main-content ">
 				
 					
 					
-					<div class="pane current-pane block-1" pane-number="1">
-						<!-- includes/block-hero -->
-
-
-
-
-
-
+					<div class="pane  block-1" pane-number="1">
+						<!-- includes/cta -->
 
 
 
 <section 
-	class="section-slide hero has-center-content background-image block-1-uploads20180708herojpg">
-	<div class="container">
-		<div class="grid_no_gutter">
-			<div class="grid__item background-color">
-				<div class="center-content  text-center">
-					<h2 class="h1">Pnkdrmmr</h2>
-					<p>Musician // Web Developer</p>
+	class="slides ">
+	<div class="grid_no_gutter ">
+		
+			
+			
+			<div class="grid__item large-up--five-twelfths">
+				
+				
+
+				<a href="/contact" class=" background-image slide-1">
+					<div class="info">
+						<h2>Vetter Kids</h2>
+						
+							<div class="text-slide">
+								<span>in the studio for our new album "Structure Fire"</span>
+							</div>
+						
+					</div>
+				</a>
+			</div>
+		
+			
+			
+			<div class="grid__item medium--one-half large-up--four-twelfths">
+				
+				
+
+				<a href="/contact" class=" background-image slide-2">
+					<div class="info">
+						<h2>Structures & Lines</h2>
+						
+							<div class="text-slide">
+								<span>Summer 2019 Tour Announcement</span>
+							</div>
+						
+					</div>
+				</a>
+			</div>
+		
+			
+			
+			<div class="grid__item medium--one-half large-up--three-twelfths">
+				
+				
+
+				<a href="/contact" class=" background-image slide-3">
+					<div class="info">
+						<h2>Underwater</h2>
+						
+					</div>
+				</a>
+			</div>
+		
+	</div>
+	<style type="text/css">
+		
+		
+		.slide-1::before {
+			background-image: url(/uploads/2018/07/08/austin-2.jpg);
+		}
+		
+		
+		.slide-2::before {
+			background-image: url(/uploads/2018/07/08/hero.jpg);
+		}
+		
+		
+		.slide-3::before {
+			background-image: url(/uploads/2018/07/12/jump-2.jpg);
+		}
+		
+		
+		
+		
+	</style>
+</section>
+
+
+					</div>
+				
 					
+					
+					<div class="pane  block-2" pane-number="2">
+						<!-- includes/info -->
+
+
+
+<section 
+	class="info-block ">
+	<div class="container">
+		<div class="grid ">
+			<div class="grid__item large-up--one-half text-center large-up--text-right">
+				<h2>Always<br>On <span>Time</span></h2>
+			</div>
+			<div class="grid__item large-up--one-half">
+				<div class="grid">
+					<div class="grid__item ">
+						<h3>
+							For Practice / The Show <Br>The Studio / With the Bassist <br><small>(and if, required, The Click) </small>
+						</h3>
+					</div>
+					<div class="grid__item medium-up--one-half">
+						<h5>On Styles</h5>
+						<div class="rte">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div>
+					</div>
+					<div class="grid__item medium-up--one-half">
+						<h5>Studio vs. Tour</h5>
+						<div class="rte">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<style type="text/css">
-		.block-1-uploads20180708herojpg {
-			background-color:rgb(106, 13, 131);
-		}
-		.block-1-uploads20180708herojpg::before {
-			
-			background-image: url('/uploads/2018/07/08/hero.jpg');
-			
-			
-			
-			
-			opacity: .6;
-		}
-		@media screen and (max-width:767px) {
-			.block-1-uploads20180708herojpg::before {
-				
-				
-				
-				
-				
-				background-blend-mode:normal;
-				
+		
+		
+		
+	</style>
+</section>
 
-			}
-		}
-		
-		
-		
-		.block-1-uploads20180708herojpg::after {
+
+					</div>
+				
+					
+					
+					<div class="pane  block-3" pane-number="3">
+						<!-- includes/cta -->
+
+
+
+
+<section 
+	class="shows block-3">
+	<div class="container">
+		<h2 class="small--text-center">Upcoming Shows</h2>
+		<table class="medium-down--hide">
 			
+				
+				<tr class="row-1">
+					<td class="date">
+						
+						<div class="date__top">25 Jan</div>
+						<div class="date__bottom">2019</div>
+					</td>
+					<td class="venue has-image" colspan="3">
+						
+							
+							<a href="
 
-			/* background-color:rgb(33,3,142); */
-			background: linear-gradient(-250deg, rgba(33,3,142,0) 55%,rgba(33,3,142,1)) ;
+/contact" 
+							   class="bg_image ">
+							</a>
+						
+						<div class="venue__meta">
+							<h4>MAGIC Worldtour 2014</h4>
+							
+								<a href="https://maps.google.com?daddr=King%E2%80%99s+Theater+-+1027+Flatbush+Ave%2C+Brooklyn%2C+NY+11226" target="blank">
+									<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+									<span>King’s Theater - 1027 Flatbush Ave, Brooklyn, NY 11226</span>
+								</a>
+							
+						</div>
+					</td>
+					<td class="price">
+						<div class="price__detail">$15</div>
+						<div class="price__info">per ticket</div>
+					</td>
+					<td>
+						
+						<a href="
+
+/contact" 
+						   class="btn ">
+							Buy Tickets
+						</a>
+					</td>
+				</tr>
+			
+				
+				<tr class="row-2">
+					<td class="date">
+						
+						<div class="date__top">26 Jan</div>
+						<div class="date__bottom">2019</div>
+					</td>
+					<td class="venue has-image" colspan="3">
+						
+							
+							<a href="
+
+/contact" 
+							   class="bg_image greyed">
+							</a>
+						
+						<div class="venue__meta">
+							<h4>Music State</h4>
+							
+								<a href="https://maps.google.com?daddr=Lion+Square+3A+Elizabeth%2C+London%2C+UK" target="blank">
+									<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+									<span>Lion Square 3A Elizabeth, London, UK</span>
+								</a>
+							
+						</div>
+					</td>
+					<td class="price">
+						<div class="price__detail">$15</div>
+						<div class="price__info">per ticket</div>
+					</td>
+					<td>
+						
+						<a href="
+
+/contact" 
+						   class="btn greyed">
+							CANCELED!
+						</a>
+					</td>
+				</tr>
+			
+				
+				<tr class="row-3">
+					<td class="date">
+						
+						<div class="date__top">26 Jan</div>
+						<div class="date__bottom">2019</div>
+					</td>
+					<td class="venue has-image" colspan="3">
+						
+							
+							<a href="
+
+/contact" 
+							   class="bg_image disabled">
+							</a>
+						
+						<div class="venue__meta">
+							<h4>Music State</h4>
+							
+								<a href="https://maps.google.com?daddr=Lion+Square+3A+Elizabeth%2C+London%2C+UK" target="blank">
+									<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+									<span>Lion Square 3A Elizabeth, London, UK</span>
+								</a>
+							
+						</div>
+					</td>
+					<td class="price">
+						<div class="price__detail">$15</div>
+						<div class="price__info">per ticket</div>
+					</td>
+					<td>
+						
+						<a href="
+
+/contact" 
+						   class="btn disabled">
+							Sold Out :(
+						</a>
+					</td>
+				</tr>
+			
+		</table>
+		<div class="large-up--hide mobile-shows">
+			
+				<div class="grid">
+					
+					<div class="grid__item grid-1">
+						<div class="venue mobile has-image">
+							
+								
+								<a href="
+
+/contact" 
+								   class="bg_image ">
+								</a>
+							
+							<div class="venue__meta">
+								<h4>MAGIC Worldtour 2014</h4>
+								
+									<a href="https://maps.google.com?daddr=King%E2%80%99s+Theater+-+1027+Flatbush+Ave%2C+Brooklyn%2C+NY+11226" target="blank">
+										<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+										<span>King’s Theater - 1027 Flatbush Ave, Brooklyn, NY 11226</span>
+									</a>
+								
+							</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="date">
+							
+							<div class="date__top">25 Jan</div>
+							<div class="date__bottom">2019</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="price">
+							<div class="price__detail">$15</div>
+							<div class="price__info">per ticket</div>
+						</div>
+					</div>
+					<div class="grid__item text-center">
+						
+						<a href="
+
+/contact" 
+						   class="btn ">
+							Buy Tickets
+						</a>
+					</div>
+				</div>
+			
+				<div class="grid">
+					
+					<div class="grid__item grid-2">
+						<div class="venue mobile has-image">
+							
+								
+								<a href="
+
+/contact" 
+								   class="bg_image greyed">
+								</a>
+							
+							<div class="venue__meta">
+								<h4>Music State</h4>
+								
+									<a href="https://maps.google.com?daddr=Lion+Square+3A+Elizabeth%2C+London%2C+UK" target="blank">
+										<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+										<span>Lion Square 3A Elizabeth, London, UK</span>
+									</a>
+								
+							</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="date">
+							
+							<div class="date__top">26 Jan</div>
+							<div class="date__bottom">2019</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="price">
+							<div class="price__detail">$15</div>
+							<div class="price__info">per ticket</div>
+						</div>
+					</div>
+					<div class="grid__item text-center">
+						
+						<a href="
+
+/contact" 
+						   class="btn greyed">
+							CANCELED!
+						</a>
+					</div>
+				</div>
+			
+				<div class="grid">
+					
+					<div class="grid__item grid-3">
+						<div class="venue mobile has-image">
+							
+								
+								<a href="
+
+/contact" 
+								   class="bg_image disabled">
+								</a>
+							
+							<div class="venue__meta">
+								<h4>Music State</h4>
+								
+									<a href="https://maps.google.com?daddr=Lion+Square+3A+Elizabeth%2C+London%2C+UK" target="blank">
+										<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="18px" viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker - FontAwesome Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Shows-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="20" font-weight="normal">
+        <g id="01" transform="translate(-686.000000, -505.000000)" fill="#EE5C6C">
+            <g id="Body" transform="translate(425.000000, 150.000000)">
+                <g id="events" transform="translate(0.000000, 191.000000)">
+                    <g id="event-2" transform="translate(0.000000, 104.000000)">
+                        <text id="map-marker---FontAwesome-Copy">
+                            <tspan x="261" y="76"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+										<span>Lion Square 3A Elizabeth, London, UK</span>
+									</a>
+								
+							</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="date">
+							
+							<div class="date__top">26 Jan</div>
+							<div class="date__bottom">2019</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="price">
+							<div class="price__detail">$15</div>
+							<div class="price__info">per ticket</div>
+						</div>
+					</div>
+					<div class="grid__item text-center">
+						
+						<a href="
+
+/contact" 
+						   class="btn disabled">
+							Sold Out :(
+						</a>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	<style type="text/css">
+		
+		.block-3 .grid-1 .bg_image,
+		.block-3 .row-1 .bg_image {
+			background-image: url(/uploads/2018/07/08/austin-2.jpg);
 		}
-		.block-1-uploads20180708herojpg h2,
-		.block-1-uploads20180708herojpg p {
-			color:#FFFFFF;
+		
+		.block-3 .grid-2 .bg_image,
+		.block-3 .row-2 .bg_image {
+			background-image: url(/uploads/2018/07/08/austin-2.jpg);
 		}
+		
+		.block-3 .grid-3 .bg_image,
+		.block-3 .row-3 .bg_image {
+			background-image: url(/uploads/2018/07/08/austin-2.jpg);
+		}
+		
 
 		
 		
+		
 
-		.block-1-uploads20180708herojpg::before {background-size:cover !important;opacity:0.7 !important;filter:blur(4px) !important;mix-blend-mode:multiply !important;} .block-1-uploads20180708herojpg::after{background-blend-mode:hue !important;}
 	</style>
 </section>
 
