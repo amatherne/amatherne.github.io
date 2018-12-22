@@ -9,14 +9,15 @@
 			{% assign use_animations = true %}
 			<div class="main-screens {% if use_animations == true %}slides-on{% endif %}">
 				{% for section in page.page_sections %}
-					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %} pane-{{forloop.index}}" pane-number="{{forloop.index}}">
-						{% capture bdyClass %}.active-pane-{{forloop.index}}{% endcapture %}
-						{% include blocks/{{ section.block }}.html bdy='bdyClass' %}
+					{% capture sctnClass %}block-{{forloop.index}}{% endcapture %}
+					{% capture bdyClass %}.active-pane-{{forloop.index}}{% endcapture %}
+					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %} {{sctnClass}}" pane-number="{{forloop.index}}">
+						{% include blocks/{{ section.block }}.html bdy='bdyClass' blk='sctnClass' %}
 					</div>
 				{% endfor %}
 			</div>
 			{% if page.page_sections.size > 1 and page.use_slider == true %}
-				{% include helpers/script-main-slider.html %}
+				{% comment %}{% include helpers/script-main-slider.html %}{% endcomment %}
 			{% endif %}
 			{% include global/footer.html %}
 		</div>

@@ -179,6 +179,36 @@ $.Velocity
 
 
 
+$.Velocity
+    .RegisterEffect("transition.wipeIn", {
+        // defaultDuration: [ 1000, 100 ],
+        calls: [
+            [ { opacity: [ 1,0 ], width: [ '100%', '0%' ], maxWidth: [ '100%', '0%' ], translateZ: [0,0] } ]
+        ]
+    });
+$.Velocity
+    .RegisterEffect("transition.wipeOut", {
+        // defaultDuration: [ 100, 100],
+        calls: [
+            [ { opacity: [ 0,1 ], width: [ '0%', '100%' ], maxWidth: [ '0%', '100%' ], translateZ: [0,0]  } ]
+        ]
+    });
+
+
+// $.Velocity
+//     .RegisterEffect("transition.socNavIn", {
+//         defaultDuration: [ 1000, 100 ],
+//         calls: [
+//             [ { paddingTop: [ '30%', '50%' ], paddingBottom: [ '30%', '50%' ], rotate: [ '0deg', '90deg' ], translateZ: [0,0] } ]
+//         ]
+//     });
+// $.Velocity
+//     .RegisterEffect("transition.socNavOut", {
+//         defaultDuration: 100,
+//         calls: [
+//             [ { paddingTop: [ '50%', '30%' ], paddingBottom: [ '50%', '30%' ], rotate: [ '90deg', '0deg' ], translateZ: [0,0]  } ]
+//         ]
+//     });
 
 
 

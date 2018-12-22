@@ -141,18 +141,7 @@ body.locked {
 	}
 }
 
-.modal-toggle,
-.menu-toggle {
-	position:absolute;
-	right:2em;
-	top:2em;
-	cursor:pointer;
-	display:block;
-	color:$beige;
-	&.close {
-		opacity:0;
-	}
-}
+
 
 /* PAGER */
 .pane-controls {
@@ -246,119 +235,119 @@ body.locked {
 
 
 
-@media screen and (min-width: $grid-medium) {
-	.blocks-page {
-		.max-width {
-			width: 100%;
-			height: 100%;
-			min-height:100vh;
-			position:relative;
-			overflow: hidden;
-		}
-	}
+// @media screen and (min-width: $grid-medium) {
+// 	.blocks-page {
+// 		.max-width {
+// 			width: 100%;
+// 			height: 100%;
+// 			min-height:100vh;
+// 			position:relative;
+// 			overflow: hidden;
+// 		}
+// 	}
 
-	$defAbs: 50%;
-	$leftTopNeg: -150%;
-	$rightBottom: 150%;
-	$defEase: $ease-in-out-quad;
-	// $defEase: $ease-out-quad;
-	$defTrans: 	left 1.2s $defEase,
-				top 1.2s $defEase;
+// 	$defAbs: 50%;
+// 	$leftTopNeg: -150%;
+// 	$rightBottom: 150%;
+// 	$defEase: $ease-in-out-quad;
+// 	// $defEase: $ease-out-quad;
+// 	$defTrans: 	left 1.2s $defEase,
+// 				top 1.2s $defEase;
 
-	.from-left {
-		top: $defAbs;
-		left:$leftTopNeg;
-		transition: $defTrans;
-	}
-	.from-right {
-		top: $defAbs;
-		left: $rightBottom;
-	}
-	.from-top {
-		top: $leftTopNeg;
-		left: $defAbs;
-		transition: $defTrans;
-	}
-	.from-bottom {
-		top:  $rightBottom;
-		left: $defAbs;
-	}
-	.slides-on {
-		width: 100%;
-		height: 100%;
-		min-height:100vh;
-		position:relative;
-		.pane {
-			position: absolute;
-			top:50%;
-			left:150%;
-			transform: translate(-50%,-50%);
-			width:100%;
-			height:100%;
-			min-height:100%;
-			transition: $defTrans;
-			z-index:1;
+// 	.from-left {
+// 		top: $defAbs;
+// 		left:$leftTopNeg;
+// 		transition: $defTrans;
+// 	}
+// 	.from-right {
+// 		top: $defAbs;
+// 		left: $rightBottom;
+// 	}
+// 	.from-top {
+// 		top: $leftTopNeg;
+// 		left: $defAbs;
+// 		transition: $defTrans;
+// 	}
+// 	.from-bottom {
+// 		top:  $rightBottom;
+// 		left: $defAbs;
+// 	}
+// 	.slides-on {
+// 		width: 100%;
+// 		height: 100%;
+// 		min-height:100vh;
+// 		position:relative;
+// 		.pane {
+// 			position: absolute;
+// 			top:50%;
+// 			left:150%;
+// 			transform: translate(-50%,-50%);
+// 			width:100%;
+// 			height:100%;
+// 			min-height:100%;
+// 			transition: $defTrans;
+// 			z-index:1;
 
-			&.current-pane {
-				top:50% !important;
-				left:50% !important;
-			}
+// 			&.current-pane {
+// 				top:50% !important;
+// 				left:50% !important;
+// 			}
 
 
-			&.prev-pane {
-				left: $leftTopNeg;
-			}
-			&.next-pane {
-				left: $rightBottom;
-			}
+// 			&.prev-pane {
+// 				left: $leftTopNeg;
+// 			}
+// 			&.next-pane {
+// 				left: $rightBottom;
+// 			}
 
 			
-			&:first-of-type {
-				z-index: 10;
-				&.prev-pane {
-					@extend .from-top;
-				}
-			}
-			&:nth-of-type(2) {
-				&.prev-pane {
-					@extend .from-left;
-				}
-				&.next-pane {
-					@extend .from-bottom;
-				}
-			}
-			&:nth-of-type(3) {
-				&.prev-pane {
-					@extend .from-top;
-				}
-				&.next-pane {
-					@extend .from-right;
-				}
-			}
-			&:nth-of-type(4) {
-				&.prev-pane {
-					@extend .from-right;
-				}
-				&.next-pane {
-					@extend .from-bottom;
-				}
-			}
-			&:nth-of-type(5) {
-				&.prev-pane {
-					// top:-150%;
-					// left: -150%;
-				}
-				&.next-pane {
-					// top:-150%;
-					// left: 150%;
-				}
-			}
+// 			&:first-of-type {
+// 				z-index: 10;
+// 				&.prev-pane {
+// 					@extend .from-top;
+// 				}
+// 			}
+// 			&:nth-of-type(2) {
+// 				&.prev-pane {
+// 					@extend .from-left;
+// 				}
+// 				&.next-pane {
+// 					@extend .from-bottom;
+// 				}
+// 			}
+// 			&:nth-of-type(3) {
+// 				&.prev-pane {
+// 					@extend .from-top;
+// 				}
+// 				&.next-pane {
+// 					@extend .from-right;
+// 				}
+// 			}
+// 			&:nth-of-type(4) {
+// 				&.prev-pane {
+// 					@extend .from-right;
+// 				}
+// 				&.next-pane {
+// 					@extend .from-bottom;
+// 				}
+// 			}
+// 			&:nth-of-type(5) {
+// 				&.prev-pane {
+// 					// top:-150%;
+// 					// left: -150%;
+// 				}
+// 				&.next-pane {
+// 					// top:-150%;
+// 					// left: 150%;
+// 				}
+// 			}
 
 
-		}
+// 		}
 		
-	}
-}
+// 	}
+// }
 
 
 
