@@ -1,0 +1,30 @@
+---
+label: Post Gallery
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  hidden: true
+  label: block
+  name: block
+  default: post-gallery
+- type: text
+  name: title
+  label: Title
+- type: field_group_list
+  name: image
+  label: Image
+  fields:
+  - type: file
+    name: image
+    label: Image
+  - type: text
+    name: caption_title
+    label: Caption Title
+  - type: textarea
+    name: caption_text
+    label: Caption Text
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown

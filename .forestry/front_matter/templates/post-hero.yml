@@ -1,0 +1,23 @@
+---
+label: Post Hero
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  hidden: true
+  label: block
+  name: block
+  default: post-hero
+- type: file
+  name: image
+  label: Image
+- type: text
+  name: title
+  label: Title
+- type: textarea
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Text
+  name: text

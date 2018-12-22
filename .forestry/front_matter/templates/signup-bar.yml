@@ -1,0 +1,40 @@
+---
+label: signup-bar
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  label: block
+  name: block
+  default: cta-bar
+  hidden: true
+- type: textarea
+  name: content
+  label: Content
+  config:
+    wysiwyg: true
+    schema:
+      format: html
+- type: text
+  name: email_recipient
+  label: Email Recipient
+  description: Form submissions will be sent to this email address.
+- type: field_group
+  name: image
+  label: Image
+  fields:
+  - type: file
+    name: background_image
+    label: Background Image
+  - type: file
+    name: mobile_background_image
+    label: Mobile Background Image
+    description: "(optional)"
+  - type: color
+    name: image_background_color
+    config:
+      color_format: RGB
+    label: Image Background Color
+- type: textarea
+  name: html
+  label: HTML

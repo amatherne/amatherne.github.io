@@ -1,0 +1,65 @@
+---
+label: CTA
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  name: block
+  label: Block
+  default: cta
+- type: field_group
+  label: Image
+  name: image
+  fields:
+  - type: file
+    label: Background Image
+    name: background_image
+  - type: file
+    name: mobile_background_image
+    label: Mobile Background Image
+  - type: file
+    name: icon_image
+    label: Icon Image
+  - type: color
+    name: image_background_color
+    config:
+      color_format: RGB
+    label: Image Background Color
+- type: field_group
+  name: content
+  label: Content
+  fields:
+  - type: text
+    name: headline
+    label: Headline
+  - type: textarea
+    name: desc
+    label: Description
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: color
+    name: text_color
+    config:
+      color_format: RGB
+    label: Text Color
+  - type: field_group
+    label: CTA
+    name: cta
+    fields:
+    - type: boolean
+      name: enabled
+      label: Enabled?
+    - type: text
+      label: Button Text
+      name: button_text
+    - type: select
+      config:
+        source:
+          type: pages
+      label: Url
+      name: url
+- type: textarea
+  name: custom_html
+  label: Custom HTML
