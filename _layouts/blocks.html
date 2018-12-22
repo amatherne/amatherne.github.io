@@ -6,8 +6,8 @@
 		<div class="max-width">
 			{% include global/header.html spacer='none' %}
 			
-			{% assign use_animations = true %}
-			<div class="main-screens {% if use_animations == true %}slides-on{% endif %}">
+			{% comment %}{% assign use_animations = true %}{% endcomment %}
+			<div class="main-content {% if use_animations == true %}slides-on{% endif %}">
 				{% for section in page.page_sections %}
 					{% capture sctnClass %}block-{{forloop.index}}{% endcapture %}
 					{% capture bdyClass %}.active-pane-{{forloop.index}}{% endcapture %}

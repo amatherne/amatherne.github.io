@@ -2,25 +2,32 @@
 // ------
 	// #00BEBD
 	// #008988
-	$green:#008988;
-	$red:#d96459;
-	$purp:#6A0D83;
-	$orange:#ff9800;
-	$beige:#ffffff;
-	$white:#ffffff;
-	$dark:#000000;
+	$green: #008988;
+	$orange: #ff9800;
+	$beige: #ffffff;
+	$white: #ffffff;
+	$dark: #000000;
 
 
 
-	$darkGrey:#535355;
+	$darkGrey: #535355;
+	$red: #EE5C6C;
+	$purp: #6A0D83;
+
+	$lighterGrey: lighten($darkGrey,30%);
+	$lightestGrey: lighten($darkGrey,60%);
+	$darkerGrey:darken($darkGrey,40%);
+
+	$defGrad: linear-gradient(145deg, #{$red}, #{$purp} );
+	$revGrad: linear-gradient(-45deg, #{$red}, #{$purp} );
 
 
 
 
 
-	$bodyBG:$white;
-	$bodyTextColor:$darkGrey;
-	$borderColor:lighten($darkGrey,10%);
+	$bodyBG: $white;
+	$bodyTextColor: $darkGrey;
+	$borderColor: lighten($darkGrey,10%);
 
 	$linkColor:$red;
 	$linkColorHover:darken($red,25%);
@@ -68,7 +75,8 @@
 	$grid-small: 400px;
 	$grid-medium: 767px;
 	$grid-large: 992px;
-	$grid-widescreen: 1400px;
+	$grid-ex-large: 1200px;
+	$grid-widescreen: 1500px;
 	$grid-gutter: 30px;
 
 	$narrow: 'narrow';
@@ -79,6 +87,7 @@
 	$large: 'large';
 	$large-down: 'large-down';
 	$large-up: 'large-up';
+	$ex-large: 'ex-large';
 	$widescreen: 'widescreen';
 
 
@@ -93,6 +102,7 @@
 		$large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
 		$large-down '(max-width: #{$grid-widescreen - 1})',
 		$large-up '(min-width: #{$grid-large})',
+		$ex-large '(min-width: #{$grid-ex-large})',
 		$widescreen '(min-width: #{$grid-widescreen})'
 	);
 
@@ -102,8 +112,8 @@
 			- Default is no push classes
 			- Will not work if `styles/global/grid.scss` is removed
 	==============================================================================*/
-	$breakpoint-has-widths: ($narrow, $small, $medium-up, $medium, $medium-up, $large, $large-up);
-	$breakpoint-has-push: ($small, $medium-up, $medium, $large, $large-up);
+	$breakpoint-has-widths: ($narrow, $small, $medium-up, $medium, $medium-down, $large, $large-up, $ex-large);
+	$breakpoint-has-push: ($small, $medium-up, $medium-down, $medium, $large, $large-up);
 
 
 // Sizing

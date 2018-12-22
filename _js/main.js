@@ -1,4 +1,24 @@
+// link.addEventListener('click', function (event) {
+//   if (this.parentElement.classList.contains('disabled')) {
+//     event.preventDefault();
+//   }
+// });
 
+
+
+$(document).ready(function () {
+
+
+	// check for disabled links
+	$('a').each(function (e) {
+		$(this).click(function (e) {
+			if ( $(this).is('.disabled') || $(this).is('[disabled]') ) {
+				console.log('Ah ah ah. You didnt say the magic word...')
+				e.preventDefault();
+			}
+		})
+	})
+})
 
 
 

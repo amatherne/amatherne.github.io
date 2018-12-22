@@ -101,7 +101,7 @@
 	// --------
 		.rte {
 
-			margin:1em auto;
+			margin:0 auto 1em;
 			max-width:800px;
 			@for $i from 1 through 6 {
 			  	h#{$i}, .h#{$i} {
@@ -153,30 +153,28 @@
 
 // Buttons Default
 // ---------------
-	$btnPadding:15px;
-	$btnBdrRadius:7px;
-	$btnEase: .5s $ease-out-quad;
+	$btnPadding:12px;
+	$btnBdrRadius:4px;
+	$btnEase: all .5s $ease-out-quad;
 	.btn {
 		display:inline-block;
 		position: relative;
-		font-size: 24px;
-		// font-family: $btnFontFamily;
-		font-weight: 400;
-		text-transform: uppercase;
+		font-size: 15px;
+		font-weight: 600;
+		// text-transform: uppercase;
 		color: white;
+		text-align: center;
+		min-width: 175px;
 		background-color: transparent;
 		border-radius:$btnBdrRadius;
-		// background-color:$btnBgColor;    
-		// border-bottom:$btnBorder solid $btnBorderColor;
 		border:none;
 		padding: $btnPadding ($btnPadding * 3.5) ($btnPadding - 1);
 		line-height: $bodyLineHeight;
 		cursor:pointer;
 		border-radius: $btnBdrRadius;
-		opacity: 0.65;
-		transition: $btnEase;
 		text-decoration:none;
 		z-index: 1;
+		box-shadow: 0px 7px 14px 0px rgba(black,0.15);
 		&:after,
 		&:before {
 			content:'';
@@ -189,51 +187,63 @@
 			z-index: -1;
 			background: $green;
 			border-radius: $btnBdrRadius;
-			// border: 2px solid darken($green,15%);
-			border: 1px solid white;
 			transition: $btnEase;
 		}
-
 		&:before {
 			opacity: 1;
-			background: linear-gradient(150deg, lighten($green,10%) 50%, $green 100%);
+			background: $revGrad;
 			transition: $btnEase;
-
-			// -moz-border-image: -moz-linear-gradient(150deg, lighten($green,15%) 50%, $green 100%);
-			// -webkit-border-image: -webkit-linear-gradient(150deg, lighten($green,15%) 50%, $green 100%);
-			// border-image: linear-gradient(to left, lighten($green,15%) 50%, $green 100%);
-			// border-image-slice: 2;
-
 		}
-
 		&:after {
 			opacity: 0;
-			background: linear-gradient(350deg, lighten($green,10%) 50%, $green 100%);
+			background: $defGrad;
 			transition: $btnEase;
-
-			// -moz-border-image: -moz-linear-gradient(350deg, lighten($green,15%) 50%, $green 100%);
-			// -webkit-border-image: -webkit-linear-gradient(350deg, lighten($green,15%) 50%, $green 100%);
-			// border-image: linear-gradient(to right, lighten($green,15%) 50%, $green 100%);
-			// border-image-slice: 2;
-
 		}
-
-
+		&:focus {
+			color: white;
+		}
 		&:hover {
 			opacity: 1;
+			color: white;
+			box-shadow: 0px 5px 7px 0px rgba(black,0.27);
 			&:after {
 				opacity: 1;
 			}
 			&:before {
 				opacity: 0;
 			}
-			// border-bottom-color:$btnBorderHoverColor;
-			// background-color:$btnBgHoverColor;
 			text-decoration: none;
-			// color: $btnTextHoverColor;
-
 		}
 
+
+		&[disabled],
+		&.disabled {
+			$color: $lighterGrey;
+			border: 1px solid $color;
+			background: white;
+			color: $color;
+			box-shadow: none;
+			cursor: not-allowed;
+			// pointer-events: none;
+
+			&:after,
+			&:before {
+				display: none !important;
+			}
+		}
+
+		&.greyed {
+			$color: $lightestGrey;
+			border: 1px solid $color;
+			background: $color;
+			color: white;
+			box-shadow: none;
+
+			&:after,
+			&:before {
+				display: none !important;
+			}
+		}
 
 		
 

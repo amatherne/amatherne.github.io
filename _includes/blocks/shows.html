@@ -1,0 +1,111 @@
+<!-- includes/cta -->
+{% capture block_id %}{{sctnClass}}{% endcapture %}
+{% capture cssClass %}.{{block_id}}{% endcapture %}
+{% capture bdyClass %}{{bdyClass}}{% endcapture %}
+
+<section 
+	class="shows {{ block_id }}">
+	<div class="container">
+		<h2 class="small--text-center">Upcoming Shows</h2>
+		<table class="medium-down--hide">
+			{% for item in section.block_items %}
+				{% capture addy %}https://maps.google.com?daddr={{ item.address | strip_html | url_encode }}{% endcapture %}
+				<tr class="row-{{forloop.index}}">
+					<td class="date">
+						{% assign tbl_date = item.date | split: '-' %}
+						<div class="date__top">{{tbl_date[1]}} {{ tbl_date[0] | date: '%b' }}</div>
+						<div class="date__bottom">{{tbl_date[2]}}</div>
+					</td>
+					<td class="venue {% if item.image %}has-image{% endif %}" colspan="3">
+						{% if item.image %}
+							{% assign url = item.url %}
+							<a href="{% include url.html url=url %}" 
+							   class="bg_image {{item.button_class}}">
+							</a>
+						{% endif %}
+						<div class="venue__meta">
+							<h4>{{item.title}}</h4>
+							{% if item.address %}
+								<a href="{{addy}}" target="blank">
+									{% include icons/icon-map.liquid %}
+									<span>{{item.address}}</span>
+								</a>
+							{% endif %}
+						</div>
+					</td>
+					<td class="price">
+						<div class="price__detail">{{item.price}}</div>
+						<div class="price__info">{{item.price_info}}</div>
+					</td>
+					<td>
+						{% assign url = item.url %}
+						<a href="{% include url.html url=url %}" 
+						   class="btn {{item.button_class}}">
+							{{ item.button_text | default: 'Buy Tickets' }}
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<div class="large-up--hide mobile-shows">
+			{% for item in section.block_items %}
+				<div class="grid">
+					{% capture addy %}https://maps.google.com?daddr={{ item.address | strip_html | url_encode }}{% endcapture %}
+					<div class="grid__item grid-{{forloop.index}}">
+						<div class="venue mobile {% if item.image %}has-image{% endif %}">
+							{% if item.image %}
+								{% assign url = item.url %}
+								<a href="{% include url.html url=url %}" 
+								   class="bg_image {{item.button_class}}">
+								</a>
+							{% endif %}
+							<div class="venue__meta">
+								<h4>{{item.title}}</h4>
+								{% if item.address %}
+									<a href="{{addy}}" target="blank">
+										{% include icons/icon-map.liquid %}
+										<span>{{item.address}}</span>
+									</a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="date">
+							{% assign tbl_date = item.date | split: '-' %}
+							<div class="date__top">{{tbl_date[1]}} {{ tbl_date[0] | date: '%b' }}</div>
+							<div class="date__bottom">{{tbl_date[2]}}</div>
+						</div>
+					</div>
+					<div class="grid__item one-half">
+						<div class="price">
+							<div class="price__detail">{{item.price}}</div>
+							<div class="price__info">{{item.price_info}}</div>
+						</div>
+					</div>
+					<div class="grid__item text-center">
+						{% assign url = item.url %}
+						<a href="{% include url.html url=url %}" 
+						   class="btn {{item.button_class}}">
+							{{ item.button_text | default: 'Buy Tickets' }}
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<style type="text/css">
+		{% for item in section.block_items %}
+		{{cssClass}} .grid-{{forloop.index}} .bg_image,
+		{{cssClass}} .row-{{forloop.index}} .bg_image {
+			background-image: url({{item.image}});
+		}
+		{% endfor %}
+
+		{% assign custom = section.html | raw %}
+		{% assign cssLoop = custom | replace: '==', cssClass | replace: '++', bdyClass | replace: ';', ' !important;' %}
+		{{cssLoop}}
+
+	</style>
+</section>
+

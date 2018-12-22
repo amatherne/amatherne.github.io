@@ -486,6 +486,44 @@ body.locked {
 
 
 
+.main-content {
+	width: 100%;
+	transition: all .5s $ease-out-quad;
+
+	@media screen and (min-width: $grid-medium) {
+		width: calc(100% - 125px);
+		margin-left: 125px;
+
+		filter: blur(0px);
+		.modal_open & { 
+			filter: blur(4px);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

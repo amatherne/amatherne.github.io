@@ -1,0 +1,32 @@
+---
+label: Slides
+hide_body: false
+is_partial: true
+fields:
+- type: field_group_list
+  name: block_items
+  label: Block Items
+  fields:
+  - type: file
+    name: image
+    label: Image
+  - type: text
+    name: title
+    label: Title
+  - type: textarea
+    name: text
+    label: Text
+  - type: select
+      name: url
+      config:
+        source:
+          type: pages
+      label: Url
+- type: textarea
+  name: html
+  label: HTML
+- type: text
+  default: slides
+  label: Block
+  name: block
+  hidden: true
