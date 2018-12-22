@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<base href="/">
-	<title>Austin Pedicab Company - pd</title>
+	<title>pd</title>
 	<meta name="author" content="Forestry.io">
 	<meta name="description" content="ubuild-jekyll is a Jekyll theme desgined to work with Forestry's Blocks feature.  This theme provides a set of page-level components and a pre-configured Forestry Blocks UI  that will empower content editors to construct their own webpages.">
 	
@@ -19,8 +19,8 @@
 	</script>
 </head>
 
-	<!-- layouts/post -->
-	<body class="template-post">
+	<!-- layouts/default -->
+	<body>
 		<div class="max-width">
 			<!-- includes/header -->
 <header class="main-header">
@@ -166,78 +166,93 @@
 
 
 
-
-			
-			
-			
-			<style type="text/css">
-				/* .main-hero::after {
-					background-image: url(/uploads/2018/07/12/about-hero.png);
-				} */
-				.main-hero::after {
-					background-color:rgb(105, 120, 135) !important;
-					
-					background-image: url('/uploads/2018/07/12/about-hero.png') !important;
-					
-					
-					background-position:right 15% !important;
-					
-					
-					
-					background-blend-mode:color-dodge !important;
-					
-				}
-			</style>
-			<div class="main-screens">
-				<div class="main-hero background-image">
-					<div class="container">
-						<div class="meta-overlay">
-							<h1 class="post-title">Austin Pedicab Company</h1>
-							<span class="date">July 10, 2018</span>
-							<div class="tags">
-								
-									<span>Web Development</span> <span>|</span>
-									
-									
-								
-									<span>Blog</span> 
-									
-									
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="container">
-					<div class="grid">
-						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter sidebar">
-							
-						</div>
-						
-						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters post-content">
-							<div class="rte">
-								<h2 id="customer-bio"><strong>Customer Bio</strong></h2>
-
-<p>The Austin Pedicab Co. was created in 2015 by a group of veteran drivers. They each have multiple years of experience in the transportainment industry and wanted to come together to make a company they could be proud to call their own. They’ve proven their mettle on the streets of Austin, New Orleans, Chicago, St Louis, and Dallas. They are adept at safely weaving the huge crowds that descend upon SXSW, Austin City Limits, Lollapolooza, Ranger/Cowboys Games, The Jazz Heritage Festival, and Mardi Gras among many others.</p>
-
-<h2 id="goals">Goals</h2>
-
-<p>They are developing a webapp and website that will allow Users to hail a pedicab from anywhere just by inputing their number and pushing a button. It will eventually come with location services so the drivers get notified with an address to pick up at. They will also begin offering a booking service for food truck tours, margarita tours, pub crawls, bike yoga, bachelor/bachelorette parties, weddings, birthdays and for any other reason at all.</p>
-
-<h2 id="design-aspects">Design Aspects</h2>
-
-<p>The initial designs for this project were done as wireframes in Illustrator. For the colors schemes I wanted to capture the feel of downtown Austin at night. The reds and greens I especially wanted to give a slightly neon tinge. The header typeface is called Roadgeek and is very similar to what is used on road and street signs across the country; with all body copy being presented in Oxygen. Because the goal was to have this service available to anyone on any device or screen size, all HTML and CSS/SASS was written with a mobile first priority. To help ensure fallbacks and proper cross-browser compatibilty [Bourbon.io](<a href="https://bourbon.io" title="https://bourbon.io">https://bourbon.io</a>) was also implemented. A Basic Jekyll Blog is the basis for the CMS construct, though the only pieces of the Basic left are the liquid tags for templating all original content and CSS was removed completely. The [Twilio API](<a href="https://twilio.io" title="https://twilio.io">https://twilio.io</a>) was used to power the Cab Call feature. I had a friend who’d recently graduated from The Iron Yard help me with the php setup. The API sends one message to the customer who needs a ride and another to the company for dispatch. The dispatch is given all the info needed to contact and confirm with the customer</p>
-
-							</div>
-							
-						</div>
-					</div>	
-				</div>
-
-
-				
-			</div>
+			<!-- Add your site or application content here -->
+			<p>---
+label: Page Hero
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  hidden: true
+  label: block
+  name: block
+  default: hero
+- type: field_group
+  name: image
+  label: Image
+  fields:
+  - type: file
+    name: background_image
+    label: Background Image
+  - type: file
+    name: mobile_background_image
+    label: Mobile Background Image
+    description: "(optional)"
+  - type: color
+    name: image_background_color
+    config:
+      color_format: RGB
+    label: Image Background Color
+  - type: select
+    config:
+      source:
+        type: custom
+      options:
+      - normal
+      - multiply
+      - screen
+      - overlay
+      - darken
+      - lighten
+      - color-dodge
+      - color-burn
+      - hard-light
+      - soft-light
+      - difference
+      - exclusion
+      - hue
+      - saturation
+      - color
+      - luminosity
+    label: Mix Blend Mode
+    name: mix_blend_mode
+    hidden: false
+  - type: textarea
+    name: background_position
+    label: Background Position
+  - type: text
+    name: background_size
+    label: Background Size
+  - type: text
+    label: Mobile Background Position
+    name: mobile_background_position
+  - type: text
+    name: mobile_background_size
+    label: Mobile Background Size
+- type: field_group
+  name: content
+  label: Content
+  fields:
+  - type: textarea
+    name: headline
+    label: Headline
+    config:
+      wysiwyg: true
+      schema:
+        format: html
+  - type: textarea
+    name: desc
+    label: Content
+    config:
+      wysiwyg: true
+      schema:
+        format: html
+  - type: color
+    name: text_color
+    config:
+      color_format: Hex
+    label: Text Color
+</p>
 			
 
 
