@@ -17,11 +17,11 @@ fields:
     name: text
     label: Text
   - type: select
-      name: url
-      config:
-        source:
-          type: pages
-      label: Url
+    name: url
+    config:
+      source:
+        type: pages
+    label: Url
 - type: textarea
   name: html
   label: HTML
