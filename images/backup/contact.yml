@@ -61,27 +61,18 @@
                 
                 <li>
                     <a 
+                        href="/" 
+                        class="nav-item ">
+                        Home
+                    </a>
+                </li>
+            
+                
+                <li>
+                    <a 
                         href="/about" 
                         class="nav-item ">
                         About
-                    </a>
-                </li>
-            
-                
-                <li>
-                    <a 
-                        href="/contact" 
-                        class="nav-item ">
-                        Contact
-                    </a>
-                </li>
-            
-                
-                <li>
-                    <a 
-                        href="/shows" 
-                        class="nav-item ">
-                        Shows
                     </a>
                 </li>
             
@@ -97,9 +88,18 @@
                 
                 <li>
                     <a 
-                        href="/" 
+                        href="/shows" 
                         class="nav-item ">
-                        Home
+                        Shows
+                    </a>
+                </li>
+            
+                
+                <li>
+                    <a 
+                        href="/contact" 
+                        class="nav-item ">
+                        Contact
                     </a>
                 </li>
             
@@ -155,6 +155,11 @@
                 })
             }
             $btn.click(nav_Open);
+
+
+
+
+            
          })
     </script>
 </header>
@@ -231,7 +236,297 @@ fields:
   default: contact
   hidden: true
 </p>
+			<!-- includes/footer -->
+<footer class="footer">
+
+	<div class="container ">
+		<div class="grid">
+			<div class="grid__item medium-up--one-half">
+				<h3 class="footer-title large">Start working on a New Project?</h3>
+				<a class="btn" href="/contact">Let's Get Started</a>
+			</div>
+			<div class="grid__item medium-up--one-quarter">
+				<h3 class="footer-title">Connect With Me</h3>
+				<ul class="social-nav">
+			        
+			        
+			            <li>
+			                <a href="https://facebook.com/pnkdrmmmr">facebook</a>
+			            </li>
+			        
+			            <li>
+			                <a href="https:// instagram.com/pnkdrmmmr"> instagram</a>
+			            </li>
+			        
+			            <li>
+			                <a href="https:// youtube.com/pnkdrmmmr"> youtube</a>
+			            </li>
+			        
+			    </ul>
+			</div>
+			<div class="grid__item medium-up--one-quarter">
+				<h3 class="footer-title">Instagram</h3>
+				<div class="grid margin">
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-1"></div>
+						</div>
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-2"></div>
+						</div>
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-3"></div>
+						</div>
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-4"></div>
+						</div>
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-5"></div>
+						</div>
+					
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-6"></div>
+						</div>
+					
+					<style type="text/css">
+						
+							
+							
+							.insta-1 {
+								background-image: url(https://picsum.photos/300/300/?man);
+							}
+						
+							
+							
+							.insta-2 {
+								background-image: url(https://picsum.photos/300/300/?woman);
+							}
+						
+							
+							
+							.insta-3 {
+								background-image: url(https://picsum.photos/300/300/?bird);
+							}
+						
+							
+							
+							.insta-4 {
+								background-image: url(https://picsum.photos/300/300/?bike);
+							}
+						
+							
+							
+							.insta-5 {
+								background-image: url(https://picsum.photos/300/300/?mountain);
+							}
+						
+							
+							
+							.insta-6 {
+								background-image: url(https://picsum.photos/300/300/?art);
+							}
+						
+					</style>
+				</div>
+			</div>
+			<div class="grid__item medium-up--one-half align-middle ">
+				<ul class="footer-links">			
+					
+						
+						<li class="nav-item ">
+							<a href="/">Home</a>
+						</li>
+					
+						
+						<li class="nav-item ">
+							<a href="/about">About</a>
+						</li>
+					
+						
+						<li class="nav-item ">
+							<a href="/posts">Posts</a>
+						</li>
+					
+						
+						<li class="nav-item ">
+							<a href="/shows">Shows</a>
+						</li>
+					
+						
+						<li class="nav-item ">
+							<a href="/contact">Contact</a>
+						</li>
+					
+				</ul>
+			</div>
+			<div class="grid__item medium-up--one-half align-middle medium-up--text-right">
+				<span>© 2018 PD. All Rights Reserved</span>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		// function stopAt(el, stopAt) {
+		// 	el 		= $(el);
+		// 	stopAt 	= $(stopAt);
+		// 	function chker() {
+		// 		elPar 			= el.parent();
+		// 		elMaster 		= elPar.parent();
+		// 		parPos 			= elPar.offset().top + elPar.height();
+		// 		stopAtOffset 	= stopAt.offset().top;
+		// 		windowBottom 	= $(document).scrollTop() + window.innerHeight;
+
+		// 		makeAbs			= parPos >= stopAtOffset;
+		// 		makeFix			= windowBottom < stopAtOffset;
+
+		// 		one 			= 'Abs';
+		// 		two 			= 'Fix';
+
+		// 		if ( typeof setting === 'undefined' ) {	setting = '';	}
+		// 		if ( typeof count === 'undefined' ) {	count = 1;		}
+
+		// 	    if ( makeAbs ) {
+		// 	    	if ( setting != one ) {
+		// 	    		// console.log(one+' '+count);
+		// 	        	elMaster
+		// 	        		.css('transform', 'translateZ(0)');
+		// 	        	elPar
+		// 	        		.css('position', 'absolute')
+		// 	        		.css('top','initial')
+		// 	        		.css('bottom', '0')
+		// 	        		.css('height','100vh');
+		// 	    		count++;
+		// 	    	}
+		// 	    	setting = one;
+		// 	    }
+		// 	    if ( makeFix ) {
+		// 	    	if ( setting != two ) {
+		// 	    		// console.log(two+' '+count);
+		// 	        	elMaster
+		// 	        		.css('transform', 'initial');
+		// 	        	elPar
+		// 	        		.css('position', 'fixed')
+		// 	        		.css('bottom','0')
+		// 	        		.css('top','0')
+		// 	        		.css('height','auto');
+		// 	    		count++;
+		// 	    	}
+		// 	    	setting = two;
+		// 	    }
+		// 	}
+		// 	chker();
+		//     $(document).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove', function (e) {
+		// 	    chker();
+		// 	});
+		// 	$(window).resize(function() {
+		// 	    chker();
+		// 	});
+		// }
+
+		function stopAt(el, stopAt) {
+			var el 		= el;
+			var stopAt 	= stopAt;
 			
+			// console.log( document.getElementsByClassName(stopAt) );
+
+
+			window.addEventListener('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove',chker);
+			window.addEventListener('wheel',chker);
+
+			function chker() {
+				// el 			= el;
+				// stopAt 		= stopAt;
+				elPar 		= document.getElementsByClassName(el)[0].parentNode;
+				stopHere 	= document.getElementsByClassName(stopAt)[0];
+				elMaster 	= document.getElementsByClassName(elPar.className)[0].parentNode;
+
+				// console.log( stopHere[0].offsetTop );
+
+				parPos 			= elPar.offsetTop + elPar.offsetHeight;
+				stopAtOffset 	= stopHere.offsetTop;
+				windowBottom 	= window.scrollY + window.innerHeight;
+
+				makeAbs			= parPos >= stopAtOffset;
+				makeFix			= windowBottom < stopAtOffset;
+
+				move 			= windowBottom - stopAtOffset;
+
+				one 			= 'Abs';
+				two 			= 'Fix';
+
+				// console.log( move )
+
+				if ( typeof setting === 'undefined' ) {	setting = '';	}
+				if ( typeof count === 'undefined' ) {	count = 1;		}
+
+			    if ( !makeFix ) {
+			    	if ( setting != one ) {
+			    		// console.log(one+' '+count);
+
+			        	// elMaster.style.transform = 'translateZ(0)';
+			        	// elPar.style.top = 'initial';
+			        	// elPar.style.height = '100vh';
+			        	// elPar.style.position = 'sticky';
+
+			    		count++;
+			    	}
+			        // elPar.style.bottom = move+'px';
+			    	setting = one;
+			    }
+			    if ( makeFix ) {
+			    	if ( setting != two ) {
+			    		// console.log(two+' '+count);
+			        	// elMaster
+			        	// 	.css('transform', 'initial');
+			        	// elPar
+			        	// 	.css('position', 'fixed')
+			        	// 	.css('bottom','0')
+			        	// 	.css('top','0')
+			        	// 	.css('height','auto');
+
+			        	// elMaster.style.transform = 'initial'
+			        	// elPar.style.top = '0';
+			        	// elPar.style.bottom = '0';
+			        	// elPar.style.height = 'initial';
+			        	// elPar.style.position = 'fixed';
+
+			    		count++;
+			    	}
+			    	setting = two;
+			    }
+			}
+			chker();
+			
+
+
+
+
+		}
+
+		$menuPanel 		= 'menu-panel';
+		$footer 		= 'footer';
+
+	    stopAt($menuPanel,$footer);
+
+		$(document).ready(function () {
+		})
+	</script>
+
+	
+
+
+
+	
+</footer>
+
+	
 
 
 		</div>
