@@ -16,7 +16,7 @@
 
 	$lighterGrey: lighten($darkGrey,30%);
 	$lightestGrey: lighten($darkGrey,60%);
-	$darkerGrey:darken($darkGrey,40%);
+	$darkerGrey:darken($darkGrey,20%);
 
 	$defGrad: linear-gradient(145deg, #{$red}, #{$purp} );
 	$revGrad: linear-gradient(-45deg, #{$red}, #{$purp} );
@@ -76,7 +76,7 @@
 	$grid-medium: 767px;
 	$grid-large: 992px;
 	$grid-ex-large: 1200px;
-	$grid-widescreen: 1500px;
+	$grid-widescreen: 1400px;
 	$grid-gutter: 30px;
 
 	$narrow: 'narrow';
@@ -119,7 +119,7 @@
 // Sizing
 // ------
 	$width-site: 2000px;
-	$width-cont:1500px;
+	$width-cont: $grid-widescreen;
 	$gutter: 30px;
 
 // Headline Sizes

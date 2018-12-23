@@ -9,6 +9,7 @@
 
 	.container {
 		width: 90%;
+		padding: 0;
 	}
 
 	h2 {
@@ -159,6 +160,11 @@
 	}
 	@media screen and (min-width: $grid-medium) {
 		padding: 90px 0;
+
+
+		.price {
+			padding: 1.5em;
+		}
 
 	}
 }

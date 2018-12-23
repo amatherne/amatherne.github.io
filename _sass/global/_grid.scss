@@ -22,8 +22,17 @@
 	&[class*='--push'] {
 		position: relative;
 	}
+	&.align-middle,
 	&.vert-middle {
-		vertical-align:middle;
+		vertical-align: middle;
+	}
+	&.align-bottom,
+	&.vert-bottom {
+		vertical-align: bottom;
+	}
+	&.align-top,
+	&.vert-top {
+		vertical-align: top;
 	}
 }
 

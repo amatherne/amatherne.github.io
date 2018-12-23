@@ -1,12 +1,214 @@
-{% comment %}<!-- includes/footer -->
-<footer>
-	<ul>			
-		{% for item in site.data.menus.main %}
-			{% assign page_url = page.url | replace: '.html','' %}
-			<li class="nav-item {% if page_url == item.url %}active{% endif %}">
-				<a href="{{ item.url }}">{{ item.title }}</a>
-			</li>
-		{% endfor %}
-	</ul>
-</footer>{% endcomment %}
+<!-- includes/footer -->
+<footer class="footer">
+
+	<div class="container ">
+		<div class="grid">
+			<div class="grid__item medium-up--one-half">
+				<h3 class="footer-title large">Start working on a New Project?</h3>
+				<a class="btn" href="/contact">Let's Get Started</a>
+			</div>
+			<div class="grid__item medium-up--one-quarter">
+				<h3 class="footer-title">Connect With Me</h3>
+				<ul class="social-nav">
+			        {% assign social_nav = 'facebook, instagram, youtube' | split: ',' %}
+			        {% for soc in social_nav %}
+			            <li>
+			                <a href="https://{{soc}}.com/pnkdrmmmr">{{soc}}</a>
+			            </li>
+			        {% endfor %}
+			    </ul>
+			</div>
+			<div class="grid__item medium-up--one-quarter">
+				<h3 class="footer-title">Instagram</h3>
+				<div class="grid margin">
+					{% for i in (1..6) %}
+						<div class="grid__item one-half medium-up--one-third">
+							<div class="bg_image insta-{{forloop.index}}"></div>
+						</div>
+					{% endfor %}
+					<style type="text/css">
+						{% for i in (1..6) %}
+							{% capture cycle %}{% cycle 'man', 'woman', 'bird', 'bike', 'mountain', 'art' %}{% endcapture %}
+							{% capture rando %}https://picsum.photos/300/300/?{{cycle}}{% endcapture %}
+							.insta-{{forloop.index}} {
+								background-image: url({{ rando }});
+							}
+						{% endfor %}
+					</style>
+				</div>
+			</div>
+			<div class="grid__item medium-up--one-half align-middle ">
+				<ul class="footer-links">			
+					{% for item in site.data.menus.main %}
+						{% assign page_url = page.url | replace: '.html','' %}
+						<li class="nav-item {% if page_url == item.url %}active{% endif %}">
+							<a href="{{ item.url }}">{{ item.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="grid__item medium-up--one-half align-middle medium-up--text-right">
+				<span>© {{ 'now' | date: '%Y' }} {{ site.title | upcase }}. All Rights Reserved</span>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		// function stopAt(el, stopAt) {
+		// 	el 		= $(el);
+		// 	stopAt 	= $(stopAt);
+		// 	function chker() {
+		// 		elPar 			= el.parent();
+		// 		elMaster 		= elPar.parent();
+		// 		parPos 			= elPar.offset().top + elPar.height();
+		// 		stopAtOffset 	= stopAt.offset().top;
+		// 		windowBottom 	= $(document).scrollTop() + window.innerHeight;
+
+		// 		makeAbs			= parPos >= stopAtOffset;
+		// 		makeFix			= windowBottom < stopAtOffset;
+
+		// 		one 			= 'Abs';
+		// 		two 			= 'Fix';
+
+		// 		if ( typeof setting === 'undefined' ) {	setting = '';	}
+		// 		if ( typeof count === 'undefined' ) {	count = 1;		}
+
+		// 	    if ( makeAbs ) {
+		// 	    	if ( setting != one ) {
+		// 	    		// console.log(one+' '+count);
+		// 	        	elMaster
+		// 	        		.css('transform', 'translateZ(0)');
+		// 	        	elPar
+		// 	        		.css('position', 'absolute')
+		// 	        		.css('top','initial')
+		// 	        		.css('bottom', '0')
+		// 	        		.css('height','100vh');
+		// 	    		count++;
+		// 	    	}
+		// 	    	setting = one;
+		// 	    }
+		// 	    if ( makeFix ) {
+		// 	    	if ( setting != two ) {
+		// 	    		// console.log(two+' '+count);
+		// 	        	elMaster
+		// 	        		.css('transform', 'initial');
+		// 	        	elPar
+		// 	        		.css('position', 'fixed')
+		// 	        		.css('bottom','0')
+		// 	        		.css('top','0')
+		// 	        		.css('height','auto');
+		// 	    		count++;
+		// 	    	}
+		// 	    	setting = two;
+		// 	    }
+		// 	}
+		// 	chker();
+		//     $(document).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove', function (e) {
+		// 	    chker();
+		// 	});
+		// 	$(window).resize(function() {
+		// 	    chker();
+		// 	});
+		// }
+
+		function stopAt(el, stopAt) {
+			var el 		= el;
+			var stopAt 	= stopAt;
+			
+			// console.log( document.getElementsByClassName(stopAt) );
+
+
+			window.addEventListener('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove',chker);
+			window.addEventListener('wheel',chker);
+
+			function chker() {
+				// el 			= el;
+				// stopAt 		= stopAt;
+				elPar 		= document.getElementsByClassName(el)[0].parentNode;
+				stopHere 	= document.getElementsByClassName(stopAt)[0];
+				elMaster 	= document.getElementsByClassName(elPar.className)[0].parentNode;
+
+				// console.log( stopHere[0].offsetTop );
+
+				parPos 			= elPar.offsetTop + elPar.offsetHeight;
+				stopAtOffset 	= stopHere.offsetTop;
+				windowBottom 	= window.scrollY + window.innerHeight;
+
+				makeAbs			= parPos >= stopAtOffset;
+				makeFix			= windowBottom < stopAtOffset;
+
+				move 			= windowBottom - stopAtOffset;
+
+				one 			= 'Abs';
+				two 			= 'Fix';
+
+				// console.log( move )
+
+				if ( typeof setting === 'undefined' ) {	setting = '';	}
+				if ( typeof count === 'undefined' ) {	count = 1;		}
+
+			    if ( !makeFix ) {
+			    	if ( setting != one ) {
+			    		// console.log(one+' '+count);
+
+			        	// elMaster.style.transform = 'translateZ(0)';
+			        	// elPar.style.top = 'initial';
+			        	// elPar.style.height = '100vh';
+			        	// elPar.style.position = 'sticky';
+
+			    		count++;
+			    	}
+			        // elPar.style.bottom = move+'px';
+			    	setting = one;
+			    }
+			    if ( makeFix ) {
+			    	if ( setting != two ) {
+			    		// console.log(two+' '+count);
+			        	// elMaster
+			        	// 	.css('transform', 'initial');
+			        	// elPar
+			        	// 	.css('position', 'fixed')
+			        	// 	.css('bottom','0')
+			        	// 	.css('top','0')
+			        	// 	.css('height','auto');
+
+			        	// elMaster.style.transform = 'initial'
+			        	// elPar.style.top = '0';
+			        	// elPar.style.bottom = '0';
+			        	// elPar.style.height = 'initial';
+			        	// elPar.style.position = 'fixed';
+
+			    		count++;
+			    	}
+			    	setting = two;
+			    }
+			}
+			chker();
+			
+
+
+
+
+		}
+
+		$menuPanel 		= 'menu-panel';
+		$footer 		= 'footer';
+
+	    stopAt($menuPanel,$footer);
+
+		$(document).ready(function () {
+		})
+	</script>
+
+	
+
+
+
+	
+</footer>
+
+	{% comment %}<div id="current" style="position: fixed; top: 15px; right: 15px; background: white; padding:15px; color: black; border: 1px solid black;"></div>{% endcomment %}
 

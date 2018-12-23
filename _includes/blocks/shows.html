@@ -37,7 +37,7 @@
 						<div class="price__detail">{{item.price}}</div>
 						<div class="price__info">{{item.price_info}}</div>
 					</td>
-					<td>
+					<td class="text-right" colspan="2">
 						{% assign url = item.url %}
 						<a href="{% include url.html url=url %}" 
 						   class="btn {{item.button_class}}">
