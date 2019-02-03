@@ -1,0 +1,47 @@
+---
+label: Block Hero
+hide_body: true
+is_partial: false
+fields:
+- type: text
+  hidden: true
+  label: section
+  name: section
+  default: block-hero
+- type: field_group
+  name: image
+  label: Image
+  fields:
+  - type: file
+    name: background_image
+    label: Background Image
+  - type: file
+    name: mobile_background_image
+    label: Mobile Background Image
+- type: field_group
+  name: content
+  label: Content
+  fields:
+  - type: text
+    name: headline
+    label: Headline
+  - type: textarea
+    label: Description
+    name: desc
+    config:
+      wysiwyg: true
+      schema:
+        format: html-blocks
+  - type: field_group
+    name: cta
+    label: CTA
+    fields:
+    - type: text
+      label: Button Text
+      name: button_text
+    - type: select
+      config:
+        source:
+          type: pages
+      label: URL
+      name: url
