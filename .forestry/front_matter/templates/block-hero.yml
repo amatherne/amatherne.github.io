@@ -1,7 +1,8 @@
 ---
 label: Block Hero
 hide_body: true
-is_partial: false
+is_partial: true
+display_field: section
 fields:
 - type: text
   hidden: true
