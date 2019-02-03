@@ -1,0 +1,113 @@
+---
+label: Homepage-1
+hide_body: 
+is_partial: 
+fields:
+- name: layout
+  label: Layout
+  type: text
+  hidden: false
+  default: ''
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: date
+  label: Date
+  type: datetime
+  hidden: false
+  default: ''
+- name: use_slider
+  label: Use slider
+  type: boolean
+  hidden: false
+  default: ''
+- name: page_sections
+  label: Page sections
+  type: field_group_list
+  fields:
+  - name: template
+    label: Template
+    type: text
+    hidden: false
+    default: ''
+  - name: block
+    label: Block
+    type: text
+    hidden: false
+    default: ''
+  - name: block_items
+    label: Block items
+    type: field_group_list
+    fields:
+    - name: image
+      label: Image
+      type: file
+      hidden: false
+      default: ''
+    - name: title
+      label: Title
+      type: text
+      hidden: false
+      default: ''
+    - name: text
+      label: Text
+      type: text
+      hidden: false
+      default: ''
+    - name: url
+      label: Url
+      type: text
+      hidden: false
+      default: ''
+    hidden: false
+    default: ''
+  - name: image
+    label: Image
+    type: field_group
+    fields:
+    - name: background_image
+      label: Background image
+      type: file
+      hidden: false
+      default: ''
+    - name: image_background_color
+      label: Image background color
+      type: text
+      hidden: false
+      default: ''
+    - name: mix_blend_mode
+      label: Mix blend mode
+      type: text
+      hidden: false
+      default: ''
+    - name: background_position
+      label: Background position
+      type: text
+      hidden: false
+      default: ''
+    - name: background_size
+      label: Background size
+      type: text
+      hidden: false
+      default: ''
+    hidden: false
+    default: ''
+  - name: content
+    label: Content
+    type: text
+    hidden: false
+    default: ''
+  - name: number_of_posts_per_tab
+    label: Number of posts per tab
+    type: text
+    hidden: false
+    default: ''
+  - name: tabs_from_tags
+    label: Tabs from tags
+    type: list
+    hidden: false
+    default: ''
+  hidden: false
+  default: ''
