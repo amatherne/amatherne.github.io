@@ -29,6 +29,82 @@
 					{% endif %}
 				}
 			</style>
+			{% comment %}<div class="Testing" style="background: white; min-height:120vh; color: black;position: relative;overflow:hidden;padding:1em;margin-left:130px;">
+				<h4>Board is here:</h4>
+				<div id="game-board">
+					
+				</div>
+
+				<script type="text/javascript">
+					var cards = [{
+					    rank: "Queen",
+					    suit: "hearts",
+					    cardImage: "https://images.unsplash.com/photo-1547277194-251211e5f1b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+					}, {
+					    rank: "Queen",
+					    suit: "diamonds",
+					    cardImage: "https://images.unsplash.com/photo-1547810966-171e18d11c4f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+					}, {
+					    rank: "King",
+					    suit: "hearts",
+					    cardImage: "https://images.unsplash.com/photo-1547627113-548fae8e0ea8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+					}, {
+					    rank: "King",
+					    suit: "diamonds",
+					    cardImage: "https://images.unsplash.com/photo-1546936945-4a13b2548bd9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+					}];
+
+					var cardLength = cards.length;
+
+
+					var cardsInPlay = [];
+
+
+					var checkForMatch = function() {
+					    // debugger;
+					    // document.setAttribute[src] = this.images;
+					    if (cardsInPlay[0] === cardsInPlay[2]) {
+					        console.log("You found a match!");
+					    } else {
+					        console.log("Sorry, try again.");
+					    }
+					};
+					var flipCard = function() {
+					    var cardId = this.getAttribute("data-id");
+					    console.log("User flipped " + cards[cardId].rank);
+					    checkForMatch();
+					    console.log(cards[cardId].cardImage);
+					    console.log(cards[cardId].suit);
+					};
+
+					// console.log('Test:          '+cardsInPlay);
+					// console.log('Total Cards:   '+cardLength );
+					// cardsInPlay.push(cards[0].rank); 
+
+					var createBoard = function() {
+					    for (var i = 0; i < cards.length; i++) {
+					        // console.log(cards)
+					        var cardElement = document.createElement("img");
+					        // document.querySelector("src").setAttribute();
+					        // debugger;
+					        cardElement.src = cards[i].cardImage;
+					        cardElement.setAttribute('data-id', i);
+					        cardElement.addEventListener("click", flipCard);
+					        document.getElementById("game-board").appendChild(cardElement);
+					    }
+					    cards.forEach(function(card) {
+					        // debugger;
+					    });
+					};
+
+
+
+
+					document.addEventListener("DOMContentLoaded", function() {
+					    createBoard();
+					});
+				</script>
+			</div>{% endcomment %}
 			<div class="main-screens">
 				<div class="main-hero background-image">
 					<div class="container">
