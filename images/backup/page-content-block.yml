@@ -21,7 +21,7 @@
 
 	<!-- layouts/default -->
 	<body>
-		<div class="max-width">
+		<div class="max-width--master">
 			<!-- includes/header -->
 <header class="main-header">
     <div class="overlay-bg close-menu"></div>
@@ -120,48 +120,48 @@
                 </li>
             
         </ul>
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $btn            = $('.menu-toggle, .close-menu'),
-            $nav            = $('.menu-modal'),
-            $navLinks       = $('.main-nav li'),
-            $socLinks       = $('.main-nav li'),
-            modalOpen       = 'modal_open',
-            navActive       = 'active',
-            locked          = 'locked',
-            $body           = $('body'),
-            nav_Open        = function(e) {
-                $btn.toggleClass(navActive);
-                $body.toggleClass(modalOpen);
-                $body.toggleClass(locked);
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $btn            = $('.menu-toggle, .close-menu'),
+                $nav            = $('.menu-modal'),
+                $navLinks       = $('.main-nav li'),
+                $socLinks       = $('.main-nav li'),
+                modalOpen       = 'modal_open',
+                navActive       = 'active',
+                locked          = 'locked',
+                $body           = $('body'),
+                nav_Open        = function(e) {
+                    $btn.toggleClass(navActive);
+                    $body.toggleClass(modalOpen);
+                    $body.toggleClass(locked);
+                    
+                    isOpen      = $btn.is('.'+navActive);
+                    // Btn Settings
+                    aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
+                    aStag       = isOpen ? 250 : 0,
+                    aDelay      = isOpen ? 0 : 0,
+                    aDur        = isOpen ? 500 : 0,
+                    aOp         = isOpen ? 1 : 0,
+                    aWdth       = isOpen ? '100%' : '0%';
+                    // Links
+                    $navLinks.velocity( aTrans,{
+                        width:      aWdth,
+                        maxWidth:   aWdth,
+                        opacity:    aOp,
+                        duration:   aDur,
+                        delay:      aDelay,
+                        stagger:    aStag
+                    })
+                }
+                $btn.click(nav_Open);
+
+
+
+
                 
-                isOpen      = $btn.is('.'+navActive);
-                // Btn Settings
-                aTrans      = isOpen ? 'transition.wipeIn' : 'transition.wipeOut',
-                aStag       = isOpen ? 250 : 0,
-                aDelay      = isOpen ? 0 : 0,
-                aDur        = isOpen ? 500 : 0,
-                aOp         = isOpen ? 1 : 0,
-                aWdth       = isOpen ? '100%' : '0%';
-                // Links
-                $navLinks.velocity( aTrans,{
-                    width:      aWdth,
-                    maxWidth:   aWdth,
-                    opacity:    aOp,
-                    duration:   aDur,
-                    delay:      aDelay,
-                    stagger:    aStag
-                })
-            }
-            $btn.click(nav_Open);
-
-
-
-
-            
-         })
-    </script>
+             })
+        </script>
+    </div>
 </header>
 
 
@@ -214,24 +214,88 @@ fields:
 	<div class="container ">
 		<div class="grid">
 			<div class="grid__item medium-up--one-half">
-				<h3 class="footer-title large">Start working on a New Project?</h3>
+				<h3 class="footer-title large">Start working on a new project?</h3>
 				<a class="btn" href="/contact">Let's Get Started</a>
 			</div>
 			<div class="grid__item medium-up--one-quarter">
 				<h3 class="footer-title">Connect With Me</h3>
 				<ul class="social-nav">
-			        
-			        
+			        	
 			            <li>
-			                <a href="https://facebook.com/pnkdrmmmr">facebook</a>
+			                <a href="https://Facebook.com/pnkdrmmmr" target="_blank">
+			                	<span class="visually-hidden">Facebook</span>
+			                	<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="25px" viewBox="0 0 14 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>facebook - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="26.3736264" font-weight="normal">
+        <g id="07" transform="translate(-875.000000, -4421.000000)" fill="#EE5C6C">
+            <g id="Footer" transform="translate(0.000000, 4088.000000)">
+                <g id="Group-17" transform="translate(86.505495, 182.505495)">
+                    <g id="Group" transform="translate(783.824176, 0.000000)">
+                        <text id="facebook---FontAwesome">
+                            <tspan x="4.21978022" y="172.802198"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+			                </a>
 			            </li>
 			        
+			        	
 			            <li>
-			                <a href="https:// instagram.com/pnkdrmmmr"> instagram</a>
+			                <a href="https://Instagram.com/pnkdrmmmr" target="_blank">
+			                	<span class="visually-hidden">Instagram</span>
+			                	<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>instagram - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="26.3736264" font-weight="normal">
+        <g id="07" transform="translate(-953.000000, -4423.000000)" fill="#EE5C6C">
+            <g id="Footer" transform="translate(0.000000, 4088.000000)">
+                <g id="Group-17" transform="translate(86.505495, 182.505495)">
+                    <g id="Group" transform="translate(783.824176, 0.000000)">
+                        <text id="instagram---FontAwesome">
+                            <tspan x="83.3406593" y="172.802198"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+			                </a>
 			            </li>
 			        
+			        	
 			            <li>
-			                <a href="https:// youtube.com/pnkdrmmmr"> youtube</a>
+			                <a href="https://Youtube.com/pnkdrmmmr" target="_blank">
+			                	<span class="visually-hidden">Youtube</span>
+			                	<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="19px" viewBox="0 0 27 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>youtube-play - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FontAwesome" font-size="26.3736264" font-weight="normal">
+        <g id="07" transform="translate(-908.000000, -4425.000000)" fill="#EE5C6C">
+            <g id="Footer" transform="translate(0.000000, 4088.000000)">
+                <g id="Group-17" transform="translate(86.505495, 182.505495)">
+                    <g id="Group" transform="translate(783.824176, 0.000000)">
+                        <text id="youtube-play---FontAwesome">
+                            <tspan x="38.5054945" y="172.802198"></tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+			                </a>
 			            </li>
 			        
 			    </ul>
@@ -339,167 +403,101 @@ fields:
 				<span>© 2019 PD. All Rights Reserved</span>
 			</div>
 		</div>
-
 	</div>
 
+	
 
 	<script type="text/javascript">
+		function stickTHIS(el,hght) {
 
-		// function stopAt(el, stopAt) {
-		// 	el 		= $(el);
-		// 	stopAt 	= $(stopAt);
-		// 	function chker() {
-		// 		elPar 			= el.parent();
-		// 		elMaster 		= elPar.parent();
-		// 		parPos 			= elPar.offset().top + elPar.height();
-		// 		stopAtOffset 	= stopAt.offset().top;
-		// 		windowBottom 	= $(document).scrollTop() + window.innerHeight;
+	    	// =========================
+	    	// JQ Easing Plugin REQUIRED
+	    	// https://raw.githubusercontent.com/gdsmith/jquery.easing/master/jquery.easing.min.js
+	    	// =========================
 
-		// 		makeAbs			= parPos >= stopAtOffset;
-		// 		makeFix			= windowBottom < stopAtOffset;
+	    	stickThis 		= $(el),
+	    	jumpCls			= 'jump-fix'
+		    jumpFix 		= $('#'+jumpCls),
+		    stckCls 		= 'stuck',
+		    status 			= 'init',
+		    below			= 'stuck',
+		    above			= 'unstuck',
+		    count 			= 0,
 
-		// 		one 			= 'Abs';
-		// 		two 			= 'Fix';
-
-		// 		if ( typeof setting === 'undefined' ) {	setting = '';	}
-		// 		if ( typeof count === 'undefined' ) {	count = 1;		}
-
-		// 	    if ( makeAbs ) {
-		// 	    	if ( setting != one ) {
-		// 	    		// console.log(one+' '+count);
-		// 	        	elMaster
-		// 	        		.css('transform', 'translateZ(0)');
-		// 	        	elPar
-		// 	        		.css('position', 'absolute')
-		// 	        		.css('top','initial')
-		// 	        		.css('bottom', '0')
-		// 	        		.css('height','100vh');
-		// 	    		count++;
-		// 	    	}
-		// 	    	setting = one;
-		// 	    }
-		// 	    if ( makeFix ) {
-		// 	    	if ( setting != two ) {
-		// 	    		// console.log(two+' '+count);
-		// 	        	elMaster
-		// 	        		.css('transform', 'initial');
-		// 	        	elPar
-		// 	        		.css('position', 'fixed')
-		// 	        		.css('bottom','0')
-		// 	        		.css('top','0')
-		// 	        		.css('height','auto');
-		// 	    		count++;
-		// 	    	}
-		// 	    	setting = two;
-		// 	    }
-		// 	}
-		// 	chker();
-		//     $(document).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove', function (e) {
-		// 	    chker();
-		// 	});
-		// 	$(window).resize(function() {
-		// 	    chker();
-		// 	});
-		// }
-
-		function stopAt(el, stopAt) {
-			var el 		= el;
-			var stopAt 	= stopAt;
-			
-			// console.log( document.getElementsByClassName(stopAt) );
+		    // This is how far below header the sticky shows on scroll
+		    wait 			= hght;if(wait==null){wait=0;}
+		    
+		    // Create Jumpfix
+		    jumpCreate 		= '<div id="'+jumpCls+'"></div>';
+		    stickThis.before(jumpCreate);
+		   	jumpEL 			= document.getElementById(jumpCls);
 
 
-			window.addEventListener('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove',chker);
-			window.addEventListener('wheel',chker);
 
-			function chker() {
-				// el 			= el;
-				// stopAt 		= stopAt;
-				elPar 		= document.getElementsByClassName(el)[0].parentNode;
-				stopHere 	= document.getElementsByClassName(stopAt)[0];
-				elMaster 	= document.getElementsByClassName(elPar.className)[0].parentNode;
+		    // Init function watchers
+		    initStick();
+			$(document).ready(function() {
+		      	initStick();
+			});
+			$(window).scroll(function() {
+		      	initStick();
+			});
+			$(window).resize(function() {
+		      	initStick();
+			});
 
-				// console.log( stopHere[0].offsetTop );
 
-				parPos 			= elPar.offsetTop + elPar.offsetHeight;
-				stopAtOffset 	= stopHere.offsetTop;
-				windowBottom 	= window.scrollY + window.innerHeight;
+			function initStick() {
+				windWdth 		= $(window).width();
+				windHght 		= $(window).height();
+				stickHght 		= stickThis.height();
+			    stickFromTop    = Math.round( jumpEL.getBoundingClientRect().top - ( windHght / 2 ) + ( stickHght / 2 ) );
 
-				makeAbs			= parPos >= stopAtOffset;
-				makeFix			= windowBottom < stopAtOffset;
+			   	$('#status').text(status);
+			    $('#mid').text(stickFromTop+'px');
 
-				move 			= windowBottom - stopAtOffset;
 
-				one 			= 'Abs';
-				two 			= 'Fix';
 
-				// console.log( move )
+			    if ( windWdth > 750) {
+					if ( stickFromTop < 0 && status != below) {
+						status = below;
+			        	stickThis
+			        		.css('position','fixed')
+			        		.css('top','50%')
+			        		.css('left','50%')
+			        		.css('transform','translate(-50%,-50%)');
+			        	jumpEL.setAttribute("style", "height: "+stickHght+"px;");
+			      	} 
+			      	if ( stickFromTop >= 0 && status != above) {
+						status = above;
+			        	stickThis
+			        		.css('position','relative')
+			        		.css('top','0%')
+			        		.css('left','0%')
+			        		.css('transform','translate(0%,0%)');
+			  
+			        	jumpEL.setAttribute("style", "height: 0px;");
 
-				if ( typeof setting === 'undefined' ) {	setting = '';	}
-				if ( typeof count === 'undefined' ) {	count = 1;		}
+			      	}
+			    } else {
+			    	// stickThis
+			    	// 	.css('position','initial')
+		      //   		.css('top','initial')
+		      //   		.css('left','initial')
+		      //   		.css('transform','initial');
+			     //    jumpEL.setAttribute("style", "height: 0px;");
 
-			    if ( !makeFix ) {
-			    	if ( setting != one ) {
-			    		// console.log(one+' '+count);
-
-			        	// elMaster.style.transform = 'translateZ(0)';
-			        	// elPar.style.top = 'initial';
-			        	// elPar.style.height = '100vh';
-			        	// elPar.style.position = 'sticky';
-
-			    		count++;
-			    	}
-			        // elPar.style.bottom = move+'px';
-			    	setting = one;
-			    }
-			    if ( makeFix ) {
-			    	if ( setting != two ) {
-			    		// console.log(two+' '+count);
-			        	// elMaster
-			        	// 	.css('transform', 'initial');
-			        	// elPar
-			        	// 	.css('position', 'fixed')
-			        	// 	.css('bottom','0')
-			        	// 	.css('top','0')
-			        	// 	.css('height','auto');
-
-			        	// elMaster.style.transform = 'initial'
-			        	// elPar.style.top = '0';
-			        	// elPar.style.bottom = '0';
-			        	// elPar.style.height = 'initial';
-			        	// elPar.style.position = 'fixed';
-
-			    		count++;
-			    	}
-			    	setting = two;
 			    }
 			}
-			chker();
-			
+	    }
+	    stickTHIS(".footer .container", 0) 
 
 
 
-
-		}
-
-		$menuPanel 		= 'menu-panel';
-		$footer 		= 'footer';
-
-	    stopAt($menuPanel,$footer);
-
-		$(document).ready(function () {
-		})
 	</script>
 
 	
-
-
-
-	
 </footer>
-
-	
-
 
 		</div>
  	</body>
