@@ -12,7 +12,7 @@
 				<ul class="social-nav">
 			        {%- assign social_nav = 'Facebook,Instagram,Youtube' | split: ',' -%}
 			        {% for soc in social_nav %}
-			        	{% capture icn %}icons/icon-{{-soc|strip|handlize-}}.liquid{% endcapture %}
+			        	{% capture icn %}icons/icon-{{-soc|strip|downcase|handlize-}}.liquid{% endcapture %}
 			            <li>
 			                <a href="https://{{soc}}.com/pnkdrmmmr" target="_blank">
 			                	<span class="visually-hidden">{{soc}}</span>
