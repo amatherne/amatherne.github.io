@@ -37,6 +37,7 @@ var jsFiles = [
   '_js/vendor/velocity.js',
   '_js/vendor/typed.js',
   '_js/vendor/match-height.js',
+  '_js/vendor/setFixed.js',
   '_js/main.js'
 ];
 

@@ -8,57 +8,56 @@ page_sections:
   block: slides
   block_items:
   - image: uploads/2018/07/15/austin-1.jpg
-    title: Vetter Kids
-    text: in the studio for our new album "Structure Fire"
-    url: contact.md
+    title: Upcoming Shows
+    text: New project coming soon
+    url: shows.md
+  - image: "/uploads/2018/07/12/jump-2.jpg"  
+    title: The Gear
+    text: Mutating Uncontrollably since 1998
+    url: music.md
   - image: "/uploads/2018/07/08/hero.jpg"
-    title: Structures & Lines
-    text: Summer 2019 Tour Announcement
-    url: contact.md
-  - image: "/uploads/2018/07/12/jump-2.jpg"
-    title: Underwater
+    title: Contact Me
+    text: Hiya. :)
     url: contact.md
 - template: info
   block: info
   left_headline: Always<br>On <span>Time</span>
-  right_headline: For Practice / The Show <Br>The Studio / With the Bassist <br><small>(and
+  right_headline: For Practice / For the Show <Br>In the Studio / With the Bassist <br><small>(and
     if, required, The Click) </small>
   custom_html: "== {} }"
-  content:
-    left_title: On Styles
-    left_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-    right_title: Studio vs. Tour
-    right_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-- template: shows
-  block: shows
-  block_items:
-  - image: "/uploads/2018/07/08/austin-2.jpg"
-    title: MAGIC Worldtour 2014
-    date: 2-25-2019
-    price: "$15"
-    price_info: per ticket
-    address: King’s Theater - 1027 Flatbush Ave, Brooklyn, NY 11226
-    url: contact.md
-  - image: "/uploads/2018/07/08/austin-2.jpg"
-    title: Music State
-    date: 2-26-2019
-    price: "$15"
-    price_info: per ticket
-    address: Lion Square 3A Elizabeth, London, UK
-    button_text: CANCELED!
-    button_class: greyed
-    url: contact.md
-  - image: "/uploads/2018/07/08/austin-2.jpg"
-    title: Music State
-    date: 2-26-2019
-    price: "$15"
-    price_info: per ticket
-    address: Lion Square 3A Elizabeth, London, UK
-    button_text: Sold Out :(
-    button_class: disabled
-    url: contact.md
+  # content:
+  #   left_title: On Styles
+  #   left_text: Rock, Metal, Punk, Ska, Blues, Funk, Hip-hop, experimental...
+  #   right_title: Studio vs. Tour
+  #   right_text: I love playing whereever I can. 
+# - template: shows
+#   block: shows
+#   block_items:
+#   - image: "/uploads/2018/07/08/austin-2.jpg"
+#     title: MAGIC Worldtour 2014
+#     date: 2-25-2019
+#     price: "$15"
+#     price_info: per ticket
+#     address: King’s Theater - 1027 Flatbush Ave, Brooklyn, NY 11226
+#     url: contact.md
+#   - image: "/uploads/2018/07/08/austin-2.jpg"
+#     title: Music State
+#     date: 2-26-2019
+#     price: "$15"
+#     price_info: per ticket
+#     address: Lion Square 3A Elizabeth, London, UK
+#     button_text: CANCELED!
+#     button_class: greyed
+#     url: contact.md
+#   - image: "/uploads/2018/07/08/austin-2.jpg"
+#     title: Music State
+#     date: 2-26-2019
+#     price: "$15"
+#     price_info: per ticket
+#     address: Lion Square 3A Elizabeth, London, UK
+#     button_text: Sold Out :(
+#     button_class: disabled
+#     url: contact.md
 
 ---
 foo bar

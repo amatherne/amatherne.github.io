@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include global/head.html %}
+	<!-- layouts/blocks -->
+	<body class="shows-template">
+		
+		<div class="max-width--master ">
+			{% include global/header.html spacer='none' %}
+			<div class="">
+				
+				<div class="main-screens">
+					{% comment %}{% for section in page.page_sections %}
+						{% include page/{{ section.block }}.html %}
+					{% endfor %}{% endcomment %}
+
+					{% assign bg_image = page.page_sections[0].image.background_image | relative_url %}
+					{% assign bg_color = page.page_sections[0].image.image_background_color | replace: ')',',0.65)' %}
+					{% comment %}<div>{{bg_image}}</div>{% endcomment %}
+					<style type="text/css">
+						/*  */
+					</style>
+
+					{% capture show-blocks %}
+						Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||
+						Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||
+						Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||
+						{% comment %}Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th ||{% endcomment %}
+						{% comment %}Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||{% endcomment %}
+						Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||
+						Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||
+						Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||
+						{% comment %}Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th || {% endcomment %}
+						{% comment %}Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||{% endcomment %}
+						{% comment %}Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||{% endcomment %}
+						Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||
+						Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||
+						Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||
+						Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||
+						{% comment %}Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th || {% endcomment %}
+						{% comment %}Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||{% endcomment %}
+						{% comment %}Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||{% endcomment %}
+						Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th || 
+						Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||
+						{% comment %}Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||{% endcomment %}
+						{% comment %}Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||{% endcomment %}
+						{% comment %}Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||{% endcomment %}
+						Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||
+						Get Up Kids ~ Pavement ~ Varsity Theatre ~ Baton Rouge, LA ~ May 31st ||
+						Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th || 
+						Get Up Kids ~ Primus ~ One Eyed Jacks ~ New Orleans, LA ~ June 4th ||
+						{% comment %}Get Up Kids ~ Less Than Jake ~ Emos ~ Austin, TX ~ June 2nd ||{% endcomment %}
+						Get Up Kids ~ Dr Dog ~ White Rabbit ~ San Antonio, TX ~ June 10th
+					{% endcapture %}
+
+
+					{% assign show-blocks = show-blocks | split: '||' | at_most: 12 %}
+					{% assign divisor = show-blocks.size | divided_by: 1.75 | round  %}
+
+
+					{% comment %}<table style="table-layout: fixed; width: 200px; font-family: monospace; color: black;">
+						<tr>
+							<td>Shows size:</td>
+							<td class="text-right">{{show-blocks.size}}</td>
+						</tr>
+						<tr>
+							<td>Divisor start:</td>
+							<td class="text-right">{{divisor}}</td>
+						</tr>{% endcomment %}
+						{% for i in (1..divisor) %}
+							{% assign quotient = show-blocks.size | modulo: divisor %}
+							{% assign quotient_alt = show-blocks.size | minus: 1 | modulo: divisor %}
+							{% comment %}<tr>
+								<td>Quotient {{forloop.index}}:</td>
+								<td class="text-right">{{quotient}}</td>
+							</tr>
+							<tr>
+								<td>Quotient_alt {{forloop.index}}:</td>
+								<td class="text-right">{{quotient_alt}}</td>
+							</tr>
+							<tr>
+								<td>
+									<hr />
+								</td>
+							</tr>{% endcomment %}
+							{% if quotient == 0 or quotient_alt == 0 %}
+								{% comment %}<tr>
+									<td>BREAK</td>
+								</tr>{% endcomment %}
+								{% break %}
+							{% else %}
+								{% assign divisor = divisor | minus: 0 %}
+							{% endif %}
+						{% endfor %}
+						{% comment %}<td>Divisor end:</td>
+						<td class="text-right">{{divisor}}</td>
+						
+					</table>{% endcomment %}
+				
+
+					<table class="show-block-list div{{ divisor }}">
+					    <thead>
+					        <tr>
+					            <th class="date">Date</th>
+					            <th class="artist">Artist(s)</th>
+					            <th class="location">Location</th>
+					            <th class="notes">Notes</th>
+					        </tr>
+					    </thead>
+					    <tbody class="show-blocks ">
+					        {% for show-block in show-blocks %}
+								{% assign mod = forloop.index | modulo: 2 %}
+					        	{% assign itms = show-block | split: '~' %}
+					        	{% assign headliner = itms[0] %}
+					        	{% assign support 	= itms[1] %}
+					        	{% if mod == 0 %}
+					        		{% assign headliner = itms[1] %}
+					        		{% assign support 	= itms[0] %}
+					        	{% endif %}
+					        	{% assign venue 	= itms[2] %}
+					        	{% assign location 	= itms[3] %}
+					        	{% assign dte 		= itms[4] %}
+						        <tr class="show-block">
+						        	<td class="headliner">
+						        		<h2>{{headliner}}</h2>
+						        	</td>
+						        	<td>
+						        		<h3>with <b>{{support}}</b></h3>
+						        	</td>
+						        	<td>
+						        		<h4>{{location}}</h4>
+						        	</td>
+						        	<td>
+						        		<div><b>{{venue}}</b>  &nbsp;&nbsp;&nbsp;  {{dte}}</div>
+						        		{% comment %}<div>{{dte}}</div>{% endcomment %}
+						        	</td>
+						        </tr>
+					        {% endfor %}
+					    </tbody>
+					</table>
+
+
+				</div>
+			</div>
+			{% include global/footer.html %}
+		</div>
+ 	</body>
+</html>

@@ -4,16 +4,20 @@
 	<div class="container ">
 		<div class="grid">
 			<div class="grid__item medium-up--one-half">
-				<h3 class="footer-title large">Start working on a New Project?</h3>
+				<h3 class="footer-title large">Start working on a new project?</h3>
 				<a class="btn" href="/contact">Let's Get Started</a>
 			</div>
 			<div class="grid__item medium-up--one-quarter">
 				<h3 class="footer-title">Connect With Me</h3>
 				<ul class="social-nav">
-			        {% assign social_nav = 'facebook, instagram, youtube' | split: ',' %}
+			        {%- assign social_nav = 'Facebook,Instagram,Youtube' | split: ',' -%}
 			        {% for soc in social_nav %}
+			        	{% capture icn %}icons/icon-{{-soc|strip|handlize-}}.liquid{% endcapture %}
 			            <li>
-			                <a href="https://{{soc}}.com/pnkdrmmmr">{{soc}}</a>
+			                <a href="https://{{soc}}.com/pnkdrmmmr" target="_blank">
+			                	<span class="visually-hidden">{{soc}}</span>
+			                	{% include {{icn}} %}
+			                </a>
 			            </li>
 			        {% endfor %}
 			    </ul>
@@ -51,164 +55,98 @@
 				<span>© {{ 'now' | date: '%Y' }} {{ site.title | upcase }}. All Rights Reserved</span>
 			</div>
 		</div>
-
 	</div>
 
+	
 
 	<script type="text/javascript">
+		function stickTHIS(el,hght) {
 
-		// function stopAt(el, stopAt) {
-		// 	el 		= $(el);
-		// 	stopAt 	= $(stopAt);
-		// 	function chker() {
-		// 		elPar 			= el.parent();
-		// 		elMaster 		= elPar.parent();
-		// 		parPos 			= elPar.offset().top + elPar.height();
-		// 		stopAtOffset 	= stopAt.offset().top;
-		// 		windowBottom 	= $(document).scrollTop() + window.innerHeight;
+	    	// =========================
+	    	// JQ Easing Plugin REQUIRED
+	    	// https://raw.githubusercontent.com/gdsmith/jquery.easing/master/jquery.easing.min.js
+	    	// =========================
 
-		// 		makeAbs			= parPos >= stopAtOffset;
-		// 		makeFix			= windowBottom < stopAtOffset;
+	    	stickThis 		= $(el),
+	    	jumpCls			= 'jump-fix'
+		    jumpFix 		= $('#'+jumpCls),
+		    stckCls 		= 'stuck',
+		    status 			= 'init',
+		    below			= 'stuck',
+		    above			= 'unstuck',
+		    count 			= 0,
 
-		// 		one 			= 'Abs';
-		// 		two 			= 'Fix';
-
-		// 		if ( typeof setting === 'undefined' ) {	setting = '';	}
-		// 		if ( typeof count === 'undefined' ) {	count = 1;		}
-
-		// 	    if ( makeAbs ) {
-		// 	    	if ( setting != one ) {
-		// 	    		// console.log(one+' '+count);
-		// 	        	elMaster
-		// 	        		.css('transform', 'translateZ(0)');
-		// 	        	elPar
-		// 	        		.css('position', 'absolute')
-		// 	        		.css('top','initial')
-		// 	        		.css('bottom', '0')
-		// 	        		.css('height','100vh');
-		// 	    		count++;
-		// 	    	}
-		// 	    	setting = one;
-		// 	    }
-		// 	    if ( makeFix ) {
-		// 	    	if ( setting != two ) {
-		// 	    		// console.log(two+' '+count);
-		// 	        	elMaster
-		// 	        		.css('transform', 'initial');
-		// 	        	elPar
-		// 	        		.css('position', 'fixed')
-		// 	        		.css('bottom','0')
-		// 	        		.css('top','0')
-		// 	        		.css('height','auto');
-		// 	    		count++;
-		// 	    	}
-		// 	    	setting = two;
-		// 	    }
-		// 	}
-		// 	chker();
-		//     $(document).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove', function (e) {
-		// 	    chker();
-		// 	});
-		// 	$(window).resize(function() {
-		// 	    chker();
-		// 	});
-		// }
-
-		function stopAt(el, stopAt) {
-			var el 		= el;
-			var stopAt 	= stopAt;
-			
-			// console.log( document.getElementsByClassName(stopAt) );
+		    // This is how far below header the sticky shows on scroll
+		    wait 			= hght;if(wait==null){wait=0;}
+		    
+		    // Create Jumpfix
+		    jumpCreate 		= '<div id="'+jumpCls+'"></div>';
+		    stickThis.before(jumpCreate);
+		   	jumpEL 			= document.getElementById(jumpCls);
 
 
-			window.addEventListener('scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove',chker);
-			window.addEventListener('wheel',chker);
 
-			function chker() {
-				// el 			= el;
-				// stopAt 		= stopAt;
-				elPar 		= document.getElementsByClassName(el)[0].parentNode;
-				stopHere 	= document.getElementsByClassName(stopAt)[0];
-				elMaster 	= document.getElementsByClassName(elPar.className)[0].parentNode;
+		    // Init function watchers
+		    initStick();
+			$(document).ready(function() {
+		      	initStick();
+			});
+			$(window).scroll(function() {
+		      	initStick();
+			});
+			$(window).resize(function() {
+		      	initStick();
+			});
 
-				// console.log( stopHere[0].offsetTop );
 
-				parPos 			= elPar.offsetTop + elPar.offsetHeight;
-				stopAtOffset 	= stopHere.offsetTop;
-				windowBottom 	= window.scrollY + window.innerHeight;
+			function initStick() {
+				windWdth 		= $(window).width();
+				windHght 		= $(window).height();
+				stickHght 		= stickThis.height();
+			    stickFromTop    = Math.round( jumpEL.getBoundingClientRect().top - ( windHght / 2 ) + ( stickHght / 2 ) );
 
-				makeAbs			= parPos >= stopAtOffset;
-				makeFix			= windowBottom < stopAtOffset;
+			   	$('#status').text(status);
+			    $('#mid').text(stickFromTop+'px');
 
-				move 			= windowBottom - stopAtOffset;
 
-				one 			= 'Abs';
-				two 			= 'Fix';
 
-				// console.log( move )
+			    if ( windWdth > 750) {
+					if ( stickFromTop < 0 && status != below) {
+						status = below;
+			        	stickThis
+			        		.css('position','fixed')
+			        		.css('top','50%')
+			        		.css('left','50%')
+			        		.css('transform','translate(-50%,-50%)');
+			        	jumpEL.setAttribute("style", "height: "+stickHght+"px;");
+			      	} 
+			      	if ( stickFromTop >= 0 && status != above) {
+						status = above;
+			        	stickThis
+			        		.css('position','relative')
+			        		.css('top','0%')
+			        		.css('left','0%')
+			        		.css('transform','translate(0%,0%)');
+			  
+			        	jumpEL.setAttribute("style", "height: 0px;");
 
-				if ( typeof setting === 'undefined' ) {	setting = '';	}
-				if ( typeof count === 'undefined' ) {	count = 1;		}
+			      	}
+			    } else {
+			    	// stickThis
+			    	// 	.css('position','initial')
+		      //   		.css('top','initial')
+		      //   		.css('left','initial')
+		      //   		.css('transform','initial');
+			     //    jumpEL.setAttribute("style", "height: 0px;");
 
-			    if ( !makeFix ) {
-			    	if ( setting != one ) {
-			    		// console.log(one+' '+count);
-
-			        	// elMaster.style.transform = 'translateZ(0)';
-			        	// elPar.style.top = 'initial';
-			        	// elPar.style.height = '100vh';
-			        	// elPar.style.position = 'sticky';
-
-			    		count++;
-			    	}
-			        // elPar.style.bottom = move+'px';
-			    	setting = one;
-			    }
-			    if ( makeFix ) {
-			    	if ( setting != two ) {
-			    		// console.log(two+' '+count);
-			        	// elMaster
-			        	// 	.css('transform', 'initial');
-			        	// elPar
-			        	// 	.css('position', 'fixed')
-			        	// 	.css('bottom','0')
-			        	// 	.css('top','0')
-			        	// 	.css('height','auto');
-
-			        	// elMaster.style.transform = 'initial'
-			        	// elPar.style.top = '0';
-			        	// elPar.style.bottom = '0';
-			        	// elPar.style.height = 'initial';
-			        	// elPar.style.position = 'fixed';
-
-			    		count++;
-			    	}
-			    	setting = two;
 			    }
 			}
-			chker();
-			
+	    }
+	    stickTHIS(".footer .container", 0) 
 
 
 
-
-		}
-
-		$menuPanel 		= 'menu-panel';
-		$footer 		= 'footer';
-
-	    stopAt($menuPanel,$footer);
-
-		$(document).ready(function () {
-		})
 	</script>
 
 	
-
-
-
-	
 </footer>
-
-	{% comment %}<div id="current" style="position: fixed; top: 15px; right: 15px; background: white; padding:15px; color: black; border: 1px solid black;"></div>{% endcomment %}
-

@@ -1,6 +1,6 @@
 ---
-title: Music
-layout: blocks
+title: Shows
+layout: shows
 date: 2018-07-15 00:00:00 +0000
 page_sections:
 - template: featured-posts
@@ -16,3 +16,7 @@ page_sections:
     background_size: cover
 
 ---
+
+
+
+

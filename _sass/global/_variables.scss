@@ -25,6 +25,40 @@
 
 
 
+
+	// Set Extend
+	// .text-gradient > *,
+	// .text-gradient {
+	// 	background: $gCo1;
+	// 	background: -moz-linear-gradient(left, $gCo1 $gPerc1, $gCo2 $gPerc2, $gCo3 $gPerc3, $gCo4 $gPerc4, $gCo5 $gPerc5, $gCo6 $gPerc6);
+	// 	background: -webkit-gradient(left top, right top, color-stop($gPerc1, $gCo1), color-stop($gPerc2, $gCo2), color-stop($gPerc3, $gCo3), color-stop($gPerc4, $gCo4), color-stop($gPerc5, $gCo5), color-stop($gPerc6, $gCo6));
+	// 	background: -webkit-linear-gradient(left, $gCo1 $gPerc1, $gCo2 $gPerc2, $gCo3 $gPerc3, $gCo4 $gPerc4, $gCo5 $gPerc5, $gCo6 $gPerc6);
+	// 	background: -o-linear-gradient(left, $gCo1 $gPerc1, $gCo2 $gPerc2, $gCo3 $gPerc3, $gCo4 $gPerc4, $gCo5 $gPerc5, $gCo6 $gPerc6);
+	// 	background: -ms-linear-gradient(left, $gCo1 $gPerc1, $gCo2 $gPerc2, $gCo3 $gPerc3, $gCo4 $gPerc4, $gCo5 $gPerc5, $gCo6 $gPerc6);
+	// 	background: linear-gradient(to right, $gCo1 $gPerc1, $gCo2 $gPerc2, $gCo3 $gPerc3, $gCo4 $gPerc4, $gCo5 $gPerc5, $gCo6 $gPerc6);
+	// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gCo1', endColorstr='$gCo6', GradientType=1 );
+		
+	// 	// Can be used on backgrounds too if next two lines are removed
+	// 	-webkit-background-clip: text;
+	// 	-webkit-text-fill-color: transparent;
+	// }
+
+
+	// Using Extend
+
+	// .some-thing {
+	// 	@extend .text-gradient;
+	// }
+
+	// // If you need it to undo on hover, so you can set a different color
+	// .some-thing {
+	// 	&:not(:hover) {
+	// 		@extend .text-gradient;
+	// 	}
+	// }
+
+
+
 	$bodyBG: $white;
 	$bodyTextColor: $darkGrey;
 	$borderColor: lighten($darkGrey,10%);

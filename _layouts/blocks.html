@@ -2,10 +2,8 @@
 <html lang="en">
 	{% include global/head.html %}
 	<!-- layouts/blocks -->
-	<body class="blocks-page">
-
-		
-		<div class="max-width">
+	<body class="blocks-page page-{{page.title}}">
+		<div class="max-width--master">
 			{% include global/header.html spacer='none' %}
 			
 			{% comment %}{% assign use_animations = true %}{% endcomment %}

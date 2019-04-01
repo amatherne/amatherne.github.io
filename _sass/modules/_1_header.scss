@@ -37,6 +37,7 @@
 		background: $white;
 		border-right: 1px solid rgba($darkGrey, 0.25);
 		box-shadow: 6px 0px 40px 1px rgba(black, 0);
+		box-shadow: 6px 0px 20px 1px rgba(black, 0.2);
 		transition: all .5s .1s $ease-out-quad;
 
 	}
@@ -208,6 +209,7 @@
 		.menu-panel {
 			min-width: 300px;
 			box-shadow: 6px 0px 40px 1px rgba(black,0.75);
+			box-shadow: 6px 0px 40px 1px rgba(black,0.9);
 		}
 
 		.modal-toggle,

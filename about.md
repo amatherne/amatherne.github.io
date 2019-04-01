@@ -1,5 +1,5 @@
 ---
-title: About Me
+title: about <br>pnkdrmmr
 layout: post
 date: 2018-07-15 20:53:53 +0000
 tags:
@@ -9,7 +9,6 @@ tech: []
 image:
   background_image: "/uploads/2018/07/08/hero.jpg"
   mobile_background_image: ''
-  image_background_color: rgb(216, 202, 13)
   mix_blend_mode: soft-light
   background_position: center 90%
   background_size: ''

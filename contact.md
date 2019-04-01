@@ -11,6 +11,6 @@ page_sections:
     mix_blend_mode: hard-light
     background_position: center 50%
     background_size: cover
-  content: What can you say but "Hey!"
+  
 
 ---

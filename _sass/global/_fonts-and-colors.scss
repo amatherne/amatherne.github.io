@@ -257,21 +257,21 @@
 
 		// // Secondary
 		// // ---------
-		// &.secondary {
-		// 	color: $sec_btnTextColor !important;
-		// 	{% if settings.sec_btn_bg_color != blank %}
-		// 		background-color:$sec_btnBgColor !important;    
-		// 	{% endif %}
-		// 	border:1px solid $sec_btnBorderColor !important;
-		// 	&:hover {
-		// 		border:1px solid $sec_btnBorderHoverColor !important;
-		// 		{% if settings.sec_btn_bg_hover_color != blank %}
-		// 			background-color:$sec_btnBgHoverColor !important;
-		// 		{% endif %}
-		// 		color: $sec_btnTextHoverColor !important;
+		&.secondary {
+			color: white !important;
+			background-color:$purp !important;    
+			border:1px solid $purp !important;
+			&:after,
+			&:before {
+				display: none !important;
+			}
+			&:hover {
+				border-color: $red !important;
+				background-color:$red !important;
+				color: white !important;
 
-		// 	}
-		// }
+			}
+		}
 
 		// // Tertiary
 		// // ---------
@@ -329,7 +329,7 @@
 
 		.input-group {
 			$ease: $ease-out-quad;
-			$dur: .5s;
+			$dur: .15s;
 			$del1: $dur / 2;
 			$del2: $del1 + $del1;
 			$transLabel: top $dur $del1 $ease;
@@ -341,8 +341,9 @@
 				position: absolute;
 				width: auto;
 				top: 50%;
+				top: 18px;
 				left: 20px;
-				transform: translateY(-50%);
+				// transform: translateY(-50%);
 				z-index: 5;
 				pointer-events: none;
 				font-size: 16px;
@@ -369,14 +370,18 @@
 					opacity: 1;
 				}
 			}
-			textarea+label {
-				top: 27px;
+			textarea {
+				min-height: 300px;
 			}
-			input:hover+label, 
-			input:focus+label, 
-			textarea:hover+label, 
-			textarea:focus+label {
-				top: -13px;
+			textarea+label {
+				// top: 27px;
+			}
+			input:hover + label, 
+			input:focus + label, 
+			textarea:hover + label, 
+			textarea:focus + label,
+			&:hover label {
+				top: -25px;
 			}
 		}
 
@@ -407,13 +412,13 @@
 			}
 		}
 		.btn-container {
-			text-align:right;
+			text-align: right;
 		}
 
 		@media screen and (max-width:$grid-medium - 1) {
 			.input-group--label-left {
 				label {
-					text-align:left;
+					text-align: left;
 					width:100%;
 				}
 				input, textarea {

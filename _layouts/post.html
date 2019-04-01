@@ -3,18 +3,20 @@
 	{% include global/head.html %}
 	<!-- layouts/post -->
 	<body class="template-post">
-		<div class="max-width">
+		<div class="max-width--master">
 			{% include global/header.html spacer='none' %}
 
 			{% assign img = '' %}
 			{% assign img = page.image.background_image | relative_url %}
 			{% capture post_id %}post-{{ page.image.background_image | slugify | replace: '-','' | slice: 1,20  }}{% endcapture %}
 			<style type="text/css">
-				/* .main-hero::after {
-					background-image: url({{ img }});
-				} */
 				.main-hero::after {
-					background-color:{{ page.image.image_background_color }} !important;
+					background-image: url({{ img }});
+				}
+				.main-hero::after {
+					{% if page.image.image_background_color != '' %}
+						background-color:{{ page.image.image_background_color }} !important;
+					{% endif %}
 					{% if page.image.background_image != '' %}
 					background-image: url('{{ page.image.background_image | relative_url }}') !important;
 					{% endif %}
@@ -24,100 +26,30 @@
 					{% if page.image.background_size != '' %}
 					background-size:{{ page.image.background_size }} !important;
 					{% endif %}
-					{% if page.image.mix_blend_mode != '' %}
+					/* {% if page.image.mix_blend_mode != '' %}
 					background-blend-mode:{{ page.image.mix_blend_mode }} !important;
-					{% endif %}
+					{% endif %} */
 				}
 			</style>
-			{% comment %}<div class="Testing" style="background: white; min-height:120vh; color: black;position: relative;overflow:hidden;padding:1em;margin-left:130px;">
-				<h4>Board is here:</h4>
-				<div id="game-board">
-					
-				</div>
-
-				<script type="text/javascript">
-					var cards = [{
-					    rank: "Queen",
-					    suit: "hearts",
-					    cardImage: "https://images.unsplash.com/photo-1547277194-251211e5f1b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-					}, {
-					    rank: "Queen",
-					    suit: "diamonds",
-					    cardImage: "https://images.unsplash.com/photo-1547810966-171e18d11c4f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-					}, {
-					    rank: "King",
-					    suit: "hearts",
-					    cardImage: "https://images.unsplash.com/photo-1547627113-548fae8e0ea8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-					}, {
-					    rank: "King",
-					    suit: "diamonds",
-					    cardImage: "https://images.unsplash.com/photo-1546936945-4a13b2548bd9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-					}];
-
-					var cardLength = cards.length;
-
-
-					var cardsInPlay = [];
-
-
-					var checkForMatch = function() {
-					    // debugger;
-					    // document.setAttribute[src] = this.images;
-					    if (cardsInPlay[0] === cardsInPlay[2]) {
-					        console.log("You found a match!");
-					    } else {
-					        console.log("Sorry, try again.");
-					    }
-					};
-					var flipCard = function() {
-					    var cardId = this.getAttribute("data-id");
-					    console.log("User flipped " + cards[cardId].rank);
-					    checkForMatch();
-					    console.log(cards[cardId].cardImage);
-					    console.log(cards[cardId].suit);
-					};
-
-					// console.log('Test:          '+cardsInPlay);
-					// console.log('Total Cards:   '+cardLength );
-					// cardsInPlay.push(cards[0].rank); 
-
-					var createBoard = function() {
-					    for (var i = 0; i < cards.length; i++) {
-					        // console.log(cards)
-					        var cardElement = document.createElement("img");
-					        // document.querySelector("src").setAttribute();
-					        // debugger;
-					        cardElement.src = cards[i].cardImage;
-					        cardElement.setAttribute('data-id', i);
-					        cardElement.addEventListener("click", flipCard);
-					        document.getElementById("game-board").appendChild(cardElement);
-					    }
-					    cards.forEach(function(card) {
-					        // debugger;
-					    });
-					};
-
-
-
-
-					document.addEventListener("DOMContentLoaded", function() {
-					    createBoard();
-					});
-				</script>
-			</div>{% endcomment %}
-			<div class="main-screens">
+			
+			<div class="main-content main-screens">
 				<div class="main-hero background-image">
+					<div class="gradient">
+						{% for i in (1..10) %}
+							<div></div>
+						{% endfor %}
+					</div>
 					<div class="container">
 						<div class="meta-overlay">
 							<h1 class="post-title">{{ page.title }}</h1>
-							<span class="date">{{ page.date | date: '%B %e, %Y' }}</span>
-							<div class="tags">
+							{% comment %}<span class="date">{{ page.date | date: '%B %e, %Y' }}</span>{% endcomment %}
+							{% comment %}<div class="tags">
 								{% for p in page.tags %}
 									<span>{{ p }}</span> {% unless forloop.last %}<span>|</span>{% endunless %}
 									{% assign p_handle = p | slugify | append: ' ' %}
 									{% assign this_posts_tags = this_posts_tags | append: p_handle %}
 								{% endfor %}
-							</div>
+							</div>{% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -125,18 +57,18 @@
 				<div class="container">
 					<div class="grid">
 						<div class="grid__item small--hide one-whole medium--one-third large-up--one-quarter sidebar">
-							{% comment %}{% include post/side-gallery.html %}
+							{% include post/side-gallery.html %}
 							{% include post/related.html %}
-							{% include post/audio.html %}{% endcomment %}
+							{% include post/audio.html %}
 						</div>
 						{% comment %}<div class="grid__item medium-down--hide large-up--one-twelfth"></div>{% endcomment %}
 						<div class="grid__item one-whole medium--two-thirds large-up--three-quarters post-content">
 							<div class="rte">
 								{{ content }}
 							</div>
-							{% comment %}{% for section in page.blocks %}
-								{% include page/{{ section.block }}.html %}
-							{% endfor %}{% endcomment %}
+							{% for section in page.blocks %}
+								{% comment %}{% include page/{{ section.block }}.html %}{% endcomment %}
+							{% endfor %}
 						</div>
 					</div>	
 				</div>
