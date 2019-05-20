@@ -1,7 +1,8 @@
 .slides {
 	position: relative;
 	z-index: 1;
-	$hovTrans: all .5s .1s $ease-out-quad;
+	$timing: 1s;
+	$hovTrans: all ($timing * 0.75) ($timing * 0.25) $ease-out-quad;
 	.grid__item {
 		min-height: 250px;
 		position: relative;
@@ -97,11 +98,51 @@
 		.grid_no_gutter {
 			max-height: 700px;
 			overflow: hidden;
+			left:0;
+			top:0;
+			width: 115vw;
 		}
 		.grid__item {
 			min-height: 700px;
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				// right: 0;
+				bottom: 0;
+				height: 100%;
+				width: 50px;
+				z-index: 50;
+				pointer-events: none;
+			  	transform: translateZ(0) skew(28.5deg) translateX(4vw) translate3d(0,0,0);
+			  	// transform: translateZ(0) skew(20vw) translateX(4vw);
+			  	box-shadow: 0px 0px 50px 100px rgba(black,.35);
+				transition: $hovTrans;
+			}
 			&:first-of-type {
 				min-height: 700px;
+				z-index: 3;
+				-webkit-clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
+						clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
+				&:after {
+					display: none;
+				}
+			}
+			&:nth-of-type(2) {
+				z-index: 2;
+				margin-left: -23vw;
+				-webkit-clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+						clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+			}
+			&:nth-of-type(3) {
+				margin-left: -26.3vw;
+				z-index: 1;
+				-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+						clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+				&:after {
+					transform: translateZ(0) skew(30deg) translateX(7vw) translate3d(0,0,0);
+				}
 			}
 		}
 		.info {
@@ -126,16 +167,32 @@
 		  transition: $hovTrans;
 		}
 		.grid_no_gutter {
-			&:hover .grid__item {
-			  	width: 20%;
-			  	.info {
-			  		h2 {
-			  			font-size: 1.25em;
-			  		}
-			  	}
+			transition: $hovTrans;
+			
+			&:hover {
+				width: 100%;
+				.grid__item {
+				  	width: 20%;
+				  	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+							clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+					margin-left: 0vw;
+					&:after {
+						transform: translateZ(0) skew(0deg) translateX(-10vw) translate3d(0,0,0);
+						box-shadow: 15px 0px 50px 0px rgba(black,0);
+					}
+				  	.info {
+				  		h2 {
+				  			font-size: 1.25em;
+				  		}
+				  	}
+				}
 			}
 			& .grid__item:hover {
 			  	width: 60%;
+			  	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+						clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+				margin-left: 0vw;
+				// transition: $hovTrans;
 			  	.info {
 			  		h2 {
 			  			font-size: 3em;

@@ -100,7 +100,7 @@
 			div {
 				flex: 1 1 auto;
 				width: 100%;
-				box-shadow: 15px 15px 25px 0px rgba(black, 0.3);
+				// box-shadow: 15px 15px 25px 0px rgba(black, 0.3);
 				@include gradientBlocks($red,$purp,10,true);
 			}
 
