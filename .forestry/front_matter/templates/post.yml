@@ -5,82 +5,16 @@ fields:
 - type: tag_list
   name: tags
   label: Tags
-- type: tag_list
-  name: tech
-  label: Tech
-- type: field_group
-  name: image
-  label: Image
-  fields:
-  - type: file
-    name: background_image
-    label: Background Image
-  - type: file
-    name: mobile_background_image
-    label: Mobile Background Image
-    description: "(optional)"
-  - type: color
-    name: image_background_color
-    config:
-      color_format: RGB
-    label: Image Background Color
-  - type: select
-    config:
-      source:
-        type: custom
-      options:
-      - normal
-      - multiply
-      - screen
-      - overlay
-      - darken
-      - lighten
-      - color-dodge
-      - color-burn
-      - hard-light
-      - soft-light
-      - difference
-      - exclusion
-      - hue
-      - saturation
-      - color
-      - luminosity
-    label: Mix Blend Mode
-    name: mix_blend_mode
-    hidden: false
-  - type: textarea
-    name: background_position
-    label: Background Position
-  - type: text
-    name: background_size
-    label: Background Size
-  - type: text
-    label: Mobile Background Position
-    name: mobile_background_position
-  - type: text
-    name: mobile_background_size
-    label: Mobile Background Size
-- type: image_gallery
-  name: gallery
-  label: Gallery
-- type: include
-  name: song_upload
-  label: Song Upload
-  template: song-uploader
 - type: text
   name: layout
   label: Layout
   hidden: true
   default: post
 - type: blocks
-  template_types:
-  - post-hero
-  - post-text
-  - post-grid
-  - post-gallery
+  template_types: []
   label: Blocks
   name: blocks
 pages:
 - _posts/2018-07-10-austin-pedicab-company.md
-- _posts/2018-07-21-testing-post-blocks.md
 - _posts/2018-07-15-vetter-kids.md
+- _posts/2018-07-21-testing-post-blocks.md
