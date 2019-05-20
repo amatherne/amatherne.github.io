@@ -1,0 +1,178 @@
+<!-- includes/featured-posts -->
+
+{% assign block_id = '' %}
+{% assign s = section %}
+{% assign imgs = s.image %}
+
+{% assign mob_bg_image = '' %}
+{% assign bg_color = s.image.image_background_color %}
+{% assign bg_image = s.image.background_image | relative_url %}
+{% assign bg_pos = s.image.background_position %}
+{% assign bg_size = s.image.background_size %}
+{% assign bg_blend = s.image.mix_blend_mode %}
+
+{% if s.image.mobile_background_image %}
+	{% assign mob_bg_image = s.image.mobile_background_image | relative_url %}
+{% else %}
+	{% assign mob_bg_image = bg_image %}
+{% endif %}
+
+{% assign mob_bg_pos = s.image.mobile_background_position %}
+{% assign mob_bg_size = s.image.mobile_background_size %}
+
+{% capture block_id %}block-{{forloop.index}}-{{ s.image.background_image | slugify | replace: '-','' | slice: 1,10  }}{% endcapture %}
+
+{% assign limit = s.number_of_posts_per_tab | plus: 0 %}
+{% assign tabs = s.tabs_from_tags %}
+{% assign tabs_num = s.tabs_from_tags.size %}
+
+{% comment %}
+	Use limit to get block widths
+{% endcomment %}
+{% case limit %}
+    {% when 2 %}
+        {% assign width = 'medium-up--one-half' %}
+    {% when 3 %}
+        {% assign width = 'medium-up--one-third' %}
+    {% when 4 %}
+        {% assign width = 'medium-up--one-quarter' %}
+    {% when 5 %}
+        {% assign width = 'medium--one-third large-up--one-fifth' %}
+    {% else %}
+        {% assign width = 'small--one-half medium--one-third large-up--one-third' %}
+{% endcase %}
+<div class="section-slide background-image featured-posts {{ block_id }}">
+	<div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item table-cell">
+				{% if page.url != '/' %}
+					<h1>{{ page.title }}</h1>
+				{% endif %}
+				{% if tabs_num == nil %}
+					<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+						<div class="grid_no_gutter">
+							{% assign count = 0 %}
+							{% for post in site.posts limit: limit %}
+				        		<div class="grid__item one-whole {{ width }}">
+									{% include blog_item.html %}	
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% else %}
+					<div class="tabs-container">
+						{% unless tabs_num == 1 %}
+						    <ul class="tabs">
+						        {% for t in tabs %}
+						            <li class="tab-trig {% if forloop.first %}current{% endif %}" data-tab="tab-{{ forloop.index }}">
+						                {{ t }}
+						            </li>
+						        {% endfor %}
+						    </ul>
+					    {% endunless %}
+						{% for t in tabs %}
+							<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+								{% assign sec_tag = t | slugify %}
+								<div class="grid_no_gutter">
+									{% assign count = 0 %}
+									{% for post in site.posts %}
+										{% for p in post.tags %}
+											{% assign p_tag = p | slugify %}
+											{% if p_tag contains sec_tag %}
+												{% assign count = count | plus: 1 %}
+												{% comment %}<div class="grid__item">Count/Limit: {{ count }} / {{ limit }}</div>{% endcomment %}
+												{% if count <= limit %}
+									        		<div class="grid__item one-whole {{ width }}">
+														{% include blog_item.html %}	
+													</div>
+												{% endif %}
+											{% endif %}
+										{% endfor %}
+									{% endfor %}
+								</div>
+							</div>
+						{% endfor %}
+
+						{% comment %}{% for t in tabs %}
+							<div id="tab-{{ forloop.index }}" class="tab-content {% if forloop.first %}tab--active{% endif %}">
+								{% assign sec_tag = t | slugify %}
+								<div>Tab: {{ sec_tag }}</div>
+								{% for post in site.posts %}
+									{% for p in post.tags %}
+										{% assign count = '' %}
+										{% assign p_tag = p | slugify %}
+										{% if p_tag contains sec_tag %}
+											{% assign count = count | plus: 1 %}
+											<div style="margin-left: 20px;">Post/Tag: {{ post.title }}/{{ p }}</div>
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+							</div>
+						{% endfor %}{% endcomment %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    var section = '.{{ block_id }}',
+		        tab_trigger = '.tab-trig',
+		        content = '.tab-content',
+		        tab_active = 'current',
+		        cont_active = 'tab--active';
+		    $(section+' '+tab_trigger).click(function(){
+		        var tab = $(this),
+		            tab_id = tab.attr('data-tab'),
+		            cont = $(section+" #"+tab_id);
+
+		    // Removes classes from siblings
+		        $(section+' '+tab_trigger).removeClass(tab_active);
+		        $(section+' '+content).removeClass(cont_active);
+
+		    // Adds class to only selected tabs
+		        tab.addClass(tab_active);
+		        cont.addClass(cont_active);
+		    })
+		})
+	</script>
+	<style type="text/css">
+		.{{ block_id }}::before {
+			{% if bg_image != blank %}
+			background-image: url('{{ bg_image }}');
+			{% endif %}
+			{% if bg_pos != blank %}
+			background-position:{{ bg_pos }};
+			{% endif %}
+			{% if bg_size != blank %}
+			background-size:{{ bg_size }};
+			{% endif %}
+			{% if bg_blend != blank %}
+			background-blend-mode:{{ bg_blend }};
+			{% endif %}
+			background-color:{{ bg_color }};
+
+		}
+		@media screen and (max-width:767px) {
+			.{{ block_id }}::before {
+				{% if mob_bg_image != blank %}
+				background-image: url('{{ mob_bg_image }}');
+				{% endif %}
+				{% if mob_bg_pos != blank %}
+				background-position:{{ mob_bg_pos }};
+				{% endif %}
+				{% if mob_bg_size != blank %}
+				background-size:{{ mob_bg_size }};
+				{% endif %}
+
+			}
+		}
+		.{{ block_id }} .background-color::before {
+			background-color:{{ s.content_background_color }};
+		}
+		.{{ block_id }} h2,
+		.{{ block_id }} p {
+			color:{{ s.text_color }};
+		}
+	</style>
+</div>

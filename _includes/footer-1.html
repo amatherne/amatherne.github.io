@@ -1,0 +1,80 @@
+<!-- includes/footer-1 -->
+{% assign block_id = '' %}
+{% capture block_id %}block-{{ section.background_image | replace: '/','' | replace: '.','' }}{% endcapture %}
+<footer class="section-slide {{ block_id }} footer">
+  <div class="container">
+		<div class="grid_no_gutter">
+			<div class="grid__item small--hide medium--hide large-up--one-quarter">
+			
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+			</div>
+			<div class="grid__item  large-up--one-half text-center background-color">
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+				<div class="content ">
+					<p>{{ section.content }}</p>
+				    <nav>
+						{% for item in site.data.menus.main %}
+							{% assign page_url = page.url | replace: '.html','' %}
+							<a 
+								href="{{ item.url }}" 
+								class="nav-item {% if page_url == item.url %}active{% endif %}">
+								{{ item.title }}
+							</a>
+						{% endfor %}
+					</nav>
+				</div>
+			</div>
+			<div class="grid__item medium--hide small--hide large-up--one-quarter text-center medium-up--text-right">
+				
+				<span style="opacity: 0; pointer-events: none; display: block;">spacer</span>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.{{ block_id }}::before {
+			background-color:{{ section.image_background_color }};
+			{% if section.background_image %}
+			background-image: url('{{ section.background_image | relative_url }}');
+			{% endif %}
+			{% if section.background_position %}
+			background-position:{{ section.background_position }};
+			{% endif %}
+			{% if section.background_size %}
+			background-size:{{ section.background_size }};
+			{% endif %}
+			{% if section.background_blend_mode %}
+			background-blend-mode:{{ section.background_blend_mode }};
+			{% endif %}
+
+		}
+		@media screen and (max-width:767px) {
+			.{{ block_id }}::before {
+				{% if section.mobile_background_image %}
+				background-image: url('{{ section.mobile_background_image | relative_url }}');
+				{% endif %}
+				{% if section.mobile_background_position %}
+				background-position:{{ section.mobile_background_position }};
+				{% endif %}
+				{% if section.mobile_background_size %}
+				background-size:{{ section.mobile_background_size }};
+				{% endif %}
+				
+
+			}
+		}
+		/* test */
+		.{{ block_id }}::after {
+			background-color:{{ section.content_background_color }};
+			{% if section.background_mix_mode %}
+			mix-blend-mode:{{ section.background_mix_mode }} !important;
+			{% endif %}
+		}
+		.{{ block_id }} h2,
+		.{{ block_id }} label,
+		.{{ block_id }} a,
+		.{{ block_id }} p {
+			color:{{ section.text_color }};
+		}
+	</style>
+</footer>
+

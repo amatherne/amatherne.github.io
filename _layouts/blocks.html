@@ -12,7 +12,7 @@
 					{% capture sctnClass %}block-{{forloop.index}}{% endcapture %}
 					{% capture bdyClass %}.active-pane-{{forloop.index}}{% endcapture %}
 					<div class="pane {% if forloop.first and use_animations == true %}current-pane{% endif %} {{sctnClass}}" pane-number="{{forloop.index}}">
-						{% include blocks/{{ section.block }}.html bdy='bdyClass' blk='sctnClass' %}
+						{% include {{ section.block }}.html bdy='bdyClass' blk='sctnClass' %}
 					</div>
 				{% endfor %}
 			</div>
