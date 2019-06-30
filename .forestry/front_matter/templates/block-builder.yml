@@ -64,3 +64,5 @@ fields:
   - type: textarea
     name: text
     label: text
+pages:
+- testing-page-builder.md
