@@ -1,0 +1,22 @@
+<!-- includes/post-hero -->
+{% assign block_id = '' %}
+{% capture block_id %}block-{{ section.image | slugify: ascii }}{% endcapture %}
+
+<section class="post-hero background-image {{ block_id }}">
+	<div class="container">
+		<div class="center-content">
+			<h3 class="section-title">{{ section.title }}</h3>
+			<div class="rte ">
+				{{ section.text | markdownify }}
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.{{ block_id }} {
+			{% if section.image %}
+			background-image: url('{{ section.image | relative_url }}');
+			{% endif %}
+		}
+	</style>
+</section>
+

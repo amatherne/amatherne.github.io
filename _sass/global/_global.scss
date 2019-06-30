@@ -7,6 +7,10 @@ body.locked {
 	overflow:hidden;
 	// height:100vh;
 }
+
+* {
+	-webkit-backface-visibility: hidden;
+}
 .max-width {
 	width:100%;
 	max-width:$width-site;
