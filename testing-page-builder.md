@@ -1,6 +1,6 @@
 ---
 title: Testing Page Builder
-layout: Block Builder
+layout: Page
 date: 
 tags: []
 tech: []
