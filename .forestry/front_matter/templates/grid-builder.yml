@@ -1,0 +1,29 @@
+---
+label: Grid Builder
+hide_body: true
+fields:
+- name: default_page_width
+  type: boolean
+  label: Set at Default Page Max-Width
+- name: custom_page_width
+  type: text
+  config:
+    required: false
+  label: Custom Page Width
+- name: block
+  type: blocks
+  label: Block
+  template_types: []
+  config:
+    min: 
+    max: 
+- name: custom_css
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
+  description: "== h2 { color: black; }"
