@@ -1,4 +1,11 @@
 ---
 label: Grid Builder
 hide_body: true
-fields: []
+fields:
+- name: block
+  type: blocks
+  label: Block
+  template_types: []
+  config:
+    min: 
+    max: 
