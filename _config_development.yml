@@ -1,7 +1,0 @@
-# Development server config 
-# This config is only used for the development server
-# No settings provided here will affect production builds
-
-url: http://127.0.0.1:4000/
-host: localhost
-port: 4000
